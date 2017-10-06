@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Fragments.CodeTribesFragment;
 import com.example.android.connectcodetribe.Fragments.PortfolioFragment;
-import com.example.android.connectcodetribe.Fragments.TribeChatFragment;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;

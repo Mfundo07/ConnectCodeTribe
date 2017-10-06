@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textColorUser">#2B3D4D</color>
     <color name="textColorStatus">#B4BAC0</color>
+
+    <color name="accountBackground">#61727f</color>
+    <color name="accountLabel">#7d97ad</color>
+    <color name="accountText">#61727f</color>
+    <color name="accountLogoutLabel">#fc6240</color>
+
+    <color name="black_overlay">#66000000</color>
+
 </resources>

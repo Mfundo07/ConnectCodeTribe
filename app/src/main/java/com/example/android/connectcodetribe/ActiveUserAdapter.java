@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Fragments.Model.ActiveUser;
+import com.example.android.connectcodetribe.Model.ActiveUser;
 
 import java.util.List;
 

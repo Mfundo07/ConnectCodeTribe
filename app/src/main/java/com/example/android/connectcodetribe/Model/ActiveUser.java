@@ -1,4 +1,4 @@
-package com.example.android.connectcodetribe.Fragments.Model;
+package com.example.android.connectcodetribe.Model;
 
 /**
  * Created by Admin on 10/4/2017.
