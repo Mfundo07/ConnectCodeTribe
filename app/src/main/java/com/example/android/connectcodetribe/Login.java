@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
                                     JSONObject object = new JSONObject(response);
                                     if (!object.has(user)) {
                                         Toast.makeText(Login.this, "user not found", Toast.LENGTH_SHORT).show();
-                                    } else if (object.getJSONObject(user).getString("password").equals(pass)) {
+                                    } else if (object.getJSONObject(user).getString("password ").equals(pass)) {
                                         UserDetails.username = user;
                                         UserDetails.password = pass;
                                         startActivity(new Intent(Login.this, MainActivity.class));
