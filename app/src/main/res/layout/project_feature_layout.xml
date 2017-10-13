@@ -30,7 +30,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFB300"
+                android:background="#64DD17"
                 android:text="My Projects"
                 android:textAlignment="center"
                 android:textColor="#fff"
@@ -58,7 +58,7 @@
             <TextView
                 android:id="@+id/textView"
                 android:textStyle="bold"
-                android:background="#558B2F"
+                android:background="#64DD17"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                     <TextView
                         android:id="@+id/textVie"
                         android:textStyle="bold"
-                        android:background="#558B2F"
+                        android:background="#64DD17"
                         android:textColor="#fff"
                         android:textSize="20sp"
                         android:layout_width="match_parent"

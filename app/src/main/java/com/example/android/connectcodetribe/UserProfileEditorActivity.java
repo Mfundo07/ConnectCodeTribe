@@ -1,6 +1,10 @@
 package com.example.android.connectcodetribe;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
@@ -15,10 +19,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.ActiveUser;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by RP on 2017/09/02.
@@ -33,6 +43,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private EditText userPhoneNumber;
     private EditText userEmailEditText;
     private Button userUpdateButton;
+    private CircleImageView profileImage;
     DatabaseReference mDatabaseReference;
     StorageReference mStoragereference;
     public static final int STATUS_UNKNOWN = 0;
@@ -70,6 +81,17 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         userEmailEditText = (EditText) findViewById(R.id.emailEditText);
         userUpdateButton = (Button) findViewById(R.id.userUpdateButton);
         mStatusSpinner = (Spinner) findViewById(R.id.spinner_status);
+        profileImage = (CircleImageView) findViewById(R.id.profile_image);
+
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/jpeg");
+                intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+                startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
+            }
+        });
 
 
         userUpdateButton.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +163,32 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 mStatus = STATUS_UNKNOWN;
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK ){
+            Uri selectedImageUri = data.getData();
+            try {
+                Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(),selectedImageUri);
+                profileImage.setImageBitmap(bm);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            StorageReference photoRef = mStoragereference.child(selectedImageUri.getLastPathSegment());
+            photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri downloadUri = taskSnapshot.getDownloadUrl();
+                    ActiveUser user = new ActiveUser();
+                    user.setActiveUserImageUrl(downloadUri.toString());
+
+
+                }
+            });
+        }
     }
 }
 

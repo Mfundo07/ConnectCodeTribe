@@ -31,14 +31,14 @@
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FFB300"
+                        android:background="@color/colorAccent"
                         android:text="My Projects"
                         android:textAlignment="center"
                         android:textColor="#fff"
                         android:textSize="30dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/profilimage"
+                        android:id="@+id/edit_project"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="end"
@@ -55,7 +55,7 @@
                         android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="16dp"
-                        android:src="@drawable/man_user_user"/>
+                        android:src="@drawable/laptop_black"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                             android:id="@+id/textView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#558B2F"
+                            android:background="@color/colorAccent"
                             android:text="Project name"
                             android:textColor="#fff"
                             android:textSize="20sp"
@@ -86,7 +86,7 @@
                             android:id="@+id/textVie"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#558B2F"
+                            android:background="@color/colorAccent"
                             android:text="Project Link"
                             android:textColor="#fff"
                             android:textSize="20sp"

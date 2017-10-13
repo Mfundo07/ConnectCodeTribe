@@ -51,18 +51,37 @@
             android:orientation="vertical"
             android:layout_gravity="center">
 
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nonhlanhla Mokoena"
-                android:textSize="32sp"
-                android:textColor="#fff"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:foregroundGravity="center"
-                android:textStyle="bold"/>
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nonhlanhla "
+                    android:textSize="32sp"
+                    android:textColor="#fff"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/userSurname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mokoena"
+                    android:textSize="32sp"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+
+
             <TextView
                 android:id="@+id/userOccupation"
                 android:layout_width="wrap_content"
@@ -119,14 +138,14 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="16dp"
                             android:layout_marginTop="8dp"
-                            android:src="@drawable/man_user"  />
+                            android:src="@drawable/briefcase"  />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="8dp"
-                            android:text="Profile"
+                            android:text="Complete Profile"
                             android:textAlignment="center"
                             android:textSize="20sp" />
 
@@ -159,7 +178,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
-                            android:src="@drawable/briefcase"
+                            android:src="@drawable/man_user"
                            />
 
 
@@ -176,7 +195,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="8dp"
-                            android:text="Portfolio"
+                            android:text="Personal Details"
                             android:textAlignment="center"
                             android:textSize="20sp" />
                     </android.support.v7.widget.CardView>

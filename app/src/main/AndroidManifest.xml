@@ -23,11 +23,11 @@
 
 
         </activity>
+        <activity android:name=".EducationActivity"/>
         <activity android:name=".UserProfileEditorActivity"/>
         <activity android:name=".ChatActivityAlexandra"/>
         <activity android:name=".ChatActivityThembisa"/>
         <activity android:name=".ChatActivityPretoria"/>
-        <activity android:name=".Register"/>
         <activity android:name=".ProfileActivity"/>
         <activity android:name=".ExperienceActivity"/>
         <activity android:name=".QualificationActivity"/>

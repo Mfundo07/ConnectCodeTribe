@@ -47,9 +47,10 @@
                                 android:gravity="center"
                                 android:padding="16dp"
                                 android:text="Bio"
+                                android:background="#3D5AFE"
                                 android:textAllCaps="true"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                android:textColor="#000"
+                                android:textColor="#fff"
                                 android:textSize="18dp"
                                 android:textStyle="bold" />
 
@@ -65,7 +66,7 @@
                             android:id="@+id/profile_image"
                             android:layout_width="96dp"
                             android:layout_height="96dp"
-                            android:src="@drawable/man_user_user"
+                            android:src="@drawable/man_user_blue"
                             app:civ_border_color="#FF000000"
                             app:civ_border_width="2dp" />
                     </LinearLayout>
@@ -92,7 +93,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/name_editView"
+                                android:id="@+id/profile_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -118,7 +119,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/surnameEditText"
+                            android:id="@+id/profile_surname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -143,7 +144,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/surnameEitText"
+                            android:id="@+id/profile_status"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -168,7 +169,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/occpateEditText"
+                            android:id="@+id/profile_occupation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -193,7 +194,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/cell_editTextView"
+                            android:id="@+id/profile_cellNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -218,7 +219,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/emailEditText"
+                            android:id="@+id/profile_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

@@ -11,11 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.ExperienceActivity;
+import com.example.android.connectcodetribe.Model.ActiveUser;
 import com.example.android.connectcodetribe.ProfileActivity;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.QualificationActivity;
 import com.example.android.connectcodetribe.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
@@ -33,6 +38,11 @@ public class PortfolioFragment extends Fragment {
     private TextView userOccupation;
     DatabaseReference mReference;
     StorageReference mStorageReference;
+    ChildEventListener mChildEventlistener;
+    String activeUserTitle;
+    String activeUserOccupation;
+    String activeUserName;
+    TextView userSurname;
 
 
     public PortfolioFragment() {
@@ -44,7 +54,9 @@ public class PortfolioFragment extends Fragment {
         codeTribeCardView = rootView.findViewById(R.id.card1);
         profileImage = rootView.findViewById(R.id.profile_image);
         userName = rootView.findViewById(R.id.userName);
-        mReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://codetribeconnect.firebaseio.com/users");
+        userSurname = rootView.findViewById(R.id.userSurname);
+        final CollapsingToolbarLayout collapsingToolbarLayout =  rootView.findViewById(R.id.collapse_toolBar);
+        mReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://codetribeconnect.firebaseio.com/verified_user_profile");
         userOccupation = rootView.findViewById(R.id.userOccupation);
         codeTribeCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +96,62 @@ public class PortfolioFragment extends Fragment {
                 startActivity(intent);
 
 
+
+
             }
         });
 
-        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)rootView.findViewById(R.id.collapse_toolBar);
-        collapsingToolbarLayout.setTitle("Nonhlanhla Mokoena.");
+        mChildEventlistener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                ActiveUser activeUser = dataSnapshot.getValue(ActiveUser.class);
+                activeUserTitle = activeUser.getActiveUserName();
+                activeUserOccupation = activeUser.getActiveUserOccupation();
+                userOccupation.setText(activeUserOccupation);
+                collapsingToolbarLayout.setTitle(activeUserTitle);
+                userName.setText(activeUserTitle);
+                userSurname.setText(activeUser.getActiveUserSurname());
+
+
+
+
+                boolean isPhoto = activeUser.getActiveUserImageUrl() !=null;
+                if (isPhoto){
+                    Glide.with(profileImage.getContext())
+                            .load(activeUser.getActiveUserImageUrl())
+                            .into(profileImage);
+                }
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
+
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        mReference.addChildEventListener(mChildEventlistener);
+
+
+
+
 
 
 
