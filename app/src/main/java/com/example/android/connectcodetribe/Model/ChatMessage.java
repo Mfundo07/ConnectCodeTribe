@@ -1,4 +1,4 @@
-package com.example.android.connectcodetribe;
+package com.example.android.connectcodetribe.Model;
 
 /**
  * Created by Admin on 10/6/2017.
@@ -8,6 +8,32 @@ public class ChatMessage {
     private String text;
     private String name;
     private String photoUrl;
+    private String id;
+    private String imageUrl;
+
+    public ChatMessage(String text, String name, String photoUrl, String imageUrl) {
+        this.text = text;
+        this.name = name;
+        this.photoUrl = photoUrl;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getId() {
+
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public String getText() {
         return text;

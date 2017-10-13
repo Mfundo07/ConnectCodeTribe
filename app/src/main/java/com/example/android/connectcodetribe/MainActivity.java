@@ -1,12 +1,16 @@
 package com.example.android.connectcodetribe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.android.connectcodetribe.Adapters.ViewPagerAdapter;
 import com.example.android.connectcodetribe.Fragments.CodeTribesFragment;
 import com.example.android.connectcodetribe.Fragments.PortfolioFragment;
 
@@ -34,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.navigation_chat:
-                                viewPager.setCurrentItem(0);
+                                viewPager.setCurrentItem(2);
                                 break;
                             case R.id.navigation_codeTribes:
-                                viewPager.setCurrentItem(1);
+                                viewPager.setCurrentItem(0);
                                 break;
                             case R.id.navigation_portfolio:
-                                viewPager.setCurrentItem(2);
+                                viewPager.setCurrentItem(1);
                                 break;
                         }
                         return false;
@@ -57,10 +61,10 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
 
                 if (prevMenuItem != null){
-                    prevMenuItem.setChecked(false);
+                    prevMenuItem.setChecked(true);
                 }
                 else{
-                    bottomNavigationView.getMenu().getItem(0).setChecked(false);
+                    bottomNavigationView.getMenu().getItem(position).setChecked(true);
                 }
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = bottomNavigationView.getMenu().getItem(position);
@@ -83,9 +87,29 @@ public class MainActivity extends AppCompatActivity {
         chatFragment=new TribeChatFragment();
         codeTribeFragment=new CodeTribesFragment();
         portfolioFragment=new PortfolioFragment();
-        adapter.addFragment(chatFragment);
         adapter.addFragment(codeTribeFragment);
         adapter.addFragment(portfolioFragment);
+        adapter.addFragment(chatFragment);
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.sign_out_menu:
+                //signout
+                Intent intent = new Intent(this,Login.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

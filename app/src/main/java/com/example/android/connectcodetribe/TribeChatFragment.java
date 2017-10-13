@@ -75,7 +75,7 @@ public class TribeChatFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 UserDetails.chatWith = al.get(i);
-                startActivity(new Intent(getActivity(), Chat.class));
+                startActivity(new Intent(getActivity(), ChatModel.class));
             }
         });
         return rootView;
@@ -103,7 +103,7 @@ public class TribeChatFragment extends Fragment {
         else{
             noUsersText.setVisibility(View.GONE);
             userList.setVisibility(View.VISIBLE);
-            userList.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,al));
+            userList.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,al));
         }
         pd.dismiss();
 

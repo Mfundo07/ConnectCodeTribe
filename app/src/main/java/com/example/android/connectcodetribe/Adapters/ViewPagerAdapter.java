@@ -1,4 +1,4 @@
-package com.example.android.connectcodetribe;
+package com.example.android.connectcodetribe.Adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

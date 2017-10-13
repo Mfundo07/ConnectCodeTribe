@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity {
                 else{
                     String url = "https://codetribeconnect.firebaseio.com/users.json";
                     final ProgressDialog pd = new ProgressDialog(Login.this);
-                            pd.setMessage("Loading...");
+                    pd.setMessage("Loading...");
                     pd.show();
                     StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                         @Override
@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
                             pd.dismiss();
                         }
 
-                });
+                    });
                     RequestQueue rQueue = Volley.newRequestQueue(Login.this);
                     rQueue.add(request);
 
