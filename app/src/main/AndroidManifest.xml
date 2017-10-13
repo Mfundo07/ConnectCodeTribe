@@ -31,7 +31,6 @@
         <activity android:name=".ExperienceActivity"/>
         <activity android:name=".QualificationActivity"/>
         <activity android:name=".ProjectsActivity"/>
-        <activity android:name=".ActiveUserActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

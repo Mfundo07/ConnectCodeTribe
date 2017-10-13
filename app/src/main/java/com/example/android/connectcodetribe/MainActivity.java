@@ -12,12 +12,13 @@ import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.ViewPagerAdapter;
 import com.example.android.connectcodetribe.Fragments.CodeTribesFragment;
+import com.example.android.connectcodetribe.Fragments.ItemFragment;
 import com.example.android.connectcodetribe.Fragments.PortfolioFragment;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
-    TribeChatFragment chatFragment;
+    ItemFragment chatFragment;
     CodeTribesFragment codeTribeFragment;
     PortfolioFragment portfolioFragment;
     MenuItem prevMenuItem;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager)
     {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        chatFragment=new TribeChatFragment();
+        chatFragment=new ItemFragment();
         codeTribeFragment=new CodeTribesFragment();
         portfolioFragment=new PortfolioFragment();
         adapter.addFragment(codeTribeFragment);

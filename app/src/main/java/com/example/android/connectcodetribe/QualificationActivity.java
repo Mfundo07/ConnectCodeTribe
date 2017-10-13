@@ -8,6 +8,6 @@ public class QualificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qualification);
+        setContentView(R.layout.view_education_and_qualification);
     }
 }

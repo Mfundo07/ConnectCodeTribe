@@ -34,6 +34,42 @@
     <string name="select_picture_title">Get Photo From</string>
     <string name="send_button_label">SEND</string>
 
+
+    <string name="app_name_spin">RecyclerViewSearchBoX</string>
+    <string-array name="names">
+        <item>Select Qualification</item>
+        <item>High School Matric</item>
+        <item>Certificate</item>
+        <item>Diploma</item>
+        <item>Degree</item>
+        <item>PHD</item>
+        <item>Masters</item>
+    </string-array>>
+
+    <string-array name="start_year">
+        <item>Select Year</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
+
+    <string-array name="end_year">
+        <item>Select Year</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
