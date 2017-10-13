@@ -23,6 +23,7 @@
 
 
         </activity>
+        <activity android:name=".UserProfileEditorActivity"/>
         <activity android:name=".ChatActivityAlexandra"/>
         <activity android:name=".ChatActivityThembisa"/>
         <activity android:name=".ChatActivityPretoria"/>

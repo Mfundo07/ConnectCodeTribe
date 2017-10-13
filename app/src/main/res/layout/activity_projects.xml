@@ -8,8 +8,7 @@
     android:layout_marginTop="16dp"
     android:layout_marginLeft="16dp"
     android:orientation="vertical"
-    android:layout_marginRight="16dp"
-    android:background="#FFE0B2">
+    android:layout_marginRight="16dp">
 
     <ImageView
         android:layout_width="336dp"

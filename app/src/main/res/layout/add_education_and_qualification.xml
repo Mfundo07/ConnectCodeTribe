@@ -20,7 +20,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFB300"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:padding="20dp"
             android:text="Education / Qualifications"
@@ -56,7 +56,7 @@
                     android:textStyle="bold"
                     android:paddingTop="15dp"
                     android:textColor="#fff"
-                    android:background="#558B2F"
+                    android:background="@color/colorPrimary"
                     android:layout_marginTop="10dp"
                     android:text="Certificate/Degree" />
             </LinearLayout>
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:text="Institution"
                 android:textStyle="bold"
-                android:background="#558B2F"
+                android:background="@color/colorPrimary"
                 android:textColor="#fff"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="10dp" />
@@ -93,7 +93,7 @@
                 android:text="Name of Qualification"
                 android:textColor="#fff"
                 android:textStyle="bold"
-                android:background="#558B2F"
+                android:background="@color/colorPrimary"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="10dp" />
             <Spinner
@@ -107,7 +107,7 @@
                 android:text="Start Year"
                 android:textStyle="bold"
                 android:textColor="#fff"
-                android:background="#558B2F"
+                android:background="@color/colorPrimary"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="10dp"/>
             <Spinner
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:text="Year Completed"
                 android:textStyle="bold"
-                android:background="#558B2F"
+                android:background="@color/colorPrimary"
                 android:textColor="#fff"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="5dp"/>
