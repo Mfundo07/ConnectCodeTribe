@@ -95,6 +95,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
             }
         };
+        mDatabaseReference.addChildEventListener(mChildEventListener);
         return new ViewHolder(view);
     }
 
