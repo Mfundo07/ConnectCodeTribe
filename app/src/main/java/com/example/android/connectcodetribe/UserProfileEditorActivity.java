@@ -75,7 +75,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("verified_user_profile");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getDisplayName().toString());
         mStoragereference = FirebaseStorage.getInstance().getReference()
                 .child("verified_user_profile_photos");
         userNameEditText = (EditText) findViewById(R.id.name_editView);
@@ -111,7 +111,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 items.setActiveUserEmail(userEmailEditText.getText().toString());
                 items.setActiveUserNumber(userPhoneNumber.getText().toString());
                 items.setActiveUserImageUrl(mAuth.getPhotoUrl().toString());
-                mDatabaseReference.child(mAuth.getUid()).push().setValue(items);
+                mDatabaseReference.push().setValue(items);
                 userNameEditText.setText("");
                 userSurnameEditText.setText("");
                 userCurrentOccupation.setText("");

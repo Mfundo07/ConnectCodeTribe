@@ -56,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseStorage = FirebaseStorage.getInstance();
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getDisplayName().toString());
         mStorageReference = mFirebaseStorage.getReference().child("verified_user_profile_photos");
         profileName = (TextView) findViewById(R.id.profile_name);
         profileSurname = (TextView) findViewById(R.id.profile_surname);

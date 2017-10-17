@@ -82,15 +82,17 @@ public class ChatFirebaseAdapter extends FirebaseRecyclerAdapter<ChatModel, Chat
     public class MyChatViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tvTimestamp;
+        TextView tvTimeStamp_left;
         TextView txtMessage;
         ImageView ivUser,ivChatPhoto;
 
         public MyChatViewHolder(View itemView) {
             super(itemView);
-            tvTimestamp = (TextView)itemView.findViewById(R.id.timestamp);
+            tvTimestamp = (TextView)itemView.findViewById(R.id.timestamp_right);
             txtMessage = (TextView)itemView.findViewById(R.id.textMessage);
             ivChatPhoto = (ImageView)itemView.findViewById(R.id.img_chat);
             ivUser = (ImageView)itemView.findViewById(R.id.ivUserChat);
+
         }
 
         @Override

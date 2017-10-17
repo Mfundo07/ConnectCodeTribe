@@ -73,7 +73,7 @@ public class ItemFragment extends android.support.v4.app.Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("verified_user_profile");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getDisplayName().toString());
 
 
 

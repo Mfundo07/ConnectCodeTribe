@@ -61,7 +61,7 @@ public class PortfolioFragment extends Fragment {
         userSurname = rootView.findViewById(R.id.userSurname);
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         final CollapsingToolbarLayout collapsingToolbarLayout =  rootView.findViewById(R.id.collapse_toolBar);
-        mReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
+        mReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getDisplayName().toString().intern());
         userOccupation = rootView.findViewById(R.id.userOccupation);
         codeTribeCardView.setOnClickListener(new View.OnClickListener() {
             @Override
