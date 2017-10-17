@@ -100,7 +100,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="Kabelo"
+                                    android:text="Mfundo"
                                     android:textColor="#000" />
                             </LinearLayout>
                         </LinearLayout>
@@ -126,7 +126,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Mokoena"
+                                android:text="Mbokoma"
                                 android:textColor="#000" />
                         </LinearLayout>
 
@@ -151,7 +151,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Intent"
+                                android:text="Intern"
                                 android:textColor="#000" />
                         </LinearLayout>
 
@@ -201,7 +201,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="073 891 3794"
+                                android:text="074 233 5080"
                                 android:textColor="#000" />
                         </LinearLayout>
 
@@ -226,7 +226,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Kabelosidney@gmail.com"
+                                android:text="mfundombokoma07@gmail.com"
                                 android:textColor="#000" />
                         </LinearLayout>
                     </LinearLayout>

@@ -23,7 +23,8 @@
             android:background="#7CB342">
 
 
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -69,7 +70,6 @@
                             android:layout_gravity="center"
                             android:layout_marginLeft="8dp"
                             android:layout_weight="1"
-                            android:text="Kabelo"
                             android:textColor="#000"
                             android:textSize="15dp"
                             android:textStyle="bold" />
@@ -86,7 +86,6 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="Mokoena"
                             android:textColor="#000"
                             android:textSize="15dp"
                             android:textStyle="bold" />
@@ -99,7 +98,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="4dp"
-                    android:text="Alumni"
                     android:textColor="#000" />
 
                 <TextView
@@ -108,7 +106,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="8dp"
-                    android:text="Soweto CodeTribe"
                     android:textColor="#000" />
 
 
@@ -125,7 +122,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="#000"
-                    android:text="BIO"
                     android:textColor="#fff"
                     android:textStyle="bold" />
 

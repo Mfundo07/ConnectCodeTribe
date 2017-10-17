@@ -60,7 +60,7 @@ public class ChatActivitySoweto extends AppCompatActivity implements GoogleApiCl
     //Views UI
     private RecyclerView rvListMessage;
     private LinearLayoutManager mLinearLayoutManager;
-    private ImageView btSendMessage,btEmoji;
+    private ImageView btSendMessage;
     private EditText edMessage;
     private View contentRoot;
     private File filePathImageCamera;
@@ -271,7 +271,6 @@ public class ChatActivitySoweto extends AppCompatActivity implements GoogleApiCl
         edMessage = (EditText) findViewById(R.id.messageEditText);
         btSendMessage = (ImageView)findViewById(R.id.buttonMessage);
         btSendMessage.setOnClickListener((View.OnClickListener) this);
-        btEmoji = (ImageView)findViewById(R.id.buttonEmoji);
         rvListMessage = (RecyclerView)findViewById(R.id.messageRecyclerView);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mLinearLayoutManager.setStackFromEnd(true);

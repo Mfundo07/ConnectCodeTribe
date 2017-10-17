@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.ActiveUser;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -51,6 +53,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int STATUS_INTERN = 2;
     private Spinner mStatusSpinner;
     private boolean mUserHasChanged = false;
+    FirebaseUser mAuth;
     private int mStatus = STATUS_UNKNOWN;
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
@@ -71,6 +74,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+        mAuth = FirebaseAuth.getInstance().getCurrentUser();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("verified_user_profile");
         mStoragereference = FirebaseStorage.getInstance().getReference()
                 .child("verified_user_profile_photos");
@@ -106,8 +110,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 items.setActiveUserStatus(mStatusSpinner.getSelectedItem().toString());
                 items.setActiveUserEmail(userEmailEditText.getText().toString());
                 items.setActiveUserNumber(userPhoneNumber.getText().toString());
-                items.setActiveUserImageUrl(null);
-                mDatabaseReference.push().setValue(items);
+                items.setActiveUserImageUrl(mAuth.getPhotoUrl().toString());
+                mDatabaseReference.child(mAuth.getUid()).push().setValue(items);
                 userNameEditText.setText("");
                 userSurnameEditText.setText("");
                 userCurrentOccupation.setText("");
@@ -184,6 +188,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                     Uri downloadUri = taskSnapshot.getDownloadUrl();
                     ActiveUser user = new ActiveUser();
                     user.setActiveUserImageUrl(downloadUri.toString());
+                    mDatabaseReference.child(mAuth.getUid()).push().setValue(user);
 
 
                 }

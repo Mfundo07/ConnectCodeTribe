@@ -11,8 +11,11 @@ import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
 import com.example.android.connectcodetribe.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -26,11 +29,14 @@ public class ItemFragment extends android.support.v4.app.Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
 
-    FirebaseDatabase mDatabaseReference;
+    DatabaseReference mDatabaseReference;
 
     List<String> mItemNames = new ArrayList<>();
     List<String> mItemSurnames = new ArrayList<>();
     List<String> mItemStatus = new ArrayList<>();
+    List<String> mItemOccupation = new ArrayList<>();
+    List<String> mProfileImages = new ArrayList<>();
+    FirebaseUser mAuth;
 
     MyItemRecyclerViewAdapter adapter;
 
@@ -65,7 +71,10 @@ public class ItemFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list , container, false);
 
-        mDatabaseReference = FirebaseDatabase.getInstance();
+        mAuth = FirebaseAuth.getInstance().getCurrentUser();
+
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("verified_user_profile");
+
 
 
         // Set the adapter
@@ -78,20 +87,22 @@ public class ItemFragment extends android.support.v4.app.Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new MyItemRecyclerViewAdapter(mItemNames, mItemSurnames, mItemStatus);
+            adapter = new MyItemRecyclerViewAdapter(mItemNames, mItemSurnames, mItemStatus,mItemOccupation, mProfileImages);
             recyclerView.setAdapter(adapter);
 
-            mDatabaseReference.getReference().child("verified_user_profile").addValueEventListener(new ValueEventListener() {
+            mDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
                         mItemNames.clear();
                         mItemSurnames.clear();
                         mItemStatus.clear();
+                        mProfileImages.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             mItemNames.add((String) snapshot.child("activeUserName").getValue());
                             mItemSurnames.add((String) snapshot.child("activeUserSurname").getValue());
                             mItemStatus.add((String) snapshot.child("activeUserStatus").getValue());
+                            mProfileImages.add((String) snapshot.child("activeUserImageUrl").getValue());
                         }
 
                         adapter.notifyDataSetChanged();

@@ -9,13 +9,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Model.ActiveUser;
 import com.example.android.connectcodetribe.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.List;
@@ -36,14 +38,14 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     private ChildEventListener mChildEventListener;
     private FirebaseDatabase mFirebaseDatabase;
     FirebaseStorage mFirebaseStorage;
+    FirebaseUser mAuth;
 
 
 
-    public MyItemRecyclerViewAdapter(List<String> mItemNames, List<String> mItemSuurname, List<String> mItemStatus,List<String>mItemOccupation, List<String> mProfileImage, Context context) {
+    public MyItemRecyclerViewAdapter(List<String> mItemNames, List<String> mItemSuurname, List<String> mItemStatus,List<String>mItemOccupation, List<String> mProfileImage) {
         this.mItemNames = mItemNames;
         this.mItemSuurname = mItemSuurname;
         this.mItemStatus = mItemStatus;
-        this.context = context;
         this.mItemOccupation = mItemOccupation;
         this.mProfileImage = mProfileImage;
     }
@@ -60,42 +62,33 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 .inflate(R.layout.user_item, parent, false);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseStorage = FirebaseStorage.getInstance();
+        mAuth = FirebaseAuth.getInstance().getCurrentUser();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
+       mDatabaseReference.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(DataSnapshot dataSnapshot) {
+               if (dataSnapshot.hasChildren()){
+               mItemNames.clear();
+               mItemSuurname.clear();
+               mItemOccupation.clear();
+               mItemStatus.clear();
+               mProfileImage.clear();
+               for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                   mItemNames.add((String) snapshot.child("activeUserName").getValue());
+                   mItemSuurname.add((String) snapshot.child("activeUserSurname").getValue());
+                   mItemStatus.add((String) snapshot.child("activeUserStatus").getValue());
+                   mProfileImage.add((String) snapshot.child("activeUserPhotoUrl").getValue());
+                   mItemOccupation.add((String) snapshot.child("activeUserOccupation").getValue());
 
-        mDatabaseReference = mFirebaseDatabase.getReference()
-                .child("active_user_profile");
-        mChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                ActiveUser activeUser = dataSnapshot.getValue(ActiveUser.class);
-                mItemNames.add(activeUser.getActiveUserName());
-                mItemSuurname.add(activeUser.getActiveUserName());
-                mItemStatus.add(activeUser.getActiveUserStatus());
-                mItemOccupation.add(activeUser.getActiveUserOccupation());
-                mProfileImage.add(activeUser.getActiveUserImageUrl());
 
-            }
+               }}
+           }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+           @Override
+           public void onCancelled(DatabaseError databaseError) {
 
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        mDatabaseReference.addChildEventListener(mChildEventListener);
+           }
+       });
         return new ViewHolder(view);
     }
 
@@ -116,11 +109,11 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 nameTextView = dialogView.findViewById(R.id.name);
                 surnameTextView = dialogView.findViewById(R.id.surname);
                 tribeTextView = dialogView.findViewById(R.id.tribe);
-                statusTextView = dialogView.findViewById(R.id.status);
-                boolean isPhoto = holder.mProfileImage != null;
+                statusTextView = dialogView.findViewById(R.id.Status);
+                boolean isPhoto = profileImage != null;
                 if (isPhoto){
                     Glide.with(profileImage.getContext())
-                            .load(mProfileImage.get(position))
+                            .load(mAuth.getPhotoUrl())
                             .into(profileImage);
                     nameTextView.setText(holder.mItem);
                     surnameTextView.setText(mItemSuurname.get(position));
@@ -152,15 +145,14 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public final TextView mContentView;
         public final TextView mStatus;
         public String mItem;
-        public String mOccupation;
         public String mProfileImage;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.User_Surname);
-            mContentView = (TextView) view.findViewById(R.id.User_Name);
-            mStatus = (TextView) view.findViewById(R.id.User_Status);
+            mIdView =  view.findViewById(R.id.User_Surname);
+            mContentView =  view.findViewById(R.id.User_Name);
+            mStatus =  view.findViewById(R.id.User_Status);
         }
 
         @Override

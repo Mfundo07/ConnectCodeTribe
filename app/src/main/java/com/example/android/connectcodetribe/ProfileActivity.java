@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.ActiveUser;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView profileOccupation;
     ChildEventListener mChildEventListener;
     CircleImageView profileImage;
+    FirebaseUser mAuth;
 
     CardView cardBio;
 
@@ -52,7 +55,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseStorage = FirebaseStorage.getInstance();
-        mDatabaseReference = mFirebaseDatabase.getReference().child("verified_user_profile");
+        mAuth = FirebaseAuth.getInstance().getCurrentUser();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
         mStorageReference = mFirebaseStorage.getReference().child("verified_user_profile_photos");
         profileName = (TextView) findViewById(R.id.profile_name);
         profileSurname = (TextView) findViewById(R.id.profile_surname);
@@ -74,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
                 boolean isPhoto = activeUser.getActiveUserImageUrl() !=null;
                 if (isPhoto){
                     Glide.with(profileImage.getContext())
-                            .load(activeUser.getActiveUserImageUrl())
+                            .load(mAuth.getPhotoUrl())
                             .into(profileImage);
                 }
 

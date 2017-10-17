@@ -8,6 +8,6 @@ public class ProjectsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.project_feature_layout);
+        setContentView(R.layout.viewing_project_feature_layout);
     }
 }

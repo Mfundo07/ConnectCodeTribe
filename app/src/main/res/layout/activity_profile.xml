@@ -46,7 +46,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:padding="16dp"
-                                android:text="Bio"
+                                android:text="Personal Details"
                                 android:background="#3D5AFE"
                                 android:textAllCaps="true"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
