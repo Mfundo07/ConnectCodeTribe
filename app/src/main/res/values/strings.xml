@@ -36,6 +36,10 @@
     <string name="status_alumni">Alumni</string>
     <string name="status_intern">Intern</string>
     <string name="status_unknown">Unknown</string>
+    <string name="soweto">Soweto</string>
+    <string name="tembisa">Tembisa</string>
+    <string name="pretoria">Pretoria</string>
+    <string name="alex">Alexandra</string>
 
 
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
@@ -77,6 +81,13 @@
         <item>@string/status_unknown</item>
         <item>@string/status_alumni</item>
         <item>@string/status_intern</item>
+    </string-array>
+
+    <string-array name="code_tribe_options">
+        <item>@string/alex</item>
+        <item>@string/pretoria</item>
+        <item>@string/tembisa</item>
+        <item>@string/soweto</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

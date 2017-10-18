@@ -55,7 +55,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int STATUS_UNKNOWN = 0;
     public static final int STATUS_ALUMNI = 1;
     public static final int STATUS_INTERN = 2;
-    private Spinner mStatusSpinner;
+    private Spinner mStatusSpinner, mCodeTribeSpinner;
     private boolean mUserHasChanged = false;
     FirebaseUser currentUser;
     private int mStatus = STATUS_UNKNOWN;
@@ -93,6 +93,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         userUpdateButton = (Button) findViewById(R.id.profile_edit);
         mStatusSpinner = (Spinner) findViewById(R.id.spinner_status);
         profileImage = (CircleImageView) findViewById(R.id.profile_image);
+        mCodeTribeSpinner = (Spinner) findViewById(R.id.spinner_codeTribe);
 
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
