@@ -37,25 +37,13 @@
                         android:textColor="#fff"
                         android:textSize="30dp" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/edit_project"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="16dp"
-                        android:background="#C5E1A5"
-                        android:src="@drawable/add"
-                        app:civ_border_color="#C5E1A5"
-                        app:civ_border_width="2dp" />
-
-
-                    <ImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    <ImageView
                         android:id="@+id/profile_image"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="16dp"
-                        android:src="@drawable/laptop_black"/>
+                        android:src="@drawable/laptop"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -100,7 +88,16 @@
                             android:textColor="#000"
                             android:textSize="14sp" />
                     </LinearLayout>
-
+                    <Button
+                        android:id="@+id/edit_project"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:text="Edit"
+                        android:textStyle="bold"
+                        android:layout_margin="16dp"
+                        android:background="@drawable/button_green"
+                        android:src="@drawable/add" />
 
                 </LinearLayout>
 

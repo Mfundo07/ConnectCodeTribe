@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
@@ -19,7 +20,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.ActiveUser;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +40,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 
 public class UserProfileEditorActivity extends AppCompatActivity {
-    public static final int DEFAULT_MSG_LENGTH_LIMIT  = 1000;
+    public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
     public static final int RC_PHOTO_PICKER = 2;
     private EditText userNameEditText;
     private EditText userSurnameEditText;
@@ -48,13 +51,16 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private CircleImageView profileImage;
     DatabaseReference mDatabaseReference;
     StorageReference mStoragereference;
+    Uri FilePathUri;
     public static final int STATUS_UNKNOWN = 0;
     public static final int STATUS_ALUMNI = 1;
     public static final int STATUS_INTERN = 2;
     private Spinner mStatusSpinner;
     private boolean mUserHasChanged = false;
-    FirebaseUser mAuth;
+    FirebaseUser currentUser;
     private int mStatus = STATUS_UNKNOWN;
+    String Database_Path = "All_Image_Uploads_Database";
+    String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -64,18 +70,19 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     };
 
 
-    public static boolean isValidGender(int gender){
-        if (gender == STATUS_UNKNOWN || gender == STATUS_ALUMNI || gender == STATUS_INTERN){
+    public static boolean isValidGender(int gender) {
+        if (gender == STATUS_UNKNOWN || gender == STATUS_ALUMNI || gender == STATUS_INTERN) {
             return true;
         }
-        return false;}
+        return false;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-        mAuth = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mAuth.getDisplayName().toString());
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/users/").child(currentUser.getUid());
         mStoragereference = FirebaseStorage.getInstance().getReference()
                 .child("verified_user_profile_photos");
         userNameEditText = (EditText) findViewById(R.id.name_editView);
@@ -83,7 +90,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         userCurrentOccupation = (EditText) findViewById(R.id.occpateEditText);
         userPhoneNumber = (EditText) findViewById(R.id.cell_editTextView);
         userEmailEditText = (EditText) findViewById(R.id.emailEditText);
-        userUpdateButton = (Button) findViewById(R.id.userUpdateButton);
+        userUpdateButton = (Button) findViewById(R.id.profile_edit);
         mStatusSpinner = (Spinner) findViewById(R.id.spinner_status);
         profileImage = (CircleImageView) findViewById(R.id.profile_image);
 
@@ -110,14 +117,18 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 items.setActiveUserStatus(mStatusSpinner.getSelectedItem().toString());
                 items.setActiveUserEmail(userEmailEditText.getText().toString());
                 items.setActiveUserNumber(userPhoneNumber.getText().toString());
-                items.setActiveUserImageUrl(mAuth.getPhotoUrl().toString());
-                mDatabaseReference.push().setValue(items);
-                userNameEditText.setText("");
-                userSurnameEditText.setText("");
-                userCurrentOccupation.setText("");
-                userEmailEditText.setText("");
-                userPhoneNumber.setText("");
-                Toast.makeText(UserProfileEditorActivity.this, "Information saved...",Toast.LENGTH_SHORT).show();
+                items.setActiveUserImageUrl(currentUser.getPhotoUrl().toString());
+                mDatabaseReference.setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Profile updated", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            task.getException().printStackTrace();
+                        }
+                    }
+                });;
 
             }
         });
@@ -172,10 +183,10 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK ){
+        if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK) {
             Uri selectedImageUri = data.getData();
             try {
-                Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(),selectedImageUri);
+                Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
                 profileImage.setImageBitmap(bm);
 
             } catch (IOException e) {
@@ -188,12 +199,14 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                     Uri downloadUri = taskSnapshot.getDownloadUrl();
                     ActiveUser user = new ActiveUser();
                     user.setActiveUserImageUrl(downloadUri.toString());
-                    mDatabaseReference.child(mAuth.getUid()).push().setValue(user);
+                    userUpdateButton.setText("image Selected");
 
 
                 }
             });
         }
     }
+
+    // Creating Method to get the selected image file Extension from File Path URI.
 }
 

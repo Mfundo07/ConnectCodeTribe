@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -145,7 +146,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public final TextView mContentView;
         public final TextView mStatus;
         public String mItem;
-        public String mProfileImage;
+        public ImageView mProfileImage;
 
         public ViewHolder(View view) {
             super(view);
@@ -153,6 +154,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mIdView =  view.findViewById(R.id.User_Surname);
             mContentView =  view.findViewById(R.id.User_Name);
             mStatus =  view.findViewById(R.id.User_Status);
+            mProfileImage = view.findViewById(R.id.profile_image);
         }
 
         @Override

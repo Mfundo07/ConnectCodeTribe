@@ -1,5 +1,10 @@
 package com.example.android.connectcodetribe.Model;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Admin on 10/4/2017.
  */
@@ -88,6 +93,20 @@ public class ActiveUser {
         this.activeUserNumber = activeUserNumber;
         this.activeUserEmail = activeUserEmail;
         this.activeUserImageUrl = activeUserImageUrl;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("activeUserName", activeUserName);
+        result.put("activeUserSurname", activeUserSurname);
+        result.put("activeUserStatus", activeUserStatus);
+        result.put("activeUserNumber", activeUserNumber);
+        result.put("activeUserEmail", activeUserEmail);
+        result.put("activeUserOccupation", activeUserOccupation);
+        result.put("activeUserImageUrl", activeUserImageUrl);
+
+        return result;
     }
 
 
