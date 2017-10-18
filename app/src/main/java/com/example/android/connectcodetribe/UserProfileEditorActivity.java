@@ -25,8 +25,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -218,6 +221,25 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 mCodeTribe = TRIBE_PRETORIA;
+
+            }
+        });
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChildren()){
+                    userNameEditText.setText((String) dataSnapshot.child("activeUserName").getValue());
+                    userEmailEditText.setText(currentUser.getEmail());
+                    userSurnameEditText.setText((String) dataSnapshot.child("activeUserSurname").getValue());
+                    userCurrentOccupation.setText((String) dataSnapshot.child("activeUserOccupation").getValue());
+                    userPhoneNumber.setText((String) dataSnapshot.child("activeUserNumber").getValue());
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });

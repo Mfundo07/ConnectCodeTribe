@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -77,6 +78,9 @@ public class ProfileActivity extends AppCompatActivity {
                profileOccupation.setText((String) dataSnapshot.child("activeUserOccupation").getValue());
                profilePhoneNumber.setText((String) dataSnapshot.child("activeUserNumber").getValue());
                tribeMember.setText((String) dataSnapshot.child("activeUserTribe").getValue());
+               Glide.with(profileImage.getContext())
+                       .load((String) dataSnapshot.child("activeUserImageUrl").getValue())
+                       .into(profileImage);
 
            }
 
