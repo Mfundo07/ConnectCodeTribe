@@ -1,7 +1,6 @@
 package com.example.android.connectcodetribe;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -10,14 +9,14 @@ import android.widget.Button;
 
 public class ExperienceActivity extends AppCompatActivity {
 
-    FloatingActionButton addExperience;
+    Button addExperience;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.model);
 
-        addExperience = (FloatingActionButton) findViewById(R.id.fab_add);
+        addExperience = (Button) findViewById(R.id.fab_add);
 
         addExperience.setOnClickListener(new View.OnClickListener() {
             @Override

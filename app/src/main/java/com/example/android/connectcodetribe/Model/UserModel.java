@@ -1,4 +1,4 @@
-package com.example.android.connectcodetribe;
+package com.example.android.connectcodetribe.Model;
 
 import com.google.firebase.database.Exclude;
 

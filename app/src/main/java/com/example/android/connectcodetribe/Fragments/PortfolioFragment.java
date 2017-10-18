@@ -9,10 +9,10 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.CompletedProfileActivity;
 import com.example.android.connectcodetribe.ExperienceActivity;
 import com.example.android.connectcodetribe.ProfileActivity;
 import com.example.android.connectcodetribe.ProjectsActivity;
@@ -28,15 +28,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 /**
  * Created by Admin on 10/4/2017.
  */
 
 public class PortfolioFragment extends Fragment {
     private CardView codeTribeCardView, codeTribeCardView2,codeTribeCardView3, codeTribeCardView4,codeTribeCardView5;
-    private CircleImageView profileImage;
+    //private CircleImageView profileImage;
+    private ImageView profileImage;
     private TextView userName;
     private TextView userOccupation;
     DatabaseReference mReference;
@@ -58,7 +57,6 @@ public class PortfolioFragment extends Fragment {
         codeTribeCardView = rootView.findViewById(R.id.card1);
         profileImage = rootView.findViewById(R.id.profile_image);
         userName = rootView.findViewById(R.id.userName);
-        userSurname = rootView.findViewById(R.id.userSurname);
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         final CollapsingToolbarLayout collapsingToolbarLayout =  rootView.findViewById(R.id.collapse_toolBar);
         mReference = FirebaseDatabase.getInstance().getReference("/users/").child(mAuth.getUid());
@@ -105,24 +103,16 @@ public class PortfolioFragment extends Fragment {
 
             }
         });
-        codeTribeCardView5 = rootView.findViewById(R.id.card5);
-        codeTribeCardView5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CompletedProfileActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 
      mReference.addValueEventListener(new ValueEventListener() {
          @Override
          public void onDataChange(DataSnapshot dataSnapshot) {
-             userSurname.setText((String) dataSnapshot.child("activeUserSurname").getValue());
-             userName.setText((String) dataSnapshot.child("activeUserName").getValue());
+             userName.setText(mAuth.getDisplayName());
              userOccupation.setText((String) dataSnapshot.child("activeUserOccupation").getValue());
-             collapsingToolbarLayout.setTitle((String) dataSnapshot.child("activeUserName").getValue());
+             collapsingToolbarLayout.setTitle(mAuth.getDisplayName().toString());
              Glide.with(profileImage.getContext())
                      .load((String) dataSnapshot.child("activeUserImageUrl").getValue())
                      .into(profileImage);

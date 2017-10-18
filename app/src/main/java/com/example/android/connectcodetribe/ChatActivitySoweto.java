@@ -19,6 +19,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.android.connectcodetribe.Model.ChatModel;
+import com.example.android.connectcodetribe.Model.FileModel;
+import com.example.android.connectcodetribe.Model.UserModel;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -234,7 +237,7 @@ public class ChatActivitySoweto extends AppCompatActivity implements GoogleApiCl
         edMessage.setText(null);
     }
 
-    private void lerMessagensFirebase(){
+    private void FirebaseMessages(){
         mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         final ChatFirebaseAdapter firebaseAdapter = new ChatFirebaseAdapter(mFirebaseDatabaseReference.child(CHAT_REFERENCE),userModel.getName(), (ClickListenerChatFirebase) this);
         firebaseAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
@@ -262,7 +265,7 @@ public class ChatActivitySoweto extends AppCompatActivity implements GoogleApiCl
             finish();
         }else{
             userModel = new UserModel(mFirebaseUser.getDisplayName(), mFirebaseUser.getPhotoUrl().toString(), mFirebaseUser.getUid() );
-            lerMessagensFirebase();
+            FirebaseMessages();
         }
     }
 

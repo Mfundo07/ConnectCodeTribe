@@ -19,6 +19,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.android.connectcodetribe.Model.ChatModel;
+import com.example.android.connectcodetribe.Model.FileModel;
+import com.example.android.connectcodetribe.Model.UserModel;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;

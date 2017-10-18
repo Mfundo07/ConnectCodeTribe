@@ -48,7 +48,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/txtcert"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="9dp"
@@ -61,6 +61,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txtcert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"
@@ -70,7 +71,7 @@
 
 
             <TextView
-                android:id="@+id/txtinst"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"
@@ -80,6 +81,7 @@
                 android:textColor="#fff"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/txtinst"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"
@@ -88,23 +90,44 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/txtqual"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="10dp"
                 android:background="#FF9800"
-                android:text="Name of Qualification"
+                android:text="Faculty"
                 android:textColor="#fff"
                 android:textStyle="bold" />
-
             <TextView
+                android:id="@+id/txtFaculty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"
-                android:text="Certificate"
+                android:text="Science"
                 android:textColor="#000"
                 android:textSize="14sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="10dp"
+                android:background="#FF9800"
+                android:text="Major"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtMajor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:text="Computer Science"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -116,6 +139,7 @@
                 android:textColor="#fff"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/startYear_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"
@@ -134,7 +158,7 @@
                 android:textColor="#fff"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/spinner"
+                android:id="@+id/end_year_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"

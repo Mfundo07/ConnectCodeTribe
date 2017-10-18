@@ -1,4 +1,4 @@
-package com.example.android.connectcodetribe;
+package com.example.android.connectcodetribe.Model;
 
 /**
  * Created by Admin on 10/12/2017.

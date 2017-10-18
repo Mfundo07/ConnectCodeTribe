@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.ActiveUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -105,16 +106,10 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mStatusSpinner = (Spinner) findViewById(R.id.spinner_status);
         profileImage = (CircleImageView) findViewById(R.id.profile_image);
         mCodeTribeSpinner = (Spinner) findViewById(R.id.spinner_codeTribe);
-
-        profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/jpeg");
-                intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-                startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
-            }
-        });
+        Glide.with(profileImage.getContext())
+                .load(currentUser.getPhotoUrl())
+                .into(profileImage);
+        userEmailEditText.setText(currentUser.getEmail().toString());
 
 
         userUpdateButton.setOnClickListener(new View.OnClickListener() {
@@ -230,10 +225,17 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()){
                     userNameEditText.setText((String) dataSnapshot.child("activeUserName").getValue());
-                    userEmailEditText.setText(currentUser.getEmail());
+                    if (dataSnapshot.child("activeUserEmail").getValue() == null){
+                    userEmailEditText.setText(currentUser.getEmail());}
+                    else{
+                        userEmailEditText.setText((String)dataSnapshot.child("activeUserEmail").getValue());
+                    }
                     userSurnameEditText.setText((String) dataSnapshot.child("activeUserSurname").getValue());
                     userCurrentOccupation.setText((String) dataSnapshot.child("activeUserOccupation").getValue());
                     userPhoneNumber.setText((String) dataSnapshot.child("activeUserNumber").getValue());
+                    Glide.with(profileImage.getContext())
+                            .load((String) dataSnapshot.child("activeUserImageUrl").getValue())
+                            .into(profileImage);
                 }
 
             }
@@ -257,18 +259,17 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            StorageReference photoRef = mStoragereference.child(selectedImageUri.getLastPathSegment());
-            photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            StorageReference photoRef = mStoragereference;
+            photoRef.putFile(selectedImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Uri downloadUri = taskSnapshot.getDownloadUrl();
                     ActiveUser user = new ActiveUser();
                     user.setActiveUserImageUrl(downloadUri.toString());
-                    userUpdateButton.setText("image Selected");
-
-
                 }
             });
+
+
         }
     }
 

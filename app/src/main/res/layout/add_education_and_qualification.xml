@@ -93,20 +93,37 @@
                     />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#98D083"
-                    android:text="Employment"
-                    android:textColor="#fff"
-                    android:textStyle="bold" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="10dp"
+                android:background="#98D083"
+                android:text="Faculty"
+                android:textColor="#fff"
+                android:textStyle="bold" />
                 <EditText
                     android:id="@+id/Employed_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="9dp"
-                    android:hint="e.g Mobile Application Development"
+                    android:hint="e.g Science"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#98D083"
+                    android:text="Major"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/major_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:hint="e.g Computer Science"
                     android:textSize="15sp" />
 
                 <TextView

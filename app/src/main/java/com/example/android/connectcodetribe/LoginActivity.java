@@ -1,5 +1,6 @@
 package com.example.android.connectcodetribe;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     //Constants
     private static final String TAG = LoginActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 9001;
+    private ProgressDialog progressDialog;
 
     //UI
     private SignInButton mSignInButton;
@@ -44,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         if (!Util.connectVerified(this)){
-            Util.initToast(this,"Você não tem conexão com internet");
+            Util.initToast(this,"No Connection to internet");
             finish();
         }
 
