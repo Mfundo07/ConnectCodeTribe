@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
+import com.example.android.connectcodetribe.Model.ActiveUser;
 import com.example.android.connectcodetribe.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,11 +32,7 @@ public class ItemFragment extends android.support.v4.app.Fragment {
 
     DatabaseReference mDatabaseReference;
 
-    List<String> mItemNames = new ArrayList<>();
-    List<String> mItemSurnames = new ArrayList<>();
-    List<String> mItemStatus = new ArrayList<>();
-    List<String> mItemOccupation = new ArrayList<>();
-    List<String> mProfileImages = new ArrayList<>();
+    List<ActiveUser> mActiveUsers = new ArrayList<>();
     FirebaseUser mAuth;
 
     MyItemRecyclerViewAdapter adapter;
@@ -69,12 +66,11 @@ public class ItemFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list , container, false);
+        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/users/");
-
 
 
         // Set the adapter
@@ -87,25 +83,27 @@ public class ItemFragment extends android.support.v4.app.Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new MyItemRecyclerViewAdapter(mItemNames, mItemSurnames, mItemStatus,mItemOccupation, mProfileImages);
+            adapter = new MyItemRecyclerViewAdapter(getActivity(), mActiveUsers);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
-                        mItemNames.clear();
-                        mItemSurnames.clear();
-                        mItemStatus.clear();
-                        mProfileImages.clear();
+                        mActiveUsers.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            mItemNames.add((String) snapshot.child("activeUserName").getValue());
-                            mItemSurnames.add((String) snapshot.child("activeUserSurname").getValue());
-                            mItemStatus.add((String) snapshot.child("activeUserStatus").getValue());
-                            mProfileImages.add((String) snapshot.child("activeUserImageUrl").getValue());
+                            ActiveUser user = new ActiveUser();
+                            user.setActiveUserName((String) snapshot.child("activeUserName").getValue());
+                            user.setActiveUserSurname((String) snapshot.child("activeUserSurname").getValue());
+                            user.setActiveUserStatus((String) snapshot.child("activeUserStatus").getValue());
+                            user.setActiveUserImageUrl((String) snapshot.child("activeUserImageUrl").getValue());
+                            mActiveUsers.add(user);
                         }
-
-                        adapter.notifyDataSetChanged();
+                        if (mActiveUsers.size() > 0) {
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            System.out.println("No active users found");
+                        }
                     }
                 }
 

@@ -1,93 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:id="@+id/user_cardView"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp">
-<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_cardView"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
-    android:orientation="horizontal"
-    android:paddingEnd="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingStart="16dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:src="@drawable/man_user_user"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp" />
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:orientation="horizontal"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp">
 
-        <TextView
-            android:id="@+id/User_Status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif-medium"
-            android:maxLines="1"
-            android:textAllCaps="true"
-            android:textSize="12sp"
-            android:textColor="@color/textColorStatus"
-            tools:text="Intern"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@drawable/man_user_user"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:id="@+id/User_Name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textSize="16sp"
-                android:layout_weight="1"
-                tools:text="Mfundo"
-                android:textColor="@color/textColorUser"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/User_Surname"
-                android:layout_width="match_parent"
+                android:id="@+id/User_Status"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:maxLines="2"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                tools:text="Mbokoma"
-                android:textColor="@color/textColorUser"/>
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textAllCaps="true"
+                android:textColor="@color/textColorStatus"
+                android:textSize="12sp"
+                tools:text="Intern" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/User_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/textColorUser"
+                    android:textSize="16sp"
+                    tools:text="Mfundo" />
+
+                <TextView
+                    android:id="@+id/User_Surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/textColorUser"
+                    android:textSize="16sp"
+                    tools:text="Mbokoma" />
 
 
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
 
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:orientation="vertical">
+
 
     </LinearLayout>
-
-
-</LinearLayout></android.support.v7.widget.CardView>
+</android.support.v7.widget.CardView>
