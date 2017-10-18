@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,11 +31,12 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView profileEmail;
     private TextView profileStatus;
     private TextView profileOccupation;
-    ChildEventListener mChildEventListener;
+    private TextView tribeMember;
     CircleImageView profileImage;
     FirebaseUser mAuth;
 
     CardView cardBio;
+    Button profileEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,8 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         cardBio = (CardView) findViewById(R.id.cardView_bio);
-        cardBio.setOnClickListener(new View.OnClickListener() {
+        profileEditor = (Button) findViewById(R.id.profile_edit_button);
+        profileEditor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this, UserProfileEditorActivity.class);
@@ -64,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
         profileStatus = (TextView) findViewById(R.id.profile_status);
         profileOccupation = (TextView) findViewById(R.id.profile_occupation);
         profileImage = (CircleImageView) findViewById(R.id.profile_image);
+        tribeMember = (TextView) findViewById(R.id.profile_tribe);
        mDatabaseReference.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
@@ -72,7 +75,8 @@ public class ProfileActivity extends AppCompatActivity {
                profileEmail.setText((String) dataSnapshot.child("activeUserEmail").getValue());
                profileStatus.setText((String) dataSnapshot.child("activeUserStatus").getValue());
                profileOccupation.setText((String) dataSnapshot.child("activeUserOccupation").getValue());
-               profilePhoneNumber.setText((String) dataSnapshot.child("activeUserPhoneNumber").getValue());
+               profilePhoneNumber.setText((String) dataSnapshot.child("activeUserNumber").getValue());
+               tribeMember.setText((String) dataSnapshot.child("activeUserTribe").getValue());
 
            }
 

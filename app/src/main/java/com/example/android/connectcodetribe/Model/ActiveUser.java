@@ -11,6 +11,29 @@ import java.util.Map;
 
 public class ActiveUser {
 
+    private String activeUserTribe;
+
+    public String getActiveUserTribe() {
+        return activeUserTribe;
+    }
+
+    public void setActiveUserTribe(String activeUserTribe) {
+        this.activeUserTribe = activeUserTribe;
+    }
+
+    public ActiveUser(String activeUserTribe, String activeUserName, String activeUserSurname, String activeUserOccupation, String activeUserStatus, String activeUser, String activeUserNumber, String activeUserEmail, String activeUserImageUrl) {
+
+        this.activeUserTribe = activeUserTribe;
+        this.activeUserName = activeUserName;
+        this.activeUserSurname = activeUserSurname;
+        this.activeUserOccupation = activeUserOccupation;
+        this.activeUserStatus = activeUserStatus;
+        this.activeUser = activeUser;
+        this.activeUserNumber = activeUserNumber;
+        this.activeUserEmail = activeUserEmail;
+        this.activeUserImageUrl = activeUserImageUrl;
+    }
+
     private String activeUserName;
     private String activeUserSurname;
     private String activeUserOccupation;
@@ -105,6 +128,7 @@ public class ActiveUser {
         result.put("activeUserEmail", activeUserEmail);
         result.put("activeUserOccupation", activeUserOccupation);
         result.put("activeUserImageUrl", activeUserImageUrl);
+        result.put("activeUserTribe", activeUserTribe);
 
         return result;
     }

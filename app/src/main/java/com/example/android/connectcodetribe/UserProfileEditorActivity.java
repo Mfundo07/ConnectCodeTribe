@@ -55,10 +55,18 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int STATUS_UNKNOWN = 0;
     public static final int STATUS_ALUMNI = 1;
     public static final int STATUS_INTERN = 2;
+
+    public static final int TRIBE_SOWETO = 1;
+    public static final int TRIBE_PRETORIA = 2;
+    public static final int TRIBE_TEMBISA = 3;
+    public static final int TRIBE_ALEX = 4;
+
+
     private Spinner mStatusSpinner, mCodeTribeSpinner;
     private boolean mUserHasChanged = false;
     FirebaseUser currentUser;
     private int mStatus = STATUS_UNKNOWN;
+    private  int mCodeTribe = TRIBE_SOWETO;
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -119,6 +127,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 items.setActiveUserEmail(userEmailEditText.getText().toString());
                 items.setActiveUserNumber(userPhoneNumber.getText().toString());
                 items.setActiveUserImageUrl(currentUser.getPhotoUrl().toString());
+                items.setActiveUserTribe(mCodeTribeSpinner.getSelectedItem().toString());
                 mDatabaseReference.setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -135,6 +144,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         });
         mStatusSpinner.setOnTouchListener(mTouchListener);
         setupSpinner();
+        mCodeTribeSpinner.setOnTouchListener(mTouchListener);
+        codetribeSpinner();
 
 
         userNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
@@ -177,6 +188,37 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 mStatus = STATUS_UNKNOWN;
+            }
+        });
+    }
+
+    private void codetribeSpinner(){
+        ArrayAdapter codeTribeSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.code_tribe_options, android.R.layout.simple_spinner_item);
+        codeTribeSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        mCodeTribeSpinner.setAdapter(codeTribeSpinnerAdapter);
+        mCodeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selection = (String) adapterView.getItemAtPosition(i);
+                if (!TextUtils.isEmpty(selection)){
+                    if (selection.equals(R.string.pretoria)){
+                        mCodeTribe = TRIBE_PRETORIA;
+
+                    }else if (selection.equals(R.string.tembisa)){
+                        mCodeTribe = TRIBE_TEMBISA;
+                    }else if (selection.equals(R.string.alex)){
+                        mCodeTribe = TRIBE_ALEX;
+                    }else {
+                        mCodeTribe = TRIBE_SOWETO;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                mCodeTribe = TRIBE_PRETORIA;
+
             }
         });
     }
