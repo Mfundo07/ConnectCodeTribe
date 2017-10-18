@@ -111,7 +111,7 @@ public class PortfolioFragment extends Fragment {
          @Override
          public void onDataChange(DataSnapshot dataSnapshot) {
              userName.setText(mAuth.getDisplayName());
-             userOccupation.setText((String) dataSnapshot.child("activeUserOccupation").getValue());
+             userOccupation.setText((String) dataSnapshot.child("activeUserStatus").getValue());
              collapsingToolbarLayout.setTitle(mAuth.getDisplayName().toString());
              Glide.with(profileImage.getContext())
                      .load((String) dataSnapshot.child("activeUserImageUrl").getValue())
