@@ -16,6 +16,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userImage"
             android:layout_width="95dp"
             android:layout_margin="16dp"
             android:layout_gravity="center_horizontal"
@@ -31,6 +32,7 @@
             >
 
             <TextView
+                android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mfundo Mbokoma"
@@ -39,6 +41,7 @@
                 />
 
             <TextView
+                android:id="@+id/userDescribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Witty, smart and enthusiastic"
@@ -65,15 +68,17 @@
                 android:gravity="center">
 
                 <ImageButton
+                    android:id="@+id/userCodeTribeImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_school_black"
+                    app:srcCompat="@drawable/ic_school_black"
                     android:padding="24dp"
                     android:tint="@android:color/white"
                     android:background="@drawable/round_codetribe_buttton"
                     />
 
                 <TextView
+                    android:id="@+id/userCodeTribeName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Intern"
@@ -93,15 +98,17 @@
                 android:gravity="center">
 
                 <ImageButton
+                    android:id="@+id/userStatusImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alumni_black"
+                    app:srcCompat="@drawable/ic_alumni_black"
                     android:padding="24dp"
                     android:tint="@android:color/white"
                     android:background="@drawable/round_status_button"
                     />
 
                 <TextView
+                    android:id="@+id/userStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -122,15 +129,17 @@
 
 
                 <ImageButton
+                    android:id="@+id/userGithubImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_github_black"
+                    app:srcCompat="@drawable/ic_github_black"
                     android:padding="24dp"
                     android:tint="@android:color/white"
                     android:background="@drawable/round_github_button"
                     />
 
                 <TextView
+                    android:id="@+id/userGihubProjects"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Projects"
@@ -149,6 +158,7 @@
             >
 
             <TextView
+                android:id="@+id/userBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -157,6 +167,7 @@
                 />
 
             <Button
+                android:id="@+id/moreOnUserBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="View More"
@@ -176,6 +187,7 @@
             >
 
             <TextView
+                android:id="@+id/userProjectTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Projects"
@@ -202,6 +214,7 @@
             >
 
             <TextView
+                android:id="@+id/userSkillsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Skills"
@@ -228,6 +241,7 @@
             >
 
             <TextView
+                android:id="@+id/userExpTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Experience"
