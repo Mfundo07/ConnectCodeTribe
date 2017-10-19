@@ -55,7 +55,7 @@ public class PortfolioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.user_portfolio,container, false);
         codeTribeCardView = rootView.findViewById(R.id.card1);
-        profileImage = rootView.findViewById(R.id.profile_image);
+
         userName = rootView.findViewById(R.id.userName);
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         final CollapsingToolbarLayout collapsingToolbarLayout =  rootView.findViewById(R.id.collapse_toolBar);
