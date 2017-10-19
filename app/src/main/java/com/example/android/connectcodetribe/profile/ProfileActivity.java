@@ -62,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
                 userDescription.setText((String) dataSnapshot.child("three_words").getValue());
                 userName.setText((String) dataSnapshot.child("name").getValue());
                 gihubLink = (String) dataSnapshot.child("github_link").getValue();
+                mCodeTribe.setText((String) dataSnapshot.child("codeTribe").getValue());
                 btnGithubLink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
