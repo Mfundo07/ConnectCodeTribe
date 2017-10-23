@@ -80,6 +80,7 @@ public class PortfolioFragment extends Fragment {
 
             }
         });
+
         codeTribeCardView3 = rootView.findViewById(R.id.card3);
         codeTribeCardView3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,17 +125,6 @@ public class PortfolioFragment extends Fragment {
 
          }
      });
-
-
-
-
-
-
-
-
-
-
-
 
         return rootView;
     }

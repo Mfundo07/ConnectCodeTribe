@@ -140,6 +140,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
             }
         });
+
+
         mStatusSpinner.setOnTouchListener(mTouchListener);
         setupSpinner();
         mCodeTribeSpinner.setOnTouchListener(mTouchListener);
