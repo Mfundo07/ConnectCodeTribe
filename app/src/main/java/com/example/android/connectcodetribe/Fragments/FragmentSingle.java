@@ -73,7 +73,7 @@ public class FragmentSingle extends Fragment implements SingleListAdapter.OnGrid
                 R.drawable.snap6, R.drawable.snap7,
                 R.drawable.snap8, R.drawable.snap9};
 
-        String title[] = {"App1", "App2",
+        String title[] = {"App10", "App2",
                 "App3", "App4",
                 "App5", "App6",
                 "App7", "App9"};
