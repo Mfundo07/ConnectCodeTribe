@@ -184,4 +184,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <integer name="fade_in_duration">5000</integer>
+
+    <integer name="fade_in_from_left_duration">5000</integer>
 </resources>

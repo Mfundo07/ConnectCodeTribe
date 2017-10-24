@@ -21,7 +21,7 @@ import com.google.firebase.storage.StorageReference;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity_first extends AppCompatActivity {
     FirebaseDatabase mFirebaseDatabase;
     FirebaseStorage mFirebaseStorage;
     DatabaseReference mDatabaseReference;
@@ -50,7 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
         profileEditor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, UserProfileEditorActivity.class);
+                Intent intent = new Intent(ProfileActivity_first.this, UserProfileEditorActivity.class);
                 startActivity(intent);
             }
         });

@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.ExperienceActivity;
-import com.example.android.connectcodetribe.ProfileActivity;
+import com.example.android.connectcodetribe.ProfileActivity_first;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.QualificationActivity;
 import com.example.android.connectcodetribe.R;
@@ -57,6 +57,7 @@ public class PortfolioFragment extends Fragment {
         codeTribeCardView = rootView.findViewById(R.id.card1);
 
         userName = rootView.findViewById(R.id.userName);
+        profileImage = rootView.findViewById(R.id.profile_image);
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         final CollapsingToolbarLayout collapsingToolbarLayout =  rootView.findViewById(R.id.collapse_toolBar);
         mReference = FirebaseDatabase.getInstance().getReference("/users/").child(mAuth.getUid());
@@ -64,7 +65,7 @@ public class PortfolioFragment extends Fragment {
         codeTribeCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                Intent intent = new Intent(getActivity(), ProfileActivity_first.class);
                 startActivity(intent);
 
 

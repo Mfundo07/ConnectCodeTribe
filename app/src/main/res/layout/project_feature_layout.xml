@@ -63,7 +63,7 @@
                             android:text="Project name" />
 
                         <EditText
-                            android:id="@+id/editText"
+                            android:id="@+id/TribeEditText"
                             android:layout_width="match_parent"
                             android:textSize="14sp"
                             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:text="Project Link" />
                         <EditText
-                            android:id="@+id/edtText"
+                            android:id="@+id/projectLinkEditText"
                             android:layout_width="match_parent"
                             android:textSize="14sp"
                             android:layout_height="wrap_content"

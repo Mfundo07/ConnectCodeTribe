@@ -24,15 +24,17 @@
         <activity android:name=".ChatActivityAlexandra" />
         <activity android:name=".ChatActivityThembisa" />
         <activity android:name=".ChatActivityPretoria" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ProfileActivity_first" />
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity">
 
+
         </activity>
         <activity android:name=".FullScreenActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity">
+        </activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -48,12 +50,18 @@
             android:name=".profile.ProfileActivity"
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+
+
+        </activity>
+        <activity android:name=".SplashScreen">
+
         </activity>
     </application>
 

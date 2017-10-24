@@ -11,45 +11,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         android:orientation="vertical">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userImage"
             android:layout_width="95dp"
-            android:layout_margin="16dp"
+            android:layout_height="95dp"
             android:layout_gravity="center_horizontal"
-            android:background="#231B22"
-            android:layout_height="95dp" />
+            android:layout_marginTop="32dp"
+            android:background="#231B22" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
             android:gravity="center"
             android:orientation="vertical"
-            >
+            android:paddingTop="16dp">
 
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mfundo Mbokoma"
                 android:fontFamily="sans-serif-condensed"
-                android:textSize="22sp"
-                />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/userDescribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Witty, smart and enthusiastic"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-condensed"
                 android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:textSize="15sp"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -57,33 +51,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
             android:weightSum="3">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/userCodeTribeImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_school_black"
+                    android:background="@drawable/round_codetribe_buttton"
                     android:padding="24dp"
                     android:tint="@android:color/white"
-                    android:background="@drawable/round_codetribe_buttton"
-                    />
+                    app:srcCompat="@drawable/ic_school_black" />
 
                 <TextView
                     android:id="@+id/userCodeTribeName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Intern"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif"
+                    android:text="Intern"
                     android:textStyle="bold"
 
                     />
@@ -94,26 +90,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/userStatusImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_alumni_black"
+                    android:background="@drawable/round_status_button"
                     android:padding="24dp"
                     android:tint="@android:color/white"
-                    android:background="@drawable/round_status_button"
-                    />
+                    app:srcCompat="@drawable/ic_alumni_black" />
 
                 <TextView
                     android:id="@+id/userStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Alumni"
                     android:fontFamily="sans-serif"
+                    android:text="Alumni"
                     android:textStyle="bold"
 
                     />
@@ -124,57 +119,53 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
 
                 <ImageButton
                     android:id="@+id/userGithubImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_github_black"
+                    android:background="@drawable/round_github_button"
                     android:padding="24dp"
                     android:tint="@android:color/white"
-                    android:background="@drawable/round_github_button"
-                    />
+                    app:srcCompat="@drawable/ic_github_black" />
 
                 <TextView
                     android:id="@+id/userGihubProjects"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Projects"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif"
-                    android:textStyle="bold"
-                    /></LinearLayout>
+                    android:text="Projects"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
             android:orientation="vertical"
-            >
+            android:paddingTop="8dp">
 
             <TextView
                 android:id="@+id/userBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:fontFamily="sans-serif"
-                android:text="Lorem ipsulum dolor sit amet, No really I have no clue what I'm writing. This is a script that they used for checking typography during the first printing days. It's as old as 400 years dude."
-                />
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:gravity="center" />
 
             <Button
                 android:id="@+id/moreOnUserBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="View More"
-                android:textSize="11sp"
-
                 android:background="@android:color/transparent"
-                />
+                android:text="View More"
+                android:textSize="11sp" />
 
         </LinearLayout>
 
@@ -183,26 +174,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            >
+            android:paddingTop="16dp">
 
             <TextView
                 android:id="@+id/userProjectTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Projects"
-                android:textStyle="bold"
+                android:layout_marginLeft="16dp"
                 android:fontFamily="sans-serif"
-                android:textSize="22sp"
+                android:text="Projects"
                 android:textColor="#142030"
-                />
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/projectsRecyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/projectsRecyclerview"
-                android:layout_marginTop="16dp"
-                ></android.support.v7.widget.RecyclerView>
+                android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/layoutDots"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dots_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dots_margin_bottom"
+                android:gravity="center"
+                android:orientation="horizontal"></LinearLayout>
 
         </LinearLayout>
 
@@ -210,26 +208,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            >
+            android:paddingTop="16dp">
 
             <TextView
                 android:id="@+id/userSkillsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Skills"
-                android:textStyle="bold"
+                android:layout_marginLeft="16dp"
                 android:fontFamily="sans-serif"
-                android:textSize="22sp"
+                android:text="Skills"
                 android:textColor="#142030"
-                />
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/skillsRecyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:id="@+id/skillsRecyclerview"
-                ></android.support.v7.widget.RecyclerView>
+                android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 
@@ -237,29 +233,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            >
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/userExpTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Experience"
-                android:textStyle="bold"
                 android:fontFamily="sans-serif"
-                android:textSize="22sp"
+                android:text="Experience"
                 android:textColor="#142030"
-                />
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/experienceRecyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/experienceRecyclerview"
-                android:layout_marginTop="16dp"
-                ></android.support.v7.widget.RecyclerView>
+                android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
-
 
 
     </LinearLayout>
