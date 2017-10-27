@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         portfolioFragment=new PortfolioFragment();
         adapter.addFragment(codeTribeFragment);
         adapter.addFragment(portfolioFragment);
-        adapter.addFragment(chatFragment);
+        //adapter.addFragment(chatFragment);
         viewPager.setAdapter(adapter);
     }
 

@@ -3,6 +3,7 @@ package com.example.android.connectcodetribe.profile;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,9 +20,14 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Adapters.SkillAdapter;
+import com.example.android.connectcodetribe.ChatActivityAlexandra;
+import com.example.android.connectcodetribe.ChatActivityPretoria;
+import com.example.android.connectcodetribe.ChatActivitySoweto;
+import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.R;
+import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
+    Button skillName;
 
     RecyclerView mSkillsRecyclerView, mProjectsRecyclerView;
 
@@ -51,8 +59,11 @@ public class ProfileActivity extends AppCompatActivity {
 
     private LinearLayout dotsLayout;
     private TextView[] dots;
+    private
 
     Toolbar toolbar;
+    Toolbar toolbar1;
+    private FloatingActionButton editPen;
 
 
     @Override
@@ -60,11 +71,13 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
 
         toolbar.setTitle("");
+        toolbar1.setTitle("");
 
         setSupportActionBar(toolbar);
-
+        setSupportActionBar(toolbar1);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
 
 
@@ -80,8 +93,16 @@ public class ProfileActivity extends AppCompatActivity {
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
         userName = (TextView) findViewById(R.id.userName);
-        userDescription = (TextView) findViewById(R.id.userDescribe);
         userImage = (ImageView) findViewById(R.id.userImage);
+        skillName = (Button) findViewById(R.id.skill_display_picture);
+        editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
+        editPen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nonclair = new Intent(ProfileActivity.this,UserProfileEditorActivity.class);
+                startActivity(nonclair);
+            }
+        });
 
         mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
         //Setup layout manager to a horizontal scrolling recyclerView
@@ -110,9 +131,8 @@ public class ProfileActivity extends AppCompatActivity {
                 Glide.with(userImage.getContext())
                         .load((String) dataSnapshot.child("display_picture").getValue())
                         .into(userImage);
-                userDescription.setText((String) dataSnapshot.child("three_words").getValue());
-                userName.setText((String) dataSnapshot.child("name").getValue());
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
+                toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 gihubLink = (String) dataSnapshot.child("github_link").getValue();
                 mCodeTribe.setText((String) dataSnapshot.child("codeTribe").getValue());
                 btnGithubLink.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +143,25 @@ public class ProfileActivity extends AppCompatActivity {
                         intent.addCategory(Intent.CATEGORY_BROWSABLE);
                         intent.setData(Uri.parse(gihubLink));
                         startActivity(intent);
+                    }
+                });
+                btnCodeTribe.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String codeTribeName = (String) dataSnapshot.child("codeTribe").getValue();
+                        if (codeTribeName.equals("Soweto")){
+                            Intent intent = new Intent(ProfileActivity.this, ChatActivitySoweto.class);
+                            startActivity(intent);
+                        }else if (codeTribeName.equals("Tembisa")){
+                            Intent intent = new Intent(ProfileActivity.this,ChatActivityThembisa.class);
+                            startActivity(intent);
+                        }else if (codeTribeName.equals("Pretoria")){
+                            Intent intent = new Intent(ProfileActivity.this,ChatActivityPretoria.class);
+                            startActivity(intent);
+                        }else{
+                            Intent intent = new Intent(ProfileActivity.this,ChatActivityAlexandra.class);
+                            startActivity(intent);
+                        }
                     }
                 });
 
@@ -145,6 +184,7 @@ public class ProfileActivity extends AppCompatActivity {
                     skill.setTitle((String) _snapshot.child("title").getValue());
                     System.out.println(skill.toMap());
                     skills.add(skill);
+
                 }
                 mSkillsAdapter.notifyDataSetChanged();
 

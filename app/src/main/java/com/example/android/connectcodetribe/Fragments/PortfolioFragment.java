@@ -111,9 +111,9 @@ public class PortfolioFragment extends Fragment {
      mReference.addValueEventListener(new ValueEventListener() {
          @Override
          public void onDataChange(DataSnapshot dataSnapshot) {
-             userName.setText(mAuth.getDisplayName());
+             userName.setText( dataSnapshot.child("activeUserName").getValue() + " "+dataSnapshot.child("activeUserSurname").getValue());
              userOccupation.setText((String) dataSnapshot.child("activeUserStatus").getValue());
-             collapsingToolbarLayout.setTitle(mAuth.getDisplayName().toString());
+             collapsingToolbarLayout.setTitle( dataSnapshot.child("activeUserName").getValue() + " "+dataSnapshot.child("activeUserSurname").getValue() );
              Glide.with(profileImage.getContext())
                      .load((String) dataSnapshot.child("activeUserImageUrl").getValue())
                      .into(profileImage);

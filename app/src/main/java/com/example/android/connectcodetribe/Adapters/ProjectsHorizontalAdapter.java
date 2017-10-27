@@ -1,7 +1,6 @@
 package com.example.android.connectcodetribe.Adapters;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +23,6 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
 
     private List<Project> mProjects;
     private Activity activity;
-    private Context context;
 
 
     public ProjectsHorizontalAdapter(Activity activity, List<Project> mProjects) {
