@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.connectcodetribe.ChatActivityAlexandra;
+import com.example.android.connectcodetribe.ChatActivityPretoria;
 import com.example.android.connectcodetribe.ChatActivitySoweto;
+import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.R;
 
 /**
@@ -42,19 +45,22 @@ public class CodeTribesFragment extends Fragment {
         tembisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(),ChatActivityThembisa.class);
+                startActivity(intent);
             }
         });
         alex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(),ChatActivityAlexandra.class);
+                startActivity(intent);
             }
         });
         pretoria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(),ChatActivityPretoria.class);
+                startActivity(intent);
             }
         });
         return rootView;

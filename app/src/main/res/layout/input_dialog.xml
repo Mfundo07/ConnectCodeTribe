@@ -3,15 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#FF9800"
-        android:text="Experience"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="30sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,7 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
-                        android:id="@+id/yearEditText"
+                        android:id="@+id/startYearEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="+ Year"
@@ -61,7 +52,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <EditText
-                                android:id="@+id/companynameTxt1"
+                                android:id="@+id/companyNameEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -82,7 +73,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <EditText
-                                android:id="@+id/subjectTxt1"
+                                android:id="@+id/positionEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -103,10 +94,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <EditText
-                                android:id="@+id/periodTxt1"
+                                android:id="@+id/endYearEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:hint="+ Period"
+                                android:hint="+ End year"
                                 android:maxLines="1"
                                 android:textColor="#000"
                                 android:textSize="15dp" />

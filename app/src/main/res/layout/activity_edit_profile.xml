@@ -39,8 +39,7 @@
                                 android:gravity="center"
                                 android:padding="16dp"
                                 android:text="Bio"
-                                android:background="#3D5AFE"
-                                android:textColor="#fff"
+                                android:textColor="#000"
                                 android:textAllCaps="true"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 android:textSize="18dp"
@@ -50,9 +49,9 @@
                             android:id="@+id/profile_image"
                             android:layout_width="96dp"
                             android:layout_height="96dp"
-                            android:src="@drawable/man_user_blue"
+                            android:src="@drawable/man_user_user"
                             app:civ_border_color="#FF000000"
-                            app:civ_border_width="2dp" />
+                            app:civ_border_width="1dp" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -220,7 +219,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_margin="16dp"
-                        android:background="@drawable/button_navy"
+                        android:background="@drawable/button_green"
                         android:text="Save"
                         android:textColor="#fff" />
                 </LinearLayout>

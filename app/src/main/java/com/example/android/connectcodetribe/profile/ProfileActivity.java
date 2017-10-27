@@ -18,12 +18,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Adapters.SkillAdapter;
 import com.example.android.connectcodetribe.ChatActivityAlexandra;
 import com.example.android.connectcodetribe.ChatActivityPretoria;
 import com.example.android.connectcodetribe.ChatActivitySoweto;
 import com.example.android.connectcodetribe.ChatActivityThembisa;
+import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.R;
@@ -47,15 +49,17 @@ public class ProfileActivity extends AppCompatActivity {
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
-    Button skillName;
+    Button skillName, editExperience;
 
-    RecyclerView mSkillsRecyclerView, mProjectsRecyclerView;
+    RecyclerView mSkillsRecyclerView, mProjectsRecyclerView, mExperiencesRecyclerView;
 
     ProjectsHorizontalAdapter mProjectsAdapter;
     SkillAdapter mSkillsAdapter;
+    ExperienceAdapter mExperienceAdapter;
 
     List<Project> projects = new ArrayList<>();
     List<Skill> skills = new ArrayList<>();
+    List<Experience> mExperiences = new ArrayList<>();
 
     private LinearLayout dotsLayout;
     private TextView[] dots;
@@ -123,6 +127,16 @@ public class ProfileActivity extends AppCompatActivity {
         mSkillsRecyclerView.setAdapter(mSkillsAdapter);
 
 
+        mExperienceAdapter = new ExperienceAdapter(mExperiences, ProfileActivity.this);
+        mExperiencesRecyclerView = (RecyclerView) findViewById(R.id.experienceRecyclerView);
+        mExperiencesRecyclerView.setAdapter(mExperienceAdapter);
+
+        LinearLayoutManager expVertLayoutManager
+                = new LinearLayoutManager(ProfileActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        mExperiencesRecyclerView.setLayoutManager(expVertLayoutManager);
+
+
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -187,6 +201,18 @@ public class ProfileActivity extends AppCompatActivity {
 
                 }
                 mSkillsAdapter.notifyDataSetChanged();
+
+
+                mExperiences.clear();
+                for (DataSnapshot snapshot : dataSnapshot.child("experience").getChildren()){
+                    Experience experience  = new Experience();
+                    experience.setCompanyName((String) snapshot.child("company_name").getValue());
+                    experience.setPosition((String) snapshot.child("job_position").getValue());
+                    experience.setStartYear( snapshot.child("startYear").getValue().toString());
+                    experience.setEndYear((String) snapshot.child("endYear").getValue());
+                    mExperiences.add(experience);
+                }
+                mExperienceAdapter.notifyDataSetChanged();
 
 
             }

@@ -25,7 +25,7 @@
         <activity android:name=".ChatActivityThembisa" />
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
-        <activity android:name=".ExperienceActivity" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity">
