@@ -94,9 +94,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/users/").child(currentUser.getUid());
-        mStoragereference = FirebaseStorage.getInstance().getReference()
-                .child("verified_user_profile_photos");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid());
+        mStoragereference = FirebaseStorage.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid());
         userNameEditText = (EditText) findViewById(R.id.name_editView);
         userSurnameEditText = (EditText) findViewById(R.id.surnameEditText);
         userCurrentOccupation = (EditText) findViewById(R.id.occpateEditText);
@@ -124,7 +123,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 items.setActiveUserStatus(mStatusSpinner.getSelectedItem().toString());
                 items.setActiveUserEmail(userEmailEditText.getText().toString());
                 items.setActiveUserNumber(userPhoneNumber.getText().toString());
-                items.setActiveUserImageUrl(currentUser.getPhotoUrl().toString());
+                items.setActiveUserImageUrl(null);
                 items.setActiveUserTribe(mCodeTribeSpinner.getSelectedItem().toString());
                 mDatabaseReference.setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

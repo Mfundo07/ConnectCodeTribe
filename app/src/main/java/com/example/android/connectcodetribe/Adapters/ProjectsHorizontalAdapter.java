@@ -1,6 +1,8 @@
 package com.example.android.connectcodetribe.Adapters;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +52,11 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
             @Override
             public void onClick(View view) {
                 //Open project
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse(mProjects.get(position).getProjectUrl()));
+                activity.startActivity(intent);
             }
         });
         ((ProfileActivity) activity).addBottomDots(position);

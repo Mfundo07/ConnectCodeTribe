@@ -31,6 +31,7 @@
 
 
     <color name="black_overlay">#66000000</color>
+    <color name="grey_300">#E0E0E0</color>
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen1">#d1395c</color>

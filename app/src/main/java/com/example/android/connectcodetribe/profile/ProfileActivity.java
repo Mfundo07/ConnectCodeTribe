@@ -157,6 +157,7 @@ public class ProfileActivity extends AppCompatActivity {
                         intent.addCategory(Intent.CATEGORY_BROWSABLE);
                         intent.setData(Uri.parse(gihubLink));
                         startActivity(intent);
+
                     }
                 });
                 btnCodeTribe.setOnClickListener(new View.OnClickListener() {
