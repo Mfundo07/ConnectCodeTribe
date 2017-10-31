@@ -120,18 +120,19 @@
             <TextView
                 android:id="@+id/userBio"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
+                android:maxLines="4"
                 android:gravity="center" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/moreOnUserBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="View More"
+                app:srcCompat="@drawable/ic_expand_more"
                 android:textSize="11sp" />
 
         </LinearLayout>

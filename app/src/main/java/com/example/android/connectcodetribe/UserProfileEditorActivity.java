@@ -94,7 +94,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid());
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto");
         mStoragereference = FirebaseStorage.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid());
         userNameEditText = (EditText) findViewById(R.id.name_editView);
         userSurnameEditText = (EditText) findViewById(R.id.surnameEditText);
@@ -223,17 +223,17 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()){
-                    userNameEditText.setText((String) dataSnapshot.child("activeUserName").getValue());
-                    if (dataSnapshot.child("activeUserEmail").getValue() == null){
+                    userNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserName").getValue());
+                    if (dataSnapshot.child(currentUser.getUid()).child("activeUserEmail").getValue() == null){
                     userEmailEditText.setText(currentUser.getEmail());}
                     else{
-                        userEmailEditText.setText((String)dataSnapshot.child("activeUserEmail").getValue());
+                        userEmailEditText.setText((String)dataSnapshot.child(currentUser.getUid()).child("activeUserEmail").getValue());
                     }
-                    userSurnameEditText.setText((String) dataSnapshot.child("activeUserSurname").getValue());
-                    userCurrentOccupation.setText((String) dataSnapshot.child("activeUserOccupation").getValue());
-                    userPhoneNumber.setText((String) dataSnapshot.child("activeUserNumber").getValue());
+                    userSurnameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserSurname").getValue());
+                    userCurrentOccupation.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserOccupation").getValue());
+                    userPhoneNumber.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserNumber").getValue());
                     Glide.with(profileImage.getContext())
-                            .load((String) dataSnapshot.child("activeUserImageUrl").getValue())
+                            .load((String) dataSnapshot.child("0").child("display_picture").getValue())
                             .into(profileImage);
                 }
 

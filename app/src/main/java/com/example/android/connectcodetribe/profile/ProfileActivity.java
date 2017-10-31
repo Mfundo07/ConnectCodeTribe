@@ -1,9 +1,11 @@
 package com.example.android.connectcodetribe.profile;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,6 +33,8 @@ import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +54,8 @@ public class ProfileActivity extends AppCompatActivity {
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
-    Button skillName, editExperience;
+    Button skillName;
+    private  ImageButton viewMoreButton;
 
     RecyclerView mSkillsRecyclerView, mProjectsRecyclerView, mExperiencesRecyclerView;
 
@@ -63,7 +69,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private LinearLayout dotsLayout;
     private TextView[] dots;
-    private
+    FirebaseUser currentUser;
+    private boolean expandable = true;
 
     Toolbar toolbar;
     Toolbar toolbar1;
@@ -89,7 +96,8 @@ public class ProfileActivity extends AppCompatActivity {
         addBottomDots(0);
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto");
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
         mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
@@ -100,6 +108,8 @@ public class ProfileActivity extends AppCompatActivity {
         userImage = (ImageView) findViewById(R.id.userImage);
         skillName = (Button) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
+        viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
+
         editPen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,15 +150,50 @@ public class ProfileActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
-                mBio.setText((String) dataSnapshot.child("bio").getValue());
-                mStatus.setText((String) dataSnapshot.child("status").getValue());
+                mBio.setText((String) dataSnapshot.child("0").child("bio").getValue());
+                mStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserStatus").getValue());
                 Glide.with(userImage.getContext())
-                        .load((String) dataSnapshot.child("display_picture").getValue())
+                        .load((String) dataSnapshot.child("0").child("display_picture").getValue())
                         .into(userImage);
-                toolbar.setTitle((String) dataSnapshot.child("name").getValue());
+                toolbar.setTitle((String) dataSnapshot.child(currentUser.getUid()).child("activeUserName").getValue() + " " +
+                        (String) dataSnapshot.child(currentUser.getUid()).child("activeUserSurname").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
-                gihubLink = (String) dataSnapshot.child("github_link").getValue();
-                mCodeTribe.setText((String) dataSnapshot.child("codeTribe").getValue());
+                mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        if (expandable){
+                            expandable = false;
+                            if (mBio.getLineCount() > 4){
+                                viewMoreButton.setVisibility(View.VISIBLE);
+                                ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
+                                animation.setDuration(0).start();
+
+
+                            }
+                        }
+                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                });
+                 viewMoreButton.setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View view) {
+                         if (!expandable){
+                             expandable = true;
+                             ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", mBio.length());
+                             animation.setDuration(100).start();
+                             viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_less));
+
+                         }else{
+                             expandable = false;
+                             ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
+                             animation.setDuration(100).start();
+                             viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_more));
+                         }
+                     }
+                 });
+
+                gihubLink = (String) dataSnapshot.child("0").child("github_link").getValue();
+                mCodeTribe.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserTribe").getValue());
                 btnGithubLink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -163,7 +208,7 @@ public class ProfileActivity extends AppCompatActivity {
                 btnCodeTribe.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String codeTribeName = (String) dataSnapshot.child("codeTribe").getValue();
+                        String codeTribeName = (String) dataSnapshot.child(currentUser.getUid()).child("activeUserTribe").getValue();
                         if (codeTribeName.equals("Soweto")){
                             Intent intent = new Intent(ProfileActivity.this, ChatActivitySoweto.class);
                             startActivity(intent);
@@ -181,7 +226,7 @@ public class ProfileActivity extends AppCompatActivity {
                 });
 
                 projects.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.child("0").child("projects").getChildren()) {
                     Project project = new Project();
                     project.setProjectDisplayPicture((String) snapshot.child("snapshot").getValue());
                     project.setProjectTitle((String) snapshot.child("name").getValue());
@@ -193,7 +238,7 @@ public class ProfileActivity extends AppCompatActivity {
                 mProjectsAdapter.notifyDataSetChanged();
 
                 skills.clear();
-                for (DataSnapshot _snapshot : dataSnapshot.child("skills").getChildren()) {
+                for (DataSnapshot _snapshot : dataSnapshot.child("0").child("skills").getChildren()) {
                     Skill skill = new Skill();
                     skill.setSkillLevel(Long.parseLong(_snapshot.child("level").getValue().toString()));
                     skill.setTitle((String) _snapshot.child("title").getValue());
@@ -205,7 +250,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
                 mExperiences.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child("experience").getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.child("0").child("experience").getChildren()){
                     Experience experience  = new Experience();
                     experience.setCompanyName((String) snapshot.child("company_name").getValue());
                     experience.setPosition((String) snapshot.child("job_position").getValue());

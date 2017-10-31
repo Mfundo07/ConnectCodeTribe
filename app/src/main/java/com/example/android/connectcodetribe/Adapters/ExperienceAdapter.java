@@ -17,8 +17,11 @@ import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.profile.ProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -82,12 +85,28 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
                                     Toast.makeText(mActivity, "Experience Updated", Toast.LENGTH_SHORT).show();
-                                    mActivity.finish();
+                                    builder.create().cancel();
 
                                 }
 
                             }
                         });
+                        myRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                startYear.setText((String) dataSnapshot.child("startYear").getValue());
+                                endYear.setText((String)dataSnapshot.child("endYear").getValue());
+                                jobPosition.setText((String) dataSnapshot.child("job_position").getValue());
+                                companyName.setText((String) dataSnapshot.child("company_name").getValue());
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
+
 
 
                     }
