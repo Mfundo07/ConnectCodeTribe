@@ -94,7 +94,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mStoragereference = FirebaseStorage.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid());
         userNameEditText = (EditText) findViewById(R.id.name_editView);
         userSurnameEditText = (EditText) findViewById(R.id.surnameEditText);
@@ -125,7 +125,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 items.setActiveUserNumber(userPhoneNumber.getText().toString());
                 items.setActiveUserImageUrl(null);
                 items.setActiveUserTribe(mCodeTribeSpinner.getSelectedItem().toString());
-                mDatabaseReference.setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mDatabaseReference.child("0").setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
