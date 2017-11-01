@@ -97,7 +97,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto");
+        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
         mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
@@ -150,13 +150,12 @@ public class ProfileActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
-                mBio.setText((String) dataSnapshot.child("0").child("bio").getValue());
-                mStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserStatus").getValue());
+                mBio.setText((String) dataSnapshot.child("bio").getValue());
+                mStatus.setText((String) dataSnapshot.child("status").getValue());
                 Glide.with(userImage.getContext())
-                        .load((String) dataSnapshot.child("0").child("display_picture").getValue())
+                        .load((String) dataSnapshot.child("display_picture").getValue())
                         .into(userImage);
-                toolbar.setTitle((String) dataSnapshot.child(currentUser.getUid()).child("activeUserName").getValue() + " " +
-                        (String) dataSnapshot.child(currentUser.getUid()).child("activeUserSurname").getValue());
+                toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
@@ -192,8 +191,8 @@ public class ProfileActivity extends AppCompatActivity {
                      }
                  });
 
-                gihubLink = (String) dataSnapshot.child("0").child("github_link").getValue();
-                mCodeTribe.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserTribe").getValue());
+                gihubLink = (String) dataSnapshot.child("github_link").getValue();
+                mCodeTribe.setText((String) dataSnapshot.child("0").child("tribe").getValue());
                 btnGithubLink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -208,7 +207,7 @@ public class ProfileActivity extends AppCompatActivity {
                 btnCodeTribe.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String codeTribeName = (String) dataSnapshot.child(currentUser.getUid()).child("activeUserTribe").getValue();
+                        String codeTribeName = (String) dataSnapshot.child("tribe").getValue();
                         if (codeTribeName.equals("Soweto")){
                             Intent intent = new Intent(ProfileActivity.this, ChatActivitySoweto.class);
                             startActivity(intent);
@@ -226,7 +225,7 @@ public class ProfileActivity extends AppCompatActivity {
                 });
 
                 projects.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child("0").child("projects").getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
                     Project project = new Project();
                     project.setProjectDisplayPicture((String) snapshot.child("snapshot").getValue());
                     project.setProjectTitle((String) snapshot.child("name").getValue());
@@ -238,9 +237,9 @@ public class ProfileActivity extends AppCompatActivity {
                 mProjectsAdapter.notifyDataSetChanged();
 
                 skills.clear();
-                for (DataSnapshot _snapshot : dataSnapshot.child("0").child("skills").getChildren()) {
+                for (DataSnapshot _snapshot : dataSnapshot.child("skills").getChildren()) {
                     Skill skill = new Skill();
-                    skill.setSkillLevel(Long.parseLong(_snapshot.child("level").getValue().toString()));
+                    //skill.setSkillLevel(Long.parseLong( _snapshot.child("level").getValue().toString()));
                     skill.setTitle((String) _snapshot.child("title").getValue());
                     System.out.println(skill.toMap());
                     skills.add(skill);
@@ -250,12 +249,12 @@ public class ProfileActivity extends AppCompatActivity {
 
 
                 mExperiences.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child("0").child("experience").getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.child("experience").getChildren()){
                     Experience experience  = new Experience();
                     experience.setCompanyName((String) snapshot.child("company_name").getValue());
                     experience.setPosition((String) snapshot.child("job_position").getValue());
                     experience.setStartYear( snapshot.child("startYear").getValue().toString());
-                    experience.setEndYear((String) snapshot.child("endYear").getValue());
+                    experience.setEndYear( snapshot.child("endYear").getValue().toString());
                     mExperiences.add(experience);
                 }
                 mExperienceAdapter.notifyDataSetChanged();
