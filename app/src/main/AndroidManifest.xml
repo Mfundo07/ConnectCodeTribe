@@ -38,6 +38,8 @@
         <activity android:name=".ProfileActivity_first" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".QualificationActivity" />
+        <activity android:name=".ExperienceActivity"/>
+        <activity android:name=".EditExperienceActivity"/>
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity">
         </activity>

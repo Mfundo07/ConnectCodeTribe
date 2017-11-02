@@ -213,6 +213,13 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/Add"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/add"
+                android:layout_gravity="right"/>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/experienceRecyclerView"
                 android:layout_width="match_parent"

@@ -12,6 +12,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
 
+
+
     Button addExperience;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
@@ -22,6 +24,9 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.model);
+
+
+
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/ExperienceAdapter/").child(mAuth.getUid());
         mAuth = FirebaseAuth.getInstance().getCurrentUser();

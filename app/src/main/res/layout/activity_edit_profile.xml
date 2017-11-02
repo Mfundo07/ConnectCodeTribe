@@ -189,7 +189,7 @@
                             android:gravity="center"
                             android:id="@+id/cell_editTextView"
                             android:textColor="#000"
-                            android:hint="e.g 011 984 4608" />
+                            android:hint="e.g 072 984 4608" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"

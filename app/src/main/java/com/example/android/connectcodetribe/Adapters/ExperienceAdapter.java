@@ -44,7 +44,7 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
         holder.companyName.setText(mExperiences.get(position).getCompanyName());
         holder.positionName.setText(mExperiences.get(position).getPosition());
         holder.workingPeriod.setText(mExperiences.get(position).getStartYear() + "  - " +
-        mExperiences.get(position).getEndYear());
+                mExperiences.get(position).getEndYear());
         holder.mView.setOnClickListener(new View.OnClickListener() {
             EditText startYear,companyName, jobPosition, endYear;
             @Override

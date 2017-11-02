@@ -29,6 +29,7 @@ import com.example.android.connectcodetribe.ChatActivityAlexandra;
 import com.example.android.connectcodetribe.ChatActivityPretoria;
 import com.example.android.connectcodetribe.ChatActivitySoweto;
 import com.example.android.connectcodetribe.ChatActivityThembisa;
+import com.example.android.connectcodetribe.EditExperienceActivity;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Project;
@@ -77,6 +78,8 @@ public class ProfileActivity extends AppCompatActivity {
     Toolbar toolbar;
     Toolbar toolbar1;
     private FloatingActionButton editPen;
+
+    Button add;
 
 
     @Override
@@ -179,23 +182,23 @@ public class ProfileActivity extends AppCompatActivity {
                         mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
-                 viewMoreButton.setOnClickListener(new View.OnClickListener() {
-                     @Override
-                     public void onClick(View view) {
-                         if (!expandable){
-                             expandable = true;
-                             ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", mBio.length());
-                             animation.setDuration(100).start();
-                             viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_less));
+                viewMoreButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!expandable){
+                            expandable = true;
+                            ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", mBio.length());
+                            animation.setDuration(100).start();
+                            viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_less));
 
-                         }else{
-                             expandable = false;
-                             ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
-                             animation.setDuration(100).start();
-                             viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_more));
-                         }
-                     }
-                 });
+                        }else{
+                            expandable = false;
+                            ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
+                            animation.setDuration(100).start();
+                            viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_more));
+                        }
+                    }
+                });
 
                 gihubLink = (String) dataSnapshot.child("github_link").getValue();
                 mCodeTribe.setText((String) dataSnapshot.child("0").child("tribe").getValue());
@@ -263,6 +266,19 @@ public class ProfileActivity extends AppCompatActivity {
 
                 }
                 mSkillsAdapter.notifyDataSetChanged();
+
+                add = (Button)findViewById(R.id.Add);
+
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(ProfileActivity.this, EditExperienceActivity.class);
+                        startActivity(intent);
+
+                    }
+
+                });
 
 
                 mExperiences.clear();
