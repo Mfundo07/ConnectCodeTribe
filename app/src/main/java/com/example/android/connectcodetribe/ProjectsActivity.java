@@ -20,7 +20,7 @@ public class ProjectsActivity extends AppCompatActivity {
         setContentView(R.layout.viewing_project_feature_layout);
 
 
-        ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
+        //ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
 
 
         ProjectImage.setOnClickListener(new View.OnClickListener() {

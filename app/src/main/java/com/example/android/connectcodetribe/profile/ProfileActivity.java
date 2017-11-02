@@ -165,7 +165,6 @@ public class ProfileActivity extends AppCompatActivity {
                         .into(userImage);
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
-                mCodeTribe.setText((String) dataSnapshot.child("tribe").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
@@ -182,23 +181,23 @@ public class ProfileActivity extends AppCompatActivity {
                         mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
-                 viewMoreButton.setOnClickListener(new View.OnClickListener() {
-                     @Override
-                     public void onClick(View view) {
-                         if (!expandable){
-                             expandable = true;
-                             ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", mBio.length());
-                             animation.setDuration(100).start();
-                             viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_less));
+                viewMoreButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!expandable){
+                            expandable = true;
+                            ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", mBio.length());
+                            animation.setDuration(100).start();
+                            viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_less));
 
-                         }else{
-                             expandable = false;
-                             ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
-                             animation.setDuration(100).start();
-                             viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_more));
-                         }
-                     }
-                 });
+                        }else{
+                            expandable = false;
+                            ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
+                            animation.setDuration(100).start();
+                            viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_more));
+                        }
+                    }
+                });
 
                 gihubLink = (String) dataSnapshot.child("github_link").getValue();
                 mCodeTribe.setText((String) dataSnapshot.child("0").child("tribe").getValue());
