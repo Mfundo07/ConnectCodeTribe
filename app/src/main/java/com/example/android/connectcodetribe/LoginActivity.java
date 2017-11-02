@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Log.w(TAG, "signInWithCredential", task.getException());
                             Util.initToast(LoginActivity.this,"Authentication failed");
                         } else {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            startActivity(new Intent(LoginActivity.this, com.example.android.connectcodetribe.profile.ProfileActivity.class));
                             finish();
                         }
                     }

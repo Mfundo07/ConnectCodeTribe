@@ -28,6 +28,7 @@ import com.example.android.connectcodetribe.ChatActivityAlexandra;
 import com.example.android.connectcodetribe.ChatActivityPretoria;
 import com.example.android.connectcodetribe.ChatActivitySoweto;
 import com.example.android.connectcodetribe.ChatActivityThembisa;
+import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
@@ -97,6 +98,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null){
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
