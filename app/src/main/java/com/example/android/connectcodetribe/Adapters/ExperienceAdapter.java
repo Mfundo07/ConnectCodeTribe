@@ -1,13 +1,12 @@
 package com.example.android.connectcodetribe.Adapters;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,8 +14,6 @@ import android.widget.Toast;
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.profile.ProfileActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,23 +53,15 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
                 final AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
                 LayoutInflater inflater = LayoutInflater.from(holder.itemView.getContext());
                 View dialogView = inflater.inflate(R.layout.input_dialog, null);
-                Button updateInfo = dialogView.findViewById(R.id.update);
                 startYear = dialogView.findViewById(R.id.startYearEditText);
                 companyName = dialogView.findViewById(R.id.companyNameEditText);
                 jobPosition = dialogView.findViewById(R.id.positionEditText);
                 endYear = dialogView.findViewById(R.id.endYearEditText);
-
-
-
-
-                updateInfo.setOnClickListener(new View.OnClickListener() {
+                builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     FirebaseDatabase database;
                     DatabaseReference myRef;
-
-
-
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(DialogInterface dialogInterface, int i) {
                         database = FirebaseDatabase.getInstance();
                         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0").child("experience").child("0");
                         Experience item = new Experience();
@@ -80,17 +69,9 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
                         item.setEndYear(endYear.getText().toString());
                         item.setPosition(jobPosition.getText().toString());
                         item.setCompanyName(companyName.getText().toString());
-                        myRef.setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    Toast.makeText(mActivity, "Experience Updated", Toast.LENGTH_SHORT).show();
-                                    builder.create().cancel();
+                        myRef.setValue(item.toMap());
 
-                                }
 
-                            }
-                        });
                         myRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -105,13 +86,21 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
 
                             }
                         });
-
-
-
+                        Toast.makeText(mActivity, "Data Updated", Toast.LENGTH_SHORT).show();
+                        dialogInterface.cancel();
 
                     }
+                }).setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
 
+                    }
                 });
+
+
+
+
                 builder.setView(dialogView);
                 final AlertDialog alertDialog = builder.create();
                 alertDialog.show();

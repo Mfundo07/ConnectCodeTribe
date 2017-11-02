@@ -106,19 +106,6 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center">
-            <Button
-                android:id="@+id/update"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:background="@drawable/button_orange"
-                android:text="update"/>
-        </LinearLayout>
     </LinearLayout>
 
 
