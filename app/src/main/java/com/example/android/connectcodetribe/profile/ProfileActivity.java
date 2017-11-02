@@ -34,6 +34,7 @@ import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
+import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -53,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
     DatabaseReference myRef;
 
     TextView mBio, mStatus, mCodeTribe, userName, userDescription;
-    ImageButton btnStatus, btnGithubLink, btnCodeTribe;
+    ImageButton btnStatus, btnGithubLink, btnCodeTribe, btnAddProject;
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
@@ -113,6 +114,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnCodeTribe = (ImageButton) findViewById(R.id.userCodeTribeImage);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
+        btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         userName = (TextView) findViewById(R.id.userName);
         userImage = (ImageView) findViewById(R.id.userImage);
         skillName = (Button) findViewById(R.id.skill_display_picture);
@@ -166,7 +168,6 @@ public class ProfileActivity extends AppCompatActivity {
                         .into(userImage);
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
-                mCodeTribe.setText((String) dataSnapshot.child("tribe").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
@@ -242,6 +243,14 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         startActivity(new Intent(ProfileActivity.this, ActiveUserActivity.class));
+                    }
+                });
+
+                btnAddProject.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(ProfileActivity.this,ProjectsActivity.class);
+                        startActivity(intent);
                     }
                 });
 
