@@ -21,7 +21,7 @@
         <ImageButton
             android:id="@+id/ProjectImage"
             android:layout_width="match_parent"
-            android:layout_height="341dp"
+            android:layout_height="324dp"
             android:adjustViewBounds="true"
             android:background="@drawable/ic_photocamera"
             android:scaleType="centerCrop" />
@@ -29,18 +29,18 @@
         <EditText
             android:id="@+id/post_Title"
             android:layout_width="match_parent"
-            android:layout_height="114dp"
+            android:layout_height="59dp"
+            android:hint="Project Title...."
             android:onClick="setTitle"
             android:padding="10dp"
-            android:hint="Project Title...."
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/post_Desc"
             android:layout_width="match_parent"
-            android:layout_height="119dp"
-            android:padding="10dp"
+            android:layout_height="wrap_content"
             android:hint="Project Link"
+            android:padding="10dp"
             android:textStyle="italic" />
 
 
