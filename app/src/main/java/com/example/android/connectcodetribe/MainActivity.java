@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.ViewPagerAdapter;
 import com.example.android.connectcodetribe.Fragments.CodeTribesFragment;
-import com.example.android.connectcodetribe.Fragments.ItemFragment;
 import com.example.android.connectcodetribe.Fragments.PortfolioFragment;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +19,6 @@ import com.google.firebase.storage.FirebaseStorage;
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
-    ItemFragment chatFragment;
     CodeTribesFragment codeTribeFragment;
     PortfolioFragment portfolioFragment;
     MenuItem prevMenuItem;
@@ -49,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.navigation_chat:
-                                viewPager.setCurrentItem(2);
-                                break;
                             case R.id.navigation_codeTribes:
                                 viewPager.setCurrentItem(0);
                                 break;
@@ -96,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager)
     {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        chatFragment=new ItemFragment();
         codeTribeFragment=new CodeTribesFragment();
         portfolioFragment=new PortfolioFragment();
         adapter.addFragment(codeTribeFragment);

@@ -1,5 +1,6 @@
-package com.example.android.connectcodetribe.Fragments;
+package com.example.android.connectcodetribe;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
 import com.example.android.connectcodetribe.Model.ActiveUser;
-import com.example.android.connectcodetribe.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemFragment extends android.support.v4.app.Fragment {
+public class ItemFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";

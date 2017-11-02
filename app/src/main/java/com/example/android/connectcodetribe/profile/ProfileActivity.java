@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.android.connectcodetribe.ActiveUserActivity;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Adapters.SkillAdapter;
@@ -214,18 +215,29 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         String codeTribeName = (String) dataSnapshot.child("tribe").getValue();
                         if (codeTribeName.equals("Soweto")){
+                            mCodeTribe.setText(codeTribeName);
                             Intent intent = new Intent(ProfileActivity.this, ChatActivitySoweto.class);
                             startActivity(intent);
                         }else if (codeTribeName.equals("Tembisa")){
+                            mCodeTribe.setText(codeTribeName);
                             Intent intent = new Intent(ProfileActivity.this,ChatActivityThembisa.class);
                             startActivity(intent);
                         }else if (codeTribeName.equals("Pretoria")){
+                            mCodeTribe.setText(codeTribeName);
                             Intent intent = new Intent(ProfileActivity.this,ChatActivityPretoria.class);
                             startActivity(intent);
                         }else{
+                            mCodeTribe.setText(codeTribeName);
                             Intent intent = new Intent(ProfileActivity.this,ChatActivityAlexandra.class);
                             startActivity(intent);
                         }
+
+                    }
+                });
+                btnStatus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(ProfileActivity.this, ActiveUserActivity.class));
                     }
                 });
 
@@ -266,6 +278,8 @@ public class ProfileActivity extends AppCompatActivity {
 
 
             }
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
