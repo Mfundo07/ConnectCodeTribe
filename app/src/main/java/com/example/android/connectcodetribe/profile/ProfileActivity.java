@@ -163,6 +163,7 @@ public class ProfileActivity extends AppCompatActivity {
                         .into(userImage);
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
+                mCodeTribe.setText((String) dataSnapshot.child("tribe").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
