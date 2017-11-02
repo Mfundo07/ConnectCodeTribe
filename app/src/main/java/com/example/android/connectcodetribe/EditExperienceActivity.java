@@ -36,7 +36,7 @@ public class EditExperienceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_input_experience);
 
-        startYear = (EditText)findViewById(R.id.startYearEditText);
+        startYear =  (EditText)findViewById(R.id.startYearEditText);
         endYear =(EditText)findViewById(R.id.endYearEditText);
         companyName =(EditText)findViewById(R.id.companyNameEditText);
         position = (EditText)findViewById(R.id.positionEditText);
