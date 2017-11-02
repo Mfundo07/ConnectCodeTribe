@@ -12,7 +12,7 @@ public class ProjectsActivity extends AppCompatActivity {
     private ImageButton ProjectImage;
     private static final int GALLERY_REQUEST = 1;
 
-    private static final int CAMERA_REQUEST_CODE = 1;
+    private static final int CAMERA_REQUEST_CODE  = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
