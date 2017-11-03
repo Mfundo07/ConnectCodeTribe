@@ -13,7 +13,8 @@ import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -60,10 +61,12 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
                 builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     FirebaseDatabase database;
                     DatabaseReference myRef;
+                    FirebaseUser currentUser;
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         database = FirebaseDatabase.getInstance();
-                        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0").child("experience").child("experience0");
+                        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0").child("experience");
                         Experience item = new Experience();
                         item.setStartYear(startYear.getText().toString());
                         item.setEndYear(endYear.getText().toString());
@@ -109,7 +112,9 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
             }
 
         });
-        ((ProfileActivity)mActivity).addBottomDots(position);
+
+
+
 
 
     }

@@ -47,8 +47,7 @@ public class EditExperienceActivity extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid()).child("experience");
-
+        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0").child("experience");
 
 
         addBtn.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +58,7 @@ public class EditExperienceActivity extends AppCompatActivity {
                 item.setEndYear(endYear.getText().toString());
                 item.setPosition(position.getText().toString());
                 item.setCompanyName(companyName.getText().toString());
-                myRef.setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                myRef.push().setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(EditExperienceActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();

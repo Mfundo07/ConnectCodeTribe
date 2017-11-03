@@ -291,6 +291,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 mExperiences.clear();
                 for (DataSnapshot snapshot : dataSnapshot.child("experience").getChildren()){
+
                     Experience experience  = new Experience();
                     experience.setCompanyName((String) snapshot.child("company_name").getValue());
                     experience.setPosition((String) snapshot.child("job_position").getValue());
