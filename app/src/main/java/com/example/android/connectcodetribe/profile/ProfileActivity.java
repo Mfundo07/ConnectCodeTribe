@@ -55,6 +55,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView mBio, mStatus, mCodeTribe, userName, userDescription;
     ImageButton btnStatus, btnGithubLink, btnCodeTribe, btnAddProject;
+    Button btnAddExperience;
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
@@ -120,6 +121,7 @@ public class ProfileActivity extends AppCompatActivity {
         skillName = (Button) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
+        btnAddExperience = (Button) findViewById(R.id.AddExperience);
 
         editPen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,6 +157,13 @@ public class ProfileActivity extends AppCompatActivity {
         LinearLayoutManager expVertLayoutManager
                 = new LinearLayoutManager(ProfileActivity.this, LinearLayoutManager.HORIZONTAL, false);
         mExperiencesRecyclerView.setLayoutManager(expVertLayoutManager);
+
+        btnAddExperience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, EditExperienceActivity.class));
+            }
+        });
 
 
 
@@ -277,18 +286,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 mSkillsAdapter.notifyDataSetChanged();
 
-                add = (Button)findViewById(R.id.Add);
 
-                add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Intent intent = new Intent(ProfileActivity.this, EditExperienceActivity.class);
-                        startActivity(intent);
-
-                    }
-
-                });
 
 
                 mExperiences.clear();

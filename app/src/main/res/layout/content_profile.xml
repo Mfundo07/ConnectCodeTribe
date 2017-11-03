@@ -220,7 +220,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/Add"
+                android:id="@+id/AddExperience"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/add"

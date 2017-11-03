@@ -1,19 +1,21 @@
 package com.example.android.connectcodetribe;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.Experience;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by Admin on 11/2/2017.
@@ -29,6 +31,7 @@ public class EditExperienceActivity extends AppCompatActivity {
 
     DatabaseReference myRef;
     FirebaseDatabase database;
+    FirebaseUser currentUser;
 
 
     @Override
@@ -41,41 +44,33 @@ public class EditExperienceActivity extends AppCompatActivity {
         companyName =(EditText)findViewById(R.id.companyNameEditText);
         position = (EditText)findViewById(R.id.positionEditText);
         addBtn = (Button)findViewById(R.id.Addbtn);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         database = FirebaseDatabase.getInstance();
-        //myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0").child("experience").child("0");
+        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid()).child("experience");
 
-        Experience item = new Experience();
-        item.setStartYear(startYear.getText().toString());
-        item.setEndYear(endYear.getText().toString());
-        item.setPosition(position.getText().toString());
-        item.setCompanyName(companyName.getText().toString());
-        myRef.setValue(item.toMap());
+
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EditExperienceActivity.this, ExperienceActivity.class);
-                startActivity(intent);
-            }
-        });
+                Experience item = new Experience();
+                item.setStartYear(startYear.getText().toString());
+                item.setEndYear(endYear.getText().toString());
+                item.setPosition(position.getText().toString());
+                item.setCompanyName(companyName.getText().toString());
+                myRef.setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(EditExperienceActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
+                        finish();
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-               // EditExperienceActivity values = dataSnapshot.getValue(EditExperienceActivity.class);
-
-                startYear.setText((String)dataSnapshot.child("startYear").getValue());
-                endYear.setText((String)dataSnapshot.child("endYear").getValue());
-                companyName.setText((String)dataSnapshot.child("company_name").getValue());
-                position.setText((String)dataSnapshot.child("job_position").getValue());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
 
             }
         });
+
 
        // Toast.makeText(EditExperienceActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
 
