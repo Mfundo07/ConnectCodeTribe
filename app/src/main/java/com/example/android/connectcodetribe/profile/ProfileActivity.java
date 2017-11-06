@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.ActiveUserActivity;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
@@ -172,9 +171,9 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mStatus.setText((String) dataSnapshot.child("status").getValue());
-               Glide.with(userImage.getContext())
-                        .load((String) dataSnapshot.child("display_picture").getValue())
-                .into(userImage);
+               //Glide.with(userImage.getContext())
+                        //.load((String) dataSnapshot.child("display_picture").getValue())
+                //.into(userImage);
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
