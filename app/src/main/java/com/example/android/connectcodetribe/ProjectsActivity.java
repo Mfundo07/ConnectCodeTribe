@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class ProjectsActivity extends AppCompatActivity {
     private Uri filepath;
     private final int PICK_IMAGE_REQUEST = 71;
     DatabaseReference mRef;
+    private EditText mProjectTitle, mProjectLink;
 
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -60,6 +62,8 @@ public class ProjectsActivity extends AppCompatActivity {
         ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
         ButUpload = (Button) findViewById(R.id.ButUpload);
         mRef = FirebaseDatabase.getInstance().getReference().child("/projects/");
+        mProjectTitle = (EditText) findViewById(R.id.post_Title);
+        mProjectLink = (EditText) findViewById(R.id.post_Desc);
 
         ProjectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,10 +99,16 @@ public class ProjectsActivity extends AppCompatActivity {
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             Project item = new Project();
                             item.setProjectDisplayPicture(downloadUri.toString());
+                            item.setProjectTitle(mProjectTitle.getText().toString());
+                            item.setProjectUrl(mProjectLink.getText().toString());
                             mRef.push().setValue(item);
 
                             progressDialog.dismiss();
-                            Toast.makeText(ProjectsActivity.this, "Project Upload successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProjectsActivity.this, "Project Upload Successful", Toast.LENGTH_SHORT).show();
+                            ProjectImage.setImageResource(R.drawable.ic_photocamera);
+                            mProjectTitle.setText("");
+                            mProjectLink.setText("");
+                            finish();
 
 
 
