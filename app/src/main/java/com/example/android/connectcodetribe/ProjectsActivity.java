@@ -86,7 +86,7 @@ public class ProjectsActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
-                            Toast.makeText(ProjectsActivity.this, "Project Upload successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProjectsActivity.this, "Project Upload Successful", Toast.LENGTH_SHORT).show();
 
 
 

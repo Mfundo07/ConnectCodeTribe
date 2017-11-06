@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Project Link"
                 android:padding="10dp"
+                android:inputType="textEmailAddress"
                 android:textStyle="italic" />
 
             <Button
