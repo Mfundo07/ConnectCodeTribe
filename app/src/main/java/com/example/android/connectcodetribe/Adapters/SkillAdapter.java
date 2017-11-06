@@ -42,7 +42,7 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
         holder.mTitle.setText(mSkills.get(position).getTitle());
         /*
         Glide.with(activity)
-                .load(mSkills.get(position).getProjectDisplayPicture())
+                .load(mSkills.get(position).getSnapshot())
                 .into(holder.projectDisplayPicture);
                 */
 

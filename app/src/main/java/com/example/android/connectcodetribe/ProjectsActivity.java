@@ -61,7 +61,7 @@ public class ProjectsActivity extends AppCompatActivity {
         //Init view
         ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
         ButUpload = (Button) findViewById(R.id.ButUpload);
-        mRef = FirebaseDatabase.getInstance().getReference().child("/projects/");
+        mRef = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mProjectTitle = (EditText) findViewById(R.id.post_Title);
         mProjectLink = (EditText) findViewById(R.id.post_Desc);
 
@@ -98,10 +98,10 @@ public class ProjectsActivity extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             Project item = new Project();
-                            item.setProjectDisplayPicture(downloadUri.toString());
-                            item.setProjectTitle(mProjectTitle.getText().toString());
-                            item.setProjectUrl(mProjectLink.getText().toString());
-                            mRef.push().setValue(item);
+                            item.setSnapshot(downloadUri.toString());
+                            item.setName(mProjectTitle.getText().toString());
+                            item.setGithub_link(mProjectLink.getText().toString());
+                            mRef.child("projects").push().setValue(item);
 
                             progressDialog.dismiss();
                             Toast.makeText(ProjectsActivity.this, "Project Upload Successful", Toast.LENGTH_SHORT).show();
