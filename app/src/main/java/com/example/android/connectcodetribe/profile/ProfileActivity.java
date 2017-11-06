@@ -172,9 +172,9 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mStatus.setText((String) dataSnapshot.child("status").getValue());
-                Glide.with(userImage.getContext())
+               Glide.with(userImage.getContext())
                         .load((String) dataSnapshot.child("display_picture").getValue())
-                        .into(userImage);
+                .into(userImage);
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -266,9 +266,9 @@ public class ProfileActivity extends AppCompatActivity {
                 projects.clear();
                 for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
                     Project project = new Project();
-                    project.setProjectDisplayPicture((String) snapshot.child("snapshot").getValue());
-                    project.setProjectTitle((String) snapshot.child("name").getValue());
-                    project.setProjectUrl((String) snapshot.child("github_link").getValue());
+                    project.setSnapshot((String) snapshot.child("snapshot").getValue());
+                    project.setName((String) snapshot.child("name").getValue());
+                    project.setGithub_link((String) snapshot.child("github_link").getValue());
                     System.out.println(project.toMap());
                     projects.add(project);
                 }
@@ -335,3 +335,4 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 }
+

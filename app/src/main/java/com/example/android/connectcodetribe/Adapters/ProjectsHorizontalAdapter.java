@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 
 import java.util.List;
 
@@ -43,9 +42,9 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mProjects.get(position);
-        holder.mTitle.setText(mProjects.get(position).getProjectTitle());
+        holder.mTitle.setText(mProjects.get(position).getName());
         Glide.with(activity)
-                .load(mProjects.get(position).getProjectDisplayPicture())
+                .load(mProjects.get(position).getSnapshot())
                 .into(holder.projectDisplayPicture);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -55,11 +54,10 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(mProjects.get(position).getProjectUrl()));
+                intent.setData(Uri.parse(mProjects.get(position).getGithub_link()));
                 activity.startActivity(intent);
             }
         });
-        ((ProfileActivity) activity).addBottomDots(position);
     }
 
     @Override

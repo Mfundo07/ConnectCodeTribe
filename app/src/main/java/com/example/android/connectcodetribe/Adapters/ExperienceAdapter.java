@@ -65,14 +65,15 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         database = FirebaseDatabase.getInstance();
+                        Experience item = new Experience();
                         currentUser = FirebaseAuth.getInstance().getCurrentUser();
                         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0").child("experience");
-                        Experience item = new Experience();
+
                         item.setStartYear(startYear.getText().toString());
                         item.setEndYear(endYear.getText().toString());
                         item.setPosition(jobPosition.getText().toString());
                         item.setCompanyName(companyName.getText().toString());
-                        myRef.setValue(item.toMap());
+                        myRef.getRoot().setValue(item.toMap());
 
 
                         myRef.addValueEventListener(new ValueEventListener() {

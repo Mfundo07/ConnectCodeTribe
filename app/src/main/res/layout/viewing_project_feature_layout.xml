@@ -3,47 +3,62 @@
                                     android:orientation="vertical" android:layout_width="match_parent"
                                     android:layout_height="wrap_content" android:layout_margin="20dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/photodesc"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="setTitle"
-            android:padding="10dp"
-            android:text="Select Project screen shot"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/photodesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setTitle"
+                android:padding="10dp"
+                android:text="Click to select project image"
+                android:textStyle="bold" />
 
 
-        <ImageButton
-            android:id="@+id/ProjectImage"
-            android:layout_width="match_parent"
-            android:layout_height="324dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/ic_photocamera"
-            android:scaleType="centerCrop" />
+            <ImageButton
+                android:id="@+id/ProjectImage"
+                android:layout_width="match_parent"
+                android:layout_height="510dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_photocamera"
+                android:scaleType="centerCrop" />
 
-        <EditText
-            android:id="@+id/post_Title"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:hint="Project Title...."
-            android:onClick="setTitle"
-            android:padding="10dp"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/post_Title"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Project Title...."
+                android:padding="10dp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/post_Desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Project Link"
-            android:padding="10dp"
-            android:textStyle="italic" />
+            <EditText
+                android:id="@+id/post_Desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Project Link"
+                android:padding="10dp"
+                android:inputType="textEmailAddress"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/ButUpload"
+                android:alpha="0.50"
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Project" />
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </android.support.v7.widget.CardView>

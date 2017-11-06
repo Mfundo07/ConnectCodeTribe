@@ -11,47 +11,47 @@ import java.util.Map;
 
 public class Project {
 
-    String projectDisplayPicture, projectTitle, projectUrl;
+    private String snapshot, name, github_link;
 
     public Project() {
     }
 
     public Project(String projectDisplayPicture, String projectTitle, String projectUrl) {
-        this.projectDisplayPicture = projectDisplayPicture;
-        this.projectTitle = projectTitle;
-        this.projectUrl = projectUrl;
+        this.snapshot = projectDisplayPicture;
+        this.name = projectTitle;
+        this.github_link = projectUrl;
     }
 
-    public String getProjectDisplayPicture() {
-        return projectDisplayPicture;
+    public String getSnapshot() {
+        return snapshot;
     }
 
-    public void setProjectDisplayPicture(String projectDisplayPicture) {
-        this.projectDisplayPicture = projectDisplayPicture;
+    public void setSnapshot(String snapshot) {
+        this.snapshot = snapshot;
     }
 
-    public String getProjectTitle() {
-        return projectTitle;
+    public String getName() {
+        return name;
     }
 
-    public void setProjectTitle(String projectTitle) {
-        this.projectTitle = projectTitle;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getProjectUrl() {
-        return projectUrl;
+    public String getGithub_link() {
+        return github_link;
     }
 
-    public void setProjectUrl(String projectUrl) {
-        this.projectUrl = projectUrl;
+    public void setGithub_link(String github_link) {
+        this.github_link = github_link;
     }
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("display_picture", this.projectDisplayPicture);
-        result.put("title", this.projectTitle);
-        result.put("url", this.projectUrl);
+        result.put("snapshot", this.snapshot);
+        result.put("name", this.name);
+        result.put("github_link", this.github_link);
         return result;
     }
 }
