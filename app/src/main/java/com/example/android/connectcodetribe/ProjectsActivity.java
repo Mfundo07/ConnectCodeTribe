@@ -13,8 +13,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.android.connectcodetribe.Model.Project;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -29,6 +32,7 @@ public class ProjectsActivity extends AppCompatActivity {
     private Button ButUpload;
     private Uri filepath;
     private final int PICK_IMAGE_REQUEST = 71;
+    DatabaseReference mRef;
 
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -50,9 +54,12 @@ public class ProjectsActivity extends AppCompatActivity {
 
 
 
+
+
         //Init view
         ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
         ButUpload = (Button) findViewById(R.id.ButUpload);
+        mRef = FirebaseDatabase.getInstance().getReference().child("/projects/");
 
         ProjectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +92,11 @@ public class ProjectsActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Uri downloadUri = taskSnapshot.getDownloadUrl();
+                            Project item = new Project();
+                            item.setProjectDisplayPicture(downloadUri.toString());
+                            mRef.push().setValue(item);
+
                             progressDialog.dismiss();
                             Toast.makeText(ProjectsActivity.this, "Project Upload successful", Toast.LENGTH_SHORT).show();
 

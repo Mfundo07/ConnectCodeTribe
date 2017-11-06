@@ -172,9 +172,9 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mStatus.setText((String) dataSnapshot.child("status").getValue());
-                Glide.with(userImage.getContext())
+               Glide.with(userImage.getContext())
                         .load((String) dataSnapshot.child("display_picture").getValue())
-                        .into(userImage);
+                .into(userImage);
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
