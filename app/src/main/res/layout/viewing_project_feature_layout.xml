@@ -42,7 +42,7 @@
                 android:id="@+id/post_Desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Project Link"
+                android:hint="https://github.com/Unknown/ConnectCodeTribe"
                 android:padding="10dp"
                 android:inputType="textEmailAddress"
                 android:textStyle="italic" />
