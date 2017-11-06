@@ -88,7 +88,7 @@ public class ProjectsActivity extends AppCompatActivity {
         if (filepath != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading Project......");
+            progressDialog.setTitle("Uploading Project.....");
             progressDialog.show();
 
             StorageReference ref = storageReference.child("projects/"+ UUID.randomUUID().toString());
