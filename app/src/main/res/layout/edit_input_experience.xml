@@ -16,7 +16,7 @@
             <TextView
                 android:id="@+id/photodesc"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="setTitle"
                 android:padding="10dp"
@@ -24,12 +24,11 @@
                 android:textStyle="bold" />
 
 
-
             <EditText
                 android:id="@+id/startYearEditText"
                 android:layout_width="match_parent"
+                android:layout_height="118dp"
                 android:layout_weight="1"
-                android:layout_height="59dp"
                 android:hint="Start Year"
                 android:padding="10dp"
                 android:textStyle="bold" />
@@ -37,8 +36,8 @@
             <EditText
                 android:id="@+id/companyNameEditText"
                 android:layout_width="match_parent"
+                android:layout_height="113dp"
                 android:layout_weight="1"
-                android:layout_height="59dp"
                 android:hint="Company Name"
                 android:padding="10dp"
                 android:textStyle="bold" />
@@ -46,7 +45,7 @@
             <EditText
                 android:id="@+id/positionEditText"
                 android:layout_width="match_parent"
-                android:layout_height="59dp"
+                android:layout_height="106dp"
                 android:layout_weight="1"
                 android:hint="Position"
                 android:padding="10dp"
@@ -55,7 +54,7 @@
             <EditText
                 android:id="@+id/endYearEditText"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
+                android:layout_height="110dp"
                 android:layout_weight="1"
                 android:hint="End Year"
                 android:padding="10dp"
