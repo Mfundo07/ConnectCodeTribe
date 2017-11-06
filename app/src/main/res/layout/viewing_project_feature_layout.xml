@@ -21,7 +21,7 @@
         <ImageButton
             android:id="@+id/ProjectImage"
             android:layout_width="match_parent"
-            android:layout_height="324dp"
+            android:layout_height="427dp"
             android:adjustViewBounds="true"
             android:background="@drawable/ic_photocamera"
             android:scaleType="centerCrop" />
@@ -42,6 +42,14 @@
             android:hint="Project Link"
             android:padding="10dp"
             android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/ButUpload"
+            android:alpha="0.50"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Project" />
 
 
     </LinearLayout>
