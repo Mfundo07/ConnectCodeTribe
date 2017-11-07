@@ -315,7 +315,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void addBottomDots(int currentPage) {
-        dots = new TextView[skills.size()];
+        dots = new TextView[projects.size()];
 
         int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
         int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
