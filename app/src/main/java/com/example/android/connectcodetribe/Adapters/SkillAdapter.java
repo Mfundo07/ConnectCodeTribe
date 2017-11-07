@@ -40,6 +40,7 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mSkills.get(position);
         holder.mTitle.setText(mSkills.get(position).getTitle());
+        holder.projectDisplayPicture.setText(holder.mItem.getTitle());
         /*
         Glide.with(activity)
                 .load(mSkills.get(position).getSnapshot())
