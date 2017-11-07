@@ -1,232 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:layout_margin="20dp">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView_bio"
+
+            <TextView
+                android:id="@+id/photodesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:padding="16dp"
-                                android:text="Bio"
-                                android:textColor="#000"
-                                android:textAllCaps="true"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                android:textSize="18dp"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:id="@+id/profile_image"
-                            android:layout_width="96dp"
-                            android:layout_height="96dp"
-                            android:src="@drawable/man_user_user"
-                            app:civ_border_color="#FF000000"
-                            app:civ_border_width="1dp" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:paddingTop="20dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:padding="16dp">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="Name"
-                                android:textColor="#000"
-                                android:textStyle="bold"/>
-                            <EditText
-                                android:id="@+id/name_editView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textColor="#000"
-                                android:gravity="center"
-                                android:hint="eg. Kratos"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Surname"
-                            android:textColor="#000"
-                            android:textStyle="bold"/>
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textColor="#000"
-                            android:id="@+id/surnameEditText"
-                            android:gravity="center"
-                            android:hint="e.g War" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:text="Status"
-                            android:textStyle="bold"/>
-                        <Spinner
-                            android:id="@+id/spinner_status"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="16dp"
-                            android:layout_weight="1"
-                            android:spinnerMode="dropdown" />
-                    </LinearLayout>
+                android:padding="10dp"
+                android:text="Profile"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:text="CodeTribe"
-                            android:textStyle="bold"/>
-                        <Spinner
-                            android:id="@+id/spinner_codeTribe"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="16dp"
-                            android:layout_weight="1"
-                            android:spinnerMode="dropdown" />
-                    </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textColor="#000"
-                            android:gravity="center"
-                            android:text="Current Occupation"
-                            android:textStyle="bold"/>
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:id="@+id/occpateEditText"
-                            android:hint="e.g Developer" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:text="Cell Number"
-                            android:textStyle="bold"/>
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:id="@+id/cell_editTextView"
-                            android:textColor="#000"
-                            android:hint="e.g 072 984 4608" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Email"
-                            android:textColor="#000"
-                            android:textStyle="bold"/>
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:id="@+id/emailEditText"
-                            android:textColor="#000"
-                            android:hint="e.g kratoswar@gmail.com" />
-                    </LinearLayout>
-                    <Button
-                        android:id="@+id/profile_edit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/button_green"
-                        android:text="Save"
-                        android:textColor="#fff" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+            <ImageButton
+                android:id="@+id/profile_images"
+                android:layout_width="match_parent"
+                android:layout_height="289dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_photocamera" />
+
+            <EditText
+                android:id="@+id/name_editView"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Name"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/surnameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Surname"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/occpateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Occupation"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cell_editTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cell Number"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Address"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Status"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Status"
+                android:paddingRight="16dp"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Tribe"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_codeTribe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Status"
+                android:paddingRight="16dp"
+                android:spinnerMode="dropdown" />
+
+            <Button
+                android:id="@+id/ButUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.50"
+                android:background="#ffffff"
+                android:text="Update Profile" />
+
 
         </LinearLayout>
     </ScrollView>
 
 
-</LinearLayout>
+
+</android.support.v7.widget.CardView>
