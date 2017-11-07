@@ -142,7 +142,7 @@ public class ProfileActivity extends AppCompatActivity {
         mSkillsRecyclerView = (RecyclerView) findViewById(R.id.skillsRecyclerview);
         //Setup layout manager to a staggered scrolling recyclerView
         LinearLayoutManager verticalLayoutmanager
-                = new LinearLayoutManager(ProfileActivity.this, StaggeredGridLayoutManager.VERTICAL, false);
+                = new LinearLayoutManager(ProfileActivity.this, StaggeredGridLayoutManager.HORIZONTAL, false);
         mSkillsRecyclerView.setLayoutManager(verticalLayoutmanager);
 
         mSkillsAdapter = new SkillAdapter(ProfileActivity.this, skills);
