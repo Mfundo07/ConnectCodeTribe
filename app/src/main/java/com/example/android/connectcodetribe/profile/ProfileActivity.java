@@ -279,7 +279,7 @@ public class ProfileActivity extends AppCompatActivity {
                 for (DataSnapshot _snapshot : dataSnapshot.child("skills").getChildren()) {
                     Skill skill = new Skill();
                     //skill.setSkillLevel(Long.parseLong( _snapshot.child("level").getValue().toString()));
-                    skill.setTitle((String) _snapshot.child("skill").getValue());
+                    skill.setTitle((String)  _snapshot.child("skill").getValue());
                     System.out.println(skill.toMap());
                     skills.add(skill);
 
