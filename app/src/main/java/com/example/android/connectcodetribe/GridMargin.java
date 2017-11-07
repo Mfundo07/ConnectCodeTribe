@@ -1,4 +1,4 @@
-package articlesapp.zack.com.myapplication;
+package com.example.android.connectcodetribe;
 
 import android.content.Context;
 import android.graphics.Rect;
