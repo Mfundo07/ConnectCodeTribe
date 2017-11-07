@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:layout_margin="20dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="6"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/photodesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setTitle"
+                android:padding="10dp"
+                android:text="Edit Experience"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/startYearEditText"
+                android:layout_width="match_parent"
+                android:layout_height="118dp"
+                android:layout_weight="1"
+                android:hint="Start Year"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/companyNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="113dp"
+                android:layout_weight="1"
+                android:hint="Company Name"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/positionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="106dp"
+                android:layout_weight="1"
+                android:hint="Position"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/endYearEditText"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:hint="End Year"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/Addbtn"
+                android:alpha="0.50"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Experience" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</android.support.v7.widget.CardView>

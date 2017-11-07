@@ -1,46 +1,66 @@
 package com.example.android.connectcodetribe;
 
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class ExperienceActivity extends AppCompatActivity {
 
-    Button addExperience;
+    TextView period;
+    TextView CompanyName;
+    TextView position;
+    Button add;
+    DatabaseReference mDatabaseReference;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.model);
 
-        addExperience = (Button) findViewById(R.id.fab_add);
+        period = (TextView)findViewById(R.id.periodTxt);
+        CompanyName = (TextView)findViewById(R.id.companynameTxt);
+        position = (TextView)findViewById(R.id.positionTxt);
+        //updateInfo = (Button)findViewById(R.id.update);
+       // mDatabaseReference = FirebaseDatabase.getInstance().getReference("/experience/").child(currentUser.getUid());
 
-        addExperience.setOnClickListener(new View.OnClickListener() {
+       /** add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(ExperienceActivity.this);
-                LayoutInflater inflater = ExperienceActivity.this.getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.input_dialog,null);
-                Button updateInfo = dialogView.findViewById(R.id.update);
 
+                //startYear.setText("");
+                //endYear.setText("");
+               // CompanyName.setText("");
+               //position.setText("");
 
-                updateInfo.setOnClickListener(new View.OnClickListener() {
+                //Toast.makeText(ExperienceActivity.this, "Experience Updated", Toast.LENGTH_SHORT).show();
 
-                    @Override
-                    public void onClick(View view) {
+                Intent intent = new Intent(ExperienceActivity.this, ProfileActivity.class);
+                startActivity(intent);
 
-                    }
-
-                });
-                builder.setView(dialogView);
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.show();
             }
 
-
         });
+
+       /** mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ExperienceActivity value = dataSnapshot.getValue(ExperienceActivity.class);
+
+                startYear.setText("");
+                endYear.setText("");
+                CompanyName.setText("");
+                position.setText("");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });**/
     }
 }

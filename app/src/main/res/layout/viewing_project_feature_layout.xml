@@ -1,13 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:orientation="vertical" android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" android:layout_margin="20dp">
 
-
-    <android.support.v7.widget.RecyclerView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-</GridView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/photodesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setTitle"
+                android:padding="10dp"
+                android:text="Click to select project image"
+                android:textStyle="bold" />
+
+
+            <ImageButton
+                android:id="@+id/ProjectImage"
+                android:layout_width="match_parent"
+                android:layout_height="510dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_photocamera"
+                android:scaleType="centerCrop" />
+
+            <EditText
+                android:id="@+id/post_Title"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Project Title...."
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/post_Desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="https://github.com/Unknown/ConnectCodeTribe"
+                android:padding="10dp"
+                android:inputType="textEmailAddress"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/ButUpload"
+                android:alpha="0.50"
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Project" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</android.support.v7.widget.CardView>

@@ -3,16 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#FF9800"
-        android:text="Experience"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="30dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +16,6 @@
             android:baselineAligned="true"
             android:orientation="horizontal"
             android:weightSum="2">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -37,9 +26,8 @@
                     android:id="@+id/year_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                     <EditText
-                        android:id="@+id/yearEditText"
+                        android:id="@+id/startYearEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="+ Year"
@@ -47,28 +35,24 @@
                         android:textSize="25dp"
                         android:textStyle="bold" />
                 </android.support.design.widget.TextInputLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:orientation="vertical"
                     >
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         android:weightSum="1">
-
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/co.name_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
                             <EditText
-                                android:id="@+id/companynameTxt1"
+                                android:id="@+id/companyNameEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -77,8 +61,6 @@
                                 android:textColor="#000"
                                 android:textSize="15dp" />
                         </android.support.design.widget.TextInputLayout>
-
-
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -90,19 +72,16 @@
                             android:id="@+id/projectname_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
                             <EditText
-                                android:id="@+id/subjectTxt1"
+                                android:id="@+id/positionEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:hint="+ Subject"
+                                android:hint="+ Occupation"
                                 android:maxLines="1"
                                 android:textColor="#000"
                                 android:textSize="15dp" />
                         </android.support.design.widget.TextInputLayout>
-
-
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -114,152 +93,22 @@
                             android:id="@+id/period_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
                             <EditText
-                                android:id="@+id/periodTxt1"
+                                android:id="@+id/endYearEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:hint="+ Period"
+                                android:hint="+ End year"
                                 android:maxLines="1"
                                 android:textColor="#000"
                                 android:textSize="15dp" />
                         </android.support.design.widget.TextInputLayout>
-
                     </LinearLayout>
 
                 </LinearLayout>
-
-
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/year_layout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/editText4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="+ Year"
-                        android:textColor="#000"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
-                </android.support.design.widget.TextInputLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/co.name_layout2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/editTet2"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:hint="+ Co. name"
-                                android:maxLines="1"
-                                android:textColor="#000"
-                                android:textSize="15dp" />
-                        </android.support.design.widget.TextInputLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/subjectname_layout2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:hint="+ Subject"
-                                android:maxLines="1"
-                                android:textColor="#000"
-                                android:textSize="15dp" />
-                        </android.support.design.widget.TextInputLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/period_layout2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:hint="+ Period"
-                                android:maxLines="1"
-                                android:textColor="#000"
-                                android:textSize="15dp" />
-                        </android.support.design.widget.TextInputLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
         </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center">
-            <Button
-                android:id="@+id/update"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:background="@drawable/button_orange"
-                android:text="update"/>
-
-        </LinearLayout>
-
-
-
-
     </LinearLayout>
+
 
 
 
