@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Connecting people"
         android:id="@+id/splashAppName"
-        android:textColor="#5cc5c1"
+        android:textColor="#FF9800"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="20dp"
         android:textStyle="bold|italic"
