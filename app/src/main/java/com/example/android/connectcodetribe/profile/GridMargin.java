@@ -1,4 +1,4 @@
-package com.example.android.connectcodetribe;
+package com.example.android.connectcodetribe.profile;
 
 import android.content.Context;
 import android.graphics.Rect;

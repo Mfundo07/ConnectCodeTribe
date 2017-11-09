@@ -142,7 +142,7 @@ public class ProfileActivity extends AppCompatActivity {
         mSkillsRecyclerView = (RecyclerView) findViewById(R.id.skillsRecyclerview);
         //Setup layout manager to a staggered scrolling recyclerView
         LinearLayoutManager verticalLayoutmanager
-                = new LinearLayoutManager(ProfileActivity.this, StaggeredGridLayoutManager.VERTICAL, false);
+                = new LinearLayoutManager(ProfileActivity.this, StaggeredGridLayoutManager.HORIZONTAL, false);
         mSkillsRecyclerView.setLayoutManager(verticalLayoutmanager);
 
         mSkillsAdapter = new SkillAdapter(ProfileActivity.this, skills);
@@ -171,11 +171,11 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mStatus.setText((String) dataSnapshot.child("status").getValue());
-               //Glide.with(userImage.getContext())
-                        //.load((String) dataSnapshot.child("display_picture").getValue())
-                //.into(userImage);
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
+                //Glide.with(userImage.getContext())
+                        //.load((String) dataSnapshot.child("display_picture").getValue())
+                        //.into(userImage);
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
@@ -278,7 +278,7 @@ public class ProfileActivity extends AppCompatActivity {
                 for (DataSnapshot _snapshot : dataSnapshot.child("skills").getChildren()) {
                     Skill skill = new Skill();
                     //skill.setSkillLevel(Long.parseLong( _snapshot.child("level").getValue().toString()));
-                    skill.setTitle((String) _snapshot.child("title").getValue());
+                    skill.setTitle((String) _snapshot.child("skill").getValue());
                     System.out.println(skill.toMap());
                     skills.add(skill);
 

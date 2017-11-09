@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.ActiveUser;
+import com.example.android.connectcodetribe.Model.Profile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -94,7 +95,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child("profile");
         mStoragereference = FirebaseStorage.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid());
         userNameEditText = (EditText) findViewById(R.id.name_editView);
         userSurnameEditText = (EditText) findViewById(R.id.surnameEditText);
@@ -115,17 +116,15 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ActiveUser items = new ActiveUser();
-                items.setActiveUserName(userNameEditText.getText().toString());
-                items.setActiveUserSurname(userSurnameEditText.getText().toString());
-                items.setActiveUserOccupation(userCurrentOccupation.getText().toString());
-                items.setActiveUserEmail(userEmailEditText.getText().toString());
-                items.setActiveUserStatus(mStatusSpinner.getSelectedItem().toString());
-                items.setActiveUserEmail(userEmailEditText.getText().toString());
-                items.setActiveUserNumber(userPhoneNumber.getText().toString());
-                items.setActiveUserImageUrl(null);
-                items.setActiveUserTribe(mCodeTribeSpinner.getSelectedItem().toString());
-                mDatabaseReference.child("0").setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                Profile items = new Profile();
+                items.setProfileName(userNameEditText.getText().toString());
+                items.setOccupation(userCurrentOccupation.getText().toString());
+                items.setProfileEmail(userEmailEditText.getText().toString());
+                items.setStatus(mStatusSpinner.getSelectedItem().toString());
+                items.setProfileSurname(userSurnameEditText.getText().toString());
+                items.setProfileImage(null);
+                items.setCodeTribe(mCodeTribeSpinner.getSelectedItem().toString());
+                mDatabaseReference.child("0").push().setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -139,6 +138,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
             }
         });
+
+
         mStatusSpinner.setOnTouchListener(mTouchListener);
         setupSpinner();
         mCodeTribeSpinner.setOnTouchListener(mTouchListener);
