@@ -261,7 +261,13 @@
 
         <string name="id_fmt">User ID: %s</string>
         <string name="email_fmt">Email: %s</string>
-        <!-- Label for dropdown menu option if the pet is male [CHAR LIMIT=20] -->
+    <string name="projects" />
+    <string name="alumni" />
+    <string name="tribes" />
+    <string name="skills" />
+    <string name="experience" />
+    <string name="todo" />
+    <!-- Label for dropdown menu option if the pet is male [CHAR LIMIT=20] -->
 
 
 
