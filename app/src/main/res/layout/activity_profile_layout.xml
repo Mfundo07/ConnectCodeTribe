@@ -33,8 +33,9 @@
                     android:id="@+id/userImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:contentDescription="TODO"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/kratos" android:contentDescription="TODO"/>
+                    android:src="@drawable/kratos" />
 
             </LinearLayout>
 

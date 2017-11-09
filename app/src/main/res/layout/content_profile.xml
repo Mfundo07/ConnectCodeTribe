@@ -171,7 +171,9 @@
                 android:id="@+id/projectsRecyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/userProjectTitle"></android.support.v7.widget.RecyclerView>
+                android:layout_below="@+id/userProjectTitle">
+
+            </android.support.v7.widget.RecyclerView>
 
             <LinearLayout
                 android:id="@+id/layoutDots"
@@ -180,7 +182,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/dots_margin_bottom"
                 android:gravity="center"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal">
+
+            </LinearLayout>
 
         </RelativeLayout>
 
