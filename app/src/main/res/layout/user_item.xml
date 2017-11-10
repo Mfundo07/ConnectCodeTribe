@@ -47,10 +47,10 @@
                     android:maxLines="2"
                     android:textColor="@color/textColorUser"
                     android:textSize="16sp"
-                    tools:text="Mfundo" />
+                    tools:text="Kabelo" />
 
                 <TextView
-                    android:id="@+id/User_Year"
+                    android:id="@+id/User_Surname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -58,7 +58,7 @@
                     android:maxLines="2"
                     android:textColor="@color/textColorUser"
                     android:textSize="16sp"
-                    tools:text="Mbokoma" />
+                    tools:text="Mokoena" />
 
 
             </LinearLayout>
@@ -81,7 +81,7 @@
                     tools:text="Intern" />
 
                 <TextView
-                    android:id="@+id/User_Surname"
+                    android:id="@+id/User_Year"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

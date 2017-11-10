@@ -9,11 +9,6 @@
     tools:context="com.example.android.connectcodetribe.Model.ChatModel">
 
 
-
-
-
-
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"

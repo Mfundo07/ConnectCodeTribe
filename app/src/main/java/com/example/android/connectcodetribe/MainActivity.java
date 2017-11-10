@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.ViewPagerAdapter;
-import com.example.android.connectcodetribe.Fragments.CodeTribesFragment;
-import com.example.android.connectcodetribe.Fragments.PortfolioFragment;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,8 +17,6 @@ import com.google.firebase.storage.FirebaseStorage;
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
-    CodeTribesFragment codeTribeFragment;
-    PortfolioFragment portfolioFragment;
     MenuItem prevMenuItem;
 
 
@@ -91,10 +87,6 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager)
     {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        codeTribeFragment=new CodeTribesFragment();
-        portfolioFragment=new PortfolioFragment();
-        adapter.addFragment(codeTribeFragment);
-        adapter.addFragment(portfolioFragment);
         //adapter.addFragment(chatFragment);
         viewPager.setAdapter(adapter);
     }
