@@ -111,10 +111,70 @@
       },
       "oauth_client": [
         {
+          "client_id": "738027451162-5juadi5ruf1e36fjmk1pssehu16o7ja5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.connectcodetribe",
+            "certificate_hash": "04634c767049f0adde942a2bf060196cb566e3e5"
+          }
+        },
+        {
+          "client_id": "738027451162-hciu9nb2klkhfo4rc350u7i0u3u3nrma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.connectcodetribe",
+            "certificate_hash": "cb50cb07b499686fc2930e1a8ef1295e5881c299"
+          }
+        },
+        {
           "client_id": "738027451162-hkm9jaj4aq4vop97ndjmu8ke6akg757t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.android.connectcodetribe",
+            "certificate_hash": "523ac05eba0205816d1672c0f9f12afbea6a4b7e"
+          }
+        },
+        {
+          "client_id": "738027451162-h9pma0fpbjfpmfm09v1kr3f3nt0opto4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1unYyvyrpH_uHxOLsrbDvkD4d1TpoVMQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738027451162-h9pma0fpbjfpmfm09v1kr3f3nt0opto4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738027451162:android:cb56a7d056ba4167",
+        "android_client_info": {
+          "package_name": "alessandro.firebaseandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738027451162-hn6k2ets2b6lpfl63clmkd0b9g8abgfd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "alessandro.firebaseandroid",
             "certificate_hash": "523ac05eba0205816d1672c0f9f12afbea6a4b7e"
           }
         },

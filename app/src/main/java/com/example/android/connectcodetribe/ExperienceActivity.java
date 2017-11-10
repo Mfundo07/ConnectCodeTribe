@@ -25,42 +25,9 @@ public class ExperienceActivity extends AppCompatActivity {
         period = (TextView)findViewById(R.id.periodTxt);
         CompanyName = (TextView)findViewById(R.id.companynameTxt);
         position = (TextView)findViewById(R.id.positionTxt);
-        //updateInfo = (Button)findViewById(R.id.update);
-       // mDatabaseReference = FirebaseDatabase.getInstance().getReference("/experience/").child(currentUser.getUid());
 
-       /** add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //startYear.setText("");
-                //endYear.setText("");
-               // CompanyName.setText("");
-               //position.setText("");
-
-                //Toast.makeText(ExperienceActivity.this, "Experience Updated", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(ExperienceActivity.this, ProfileActivity.class);
-                startActivity(intent);
-
-            }
-
-        });
-
-       /** mDatabaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                ExperienceActivity value = dataSnapshot.getValue(ExperienceActivity.class);
-
-                startYear.setText("");
-                endYear.setText("");
-                CompanyName.setText("");
-                position.setText("");
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });**/
     }
 }
+
+
+

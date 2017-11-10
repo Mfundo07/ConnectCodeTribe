@@ -35,6 +35,7 @@ import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
+import com.example.android.connectcodetribe.Skill_Editor_Activity;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -54,11 +55,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView mBio, mStatus, mCodeTribe, userName, userDescription;
     ImageButton btnStatus, btnGithubLink, btnCodeTribe, btnAddProject;
-    Button btnAddExperience;
+    ImageButton btnAddExperience;
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
-    Button skillName;
+    ImageButton skillName;
+    ImageButton editor;
     private  ImageButton viewMoreButton;
 
     RecyclerView mSkillsRecyclerView, mProjectsRecyclerView, mExperiencesRecyclerView;
@@ -69,6 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     List<Project> projects = new ArrayList<>();
     List<Skill> skills = new ArrayList<>();
+    List<Skill> skillsimage = new ArrayList<>();
     List<Experience> mExperiences = new ArrayList<>();
 
     private LinearLayout dotsLayout;
@@ -109,6 +112,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
+        editor=(ImageButton)findViewById(R.id.skills_editor);
         mStatus = (TextView) findViewById(R.id.userStatus);
         mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
         btnCodeTribe = (ImageButton) findViewById(R.id.userCodeTribeImage);
@@ -117,10 +121,17 @@ public class ProfileActivity extends AppCompatActivity {
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         userName = (TextView) findViewById(R.id.userName);
         userImage = (ImageView) findViewById(R.id.userImage);
-        skillName = (Button) findViewById(R.id.skill_display_picture);
+        skillName = (ImageButton) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
-        btnAddExperience = (Button) findViewById(R.id.AddExperience);
+        btnAddExperience = (ImageButton) findViewById(R.id.AddExperience);
+        editor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, Skill_Editor_Activity.class);
+                startActivity(intent);
+            }
+        });
 
         editPen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -279,13 +290,12 @@ public class ProfileActivity extends AppCompatActivity {
                     Skill skill = new Skill();
                     //skill.setSkillLevel(Long.parseLong( _snapshot.child("level").getValue().toString()));
                     skill.setTitle((String) _snapshot.child("skill").getValue());
+                    skill.setSkillImage((String) _snapshot.child("image").getValue());
                     System.out.println(skill.toMap());
                     skills.add(skill);
 
                 }
                 mSkillsAdapter.notifyDataSetChanged();
-
-
 
 
                 mExperiences.clear();

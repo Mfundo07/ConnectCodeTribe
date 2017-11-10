@@ -19,6 +19,7 @@ public class SplashScreen extends Activity {
     private static final int SPLASH_DURATION = 3000; //3 second
     ImageView img;
     TextView tv;
+    TextView tv2;
     Context contex;
 
     @Override
@@ -34,6 +35,9 @@ public class SplashScreen extends Activity {
 
         tv = (TextView) findViewById(R.id.splashAppName);
         tv.setAnimation(anim1);
+
+        tv2 = (TextView) findViewById(R.id.splashAppName2);
+        tv2.setAnimation(anim1);
 
         anim.setAnimationListener(new Animation.AnimationListener() {
 

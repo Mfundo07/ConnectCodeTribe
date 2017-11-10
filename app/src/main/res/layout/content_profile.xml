@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/projects"
+                android:text="Projects"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -165,7 +165,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="22dp"
-                app:srcCompat="@drawable/add" android:contentDescription="@string/todo" />
+                app:srcCompat="@drawable/add_circle" android:contentDescription="@string/todo" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/projectsRecyclerview"
@@ -191,8 +191,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="16dp">
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:weightSum="4">
 
             <TextView
                 android:id="@+id/userSkillsTitle"
@@ -200,23 +201,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/skills"
+                android:text="Skills"
+                android:layout_weight="3"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/skillsRecyclerview"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/skills_editor"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:background="#fff"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
+                app:srcCompat="@drawable/add_circle" />
+
+
 
         </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/skillsRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
+            android:weightSum="4"
             android:padding="16dp">
 
             <TextView
@@ -224,25 +237,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="@string/experience"
+                android:text="Experience"
                 android:textColor="#142030"
+                android:layout_weight="3"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/AddExperience"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/add"
-                android:layout_gravity="right"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/experienceRecyclerView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
+                android:background="#fff"
+                app:srcCompat="@drawable/add_circle"/>
 
         </LinearLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/experienceRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
 
 
     </LinearLayout>

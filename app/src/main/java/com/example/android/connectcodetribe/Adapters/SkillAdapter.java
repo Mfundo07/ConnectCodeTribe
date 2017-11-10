@@ -5,9 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.R;
 
@@ -18,6 +19,7 @@ import java.util.List;
  */
 
 public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> {
+    private List<Project> mSkillImage;
 
     private List<Skill> mSkills;
     private Activity activity;
@@ -40,6 +42,8 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mSkills.get(position);
         holder.mTitle.setText(mSkills.get(position).getTitle());
+
+
         /*
         Glide.with(activity)
                 .load(mSkills.get(position).getSnapshot())
@@ -64,7 +68,7 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
         public final View mView;
         public final TextView mTitle;
         public Skill mItem;
-        public Button projectDisplayPicture;
+        public ImageButton projectDisplayPicture;
 
         public ViewHolder(View view) {
             super(view);
