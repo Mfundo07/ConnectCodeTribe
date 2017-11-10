@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.ViewPagerAdapter;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FirebaseStorage;
 
 public class MainActivity extends AppCompatActivity {
+
     BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
     CodeTribesFragment codeTribeFragment;
@@ -36,57 +38,59 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.navigation_codeTribes:
-                                viewPager.setCurrentItem(0);
-                                break;
-                            case R.id.navigation_portfolio:
-                                viewPager.setCurrentItem(1);
-                                break;
-                        }
-                        return false;
-                    }
-                });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-                if (prevMenuItem != null){
-                    prevMenuItem.setChecked(true);
-                }
-                else{
-                    bottomNavigationView.getMenu().getItem(position).setChecked(true);
-                }
-                bottomNavigationView.getMenu().getItem(position).setChecked(true);
-                prevMenuItem = bottomNavigationView.getMenu().getItem(position);
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        setupViewPager(viewPager);
-
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    //   bottomNavigationView.setOnNavigationItemSelectedListener(
+    //           new BottomNavigationView.OnNavigationItemSelectedListener() {
+    //    @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_codeTribes:
+                    viewPager.setCurrentItem(0);
+                    break;
+                case R.id.navigation_portfolio:
+                    viewPager.setCurrentItem(1);
+                    break;
+            }
+            return false;
+        }
+  //  });
+
+      //  viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+      //  @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+      //  @Override
+        public void onPageSelected(int position) {
+
+            if (prevMenuItem != null){
+                prevMenuItem.setChecked(true);
+            }
+            else{
+                bottomNavigationView.getMenu().getItem(position).setChecked(true);
+            }
+            bottomNavigationView.getMenu().getItem(position).setChecked(true);
+            prevMenuItem = bottomNavigationView.getMenu().getItem(position);
+
+        }
+
+      //  @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+  //  }
+
+   // setupViewPager(viewPager);
 
     private void setupViewPager(ViewPager viewPager)
     {
@@ -99,10 +103,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
-
-
-
-
-
-
 }
+
+
+

@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="TODO"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/kratos" />
+                    android:src="@drawable/kb" />
 
             </LinearLayout>
 
