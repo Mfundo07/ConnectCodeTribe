@@ -25,20 +25,13 @@
 
         </activity>
         <activity android:name=".ActiveUserActivity"/>
-        <activity android:name=".CompletedProfileActivity" />
-        <activity android:name=".EducationActivity" />
         <activity android:name=".UserProfileEditorActivity"
-            android:label="Profile Editor"/>
+                  android:label="Profile Editor"/>
         <activity android:name=".ChatActivityAlexandra" />
         <activity android:name=".ChatActivityThembisa" />
         <activity android:name=".ChatActivityPretoria" />
-        <activity android:name=".ProfileActivity_first" />
-        <activity android:name=".QualificationActivity" />
-        <activity android:name=".ExperienceActivity"/>
         <activity android:name=".EditExperienceActivity"/>
         <activity android:name=".ProjectsActivity" />
-        <activity android:name=".MainActivity">
-        </activity>
         <activity android:name=".EmailPasswordActivity">
 
         </activity>

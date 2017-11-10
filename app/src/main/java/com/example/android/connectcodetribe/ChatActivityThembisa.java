@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import com.example.android.connectcodetribe.Model.ChatModel;
 import com.example.android.connectcodetribe.Model.FileModel;
 import com.example.android.connectcodetribe.Model.UserModel;
+import com.example.android.connectcodetribe.profile.ProfileActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -48,7 +49,7 @@ public class ChatActivityThembisa extends AppCompatActivity implements GoogleApi
     private static final int IMAGE_CAMERA_REQUEST = 2;
     private static final int PLACE_PICKER_REQUEST = 3;
 
-    static final String TAG = MainActivity.class.getSimpleName();
+    static final String TAG = ProfileActivity.class.getSimpleName();
     static final String CHAT_REFERENCE = "chatModelThembisa";
 
     private FirebaseAuth mFirebaseAuth;

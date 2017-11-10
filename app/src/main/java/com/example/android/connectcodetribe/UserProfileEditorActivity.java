@@ -37,6 +37,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -95,8 +96,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child("profile");
-        mStoragereference = FirebaseStorage.getInstance().getReference("testing").child("users").child("codetribe").child("Soweto").child(currentUser.getUid());
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/").child(currentUser.getUid());
+        mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles").child(currentUser.getUid());
         userNameEditText = (EditText) findViewById(R.id.name_editView);
         userSurnameEditText = (EditText) findViewById(R.id.surnameEditText);
         userCurrentOccupation = (EditText) findViewById(R.id.occpateEditText);
@@ -124,7 +125,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 items.setProfileSurname(userSurnameEditText.getText().toString());
                 items.setProfileImage(null);
                 items.setCodeTribe(mCodeTribeSpinner.getSelectedItem().toString());
-                mDatabaseReference.child("0").push().setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mDatabaseReference.child( UUID.randomUUID().toString()).setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {

@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.ActiveUserActivity;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
@@ -31,6 +32,7 @@ import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.EditExperienceActivity;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
+import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.ProjectsActivity;
@@ -60,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
     public String gihubLink;
     Button skillName;
     private  ImageButton viewMoreButton;
+    private String codeTribeName;
 
     RecyclerView mSkillsRecyclerView, mProjectsRecyclerView, mExperiencesRecyclerView;
 
@@ -103,10 +106,18 @@ public class ProfileActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        userImage = (ImageView) findViewById(R.id.userImage);
         if (currentUser == null){
             startActivity(new Intent(this, LoginActivity.class));
             finish();
+        }else{
+
+            Glide.with(userImage.getContext())
+                    .load(currentUser.getPhotoUrl())
+                    .into(userImage);
+
         }
+
         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
@@ -116,7 +127,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         userName = (TextView) findViewById(R.id.userName);
-        userImage = (ImageView) findViewById(R.id.userImage);
+
         skillName = (Button) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
@@ -169,13 +180,12 @@ public class ProfileActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
-                mBio.setText((String) dataSnapshot.child("bio").getValue());
-                mStatus.setText((String) dataSnapshot.child("status").getValue());
+                    Profile profile = dataSnapshot.getValue(Profile.class);
+                mStatus.setText(dataSnapshot.child("status").getValue().toString());
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
-                //Glide.with(userImage.getContext())
-                        //.load((String) dataSnapshot.child("display_picture").getValue())
-                        //.into(userImage);
+                mBio.setText((String) dataSnapshot.child("bio").getValue());
+
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
@@ -189,8 +199,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                             }
                         }
-                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    }
+                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);}
+
                 });
                 viewMoreButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -223,10 +233,13 @@ public class ProfileActivity extends AppCompatActivity {
 
                     }
                 });
+                codeTribeName = (String) dataSnapshot.child("tribe").getValue();
+                mCodeTribe.setText(codeTribeName);
                 btnCodeTribe.setOnClickListener(new View.OnClickListener() {
+
                     @Override
                     public void onClick(View view) {
-                        String codeTribeName = (String) dataSnapshot.child("tribe").getValue();
+
                         if (codeTribeName.equals("Soweto")){
                             mCodeTribe.setText(codeTribeName);
                             Intent intent = new Intent(ProfileActivity.this, ChatActivitySoweto.class);
