@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="9dp"
+    android:elevation="8dp"
+    tools:context="com.example.android.connectcodetribe.Skill_Editor_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:weightSum="4"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:layout_margin="16dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Enter Skill"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:alpha="0.50"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:text="add"
+            android:background="#E0E0E0"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

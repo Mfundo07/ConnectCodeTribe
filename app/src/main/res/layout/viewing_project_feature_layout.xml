@@ -24,9 +24,10 @@
 
             <ImageButton
                 android:id="@+id/ProjectImage"
-                android:layout_width="match_parent"
-                android:layout_height="510dp"
+                android:layout_width="299dp"
+                android:layout_height="300dp"
                 android:adjustViewBounds="true"
+                android:layout_gravity="center"
                 android:background="@drawable/ic_photocamera"
                 android:scaleType="centerCrop" />
 

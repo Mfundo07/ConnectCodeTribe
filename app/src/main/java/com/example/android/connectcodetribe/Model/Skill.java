@@ -11,15 +11,16 @@ import java.util.Map;
 
 public class Skill {
 
-    String title;
+    String title, skillImage;
     long skillLevel;
 
     public Skill() {
     }
 
-    public Skill(String title, long skillLevel) {
+    public Skill(String title, long skillLevel,String skillImage) {
         this.title = title;
         this.skillLevel = skillLevel;
+        this.skillImage = skillImage;
     }
 
     public String getTitle() {
@@ -29,6 +30,21 @@ public class Skill {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
+
+
+    public String getSkillImage() {
+        return skillImage;
+    }
+
+    public void setSkillImage(String skillImage) {
+        this.skillImage = skillImage;
+    }
+
+
+
+
 
     public long getSkillLevel() {
         return skillLevel;
@@ -45,4 +61,5 @@ public class Skill {
         result.put("level", skillLevel);
         return result;
     }
+
 }
