@@ -47,7 +47,7 @@ public class EditExperienceActivity extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0").child("experience");
+        myRef = database.getReference("/experience").child(currentUser.getUid());
 
 
         addBtn.setOnClickListener(new View.OnClickListener() {

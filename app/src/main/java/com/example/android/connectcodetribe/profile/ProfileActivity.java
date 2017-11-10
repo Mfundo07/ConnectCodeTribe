@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.ActiveUserActivity;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
@@ -31,11 +32,11 @@ import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.EditExperienceActivity;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
+import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.Skill_Editor_Activity;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -55,13 +56,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView mBio, mStatus, mCodeTribe, userName, userDescription;
     ImageButton btnStatus, btnGithubLink, btnCodeTribe, btnAddProject;
-    ImageButton btnAddExperience;
+    Button btnAddExperience;
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
-    ImageButton skillName;
-    ImageButton editor;
+    Button skillName;
     private  ImageButton viewMoreButton;
+    private String codeTribeName;
 
     RecyclerView mSkillsRecyclerView, mProjectsRecyclerView, mExperiencesRecyclerView;
 
@@ -71,7 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     List<Project> projects = new ArrayList<>();
     List<Skill> skills = new ArrayList<>();
-    List<Skill> skillsimage = new ArrayList<>();
     List<Experience> mExperiences = new ArrayList<>();
 
     private LinearLayout dotsLayout;
@@ -106,13 +106,20 @@ public class ProfileActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        userImage = (ImageView) findViewById(R.id.userImage);
         if (currentUser == null){
             startActivity(new Intent(this, LoginActivity.class));
             finish();
+        }else{
+
+            Glide.with(userImage.getContext())
+                    .load(currentUser.getPhotoUrl())
+                    .into(userImage);
+
         }
+
         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
-        editor=(ImageButton)findViewById(R.id.skills_editor);
         mStatus = (TextView) findViewById(R.id.userStatus);
         mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
         btnCodeTribe = (ImageButton) findViewById(R.id.userCodeTribeImage);
@@ -120,18 +127,11 @@ public class ProfileActivity extends AppCompatActivity {
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         userName = (TextView) findViewById(R.id.userName);
-        userImage = (ImageView) findViewById(R.id.userImage);
-        skillName = (ImageButton) findViewById(R.id.skill_display_picture);
+
+        skillName = (Button) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
-        btnAddExperience = (ImageButton) findViewById(R.id.AddExperience);
-        editor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, Skill_Editor_Activity.class);
-                startActivity(intent);
-            }
-        });
+        btnAddExperience = (Button) findViewById(R.id.AddExperience);
 
         editPen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,13 +180,12 @@ public class ProfileActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
-                mBio.setText((String) dataSnapshot.child("bio").getValue());
-                mStatus.setText((String) dataSnapshot.child("status").getValue());
+                    Profile profile = dataSnapshot.getValue(Profile.class);
+                mStatus.setText(dataSnapshot.child("status").getValue().toString());
                 toolbar.setTitle((String) dataSnapshot.child("name").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
-                //Glide.with(userImage.getContext())
-                        //.load((String) dataSnapshot.child("display_picture").getValue())
-                        //.into(userImage);
+                mBio.setText((String) dataSnapshot.child("bio").getValue());
+
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
@@ -200,8 +199,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                             }
                         }
-                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    }
+                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);}
+
                 });
                 viewMoreButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -234,10 +233,13 @@ public class ProfileActivity extends AppCompatActivity {
 
                     }
                 });
+                codeTribeName = (String) dataSnapshot.child("tribe").getValue();
+                mCodeTribe.setText(codeTribeName);
                 btnCodeTribe.setOnClickListener(new View.OnClickListener() {
+
                     @Override
                     public void onClick(View view) {
-                        String codeTribeName = (String) dataSnapshot.child("tribe").getValue();
+
                         if (codeTribeName.equals("Soweto")){
                             mCodeTribe.setText(codeTribeName);
                             Intent intent = new Intent(ProfileActivity.this, ChatActivitySoweto.class);
@@ -290,12 +292,13 @@ public class ProfileActivity extends AppCompatActivity {
                     Skill skill = new Skill();
                     //skill.setSkillLevel(Long.parseLong( _snapshot.child("level").getValue().toString()));
                     skill.setTitle((String) _snapshot.child("skill").getValue());
-                    skill.setSkillImage((String) _snapshot.child("image").getValue());
                     System.out.println(skill.toMap());
                     skills.add(skill);
 
                 }
                 mSkillsAdapter.notifyDataSetChanged();
+
+
 
 
                 mExperiences.clear();
