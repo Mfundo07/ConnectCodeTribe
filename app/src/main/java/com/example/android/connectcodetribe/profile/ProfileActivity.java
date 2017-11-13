@@ -1,6 +1,7 @@
 package com.example.android.connectcodetribe.profile;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -86,6 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
     Button add;
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

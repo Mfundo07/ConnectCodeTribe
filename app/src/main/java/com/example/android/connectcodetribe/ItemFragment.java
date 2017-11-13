@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
-import com.example.android.connectcodetribe.Model.ActiveUser;
+import com.example.android.connectcodetribe.Model.Profile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,17 +22,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ItemFragment extends Fragment {
 
     // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
+    private static final String ARG_PROFILE_ID = "profile_id";
     // TODO: Customize parameters
+    private Profile mProfile;
     private int mColumnCount = 1;
 
     DatabaseReference mDatabaseReference;
 
-    List<ActiveUser> mActiveUsers = new ArrayList<>();
+    List<Profile> mProfiles = new ArrayList<>();
     FirebaseUser mAuth;
 
     MyItemRecyclerViewAdapter adapter;
@@ -46,10 +48,10 @@ public class ItemFragment extends Fragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ItemFragment newInstance(int columnCount) {
+    public static ItemFragment newInstance(UUID profileId) {
         ItemFragment fragment = new ItemFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        args.putSerializable(ARG_PROFILE_ID, profileId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,7 +61,7 @@ public class ItemFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            UUID profileId = (UUID) getArguments().getSerializable(ARG_PROFILE_ID);
         }
     }
 
@@ -83,23 +85,23 @@ public class ItemFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new MyItemRecyclerViewAdapter(getActivity(), mActiveUsers);
+            adapter = new MyItemRecyclerViewAdapter(getActivity(), mProfiles);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
-                        mActiveUsers.clear();
+                        mProfiles.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            ActiveUser user = new ActiveUser();
-                            user.setActiveUserName((String) snapshot.child("activeUserName").getValue());
-                            user.setActiveUserSurname((String) snapshot.child("activeUserSurname").getValue());
-                            user.setActiveUserStatus((String) snapshot.child("activeUserStatus").getValue());
-                            user.setActiveUserImageUrl((String) snapshot.child("activeUserImageUrl").getValue());
-                            mActiveUsers.add(user);
+                            Profile user = new Profile();
+                            user.setProfileName((String) snapshot.child("activeUserName").getValue());
+                            user.setProfileSurname((String) snapshot.child("activeUserSurname").getValue());
+                            user.setStatus((String) snapshot.child("activeUserStatus").getValue());
+                            user.setProfileImage((String) snapshot.child("activeUserImageUrl").getValue());
+                            mProfiles.add(user);
                         }
-                        if (mActiveUsers.size() > 0) {
+                        if (mProfiles.size() > 0) {
                             adapter.notifyDataSetChanged();
                         } else {
                             System.out.println("No active users found");

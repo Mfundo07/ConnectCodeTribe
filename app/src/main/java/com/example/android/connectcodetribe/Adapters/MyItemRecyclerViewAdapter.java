@@ -2,7 +2,6 @@ package com.example.android.connectcodetribe.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,21 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Model.ActiveUser;
+import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.R;
 
 import java.util.List;
 
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private List<ActiveUser> mActiveUsers;
+    private List<Profile> mProfiles;
     private Activity activity;
     private Context context;
 
 
-    public MyItemRecyclerViewAdapter(Activity activity, List<ActiveUser> mActiveUsers) {
+    public MyItemRecyclerViewAdapter(Activity activity, List<Profile> mProfiles) {
         this.activity = activity;
-        this.mActiveUsers = mActiveUsers;
+        this.mProfiles = mProfiles;
     }
 
 
@@ -38,35 +37,18 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.mItem = mActiveUsers.get(position);
-        holder.mIdView.setText(mActiveUsers.get(position).getActiveUserName());
-        holder.mContentView.setText(mActiveUsers.get(position).getActiveUserSurname());
-        holder.mStatus.setText(mActiveUsers.get(position).getActiveUserStatus());
+        holder.mItem = mProfiles.get(position);
+        holder.mIdView.setText(mProfiles.get(position).getProfileName());
+        holder.mContentView.setText(mProfiles.get(position).getProfileSurname());
+        holder.mStatus.setText(mProfiles.get(position).getStatus());
+        holder.mIntakeYear.setText(mProfiles.get(position).getIntakeYear());
         Glide.with(holder.profileImage.getContext())
-                .load(mActiveUsers.get(position).getActiveUserImageUrl())
+                .load(mProfiles.get(position).getProfileImage())
                 .into(holder.profileImage);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
-                LayoutInflater inflater = LayoutInflater.from(holder.itemView.getContext());
-                View dialogView = inflater.inflate(R.layout.cardview_onclick_layout, null);
-                boolean isPhoto = mActiveUsers.get(position).getActiveUserImageUrl() != null;
-                if (isPhoto) {
-                    Glide.with(activity)
-                            .load(mActiveUsers.get(position).getActiveUserImageUrl())
-                            .into((ImageView) dialogView.findViewById(R.id.profile_image));
-                    ((TextView) dialogView.findViewById(R.id.name)).setText(mActiveUsers.get(position).getActiveUserName());
-                    ((TextView) dialogView.findViewById(R.id.surname)).setText(mActiveUsers.get(position).getActiveUserSurname());
-                    ((TextView) dialogView.findViewById(R.id.Status)).setText(mActiveUsers.get(position).getActiveUserStatus());
-                    ((TextView) dialogView.findViewById(R.id.tribe)).setText(mActiveUsers.get(position).getActiveUserTribe());
-                }
-
-                builder.setView(dialogView);
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-
 
             }
         });
@@ -75,7 +57,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public int getItemCount() {
-        return mActiveUsers.size();
+        return mProfiles.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -83,8 +65,9 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public final TextView mIdView;
         public final TextView mContentView;
         public final TextView mStatus;
-        public ActiveUser mItem;
+        public Profile mItem;
         public ImageView profileImage;
+        public TextView mIntakeYear;
 
         public ViewHolder(View view) {
             super(view);
@@ -93,6 +76,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mContentView = view.findViewById(R.id.User_Name);
             mStatus = view.findViewById(R.id.User_Status);
             profileImage = view.findViewById(R.id.profile_image);
+            mIntakeYear = view.findViewById(R.id.intake_year_text);
         }
 
         @Override

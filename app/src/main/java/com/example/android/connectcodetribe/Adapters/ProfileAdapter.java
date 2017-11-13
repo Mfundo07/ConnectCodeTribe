@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Model.ActiveUser;
+import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.R;
 
 import java.util.List;
@@ -21,8 +21,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by Admin on 10/4/2017.
  */
 
-public class ActiveUserAdapter extends ArrayAdapter {
-    public ActiveUserAdapter(Context context, int resource,  List<ActiveUser> objects) {
+public class ProfileAdapter extends ArrayAdapter {
+    public ProfileAdapter(Context context, int resource, List<Profile> objects) {
         super(context, resource, objects);
     }
 
@@ -34,30 +34,33 @@ public class ActiveUserAdapter extends ArrayAdapter {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.user_item,parent,false);
         }
 
-        ActiveUser currentUser = (ActiveUser) getItem(position);
+        Profile currentProfile = (Profile) getItem(position);
 
         TextView userName  = listItemView.findViewById(R.id.User_Name);
         TextView userSurname = listItemView.findViewById(R.id.User_Surname);
         TextView userStatus = listItemView.findViewById(R.id.User_Status);
+        TextView userIntakeYear = listItemView.findViewById(R.id.intake_year_text);
         CircleImageView userProfileImage = listItemView.findViewById(R.id.profile_image);
 
-        boolean isImage = currentUser.getActiveUserImageUrl() != null;
+        boolean isImage = currentProfile.getProfileImage() != null;
 
         if (isImage){
 
             Glide.with(userProfileImage.getContext())
-                    .load(currentUser.getActiveUserImageUrl())
+                    .load(currentProfile.getProfileImage())
                     .into(userProfileImage);
-            userName.setText(currentUser.getActiveUserName());
-            userSurname.setText(currentUser.getActiveUserSurname());
-            userStatus.setText(currentUser.getActiveUserStatus());
+            userName.setText(currentProfile.getProfileName());
+            userSurname.setText(currentProfile.getProfileSurname());
+            userStatus.setText(currentProfile.getStatus());
+            userIntakeYear.setText(currentProfile.getIntakeYear());
 
 
         }else{
             userProfileImage.setImageResource(R.drawable.kratos);
-            userName.setText(currentUser.getActiveUserName());
-            userSurname.setText(currentUser.getActiveUserSurname());
-            userStatus.setText(currentUser.getActiveUserStatus());
+            userName.setText(currentProfile.getProfileName());
+            userSurname.setText(currentProfile.getProfileSurname());
+            userStatus.setText(currentProfile.getStatus());
+            userIntakeYear.setText(currentProfile.getIntakeYear());
         }
 
         return listItemView;

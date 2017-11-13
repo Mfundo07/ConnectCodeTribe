@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.android.connectcodetribe.profile.ProfileActivity"
-    tools:showIn="@layout/activity_profile_layout">
+    tools:context="com.example.android.connectcodetribe.ScrollingActivity"
+    tools:showIn="@layout/activity_scrolling">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -133,8 +132,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_expand_more"
-                android:textSize="12sp"
-                android:contentDescription="@string/todo" />
+                android:textSize="11sp" android:contentDescription="@string/todo" />
 
         </LinearLayout>
 
@@ -157,16 +155,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/btnAddProject"
-                android:background="#ffffff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/userProjectTitle"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginEnd="22dp"
-                app:srcCompat="@drawable/add" android:contentDescription="@string/todo" />
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/projectsRecyclerview"
@@ -232,13 +221,6 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/AddExperience"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/add"
-                android:layout_gravity="end"/>
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/experienceRecyclerView"
                 android:layout_width="match_parent"
@@ -251,5 +233,6 @@
 
 
     </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>
