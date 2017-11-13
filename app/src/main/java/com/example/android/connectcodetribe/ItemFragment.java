@@ -99,6 +99,9 @@ public class ItemFragment extends Fragment {
                             user.setProfileSurname((String) snapshot.child("activeUserSurname").getValue());
                             user.setStatus((String) snapshot.child("activeUserStatus").getValue());
                             user.setProfileImage((String) snapshot.child("activeUserImageUrl").getValue());
+                            user.setCodeTribe((String) snapshot.child("activeUserTribe").getValue());
+                            user.setProfileEmail((String) snapshot.child("activeUserEmail").getValue());
+
                             mProfiles.add(user);
                         }
                         if (mProfiles.size() > 0) {
