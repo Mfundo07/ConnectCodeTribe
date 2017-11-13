@@ -81,7 +81,7 @@
                     tools:text="Intern" />
 
                 <TextView
-                    android:id="@+id/User_Year"
+                    android:id="@+id/intake_year_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
