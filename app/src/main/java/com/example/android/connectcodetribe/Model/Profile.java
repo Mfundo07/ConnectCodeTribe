@@ -19,6 +19,27 @@ public class Profile {
     private String mCodeTribe;
     private String mProfileSurname;
     private UUID mId;
+    private String mIntakeYear;
+
+    public String getIntakeYear() {
+        return mIntakeYear;
+    }
+
+    public void setIntakeYear(String intakeYear) {
+        mIntakeYear = intakeYear;
+    }
+
+    public Profile(String profileImage, String profileName, String status, String occupation, String profileEmail, String codeTribe, String profileSurname, String intakeYear) {
+
+        mProfileImage = profileImage;
+        mProfileName = profileName;
+        mStatus = status;
+        mOccupation = occupation;
+        mProfileEmail = profileEmail;
+        mCodeTribe = codeTribe;
+        mProfileSurname = profileSurname;
+        mIntakeYear = intakeYear;
+    }
 
     public UUID getId() {
         return mId;
@@ -63,6 +84,7 @@ public class Profile {
         mOccupation = occupation;
         mProfileEmail = profileEmail;
         mCodeTribe = codeTribe;
+
     }
 
     public String getProfileImage() {

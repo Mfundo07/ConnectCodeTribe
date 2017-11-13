@@ -20,7 +20,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Model.ActiveUser;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -119,7 +118,6 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
                 Profile items = new Profile();
                 items.setProfileName(userNameEditText.getText().toString());
-                items.setOccupation(userCurrentOccupation.getText().toString());
                 items.setProfileEmail(userEmailEditText.getText().toString());
                 items.setStatus(mStatusSpinner.getSelectedItem().toString());
                 items.setProfileSurname(userSurnameEditText.getText().toString());
@@ -135,7 +133,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                             task.getException().printStackTrace();
                         }
                     }
-                });;
+                });
 
             }
         });
@@ -265,8 +263,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Uri downloadUri = taskSnapshot.getDownloadUrl();
-                    ActiveUser user = new ActiveUser();
-                    user.setActiveUserImageUrl(downloadUri.toString());
+                    Profile user = new Profile();
+                    user.setProfileImage(downloadUri.toString());
                 }
             });
 
