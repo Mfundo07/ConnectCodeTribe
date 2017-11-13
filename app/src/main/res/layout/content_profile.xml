@@ -209,7 +209,9 @@
                 android:id="@+id/skillsRecyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
+                android:layout_marginTop="16dp">
+
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 
@@ -240,7 +242,9 @@
                 android:id="@+id/experienceRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"></android.support.v7.widget.RecyclerView>
+                android:layout_marginTop="16dp">
+
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 
