@@ -4,6 +4,7 @@ import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by Admin on 11/7/2017.
@@ -17,6 +18,15 @@ public class Profile {
     private String mProfileEmail;
     private String mCodeTribe;
     private String mProfileSurname;
+    private UUID mId;
+
+    public UUID getId() {
+        return mId;
+    }
+
+    public Profile(UUID id) {
+        mId = id;
+    }
 
     public String getProfileSurname() {
         return mProfileSurname;
