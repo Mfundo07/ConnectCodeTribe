@@ -76,8 +76,7 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_profile"
-        android:layout_height="566dp"
-        tools:layout_editor_absoluteY="401dp" />
+        tools:layout_editor_absoluteY="400dp" />
 
 
 </android.support.design.widget.CoordinatorLayout>

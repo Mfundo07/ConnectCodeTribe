@@ -23,24 +23,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Connecting "
-        android:id="@+id/splashAppName"
-        android:textColor="#FF9800"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        android:typeface="serif"
-        android:layout_above="@+id/splashScreenImage"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connecting "
+            android:id="@+id/splashAppName"
+            android:textColor="#FF9800 "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:typeface="serif"
+            android:layout_above="@+id/splashScreenImage"
+            android:layout_centerHorizontal="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="people"
             android:id="@+id/splashAppName2"
-            android:textColor="#93c841"
+            android:textColor="#93c841 "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20dp"
             android:textStyle="bold|italic"

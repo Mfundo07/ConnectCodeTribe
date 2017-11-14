@@ -1,5 +1,7 @@
 package com.example.android.connectcodetribe.Model;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;
@@ -20,6 +22,7 @@ public class Profile {
     private String mProfileSurname;
     private UUID mId;
     private String mIntakeYear;
+    private FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
     public String getIntakeYear() {
         return mIntakeYear;
@@ -42,11 +45,12 @@ public class Profile {
     }
 
     public UUID getId() {
+
         return mId;
     }
 
     public Profile(UUID id) {
-        mId = id;
+        mId = UUID.randomUUID();
     }
 
     public String getProfileSurname() {

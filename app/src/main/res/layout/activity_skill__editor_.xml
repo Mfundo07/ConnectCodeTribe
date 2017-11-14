@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:weightSum="4"
+        android:background="#F2F7FF"
         android:orientation="vertical">
 
 
@@ -26,13 +27,13 @@
             android:hint="Enter Skill"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
             android:alpha="0.50"
-            android:layout_marginTop="50dp"
+            android:layout_margin="16dp"
             android:layout_weight="1"
             android:text="add"
-            android:background="#E0E0E0"/>
+            android:background="@drawable/button_green"/>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

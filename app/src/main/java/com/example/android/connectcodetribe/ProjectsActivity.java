@@ -47,17 +47,9 @@ public class ProjectsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewing_project_feature_layout);
-
-
         //Firebase Init
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-
-
-
-
-
-
         //Init view
         ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
         ButUpload = (Button) findViewById(R.id.ButUpload);
