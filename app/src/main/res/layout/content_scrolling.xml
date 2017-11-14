@@ -125,6 +125,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:maxLines="4"
+                android:text="Bio"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp" />
 

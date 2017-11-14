@@ -46,7 +46,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class ProfileActivity extends AppCompatActivity {
+
     FirebaseDatabase database;
     DatabaseReference myRef;
     TextView mBio, mStatus, mCodeTribe, userName, userDescription;
