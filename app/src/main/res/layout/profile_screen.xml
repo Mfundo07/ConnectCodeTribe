@@ -101,10 +101,15 @@
         android:backgroundTint="#93c841"
         app:cardCornerRadius="16dp">
 
+        <include layout="@layout/personal_items">
+
+        </include>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
 
                 
                 <android.support.design.widget.AppBarLayout
