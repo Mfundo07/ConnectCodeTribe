@@ -277,7 +277,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/skills"
+                android:text="Skills"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
