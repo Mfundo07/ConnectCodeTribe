@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
-    ImageButton skillName;
+    Button skillName;
     private  ImageButton viewMoreButton;
     private String codeTribeName;
 
@@ -130,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         userName = (TextView) findViewById(R.id.userName);
 
-        skillName = (ImageButton) findViewById(R.id.skill_display_picture);
+        skillName = (Button) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
         btnAddExperience = (Button) findViewById(R.id.AddExperience);

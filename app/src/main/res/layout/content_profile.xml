@@ -22,7 +22,8 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="16dp"
-            android:weightSum="3" android:baselineAligned="false">
+            android:weightSum="3"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -38,7 +39,8 @@
                     android:background="@drawable/round_codetribe_buttton"
                     android:padding="24dp"
                     android:tint="@android:color/white"
-                    app:srcCompat="@drawable/ic_school_black" android:contentDescription="@string/todo" />
+                    app:srcCompat="@drawable/ic_school_black"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/userCodeTribeName"
@@ -67,7 +69,8 @@
                     android:background="@drawable/round_status_button"
                     android:padding="24dp"
                     android:tint="@android:color/white"
-                    app:srcCompat="@drawable/ic_alumni_black" android:contentDescription="@string/todo" />
+                    app:srcCompat="@drawable/ic_alumni_black"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/userStatus"
@@ -97,7 +100,8 @@
                     android:background="@drawable/round_github_button"
                     android:padding="24dp"
                     android:tint="@android:color/white"
-                    app:srcCompat="@drawable/ic_github_black" android:contentDescription="@string/todo" />
+                    app:srcCompat="@drawable/ic_github_black"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/userGihubProjects"
@@ -139,6 +143,80 @@
         </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/textColorUser"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:text="Email" />
+
+            <TextView
+                android:id="@+id/User_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/textColorUser"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:hint="nonhlanhlamokoena11@gmail.com"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/textColorUser"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:text="Current Occupation" />
+
+            <TextView
+                android:id="@+id/User_occupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/textColorUser"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:hint="mLab" />
+
+
+        </LinearLayout>
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,7 +230,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/projects"
+                android:text="Projects"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -166,7 +244,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="22dp"
-                app:srcCompat="@drawable/add" android:contentDescription="@string/todo" />
+                app:srcCompat="@drawable/add"
+                android:contentDescription="@string/todo" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/projectsRecyclerview"
@@ -201,7 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/skills"
+                android:text="Skills"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -227,7 +306,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="@string/experience"
+                android:text="Experience"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -251,5 +330,7 @@
 
 
     </LinearLayout>
+    </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>
