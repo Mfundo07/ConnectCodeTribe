@@ -208,7 +208,7 @@
                     android:textColor="@color/textColorUser"
                     android:textSize="16sp"
                     android:textStyle="italic"
-                    android:hint="mLab" />
+                    android:hint="mLab"/>
 
 
             </LinearLayout>
