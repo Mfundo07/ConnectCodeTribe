@@ -52,7 +52,13 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(activity, ScrollingFragment.class);
+                intent.putExtra("Name", mProfiles.get(position).getProfileName());
+                intent.putExtra("CodeTribe", mProfiles.get(position).getCodeTribe());
+                intent.putExtra("Status", mProfiles.get(position).getStatus());
+                intent.putExtra("Email", mProfiles.get(position).getProfileEmail());
+                intent.putExtra("Image", mProfiles.get(position).getProfileImage());
                 context = view.getContext();
                 context.startActivity(intent);
 
