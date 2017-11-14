@@ -303,7 +303,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="@string/experience"
+                android:text="Experience"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
