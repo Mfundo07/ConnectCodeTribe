@@ -8,9 +8,6 @@
     android:layout_alignParentStart="true"
     android:background="#fff">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,29 +93,40 @@
                 android:background="#93c841" />
                 
             </LinearLayout>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#93c841"
+        app:cardCornerRadius="16dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 
                 <android.support.design.widget.AppBarLayout
                     android:id="@+id/appbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#93c841"
+                    android:backgroundTint="#93c841"
 
                     android:theme="@style/AppTheme.AppBarOverlay">
                     <android.support.design.widget.TabLayout
                         android:id="@+id/tabs"
                         app:tabTextColor="#fff"
                         android:layout_width="392dp"
+                        app:tabIndicatorColor="#fff"
+                        app:tabSelectedTextColor="#000"
                         android:background="#93c841"
                         android:backgroundTint="#93c841"
                         android:layout_height="wrap_content">
                         <android.support.design.widget.TabItem
                             android:id="@+id/tabItem"
                             android:layout_width="wrap_content"
-                            app:tabTextColor="#000"
                             android:layout_height="wrap_content"
                             android:text="@string/tab_text_1"
                             android:backgroundTint="#000"/>
@@ -146,7 +154,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
             </LinearLayout>
-    </ScrollView>
+    </android.support.v7.widget.CardView>
+
         </LinearLayout>
 
