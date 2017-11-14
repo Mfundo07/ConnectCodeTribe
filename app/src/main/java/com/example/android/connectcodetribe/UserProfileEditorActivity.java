@@ -225,7 +225,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 if (dataSnapshot.hasChildren()){
                     userNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserName").getValue());
                     if (dataSnapshot.child(currentUser.getUid()).child("activeUserEmail").getValue() == null){
-                    userEmailEditText.setText(currentUser.getEmail());}
+                        userEmailEditText.setText(currentUser.getEmail());}
                     else{
                         userEmailEditText.setText((String)dataSnapshot.child(currentUser.getUid()).child("activeUserEmail").getValue());
                     }

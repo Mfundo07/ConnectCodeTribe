@@ -111,32 +111,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="8dp">
-
-            <TextView
-                android:id="@+id/userBio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:maxLines="4"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp" />
-
-            <ImageButton
-                android:id="@+id/moreOnUserBio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_expand_more"
-                android:textSize="11sp" android:contentDescription="@string/todo" />
-
-        </LinearLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -192,6 +166,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/userBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:maxLines="4"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <ImageButton
+                android:id="@+id/moreOnUserBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/todo"
+                android:textSize="11sp"
+                app:srcCompat="@drawable/ic_expand_more" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:paddingTop="16dp">
 
             <TextView
@@ -229,7 +230,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/AddExperience"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
