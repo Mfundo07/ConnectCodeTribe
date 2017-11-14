@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
         android:textAlignment="center"
-        android:text="TextView"
+        android:text="TextView1"
         android:textColor="#FF9800"
         android:textSize="18sp"
         android:textStyle="bold" />

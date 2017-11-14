@@ -13,7 +13,7 @@
         android:layout_margin="32dp"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
-        android:text="TextView"
+        android:text="TextView3"
         android:textAlignment="center"
         android:textColor="#FF9800"
         android:textSize="18sp"
