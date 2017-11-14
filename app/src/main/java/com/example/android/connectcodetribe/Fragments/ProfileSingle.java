@@ -22,7 +22,7 @@ import com.example.android.connectcodetribe.R;
 /**
  * Created by docotel on 4/14/16.
  */
-public class ProfileFragment extends AppCompatActivity{
+public class ProfileSingle extends AppCompatActivity{
 
     /**
      * The {@link PagerAdapter} that will provide
@@ -42,7 +42,7 @@ public class ProfileFragment extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_single);
+        setContentView(R.layout.profile_screen);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -129,9 +129,13 @@ public class ProfileFragment extends AppCompatActivity{
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            if (position == 0) {
+                return new PersonalFragment();
+            } else if (position == 1) {
+                return new EducationFragment();
+            }else  {
+                return new TribesFragment();
+            }
         }
 
         @Override
@@ -139,5 +143,7 @@ public class ProfileFragment extends AppCompatActivity{
             // Show 3 total pages.
             return 3;
         }
+
+
     }
 }
