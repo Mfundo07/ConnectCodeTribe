@@ -30,12 +30,12 @@
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="select_picture_title">Get Photo From</string>
     <string name="send_button_label">SEND</string>
-    <string name="Male">Male</string>
-    <string name="Female">Female</string>
-    <string name="Black">Black</string>
-    <string name="White">White</string>
-    <string name="Indian">Indian</string>
-    <string name="Colored">Colored</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="black">Black</string>
+    <string name="white">White</string>
+    <string name="indian">Indian</string>
+    <string name="colored">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
     <string-array name="names">
         <item>Select Qualification</item>
