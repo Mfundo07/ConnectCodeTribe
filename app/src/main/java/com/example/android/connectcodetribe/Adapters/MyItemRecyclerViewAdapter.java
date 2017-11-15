@@ -40,8 +40,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mItem = mTribeMates.get(position);
         holder.mIdView.setText(mTribeMates.get(position).getName());
         holder.mContentView.setText(mTribeMates.get(position).getSurname());
-        holder.mStatus.setText(mTribeMates.get(position).getGender());
-        holder.mIntakeYear.setText(mTribeMates.get(position).getEthnicity());
+        holder.mStatus.setText(mTribeMates.get(position).getStatus());
+        holder.mIntakeYear.setText(mTribeMates.get(position).getIntakeYear());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
