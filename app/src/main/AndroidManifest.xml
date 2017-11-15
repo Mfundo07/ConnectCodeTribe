@@ -39,9 +39,11 @@
         <activity android:name=".Fragments.ProfileSingle"
             android:label="Profile"/>
         <activity android:name=".ExperienceActivity" />
+        <activity android:name=".Welcome_activity" />
         <activity android:name=".EditExperienceActivity" />
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".Main3Activity" />
         <activity android:name=".EmailPasswordActivity" />
         <activity android:name=".FullScreenActivity" />
         <activity android:name=".LoginActivity" />

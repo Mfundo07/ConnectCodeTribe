@@ -12,12 +12,10 @@ import com.example.android.connectcodetribe.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PersonalFragment extends Fragment {
+public class EmploymentFragment extends Fragment {
 
 
-
-
-    public PersonalFragment() {
+    public EmploymentFragment() {
         // Required empty public constructor
     }
 
@@ -25,9 +23,8 @@ public class PersonalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_blank, container, false);
         // Inflate the layout for this fragment
-        return v;
+        return inflater.inflate(R.layout.fragment_tribes, container, false);
     }
 
 }
