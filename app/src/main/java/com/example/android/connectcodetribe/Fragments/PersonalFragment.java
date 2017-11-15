@@ -15,6 +15,8 @@ import com.example.android.connectcodetribe.R;
 public class PersonalFragment extends Fragment {
 
 
+
+
     public PersonalFragment() {
         // Required empty public constructor
     }

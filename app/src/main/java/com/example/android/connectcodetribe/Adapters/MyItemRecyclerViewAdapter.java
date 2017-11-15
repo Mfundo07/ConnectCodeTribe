@@ -38,8 +38,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mTribeMates.get(position);
-        holder.mIdView.setText(mTribeMates.get(position).getName());
-        holder.mContentView.setText(mTribeMates.get(position).getSurname());
+        holder.mIdView.setText(mTribeMates.get(position).getSurname());
+        holder.mContentView.setText(mTribeMates.get(position).getName());
         holder.mStatus.setText(mTribeMates.get(position).getStatus());
         holder.mIntakeYear.setText(mTribeMates.get(position).getIntakeYear());
         holder.mCodeTribe.setText(mTribeMates.get(position).getCodeTribe());
@@ -54,6 +54,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 intent.putExtra("CodeTribe", mTribeMates.get(position).getCodeTribe());
                 intent.putExtra("Status", mTribeMates.get(position).getStatus());
                 intent.putExtra("Email", mTribeMates.get(position).getEmail());
+                intent.putExtra("Age", mTribeMates.get(position).getAge());
+                intent.putExtra("Ethnic", mTribeMates.get(position).getEthnicity());
                 context = view.getContext();
                 context.startActivity(intent);
 
