@@ -129,14 +129,25 @@ public class ProfileSingle extends AppCompatActivity{
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 0) {
-                return new PersonalFragment();
-            } else if (position == 1) {
-                return new EducationFragment();
-            }else  {
-                return new TribesFragment();
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            switch (position){
+                case 0:
+                    SkillFragment skillsFragment = new SkillFragment ();
+                    return skillsFragment;
+                case 1:
+                     EmploymentFragment employmentFragment = new EmploymentFragment ();
+                    return employmentFragment;
+                case 2:
+                    EducationFragment educationFragment = new EducationFragment ();
+                    return educationFragment;
             }
+            return null;
         }
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            //return PlaceholderFragment.newInstance(position + 1);
+        //}
 
         @Override
         public int getCount() {
@@ -144,6 +155,6 @@ public class ProfileSingle extends AppCompatActivity{
             return 3;
         }
 
-
     }
+
 }
