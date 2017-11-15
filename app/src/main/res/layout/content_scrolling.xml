@@ -125,6 +125,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:maxLines="4"
+                android:text="Bio"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp" />
 
@@ -236,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/projects"
+                android:text="Projects"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -276,7 +277,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/skills"
+                android:text="Skills"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -302,7 +303,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="@string/experience"
+                android:text="Experience"
                 android:textColor="#142030"
                 android:textSize="22sp"
                 android:textStyle="bold" />
