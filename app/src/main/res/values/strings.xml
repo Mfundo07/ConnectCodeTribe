@@ -30,13 +30,12 @@
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="select_picture_title">Get Photo From</string>
     <string name="send_button_label">SEND</string>
-    <string name="status_alumni">Alumni</string>
-    <string name="status_intern">Intern</string>
-    <string name="status_unknown">Unknown</string>
-    <string name="soweto">Soweto</string>
-    <string name="tembisa">Tembisa</string>
-    <string name="pretoria">Pretoria</string>
-    <string name="alex">Alexandra</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="ethnicity_b">Black</string>
+    <string name="ethnicity_w">White</string>
+    <string name="ethnicity_i">Indian</string>
+    <string name="ethnicity_c">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
     <string-array name="names">
         <item>Select Qualification</item>
