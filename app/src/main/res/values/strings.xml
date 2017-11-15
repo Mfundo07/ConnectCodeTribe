@@ -75,7 +75,6 @@
     <string-array name="array_gender_options">
         <item>@string/female</item>
         <item>@string/male</item>
-        <item>@string/bio_sexual</item>
     </string-array>
 
     <string-array name="code_tribe_options">
