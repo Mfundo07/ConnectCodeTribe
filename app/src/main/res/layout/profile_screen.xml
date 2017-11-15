@@ -91,7 +91,7 @@
                             android:id="@+id/user_profile_codeTribe"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:text="Soweto Codetribe"
+                            android:text="SowetoCodetribe"
                             android:textColor="#000"
                             android:layout_weight="1"
                             android:textSize="12sp"
