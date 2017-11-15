@@ -76,7 +76,7 @@
         <item>@string/male</item>
     </string-array>
 
-    <string-array name="code_tribe_options">
+    <string-array name="array_ethnicity_option">
         <item>@string/black</item>
         <item>@string/white</item>
         <item>@string/indian</item>

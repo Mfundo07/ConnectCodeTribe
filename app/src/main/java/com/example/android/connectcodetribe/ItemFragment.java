@@ -96,12 +96,12 @@ public class ItemFragment extends Fragment {
                         mTribeMates.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             TribeMate user = new TribeMate();
-                            user.setName((String) snapshot.child("activeUserName").getValue());
-                            user.setSurname((String) snapshot.child("activeUserSurname").getValue());
-                            user.setAge((String) snapshot.child("activeUserStatus").getValue());
-                            user.setEMC((String) snapshot.child("activeUserImageUrl").getValue());
-                            user.setEthnicity((String) snapshot.child("activeUserTribe").getValue());
-                            user.setGender((String) snapshot.child("activeUserEmail").getValue());
+                            user.setName((String) snapshot.child("name").getValue());
+                            user.setSurname((String) snapshot.child("surname").getValue());
+                            user.setAge(String.valueOf(snapshot.child("age").getValue()));
+                            user.setEMC((String) snapshot.child("employeeCode").getValue());
+                            user.setEthnicity((String) snapshot.child("ethnicity").getValue());
+                            user.setGender((String) snapshot.child("gender").getValue());
 
                             mTribeMates.add(user);
                         }
