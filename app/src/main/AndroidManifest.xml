@@ -36,6 +36,7 @@
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
         <activity android:name=".QualificationActivity" />
+        <activity android:name=".Fragments.ProfileSingle" />
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".EditExperienceActivity" />
         <activity android:name=".ProjectsActivity" />
