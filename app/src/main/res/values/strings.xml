@@ -30,13 +30,12 @@
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="select_picture_title">Get Photo From</string>
     <string name="send_button_label">SEND</string>
-    <string name="status_alumni">Alumni</string>
-    <string name="status_intern">Intern</string>
-    <string name="status_unknown">Unknown</string>
-    <string name="soweto">Soweto</string>
-    <string name="tembisa">Tembisa</string>
-    <string name="pretoria">Pretoria</string>
-    <string name="alex">Alexandra</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="black">Black</string>
+    <string name="white">White</string>
+    <string name="indian">Indian</string>
+    <string name="colored">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
     <string-array name="names">
         <item>Select Qualification</item>
@@ -73,16 +72,15 @@
     </string-array>
 
     <string-array name="array_gender_options">
-        <item>@string/status_unknown</item>
-        <item>@string/status_alumni</item>
-        <item>@string/status_intern</item>
+        <item>@string/female</item>
+        <item>@string/male</item>
     </string-array>
 
-    <string-array name="code_tribe_options">
-        <item>@string/alex</item>
-        <item>@string/pretoria</item>
-        <item>@string/tembisa</item>
-        <item>@string/soweto</item>
+    <string-array name="array_ethnicity_option">
+        <item>@string/black</item>
+        <item>@string/white</item>
+        <item>@string/indian</item>
+        <item>@string/colored</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -90,9 +88,10 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="user_portfolio">Portfolio</string>
     <string name="large_text">
+
         "Material is the metaphor.\n\n"
 
-        "A  material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "A  material metaphorn  is the unifying theory of a rationalized space and a system of motion."
         "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
         "technologically advanced and open to imagination and magic.\n"
         "Surfaces and edges of the material provide visual cues that are grounded in reality. The "

@@ -13,6 +13,46 @@ public class TribeMate {
     private String mAge;
     private String mMobile;
     private String mEmail;
+    private String mIntakeYear;
+    private String mStatus;
+    private String mCodeTribe;
+
+    public String getCodeTribe() {
+        return mCodeTribe;
+    }
+
+    public void setCodeTribe(String codeTribe) {
+        mCodeTribe = codeTribe;
+    }
+
+    public String getStatus() {
+        return mStatus;
+    }
+
+    public void setStatus(String status) {
+        mStatus = status;
+    }
+
+    public String getIntakeYear() {
+        return mIntakeYear;
+    }
+
+    public void setIntakeYear(String intakeYear) {
+        mIntakeYear = intakeYear;
+    }
+
+    public TribeMate(String name, String surname, String EMC, String gender, String ethnicity, String age, String mobile, String email, String intakeYear) {
+
+        mName = name;
+        mSurname = surname;
+        mEMC = EMC;
+        mGender = gender;
+        mEthnicity = ethnicity;
+        mAge = age;
+        mMobile = mobile;
+        mEmail = email;
+        mIntakeYear = intakeYear;
+    }
 
     public TribeMate() {
     }

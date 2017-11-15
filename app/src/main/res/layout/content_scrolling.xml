@@ -168,7 +168,7 @@
                     tools:text="Email" />
 
                 <TextView
-                    android:id="@+id/User_Email"
+                    android:id="@+id/user_Email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -200,7 +200,7 @@
                     tools:text="Current Occupation" />
 
                 <TextView
-                    android:id="@+id/User_occupation"
+                    android:id="@+id/user_occupation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

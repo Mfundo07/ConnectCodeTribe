@@ -57,21 +57,21 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     DatabaseReference mDatabaseReference;
     StorageReference mStoragereference;
     Uri FilePathUri;
-    public static final int STATUS_UNKNOWN = 0;
-    public static final int STATUS_ALUMNI = 1;
-    public static final int STATUS_INTERN = 2;
+    public static final int GENDER_UNKNOWN = 0;
+    public static final int GENDER_MALE = 1;
+    public static final int GENDER_FEMALE = 2;
 
-    public static final int TRIBE_SOWETO = 1;
-    public static final int TRIBE_PRETORIA = 2;
-    public static final int TRIBE_TEMBISA = 3;
-    public static final int TRIBE_ALEX = 4;
+    public static final int ETHNIC_BLACK = 1;
+    public static final int ETHNIC_WHITE = 2;
+    public static final int ETHNIC_COLORED= 3;
+    public static final int ETHNIC_ASIAN = 4;
 
 
     private Spinner mStatusSpinner, mCodeTribeSpinner;
     private boolean mUserHasChanged = false;
     FirebaseUser currentUser;
-    private int mStatus = STATUS_UNKNOWN;
-    private  int mCodeTribe = TRIBE_SOWETO;
+    private int mStatus = GENDER_UNKNOWN;
+    private  int mCodeTribe = ETHNIC_BLACK;
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -84,7 +84,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
 
     public static boolean isValidGender(int gender) {
-        if (gender == STATUS_UNKNOWN || gender == STATUS_ALUMNI || gender == STATUS_INTERN) {
+        if (gender == GENDER_UNKNOWN || gender == GENDER_MALE || gender == GENDER_FEMALE) {
             return true;
         }
         return false;
@@ -171,12 +171,12 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
-                    if (selection.equals(getString(R.string.status_alumni))) {
-                        mStatus = STATUS_ALUMNI;
-                    } else if (selection.equals(getString(R.string.status_intern))) {
-                        mStatus = STATUS_INTERN;
+                    if (selection.equals(getString(R.string.male))) {
+                        mStatus = GENDER_MALE;
+                    } else if (selection.equals(getString(R.string.female))) {
+                        mStatus = GENDER_FEMALE;
                     } else {
-                        mStatus = STATUS_UNKNOWN;
+                        mStatus = GENDER_UNKNOWN;
                     }
                 }
             }
@@ -184,14 +184,14 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             // Because AdapterView is an abstract class, onNothingSelected must be defined
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                mStatus = STATUS_UNKNOWN;
+                mStatus = GENDER_UNKNOWN;
             }
         });
     }
 
     private void codetribeSpinner(){
         ArrayAdapter codeTribeSpinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.code_tribe_options, android.R.layout.simple_spinner_item);
+                R.array.array_ethnicity_option, android.R.layout.simple_spinner_item);
         codeTribeSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         mCodeTribeSpinner.setAdapter(codeTribeSpinnerAdapter);
         mCodeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -199,22 +199,22 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selection = (String) adapterView.getItemAtPosition(i);
                 if (!TextUtils.isEmpty(selection)){
-                    if (selection.equals(R.string.pretoria)){
-                        mCodeTribe = TRIBE_PRETORIA;
+                    if (selection.equals(R.string.black)){
+                        mCodeTribe = ETHNIC_WHITE;
 
-                    }else if (selection.equals(R.string.tembisa)){
-                        mCodeTribe = TRIBE_TEMBISA;
-                    }else if (selection.equals(R.string.alex)){
-                        mCodeTribe = TRIBE_ALEX;
+                    }else if (selection.equals(R.string.white)){
+                        mCodeTribe = ETHNIC_WHITE;
+                    }else if (selection.equals(R.string.indian)){
+                        mCodeTribe = ETHNIC_ASIAN;
                     }else {
-                        mCodeTribe = TRIBE_SOWETO;
+                        mCodeTribe = ETHNIC_BLACK;
                     }
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                mCodeTribe = TRIBE_PRETORIA;
+                mCodeTribe = ETHNIC_BLACK;
 
             }
         });

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
+import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +35,7 @@ public class ItemFragment extends Fragment {
 
     DatabaseReference mDatabaseReference;
 
-    List<Profile> mProfiles = new ArrayList<>();
+    List<TribeMate> mTribeMates = new ArrayList<>();
     FirebaseUser mAuth;
 
     MyItemRecyclerViewAdapter adapter;
@@ -72,7 +73,7 @@ public class ItemFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/users/");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/convert/");
 
 
         // Set the adapter
@@ -85,26 +86,29 @@ public class ItemFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new MyItemRecyclerViewAdapter(getActivity(), mProfiles);
+            adapter = new MyItemRecyclerViewAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
-                        mProfiles.clear();
+                        mTribeMates.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            Profile user = new Profile();
-                            user.setProfileName((String) snapshot.child("activeUserName").getValue());
-                            user.setProfileSurname((String) snapshot.child("activeUserSurname").getValue());
-                            user.setStatus((String) snapshot.child("activeUserStatus").getValue());
-                            user.setProfileImage((String) snapshot.child("activeUserImageUrl").getValue());
-                            user.setCodeTribe((String) snapshot.child("activeUserTribe").getValue());
-                            user.setProfileEmail((String) snapshot.child("activeUserEmail").getValue());
+                            TribeMate user = new TribeMate();
+                            user.setName((String) snapshot.child("name").getValue());
+                            user.setSurname((String) snapshot.child("surname").getValue());
+                            user.setAge(String.valueOf(snapshot.child("age").getValue()));
+                            user.setEMC((String) snapshot.child("employeeCode").getValue());
+                            user.setEthnicity((String) snapshot.child("ethnicity").getValue());
+                            user.setGender((String) snapshot.child("gender").getValue());
+                            user.setIntakeYear((String) snapshot.child("inTakePeriod").getValue());
+                            user.setStatus((String) snapshot.child("status").getValue());
+                            user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
 
-                            mProfiles.add(user);
+                            mTribeMates.add(user);
                         }
-                        if (mProfiles.size() > 0) {
+                        if (mTribeMates.size() > 0) {
                             adapter.notifyDataSetChanged();
                         } else {
                             System.out.println("No active users found");
