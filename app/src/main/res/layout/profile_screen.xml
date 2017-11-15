@@ -82,7 +82,7 @@
                         android:id="@+id/user_profile_status"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="UI/ UX DESIGNER"
+                        android:text="In Program "
                         android:textColor="#000"
                         android:layout_weight="1"
                         android:textStyle="italic" />
