@@ -76,6 +76,8 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_profile"
+        app:layout_anchor="@+id/floatingActionButton"
+        app:layout_anchorGravity="bottom|center"
         tools:layout_editor_absoluteY="400dp" />
 
 
