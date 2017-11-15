@@ -42,6 +42,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mContentView.setText(mTribeMates.get(position).getSurname());
         holder.mStatus.setText(mTribeMates.get(position).getStatus());
         holder.mIntakeYear.setText(mTribeMates.get(position).getIntakeYear());
+        holder.mCodeTribe.setText(mTribeMates.get(position).getCodeTribe());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +75,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public final TextView mStatus;
         public TribeMate mItem;
         public TextView mIntakeYear;
+        public TextView mCodeTribe;
 
         public ViewHolder(View view) {
             super(view);
@@ -82,6 +84,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mContentView = view.findViewById(R.id.User_Name);
             mStatus = view.findViewById(R.id.User_Status);
             mIntakeYear = view.findViewById(R.id.intake_year_text);
+            mCodeTribe = view.findViewById(R.id.soweto_orange);
         }
 
         @Override
