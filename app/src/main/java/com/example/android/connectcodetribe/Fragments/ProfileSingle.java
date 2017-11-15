@@ -130,11 +130,11 @@ public class ProfileSingle extends AppCompatActivity{
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                return new PersonalFragment();
+                return new SkillFragment();
             } else if (position == 1) {
                 return new EducationFragment();
             }else  {
-                return new TribesFragment();
+                return new EmploymentFragment();
             }
         }
 

@@ -7,23 +7,23 @@
     android:id="@+id/user_cardView"
     android:layout_width="match_parent"
     android:padding="8dp"
-    android:layout_height="55dp"
+    android:layout_height="100dp"
     android:layout_margin="8dp"
     card_view:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="#FFFDE7">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"
-            android:src="@drawable/kb"
-            app:civ_border_color="#FF000000"
+            android:src="@drawable/man_user_user"
+            app:civ_border_color="#FF9800"
             app:civ_border_width="1dp" />
 
         <LinearLayout
@@ -50,7 +50,7 @@
                     android:maxLines="2"
                     android:textStyle="bold"
                     android:textColor="@color/textColorUser"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     tools:text="Kabelo" />
 
                 <TextView
@@ -62,7 +62,7 @@
                     android:maxLines="2"
                     android:textStyle="bold"
                     android:textColor="@color/textColorUser"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     tools:text="Mokoena" />
 
 
@@ -106,7 +106,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="soweto"
+                        android:text="Soweto"
                         android:gravity="end"
                         android:textSize="12sp"
                         android:textColor="#FF9800 "

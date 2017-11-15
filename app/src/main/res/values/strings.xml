@@ -21,9 +21,9 @@
     <string name="fresh_config">Fresh Config</string>
     <string name="cause_crash">Cause Crash</string>
     <string name="sign_up">Sign Up</string>
-    <string name="tab_text_1">Personal</string>
+    <string name="tab_text_1">Skills</string>
     <string name="tab_text_2">Education</string>
-    <string name="tab_text_3">Tribes</string>
+    <string name="tab_text_3">Employment</string>
     <string name="invite_menu_label">Invite</string>
     <string name="contacts_permission_rationale">Access to account information is required to sign in.</string>
     <string name="invitation_message">Please join me for a friendly chat</string>
