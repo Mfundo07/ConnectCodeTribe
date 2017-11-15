@@ -106,6 +106,9 @@ public class ItemFragment extends Fragment {
                             user.setStatus((String) snapshot.child("status").getValue());
                             user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
 
+                            user.setEmail((String) snapshot.child("emailAddress").getValue());
+                            user.setMobile((String) snapshot.child("mobileNumber").getValue());
+
                             mTribeMates.add(user);
                         }
                         if (mTribeMates.size() > 0) {
