@@ -102,6 +102,8 @@ public class ItemFragment extends Fragment {
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());
+                            user.setIntakeYear((String) snapshot.child("inTakePeriod").getValue());
+                            user.setStatus((String) snapshot.child("status").getValue());
 
                             mTribeMates.add(user);
                         }
