@@ -7,12 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#d3d6db">
+        android:background="#FFFDE7">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image"
@@ -45,8 +45,9 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:maxLines="2"
+                    android:textStyle="bold"
                     android:textColor="@color/textColorUser"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     tools:text="Kabelo" />
 
                 <TextView
@@ -56,8 +57,9 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:maxLines="2"
+                    android:textStyle="bold"
                     android:textColor="@color/textColorUser"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     tools:text="Mokoena" />
 
 
@@ -77,7 +79,7 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:textColor="@color/textColorUser"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     tools:text="Intern" />
 
                 <TextView
@@ -88,8 +90,17 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:textColor="@color/textColorUser"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     tools:text="2017" />
+
+                <TextView
+                    android:id="@+id/soweto_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="soweto"
+                    android:textSize="12sp"
+                    android:textColor="#FF9800 "
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
