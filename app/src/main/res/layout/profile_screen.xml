@@ -84,6 +84,7 @@
                         android:id="@+id/user_profile_status"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:textSize="11sp"
                         android:text="In Program "
                         android:textColor="#000"
                         android:layout_weight="1"
