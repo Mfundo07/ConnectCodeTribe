@@ -54,12 +54,6 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 intent.putExtra("CodeTribe", mTribeMates.get(position).getCodeTribe());
                 intent.putExtra("Status", mTribeMates.get(position).getStatus());
                 intent.putExtra("Email", mTribeMates.get(position).getEmail());
-                intent.putExtra("Employee_code", mTribeMates.get(position).getEMC());
-                intent.putExtra("Gender", mTribeMates.get(position).getGender());
-                intent.putExtra("Ethnicity", mTribeMates.get(position).getEthnicity());
-                intent.putExtra("Age", mTribeMates.get(position).getAge());
-                intent.putExtra("Mobile", mTribeMates.get(position).getMobile());
-
                 context = view.getContext();
                 context.startActivity(intent);
 
@@ -83,7 +77,6 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public TextView mIntakeYear;
         public TextView mCodeTribe;
 
-
         public ViewHolder(View view) {
             super(view);
             mView = view;
@@ -92,7 +85,6 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mStatus = view.findViewById(R.id.User_Status);
             mIntakeYear = view.findViewById(R.id.intake_year_text);
             mCodeTribe = view.findViewById(R.id.soweto_orange);
-
         }
 
         @Override
