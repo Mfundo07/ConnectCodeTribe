@@ -38,6 +38,7 @@ import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
+import com.example.android.connectcodetribe.Skill_Editor_Activity;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -57,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView mBio, mStatus, mCodeTribe, userName, userDescription;
     ImageButton btnStatus, btnGithubLink, btnCodeTribe, btnAddProject;
-    Button btnAddExperience;
+    ImageButton btnAddExperience;
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
@@ -82,6 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     Toolbar toolbar1;
+    ImageButton editor;
     private FloatingActionButton editPen;
 
     Button add;
@@ -122,6 +124,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
+        editor=(ImageButton)findViewById(R.id.skiills_editor);
         mStatus = (TextView) findViewById(R.id.userStatus);
         mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
         btnCodeTribe = (ImageButton) findViewById(R.id.userCodeTribeImage);
@@ -129,11 +132,18 @@ public class ProfileActivity extends AppCompatActivity {
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         userName = (TextView) findViewById(R.id.userName);
-
         skillName = (Button) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
-        btnAddExperience = (Button) findViewById(R.id.AddExperience);
+        btnAddExperience = (ImageButton) findViewById(R.id.AddExperience);
+
+        editor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent kb = new Intent(ProfileActivity.this, Skill_Editor_Activity.class);
+                startActivity(kb);
+            }
+        });
 
         editPen.setOnClickListener(new View.OnClickListener() {
             @Override

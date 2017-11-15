@@ -37,6 +37,7 @@
         <activity android:name=".ProfileActivity_first" />
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ExperienceActivity" />
+        <activity android:name=".Skill_Editor_Activity" />
         <activity android:name=".EditExperienceActivity" />
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity" />
