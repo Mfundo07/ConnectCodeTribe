@@ -39,7 +39,7 @@
                             android:background="#93c841" />
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/profle_image"
                             android:layout_width="150dp"
                             android:layout_height="120dp"
                             android:layout_gravity="left"
@@ -61,6 +61,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
                     <TextView
+                        android:id="@+id/profile_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
@@ -69,7 +70,7 @@
                         android:textColor="#000"
                         android:textStyle="bold" />
                     <TextView
-                        android:id="@+id/profile_name"
+                        android:id="@+id/profile_surname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Ngaleka"
@@ -79,14 +80,17 @@
 
                 </LinearLayout>
                     <TextView
+                        android:id="@+id/status"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="UI/ UX DESIGNER"
+                        android:text="In Program"
+                        android:textAllCaps="true"
                         android:textColor="#000"
                         android:layout_weight="1"
                         android:textStyle="italic" />
 
                         <TextView
+                            android:id="@+id/tribe_location"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:text="Soweto Codetribe"
