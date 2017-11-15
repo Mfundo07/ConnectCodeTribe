@@ -50,7 +50,7 @@
                     android:maxLines="2"
                     android:textStyle="bold"
                     android:textColor="@color/textColorUser"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     tools:text="Kabelo" />
 
                 <TextView
@@ -62,7 +62,7 @@
                     android:maxLines="2"
                     android:textStyle="bold"
                     android:textColor="@color/textColorUser"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     tools:text="Mokoena" />
 
 
@@ -106,7 +106,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="soweto"
+                        android:text="Soweto"
                         android:gravity="end"
                         android:textSize="12sp"
                         android:textColor="#FF9800 "
