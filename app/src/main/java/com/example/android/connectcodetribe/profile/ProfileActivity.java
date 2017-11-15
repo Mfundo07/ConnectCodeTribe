@@ -109,7 +109,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
-        userName = (TextView) findViewById(R.id.userName);
+
         skillName = (ImageButton) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
