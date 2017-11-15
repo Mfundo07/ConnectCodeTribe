@@ -15,6 +15,15 @@ public class TribeMate {
     private String mEmail;
     private String mIntakeYear;
     private String mStatus;
+    private String mCodeTribe;
+
+    public String getCodeTribe() {
+        return mCodeTribe;
+    }
+
+    public void setCodeTribe(String codeTribe) {
+        mCodeTribe = codeTribe;
+    }
 
     public String getStatus() {
         return mStatus;

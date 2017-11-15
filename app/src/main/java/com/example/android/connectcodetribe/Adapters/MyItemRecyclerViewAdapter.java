@@ -50,8 +50,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 Intent intent = new Intent(activity, ScrollingFragment.class);
                 intent.putExtra("Name", mTribeMates.get(position).getName());
                 intent.putExtra("Surname", mTribeMates.get(position).getSurname());
-                intent.putExtra("CodeTribe", mTribeMates.get(position).getEthnicity());
-                intent.putExtra("Status", mTribeMates.get(position).getGender());
+                intent.putExtra("CodeTribe", mTribeMates.get(position).getCodeTribe());
+                intent.putExtra("Status", mTribeMates.get(position).getStatus());
                 intent.putExtra("Email", mTribeMates.get(position).getEmail());
                 context = view.getContext();
                 context.startActivity(intent);

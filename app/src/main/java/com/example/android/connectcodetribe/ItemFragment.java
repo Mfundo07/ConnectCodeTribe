@@ -104,6 +104,7 @@ public class ItemFragment extends Fragment {
                             user.setGender((String) snapshot.child("gender").getValue());
                             user.setIntakeYear((String) snapshot.child("inTakePeriod").getValue());
                             user.setStatus((String) snapshot.child("status").getValue());
+                            user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
 
                             mTribeMates.add(user);
                         }
