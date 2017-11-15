@@ -57,7 +57,7 @@ public class ScrollingFragment extends AppCompatActivity {
        if (getIntent().getExtras().getString("CodeTribe") != null){
             userProfileCodeTribe.setText(mCodeTribe);}
             else{
-           userProfileCodeTribe.setText(" ");
+           userProfileCodeTribe.setText("  ");
        }
 
        userProfileSurname.setText(mSurname);
