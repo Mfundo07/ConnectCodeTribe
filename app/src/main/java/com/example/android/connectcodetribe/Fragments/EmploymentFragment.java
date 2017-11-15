@@ -12,10 +12,10 @@ import com.example.android.connectcodetribe.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TribesFragment extends Fragment {
+public class EmploymentFragment extends Fragment {
 
 
-    public TribesFragment() {
+    public EmploymentFragment() {
         // Required empty public constructor
     }
 
