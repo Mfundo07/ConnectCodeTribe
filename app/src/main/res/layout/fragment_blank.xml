@@ -65,7 +65,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/profile_name"
+                                android:id="@+id/user_profile_age"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -91,7 +91,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/profile_surname"
+                            android:id="@+id/user_profile_gender"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -116,7 +116,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/profile_status"
+                            android:id="@+id/user_profile_ethnicity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -141,7 +141,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/profile_tribe"
+                            android:id="@+id/user_profile_disability"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -167,7 +167,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/profile_cellNumber"
+                            android:id="@+id/user_profile_cell"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -192,7 +192,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/profile_email"
+                            android:id="@+id/user_profile_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

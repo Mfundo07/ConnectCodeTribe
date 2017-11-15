@@ -1,4 +1,5 @@
 package com.example.android.connectcodetribe.profile;
+
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.ActiveUserActivity;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
@@ -36,7 +38,7 @@ import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.UserProfileEditorActivity;
+import com.example.android.connectcodetribe.Welcome_activity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -44,6 +46,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
@@ -114,7 +117,7 @@ public class ProfileActivity extends AppCompatActivity {
         editPen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nonclair = new Intent(ProfileActivity.this,UserProfileEditorActivity.class);
+                Intent nonclair = new Intent(ProfileActivity.this,Welcome_activity.class);
                 startActivity(nonclair);
             }
         });

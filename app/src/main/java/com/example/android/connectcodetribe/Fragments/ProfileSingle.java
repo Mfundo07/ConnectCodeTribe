@@ -44,8 +44,6 @@ public class ProfileSingle extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_screen);
 
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -131,20 +129,13 @@ public class ProfileSingle extends AppCompatActivity{
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            switch (position){
-                case 0:
-                    PersonalFragment homeActivity = new PersonalFragment ();
-                    return homeActivity;
-                case 1:
-                    EducationFragment activitiesFragment = new EducationFragment ();
-                    return activitiesFragment;
-                case 2:
-                    TribesFragment feedsFragment = new TribesFragment ();
-                    return feedsFragment;
+            if (position == 0) {
+                return new PersonalFragment();
+            } else if (position == 1) {
+                return new EducationFragment();
+            }else  {
+                return new TribesFragment();
             }
-            return null;
         }
 
         @Override
