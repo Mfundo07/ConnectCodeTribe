@@ -28,7 +28,6 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
@@ -63,8 +62,9 @@
                         android:id="@+id/user_profile_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
                         android:text="Kgomotso"
+                        android:textSize="12sp"
+                        android:maxLines="2"
                         android:layout_weight="1"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -74,6 +74,8 @@
                         android:layout_height="wrap_content"
                         android:text="Ngaleka"
                         android:textColor="#000"
+                        android:textSize="12sp"
+                        android:maxLines="2"
                         android:layout_weight="1"
                         android:textStyle="bold" />
 
