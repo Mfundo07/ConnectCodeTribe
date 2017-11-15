@@ -4,4 +4,69 @@
     android:background="#9C27B0"
     android:layout_height="match_parent">
 
+
+    <TextView
+        android:id="@+id/photodesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="setTitle"
+        android:padding="10dp"
+        android:text="Please Enter More Details"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <ImageButton
+        android:id="@+id/motarhat"
+        android:layout_width="299dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_phone_book"
+        android:scaleType="centerCrop" />
+
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Mobile Number"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email Address"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/tribe"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="CodeTribe"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/intake"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Intake Year"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/statuss"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Status"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+
+
 </LinearLayout>

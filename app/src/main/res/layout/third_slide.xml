@@ -4,4 +4,50 @@
     android:background="#673AB7"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/photodesc"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:onClick="setTitle"
+        android:padding="10dp"
+        android:text="Hi..Please Enter your Educational Details"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <ImageButton
+        android:id="@+id/motarhat"
+        android:layout_width="299dp"
+        android:layout_height="341dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_mortarboard"
+        android:scaleType="centerCrop" />
+
+    <EditText
+        android:id="@+id/qualificationshigh"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Highest Qualification"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/qualificationquali"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Qualification Description"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/qualificationinst"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Qualifaction Institution"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
 </LinearLayout>

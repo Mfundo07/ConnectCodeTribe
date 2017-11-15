@@ -4,4 +4,69 @@
     android:background="#F44336"
     android:layout_height="match_parent">
 
+
+    <TextView
+        android:id="@+id/photodesc"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:onClick="setTitle"
+        android:padding="10dp"
+        android:text="Hi..Please Enter your Personal Details"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <ImageButton
+        android:id="@+id/ProjectImage"
+        android:layout_width="299dp"
+        android:layout_height="248dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_form"
+        android:scaleType="centerCrop" />
+
+    <EditText
+        android:id="@+id/namedit"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Fornames"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/surnamedit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Surname"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/genderedit"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Gender"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/dateOfBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date Of Birth"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/ethnicity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ethnicity"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
 </LinearLayout>
