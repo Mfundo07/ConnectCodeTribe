@@ -2,6 +2,8 @@
     <string name="app_name">CodeTribe Connect</string>
     <string name="title_members">Members</string>
     <string name="title_tribes">CodeTribes</string>
+    <string name="my_preference" />
+    <string name="my_preference_key" />
     <string name="title_portfolio">Portfolio</string>
     <string name="login_email_label">Login with Email</string>
     <string name="login_phone_label">Login with Phone Number</string>
