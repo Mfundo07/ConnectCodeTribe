@@ -35,7 +35,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:textColorHint="#fff"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/qualificationquali"
@@ -47,7 +47,7 @@
         android:padding="10dp"
         android:textColorHint="#fff"
         android:inputType="textEmailAddress"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
     <EditText
         android:id="@+id/qualificationinst"
@@ -58,6 +58,6 @@
         android:gravity="center"
         android:hint="Qualifaction Institution"
         android:padding="10dp"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 
 </LinearLayout>

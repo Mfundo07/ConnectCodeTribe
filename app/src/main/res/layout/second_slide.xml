@@ -36,7 +36,7 @@
         android:layout_gravity="center"
         android:textColorHint="#fff"
         android:padding="10dp"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/email"
@@ -48,7 +48,7 @@
         android:padding="10dp"
         android:textColorHint="#fff"
         android:inputType="textEmailAddress"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
     <EditText
         android:id="@+id/tribe"
@@ -59,7 +59,7 @@
         android:hint="CodeTribe"
         android:textColorHint="#fff"
         android:padding="10dp"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
     <EditText
         android:id="@+id/intake"
@@ -70,7 +70,7 @@
         android:hint="Intake Year"
         android:textColorHint="#fff"
         android:padding="10dp"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
     <EditText
         android:id="@+id/statuss"
@@ -81,7 +81,7 @@
         android:hint="Status"
         android:textColorHint="#fff"
         android:padding="10dp"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
 
 

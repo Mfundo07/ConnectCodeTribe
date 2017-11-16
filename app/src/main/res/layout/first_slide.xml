@@ -37,7 +37,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:textColorHint="#fff"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
     <EditText
         android:id="@+id/surnamedit"
@@ -49,7 +49,7 @@
         android:padding="10dp"
         android:gravity="center"
         android:inputType="textEmailAddress"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/genderedit"
@@ -60,7 +60,7 @@
         android:gravity="center"
         android:textColorHint="#fff"
         android:padding="10dp"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
     <EditText
         android:id="@+id/dateOfBirth"
@@ -72,7 +72,7 @@
         android:textColorHint="#fff"
         android:padding="10dp"
         android:inputType="textEmailAddress"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
     <EditText
         android:id="@+id/ethnicity"
@@ -84,6 +84,6 @@
         android:padding="10dp"
         android:textColorHint="#fff"
         android:inputType="textEmailAddress"
-        android:textStyle="bold" />
+        android:textStyle="italic"  />
 
 </LinearLayout>
