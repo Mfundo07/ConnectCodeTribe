@@ -23,7 +23,7 @@ public class SkillFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_blank, container, false);
+        View rootView = inflater.inflate(R.layout.skills_items, container, false);
         // Inflate the layout for this fragment
         return rootView;
     }
