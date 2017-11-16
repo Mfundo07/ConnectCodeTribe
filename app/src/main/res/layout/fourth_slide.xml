@@ -28,36 +28,44 @@
 
     <EditText
         android:id="@+id/previousemployment"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
+        android:layout_gravity="center"
         android:textColorHint="#fff"
         android:hint="Previous Employment"
+        android:gravity="center"
         android:padding="10dp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/employedd"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:hint="Currently Employed"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColorHint="#fff"
-        android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/companyname"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
         android:hint="Company Name"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:padding="10dp"
         android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/jobtitle"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="Job Title"
         android:padding="10dp"
         android:textColorHint="#fff"
@@ -66,8 +74,10 @@
 
     <EditText
         android:id="@+id/start"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="Start Date"
         android:padding="10dp"
         android:textColorHint="#fff"

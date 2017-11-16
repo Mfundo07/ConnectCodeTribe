@@ -28,17 +28,21 @@
 
     <EditText
         android:id="@+id/qualificationshigh"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
         android:hint="Highest Qualification"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:padding="10dp"
         android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/qualificationquali"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="Qualification Description"
         android:padding="10dp"
         android:textColorHint="#fff"
@@ -47,9 +51,11 @@
 
     <EditText
         android:id="@+id/qualificationinst"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
         android:textColorHint="#fff"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="Qualifaction Institution"
         android:padding="10dp"
         android:textStyle="bold" />

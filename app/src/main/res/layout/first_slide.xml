@@ -30,36 +30,44 @@
 
     <EditText
         android:id="@+id/namedit"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
+        android:layout_gravity="center"
         android:hint="Fornames"
+        android:gravity="center"
         android:padding="10dp"
         android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/surnamedit"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:hint="Surname"
         android:textColorHint="#fff"
         android:padding="10dp"
+        android:gravity="center"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/genderedit"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
+        android:layout_gravity="center"
         android:hint="Gender"
+        android:gravity="center"
         android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/dateOfBirth"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="Date Of Birth"
         android:textColorHint="#fff"
         android:padding="10dp"
@@ -68,9 +76,11 @@
 
     <EditText
         android:id="@+id/ethnicity"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:hint="Ethnicity"
+        android:gravity="center"
         android:padding="10dp"
         android:textColorHint="#fff"
         android:inputType="textEmailAddress"

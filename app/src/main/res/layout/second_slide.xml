@@ -29,18 +29,22 @@
 
     <EditText
         android:id="@+id/mobile"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
         android:hint="Mobile Number"
+        android:gravity="center"
+        android:layout_gravity="center"
         android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:hint="Email Address"
+        android:layout_gravity="center"
         android:padding="10dp"
         android:textColorHint="#fff"
         android:inputType="textEmailAddress"
@@ -48,8 +52,10 @@
 
     <EditText
         android:id="@+id/tribe"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="CodeTribe"
         android:textColorHint="#fff"
         android:padding="10dp"
@@ -57,8 +63,10 @@
 
     <EditText
         android:id="@+id/intake"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="Intake Year"
         android:textColorHint="#fff"
         android:padding="10dp"
@@ -66,8 +74,10 @@
 
     <EditText
         android:id="@+id/statuss"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="Status"
         android:textColorHint="#fff"
         android:padding="10dp"
