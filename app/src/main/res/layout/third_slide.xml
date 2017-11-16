@@ -32,7 +32,7 @@
         android:layout_height="59dp"
         android:hint="Highest Qualification"
         android:padding="10dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="Qualification Description"
         android:padding="10dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
         android:id="@+id/qualificationinst"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:hint="Qualifaction Institution"
         android:padding="10dp"
         android:textStyle="bold" />

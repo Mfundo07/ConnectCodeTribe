@@ -30,7 +30,7 @@
         android:id="@+id/previousemployment"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:hint="Previous Employment"
         android:padding="10dp"
         android:textStyle="bold" />
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="Currently Employed"
         android:padding="10dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
         android:layout_height="59dp"
         android:hint="Company Name"
         android:padding="10dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:hint="Job Title"
         android:padding="10dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:hint="Start Date"
         android:padding="10dp"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 

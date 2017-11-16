@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Mobile Number"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:hint="Email Address"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -50,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="CodeTribe"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -59,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Intake Year"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -68,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Status"
-        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
