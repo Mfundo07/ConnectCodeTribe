@@ -98,6 +98,73 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/Userprofile_employeeCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="Employee Code"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/Userprofile_ethenicity"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="Ethnicity"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/Userprofile_gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="Gender"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/Userprofile_age"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="Age"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/Userprofile_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="Email Add"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/Userprofile_mobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="Mobile No"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textStyle="italic" />
+
+
+
+
+
+
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
