@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#E91E63"
+    android:background="#fba433"
     android:layout_height="match_parent">
 
     <TextView
@@ -13,6 +13,7 @@
         android:text="Last Step.....Extra Details needed"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="#fff"
         android:textStyle="bold" />
 
 
@@ -29,6 +30,7 @@
         android:id="@+id/previousemployment"
         android:layout_width="match_parent"
         android:layout_height="59dp"
+        android:textColorHint="#fff"
         android:hint="Previous Employment"
         android:padding="10dp"
         android:textStyle="bold" />
@@ -39,6 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="Currently Employed"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -48,6 +51,7 @@
         android:layout_height="59dp"
         android:hint="Company Name"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
@@ -56,6 +60,7 @@
         android:layout_height="wrap_content"
         android:hint="Job Title"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -65,6 +70,7 @@
         android:layout_height="wrap_content"
         android:hint="Start Date"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 

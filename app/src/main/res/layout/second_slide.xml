@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#9C27B0"
+    android:background="#94cb44"
     android:layout_height="match_parent">
 
 
@@ -13,6 +13,7 @@
         android:padding="10dp"
         android:text="Please Enter More Details"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -31,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Mobile Number"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -40,6 +42,7 @@
         android:layout_height="wrap_content"
         android:hint="Email Address"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -48,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="CodeTribe"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -56,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Intake Year"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -64,6 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Status"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#F44336"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#6bcce4"
     android:layout_height="match_parent">
 
 
@@ -13,6 +14,7 @@
         android:padding="10dp"
         android:text="Hi..Please Enter your Personal Details"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -32,6 +34,7 @@
         android:layout_height="59dp"
         android:hint="Fornames"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
@@ -39,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Surname"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
@@ -48,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Gender"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -56,6 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Date Of Birth"
+        android:textColorHint="#fff"
         android:padding="10dp"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
@@ -66,6 +72,7 @@
         android:layout_height="wrap_content"
         android:hint="Ethnicity"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 

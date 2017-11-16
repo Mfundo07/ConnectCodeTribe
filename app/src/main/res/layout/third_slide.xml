@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#673AB7"
+    android:background="#eb1f24"
     android:layout_height="match_parent">
 
     <TextView
@@ -11,6 +11,7 @@
         android:onClick="setTitle"
         android:padding="10dp"
         android:text="Hi..Please Enter your Educational Details"
+        android:textColor="#fff"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -31,6 +32,7 @@
         android:layout_height="59dp"
         android:hint="Highest Qualification"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:textStyle="bold" />
 
     <EditText
@@ -39,6 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="Qualification Description"
         android:padding="10dp"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -46,6 +49,7 @@
         android:id="@+id/qualificationinst"
         android:layout_width="match_parent"
         android:layout_height="59dp"
+        android:textColorHint="#fff"
         android:hint="Qualifaction Institution"
         android:padding="10dp"
         android:textStyle="bold" />
