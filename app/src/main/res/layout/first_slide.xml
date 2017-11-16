@@ -13,6 +13,7 @@
         android:padding="10dp"
         android:text="Hi..Please Enter your Personal Details"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -32,6 +33,7 @@
         android:layout_height="59dp"
         android:hint="Fornames"
         android:padding="10dp"
+        android:textColor="#fff"
         android:textStyle="bold" />
 
     <EditText
@@ -48,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:hint="Gender"
+        android:textColor="#fff"
         android:padding="10dp"
         android:textStyle="bold" />
 
@@ -56,6 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Date Of Birth"
+        android:textColor="#fff"
         android:padding="10dp"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
@@ -66,6 +70,7 @@
         android:layout_height="wrap_content"
         android:hint="Ethnicity"
         android:padding="10dp"
+        android:textColor="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 

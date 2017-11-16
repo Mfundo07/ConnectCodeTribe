@@ -11,6 +11,7 @@
         android:onClick="setTitle"
         android:padding="10dp"
         android:text="Hi..Please Enter your Educational Details"
+        android:textColor="#fff"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -31,6 +32,7 @@
         android:layout_height="59dp"
         android:hint="Highest Qualification"
         android:padding="10dp"
+        android:textColor="#fff"
         android:textStyle="bold" />
 
     <EditText
@@ -39,6 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="Qualification Description"
         android:padding="10dp"
+        android:textColor="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="bold" />
 
@@ -46,6 +49,7 @@
         android:id="@+id/qualificationinst"
         android:layout_width="match_parent"
         android:layout_height="59dp"
+        android:textColor="#fff"
         android:hint="Qualifaction Institution"
         android:padding="10dp"
         android:textStyle="bold" />
