@@ -7,16 +7,57 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bgt"
     tools:context="com.example.beatspice.walkthrough.Main3Activity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="loadSlides"
-        android:text="restart"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="232dp"
-        android:id="@+id/bnStart"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout3">
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon" />
+        </LinearLayout>
+
+<TextView
+    android:id="@+id/textView6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/bnStart"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="42dp"
+    android:text="Complete The Form Before We Start...." />
+<TextView
+    android:id="@+id/textView5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/bnStart"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="14dp"
+    android:text="Extra Info Needed for Complete Profile" />
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="loadSlides"
+    android:text="Sign in"
+    android:textColor="#fff"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="232dp"
+    android:background="@drawable/button_green"
+    android:id="@+id/bnStart"
+    />
 </RelativeLayout>
