@@ -49,15 +49,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class ProfileActivity extends AppCompatActivity {
-
     FirebaseDatabase database;
     DatabaseReference myRef;
     TextView mBio, mStatus, mCodeTribe, userName, userDescription;
     ImageButton btnStatus, btnGithubLink, btnCodeTribe, btnAddProject;
-    Button btnAddExperience;
+    ImageButton btnAddExperience;
     RecyclerView mSkills, mProjects, mExperience;
     ImageView userImage;
     public String gihubLink;
@@ -116,7 +113,7 @@ public class ProfileActivity extends AppCompatActivity {
         skillName = (ImageButton) findViewById(R.id.skill_display_picture);
         editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
-        btnAddExperience = (Button) findViewById(R.id.AddExperience);
+        btnAddExperience = (ImageButton) findViewById(R.id.AddExperience);
         editPen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,4 +4,68 @@
     android:background="#E91E63"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/photodesc"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:onClick="setTitle"
+        android:padding="10dp"
+        android:text="Last Step.....Extra Details needed"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <ImageButton
+        android:id="@+id/ProjectImage"
+        android:layout_width="299dp"
+        android:layout_height="252dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_working"
+        android:scaleType="centerCrop" />
+
+    <EditText
+        android:id="@+id/previousemployment"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Previous Employment"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/employedd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Currently Employed"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/companyname"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Company Name"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/jobtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Job Title"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Start Date"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
 </LinearLayout>
