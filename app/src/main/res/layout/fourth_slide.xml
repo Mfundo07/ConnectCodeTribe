@@ -10,7 +10,7 @@
         android:layout_height="63dp"
         android:onClick="setTitle"
         android:padding="10dp"
-        android:text="Last Step.....Extra Details needed"
+        android:text="Last Step...Finally!"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textColor="#fff"

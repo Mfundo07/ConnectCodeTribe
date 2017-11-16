@@ -14,6 +14,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewXp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="Employment Details"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="#fff"
+                android:background="#94cb44 "
+                android:textStyle="bold"/>
             <android.support.v7.widget.CardView
                 android:id="@+id/expirience"
                 android:layout_width="match_parent"
@@ -25,17 +36,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:weightSum="2">
-                    <TextView
-                        android:id="@+id/textViewXp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="20dp"
-                        android:text="Employment Details"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:textColor="#000"
-                        android:background="#43631e"
-                        android:textStyle="bold"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -49,7 +50,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="9dp"
                                 android:layout_marginTop="10dp"
-                                android:background="#7dac3c"
+                                android:background="#94cb44 "
                                 android:paddingTop="15dp"
                                 android:text="Currently Employed"
                                 android:textColor="#fff"
@@ -71,7 +72,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="9dp"
                             android:layout_marginTop="10dp"
-                            android:background="#7dac3c"
+                            android:background="#94cb44 "
                             android:text="Company Name"
                             android:textColor="#fff"
                             android:textStyle="bold"/>
@@ -89,7 +90,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="9dp"
                             android:layout_marginTop="10dp"
-                            android:background="#7dac3c"
+                            android:background="#94cb44 "
                             android:text="Job Tittle"
                             android:textColor="#fff"
                             android:textStyle="bold"/>
@@ -107,7 +108,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="9dp"
                             android:layout_marginTop="10dp"
-                            android:background="#7dac3c"
+                            android:background="#94cb44 "
                             android:text="Employee Code"
                             android:textColor="#fff"
                             android:textStyle="bold"/>
@@ -125,7 +126,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="9dp"
                             android:layout_marginTop="10dp"
-                            android:background="#7dac3c"
+                            android:background="#94cb44 "
                             android:text="Start Date"
                             android:textColor="#fff"
                             android:textStyle="bold"/>
@@ -143,7 +144,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="9dp"
                             android:layout_marginTop="10dp"
-                            android:background="#7dac3c"
+                            android:background="#94cb44 "
                             android:text="Monthly Salary"
                             android:textColor="#fff"
                             android:textStyle="bold"/>
@@ -163,7 +164,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="9dp"
                             android:layout_marginTop="10dp"
-                            android:background="#7dac3c"
+                            android:background="#94cb44 "
                             android:text="Company Contact Details"
                             android:textColor="#fff"
                             android:textStyle="bold"/>
@@ -189,7 +190,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="9dp"
                             android:layout_marginTop="10dp"
-                            android:background="#7dac3c"
+                            android:background="#94cb44 "
                             android:text="Previous/Other Work Expirience"
                             android:textColor="#fff"
                             android:textStyle="bold"/>
@@ -203,6 +204,7 @@
                             android:paddingEnd="16dp"
                             android:layout_weight="1"
                             android:spinnerMode="dropdown" />
+
                     </LinearLayout>
                     <Button
                         android:id="@+id/edit_employment"

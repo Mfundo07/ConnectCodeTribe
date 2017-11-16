@@ -10,7 +10,7 @@
         android:layout_height="63dp"
         android:onClick="setTitle"
         android:padding="10dp"
-        android:text="Hi..Please Enter your Educational Details"
+        android:text="We are almost there....."
         android:textColor="#fff"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -20,7 +20,7 @@
     <ImageButton
         android:id="@+id/motarhat"
         android:layout_width="299dp"
-        android:layout_height="341dp"
+        android:layout_height="310dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:background="@drawable/ic_mortarboard"

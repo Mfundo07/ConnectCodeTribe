@@ -12,7 +12,7 @@
         android:layout_height="63dp"
         android:onClick="setTitle"
         android:padding="10dp"
-        android:text="Hi..Please Enter your Personal Details"
+        android:text="Hi..Please Enter your Details"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="20sp"
@@ -22,7 +22,7 @@
     <ImageButton
         android:id="@+id/ProjectImage"
         android:layout_width="299dp"
-        android:layout_height="248dp"
+        android:layout_height="210dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:background="@drawable/ic_form"
