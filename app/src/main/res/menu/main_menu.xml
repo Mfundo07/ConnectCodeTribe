@@ -7,7 +7,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/fresh_config_menu"
-        android:title="Portfolio"
+        android:title="Edit Profile"
         app:showAsAction="never"/>
     <item
         android:id="@+id/invite_menu"

@@ -33,6 +33,8 @@
             android:label="Profile Editor" />
         <activity android:name=".ChatActivityAlexandra" />
         <activity android:name=".ChatActivityThembisa" />
+        <activity android:name=".DifferentCodetribeTabs"
+            android:label="CodeTribe Connect"/>
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
         <activity android:name=".QualificationActivity" />
