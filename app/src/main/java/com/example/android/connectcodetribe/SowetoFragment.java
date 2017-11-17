@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ItemFragment extends Fragment {
+public class SowetoFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_PROFILE_ID = "profile_id";
@@ -44,13 +44,13 @@ public class ItemFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ItemFragment() {
+    public SowetoFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ItemFragment newInstance(UUID profileId) {
-        ItemFragment fragment = new ItemFragment();
+    public static SowetoFragment newInstance(UUID profileId) {
+        SowetoFragment fragment = new SowetoFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PROFILE_ID, profileId);
         fragment.setArguments(args);
