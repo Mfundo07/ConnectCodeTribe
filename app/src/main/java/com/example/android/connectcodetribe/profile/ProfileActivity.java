@@ -32,6 +32,7 @@ import com.example.android.connectcodetribe.ChatActivitySoweto;
 import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.EditExperienceActivity;
+import com.example.android.connectcodetribe.Fragments.ProfileSingle;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Profile;
@@ -76,25 +77,12 @@ public class ProfileActivity extends AppCompatActivity {
     Toolbar toolbar;
     Toolbar toolbar1;
     private FloatingActionButton editPen;
-    Button add;
-    Button sexyy;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        sexyy=(Button)findViewById(R.id.sexy);
-        sexyy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(ProfileActivity.this, DifferentCodetribeTabs.class);
-                startActivity(intent);
-
-            }
-        });
 
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setTitle("");

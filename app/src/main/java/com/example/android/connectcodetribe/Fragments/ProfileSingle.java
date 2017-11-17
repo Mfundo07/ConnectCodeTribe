@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.R;
+import com.example.android.connectcodetribe.profile.ProfileActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -44,10 +45,12 @@ public class ProfileSingle extends AppCompatActivity{
      */
     private ViewPager mViewPager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_screen);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
