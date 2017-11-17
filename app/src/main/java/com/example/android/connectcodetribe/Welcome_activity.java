@@ -62,7 +62,7 @@ public class Welcome_activity extends AppCompatActivity implements View.OnClickL
             public void onPageSelected(int position) {
                 createDots(position);
                 if (position==layouts.length-1){
-                    BnNext.setText("Finish");
+                    BnNext.setText("finish");
                     BnSave.setVisibility(View.INVISIBLE);
                 }
                 else {

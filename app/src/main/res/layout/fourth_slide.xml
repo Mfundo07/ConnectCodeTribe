@@ -20,7 +20,7 @@
     <ImageButton
         android:id="@+id/ProjectImage"
         android:layout_width="299dp"
-        android:layout_height="252dp"
+        android:layout_height="191dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:background="@drawable/ic_working"
@@ -73,7 +73,7 @@
         android:textStyle="italic" />
 
     <EditText
-        android:id="@+id/start"
+        android:id="@+id/startd"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -83,5 +83,12 @@
         android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="italic"  />
+
+    <Button
+        android:id="@+id/bnUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Data" />
+
 
 </LinearLayout>

@@ -10,51 +10,53 @@ import java.util.Map;
  */
 
 public class Education {
+    private String mQualifiction;
+    private String mDesc;
+    private String mInstitute;
 
-    private String mQualification;
-    private  String mDescription;
-    private String mInstitution;
-
-    public String getQualification() {
-        return mQualification;
+    public Education() {
     }
 
-    public void setQualification(String qualification) {
-        mQualification = qualification;
+    public String getQualifiction() {
+
+        return mQualifiction;
     }
 
-    public String getDescription() {
-        return mDescription;
+    public void setQualifiction(String qualifiction) {
+        mQualifiction = qualifiction;
     }
 
-    public void setDescription(String description) {
-        mDescription = description;
+    public String getDesc() {
+        return mDesc;
     }
 
-    public String getInstitution() {
-        return mInstitution;
+    public void setDesc(String desc) {
+        mDesc = desc;
     }
 
-    public void setInstitution(String institution) {
-        mInstitution = institution;
+    public String getInstitute() {
+        return mInstitute;
     }
 
-    public Education(String qualification, String description, String institution) {
+    public void setInstitute(String institute) {
+        mInstitute = institute;
+    }
 
-        mQualification = qualification;
-        mDescription = description;
-        mInstitution = institution;
+    public Education(String qualifiction, String desc, String institute) {
+
+        mQualifiction = qualifiction;
+        mDesc = desc;
+        mInstitute = institute;
     }
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("qualification", mQualification);
-        result.put("institution", mInstitution);
-        result.put("description", mDescription);
-
-
-
+        result.put("qualificationInstitution", mInstitute);
+        result.put("qualificationDescription", mDesc);
+        result.put("company_name", mQualifiction);
         return result;
     }
 }
+
+

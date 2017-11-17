@@ -68,11 +68,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:hint="Date Of Birth"
+        android:hint="Age"
         android:textColorHint="#fff"
         android:padding="10dp"
         android:inputType="textEmailAddress"
         android:textStyle="italic"  />
+
 
     <EditText
         android:id="@+id/ethnicity"
@@ -85,5 +86,11 @@
         android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textStyle="italic"  />
+
+    <Button
+        android:id="@+id/add_bio_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 </LinearLayout>
