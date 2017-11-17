@@ -12,7 +12,7 @@ public class ActiveUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_users);
 
         if (savedInstanceState == null)
-            getFragmentManager().beginTransaction().add(R.id.container, new ItemFragment()).commit();
+            getFragmentManager().beginTransaction().add(R.id.container, new SowetoFragment()).commit();
 
 
     }

@@ -15,14 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.ActiveUserActivity;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Adapters.SkillAdapter;
@@ -32,7 +30,6 @@ import com.example.android.connectcodetribe.ChatActivitySoweto;
 import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.EditExperienceActivity;
-import com.example.android.connectcodetribe.Fragments.ProfileSingle;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Profile;
@@ -225,7 +222,7 @@ public class ProfileActivity extends AppCompatActivity {
                 btnStatus.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(ProfileActivity.this, ActiveUserActivity.class));
+                        startActivity(new Intent(ProfileActivity.this, DifferentCodetribeTabs.class));
                     }
                 });
                 btnAddProject.setOnClickListener(new View.OnClickListener() {
