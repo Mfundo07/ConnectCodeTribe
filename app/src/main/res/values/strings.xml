@@ -39,6 +39,15 @@
     <string name="indian">Indian</string>
     <string name="colored">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
+
+
+    <string name="tab_soweto">Soweto</string>
+    <string name="tab_tembisa">Tembisa</string>
+    <string name="tab_pretoria">Pretoria</string>
+    <string name="action_settings1">Settings</string>
+    <string name="section_format1">Hello World from section: %1$d</string>
+
+
     <string-array name="names">
         <item>Select Qualification</item>
         <item>High School Matric</item>
