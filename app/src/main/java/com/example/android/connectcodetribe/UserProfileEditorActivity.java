@@ -47,13 +47,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
     public static final int RC_PHOTO_PICKER = 2;
-    private EditText userNameEditText;
-    private EditText userSurnameEditText;
-    private EditText userCurrentOccupation;
-    private EditText userPhoneNumber;
-    private EditText userEmailEditText;
-    private Button userUpdateButton;
-    private CircleImageView profileImage;
+    private EditText mProfileNameEditText;
+    private EditText mProfileSurnameEditText;
+    private EditText mProfileEmailEditText;
+    private EditText mProfileCellPhoneNumberEditText;
+    private EditText mProfileQualificationEditText;
+    private EditText mProfileInstitutionEditText;
+    private EditText mProfileFacultycourseEditText;
+    private EditText mProfileCompanyNameEditText;
+    private EditText mProfileCompanyContactEditText;
+
+    private EditText mProfileAgeEditText;
+    private Button mProfileIntakePeriodButton;
+
+
+    private CircleImageView mProfileCircleImage;
     DatabaseReference mDatabaseReference;
     StorageReference mStoragereference;
     Uri FilePathUri;
@@ -67,7 +75,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int ETHNIC_ASIAN = 4;
 
 
-    private Spinner mStatusSpinner, mCodeTribeSpinner;
+    private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
+            mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
     private boolean mUserHasChanged = false;
     FirebaseUser currentUser;
     private int mStatus = GENDER_UNKNOWN;
@@ -97,59 +106,36 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/").child(currentUser.getUid());
         mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles").child(currentUser.getUid());
-        userNameEditText = (EditText) findViewById(R.id.name_editView);
-        userSurnameEditText = (EditText) findViewById(R.id.surnameEditText);
-        userCurrentOccupation = (EditText) findViewById(R.id.occpateEditText);
-        userPhoneNumber = (EditText) findViewById(R.id.cell_editTextView);
-        userEmailEditText = (EditText) findViewById(R.id.emailEditText);
-        userUpdateButton = (Button) findViewById(R.id.profile_edit);
-        mStatusSpinner = (Spinner) findViewById(R.id.spinner_status);
-        profileImage = (CircleImageView) findViewById(R.id.profile_image);
-        mCodeTribeSpinner = (Spinner) findViewById(R.id.spinner_codeTribe);
-        Glide.with(profileImage.getContext())
-                .load(currentUser.getPhotoUrl())
-                .into(profileImage);
-        userEmailEditText.setText(currentUser.getEmail().toString());
+        mProfileNameEditText= (EditText) findViewById(R.id.profile_name_edit_text);
+        mProfileSurnameEditText = (EditText) findViewById(R.id.profile_surname_edit_text);
+        mProfileAgeEditText = (EditText) findViewById(R.id.profile_age_edit_text);
+        mProfileGenderSpinner = (Spinner) findViewById(R.id.profile_gender_spinner);
+        mProfileEthnicitySpinner = (Spinner) findViewById(R.id.profile_ethnicity_spinner);
+        mProfileCellPhoneNumberEditText = (EditText) findViewById(R.id.profile_cell_number_edit_text);
+        mProfileEmailEditText = (EditText) findViewById(R.id.profile_email_edit_text);
+        mProfileQualificationEditText = (EditText) findViewById(R.id.profile_qualification_type_edit_text);
+        mProfileInstitutionEditText = (EditText) findViewById(R.id.profile_institution_edit_text);
+        mProfileFacultycourseEditText  = (EditText) findViewById(R.id.profile_faculty_course_edit_text);
+        mProfileEmploymentStatusSpinner = (Spinner) findViewById(R.id.profile_employment_status_spinner);
+        mProfileCompanyNameEditText = (EditText) findViewById(R.id.profile_company_name_edit_text);
+        mProfileIntakePeriodButton = (Button) findViewById(R.id.profile_intake_period_button);
+        mProfileSalarySpinner = (Spinner) findViewById(R.id.profile_salary_spinner);
+        mProfileCompanyContactEditText = (EditText) findViewById(R.id.profile_company_contact_edit_text);
 
 
-        userUpdateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Profile items = new Profile();
-                items.setProfileName(userNameEditText.getText().toString());
-                items.setProfileEmail(userEmailEditText.getText().toString());
-                items.setStatus(mStatusSpinner.getSelectedItem().toString());
-                items.setProfileSurname(userSurnameEditText.getText().toString());
-                items.setProfileImage(null);
-                items.setCodeTribe(mCodeTribeSpinner.getSelectedItem().toString());
-                mDatabaseReference.child( UUID.randomUUID().toString()).setValue(items.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Profile updated", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            task.getException().printStackTrace();
-                        }
-                    }
-                });
-
-            }
-        });
 
 
-        mStatusSpinner.setOnTouchListener(mTouchListener);
+        mProfileGenderSpinner.setOnTouchListener(mTouchListener);
         setupSpinner();
-        mCodeTribeSpinner.setOnTouchListener(mTouchListener);
+        mProfileEthnicitySpinner.setOnTouchListener(mTouchListener);
         codetribeSpinner();
 
 
-        userNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        userSurnameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        userCurrentOccupation.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        userPhoneNumber.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        userEmailEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileSurnameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileAgeEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileEmailEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileInstitutionEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
 
     }
 
@@ -163,10 +149,10 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         statusSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         // Apply the adapter to the spinner
-        mStatusSpinner.setAdapter(statusSpinnerAdapter);
+        mProfileGenderSpinner.setAdapter(statusSpinnerAdapter);
 
         // Set the integer mSelected to the constant values
-        mStatusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mProfileEthnicitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
@@ -193,8 +179,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         ArrayAdapter codeTribeSpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_ethnicity_option, android.R.layout.simple_spinner_item);
         codeTribeSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        mCodeTribeSpinner.setAdapter(codeTribeSpinnerAdapter);
-        mCodeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mProfileGenderSpinner.setAdapter(codeTribeSpinnerAdapter);
+        mProfileEthnicitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selection = (String) adapterView.getItemAtPosition(i);
@@ -219,58 +205,9 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             }
         });
 
-        mDatabaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChildren()){
-                    userNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserName").getValue());
-                    if (dataSnapshot.child(currentUser.getUid()).child("activeUserEmail").getValue() == null){
-                        userEmailEditText.setText(currentUser.getEmail());}
-                    else{
-                        userEmailEditText.setText((String)dataSnapshot.child(currentUser.getUid()).child("activeUserEmail").getValue());
-                    }
-                    userSurnameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserSurname").getValue());
-                    userCurrentOccupation.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserOccupation").getValue());
-                    userPhoneNumber.setText((String) dataSnapshot.child(currentUser.getUid()).child("activeUserNumber").getValue());
-                    Glide.with(profileImage.getContext())
-                            .load((String) dataSnapshot.child("0").child("display_picture").getValue())
-                            .into(profileImage);
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK) {
-            Uri selectedImageUri = data.getData();
-            try {
-                Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
-                profileImage.setImageBitmap(bm);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            StorageReference photoRef = mStoragereference;
-            photoRef.putFile(selectedImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri downloadUri = taskSnapshot.getDownloadUrl();
-                    Profile user = new Profile();
-                    user.setProfileImage(downloadUri.toString());
-                }
-            });
-
-
-        }
-    }
 
     // Creating Method to get the selected image file Extension from File Path URI.
 }
