@@ -151,7 +151,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 Profile profile = dataSnapshot.getValue(Profile.class);
                 mStatus.setText(dataSnapshot.child("status").getValue().toString());
-                toolbar.setTitle(currentUser.getDisplayName());
+                toolbar.setTitle(dataSnapshot.child("name").getValue().toString());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
