@@ -10,6 +10,9 @@ import java.util.Map;
  */
 
 public class Employment {
+    public Employment() {
+    }
+
     public String getEmploy() {
         return mEmploy;
     }

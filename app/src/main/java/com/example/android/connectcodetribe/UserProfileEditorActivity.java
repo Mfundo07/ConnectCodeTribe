@@ -1,6 +1,8 @@
 package com.example.android.connectcodetribe;
 
+import android.annotation.TargetApi;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.Education;
+import com.example.android.connectcodetribe.Model.Employment;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -166,6 +169,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
                 tribeMate.setEmail(mProfileEmailEditText.getText().toString());
                 mDatabaseReference.child("personal_details").setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -174,7 +178,9 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                             mProfileAgeEditText.setText(tribeMate.getAge());
                             mProfileCellPhoneNumberEditText.setText(tribeMate.getMobile());
                             mProfileEmailEditText.setText(tribeMate.getEmail());
-                            Toast.makeText(getApplicationContext(), "Profile updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Personal Details updated", Toast.LENGTH_SHORT).show();
+                            mProfilePersonaInfoButton.setEnabled(false);
+                            mProfilePersonaInfoButton.setTextColor(getColor(R.color.grey_300));
                         } else {
                             task.getException().printStackTrace();
                         }
@@ -193,14 +199,44 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 education.setInstitute(mProfileInstitutionEditText.getText().toString());
                 education.setDesc(mProfileFacultyCourseEditText.getText().toString());
                 mDatabaseReference.child("education").setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             mProfileQualificationEditText.setText(education.getQualification());
                             mProfileInstitutionEditText.setText(education.getInstitute());
                             mProfileFacultyCourseEditText.setText(education.getDesc());
+                            Toast.makeText(getApplicationContext(), "Education updated", Toast.LENGTH_SHORT).show();
+                            mProfileEducationSaveButton.setEnabled(false);
+                            mProfileEducationSaveButton.setTextColor(getColor(R.color.grey_300));
                         }
                         else{
+                            task.getException().printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+
+        mProfileEmploymentSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Employment employment = new Employment();
+                employment.setEmploy(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
+                employment.setEmploy(mProfileCompanyNameEditText.getText().toString());
+                employment.setEmploy(mProfileSalarySpinner.getSelectedItem().toString());
+                employment.setJobTitle(mProfileCompanyContactEditText.getText().toString());
+                mDatabaseReference.child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @TargetApi(Build.VERSION_CODES.M)
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            mProfileCompanyNameEditText.setText(employment.getCompany());
+                            mProfileCompanyContactEditText.setText(employment.getJobTitle());
+                            Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
+                            mProfileEmploymentSaveButton.setEnabled(false);
+                            mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));
+                        } else {
                             task.getException().printStackTrace();
                         }
                     }
