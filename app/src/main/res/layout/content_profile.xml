@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif"
-                    android:text="@string/projects"
+                    android:text="GitHub Profile"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -133,7 +133,8 @@
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:padding="8dp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -158,7 +159,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/userBio"
@@ -167,8 +169,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:maxLines="4"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp" />
+                android:padding="8dp"/>
 
             <ImageButton
                 android:id="@+id/moreOnUserBio"
@@ -213,7 +214,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="8dp"
-                    android:layout_margin="8dp"
                     app:srcCompat="@drawable/add_circle"
                     android:contentDescription="@string/todo" />
 
@@ -323,7 +323,6 @@
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:padding="8dp"
-            app:cardCornerRadius="4dp"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
