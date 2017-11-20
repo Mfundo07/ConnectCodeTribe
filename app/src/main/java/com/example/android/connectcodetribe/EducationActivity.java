@@ -64,7 +64,7 @@ public class EducationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Education education = new Education();
-                education.setQualifiction(mHighestQualification.getText().toString());
+                education.setQualification(mHighestQualification.getText().toString());
                 education.setDesc(mQualificationDesc.getText().toString());
                 education.setInstitute(mQualificationInst.getText().toString());
                 mRef.setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -148,6 +148,9 @@ public class TribeMate {
         result.put("surname", mSurname);
         result.put("gender", mGender);
         result.put("age", mAge);
+        result.put("ethnicity", mEthnicity);
+        result.put("cellNumber", mMobile);
+        result.put("email", mEmail);
         return result;
     }
 }

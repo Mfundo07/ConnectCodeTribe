@@ -2,6 +2,7 @@ package com.example.android.connectcodetribe;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
@@ -13,7 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.android.connectcodetribe.Model.Education;
+import com.example.android.connectcodetribe.Model.TribeMate;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +47,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private EditText mProfileCompanyContactEditText;
 
     private EditText mProfileAgeEditText;
-    private Button mProfileIntakePeriodButton;
+    private Button mProfileIntakePeriodButton, mProfilePersonaInfoButton, mProfileEducationSaveButton,
+    mProfileEmploymentSaveButton;
 
 
     private CircleImageView mProfileCircleImage;
@@ -101,8 +108,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/");
-        mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/").child(currentUser.getUid());
+        mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles").child(currentUser.getUid());
         mProfileNameEditText= (EditText) findViewById(R.id.profile_name_edit_text);
         mProfileSurnameEditText = (EditText) findViewById(R.id.profile_surname_edit_text);
         mProfileAgeEditText = (EditText) findViewById(R.id.profile_age_edit_text);
@@ -118,6 +125,12 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfileIntakePeriodButton = (Button) findViewById(R.id.profile_intake_period_button);
         mProfileSalarySpinner = (Spinner) findViewById(R.id.profile_salary_spinner);
         mProfileCompanyContactEditText = (EditText) findViewById(R.id.profile_company_contact_edit_text);
+        mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);
+        mProfileEducationSaveButton = findViewById(R.id.profile_education_save_button);
+        mProfileEmploymentSaveButton = findViewById(R.id.profile_employment_save_button);
+
+
+
 
 
 
@@ -140,6 +153,62 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfileFacultyCourseEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileCompanyNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileCompanyContactEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+
+        mProfilePersonaInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final TribeMate tribeMate = new TribeMate();
+                tribeMate.setName(mProfileNameEditText.getText().toString());
+                tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
+                tribeMate.setAge(mProfileAgeEditText.getText().toString());
+                tribeMate.setGender(mProfileGenderSpinner.getSelectedItem().toString());
+                tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
+                tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
+                tribeMate.setEmail(mProfileEmailEditText.getText().toString());
+                mDatabaseReference.child("personal_details").setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            mProfileNameEditText.setText(tribeMate.getName());
+                            mProfileSurnameEditText.setText(tribeMate.getSurname());
+                            mProfileAgeEditText.setText(tribeMate.getAge());
+                            mProfileCellPhoneNumberEditText.setText(tribeMate.getMobile());
+                            mProfileEmailEditText.setText(tribeMate.getEmail());
+                            Toast.makeText(getApplicationContext(), "Profile updated", Toast.LENGTH_SHORT).show();
+                        } else {
+                            task.getException().printStackTrace();
+                        }
+                    }
+                });
+
+            }
+        });
+
+
+        mProfileEducationSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Education education = new Education();
+                education.setQualification(mProfileQualificationEditText.getText().toString());
+                education.setInstitute(mProfileInstitutionEditText.getText().toString());
+                education.setDesc(mProfileFacultyCourseEditText.getText().toString());
+                mDatabaseReference.child("education").setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            mProfileQualificationEditText.setText(education.getQualification());
+                            mProfileInstitutionEditText.setText(education.getInstitute());
+                            mProfileFacultyCourseEditText.setText(education.getDesc());
+                        }
+                        else{
+                            task.getException().printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+
+
 
     }
 
@@ -279,6 +348,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 

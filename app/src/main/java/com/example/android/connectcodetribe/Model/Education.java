@@ -10,20 +10,20 @@ import java.util.Map;
  */
 
 public class Education {
-    private String mQualifiction;
+    private String mQualification;
     private String mDesc;
     private String mInstitute;
 
     public Education() {
     }
 
-    public String getQualifiction() {
+    public String getQualification() {
 
-        return mQualifiction;
+        return mQualification;
     }
 
-    public void setQualifiction(String qualifiction) {
-        mQualifiction = qualifiction;
+    public void setQualification(String qualification) {
+        mQualification = qualification;
     }
 
     public String getDesc() {
@@ -42,9 +42,9 @@ public class Education {
         mInstitute = institute;
     }
 
-    public Education(String qualifiction, String desc, String institute) {
+    public Education(String qualification, String desc, String institute) {
 
-        mQualifiction = qualifiction;
+        mQualification = qualification;
         mDesc = desc;
         mInstitute = institute;
     }
@@ -54,7 +54,7 @@ public class Education {
         HashMap<String, Object> result = new HashMap<>();
         result.put("qualificationInstitution", mInstitute);
         result.put("qualificationDescription", mDesc);
-        result.put("company_name", mQualifiction);
+        result.put("company_name", mQualification);
         return result;
     }
 }
