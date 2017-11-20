@@ -38,7 +38,6 @@ import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
-import com.example.android.connectcodetribe.Welcome_activity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -152,7 +151,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 Profile profile = dataSnapshot.getValue(Profile.class);
                 mStatus.setText(dataSnapshot.child("status").getValue().toString());
-                toolbar.setTitle("Mfundo Mbokoma");
+                toolbar.setTitle(currentUser.getDisplayName());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {

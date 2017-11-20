@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by Admin on 11/13/2017.
@@ -32,13 +31,6 @@ public class ProfileLab {
 
     public List<Profile> getProfiles(){return mProfiles;}
 
-    public Profile getProfile(UUID id){
-        for (Profile profile: mProfiles){
-            if (profile.getId().equals(id)){
-                return profile;
-            }
-        }return null;
-    }
 
 
 }

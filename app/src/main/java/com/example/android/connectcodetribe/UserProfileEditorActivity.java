@@ -62,6 +62,14 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int STATUS_SELF_EMPLOYED = 3;
 
 
+    public static final int SALARY_1 = 1;
+    public static final int SALARY_2 = 2;
+    public static final int SALARY_3 = 3;
+    public static final int SALARY_4 = 4;
+    public static final int SALARY_5 = 5;
+    public static final int SALARY_6 = 6;
+
+
     private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
             mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
     private boolean mUserHasChanged = false;
@@ -69,6 +77,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private int mGender = GENDER_UNKNOWN;
     private  int mEthinicity = ETHNIC_BLACK;
     private int mEmployment = STATUS_EMPLOYED;
+    private int mSalary = SALARY_1;
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -119,6 +128,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         setupEthnicitySpinner();
         mProfileEmploymentStatusSpinner.setOnTouchListener(mTouchListener);
         setupEmploymentStatusSpinner();
+        mProfileSalarySpinner.setOnTouchListener(mTouchListener);
+        setupSalarySpinner();
 
         mProfileNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileSurnameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
@@ -228,6 +239,45 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setupSalarySpinner(){
+        ArrayAdapter salarySpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.array_salary_option,
+                android.R.layout.simple_dropdown_item_1line);
+        mProfileSalarySpinner.setAdapter(salarySpinnerAdapter);
+        mProfileSalarySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selection = (String) adapterView.getItemAtPosition(i);
+                if (!TextUtils.isEmpty(selection)){
+                    if (selection.equals(R.string.salary_1)){
+                        mSalary = SALARY_1;
+                    }
+                    else if (selection.equals(R.string.salary_2)){
+                        mSalary = SALARY_2;
+                    }
+                    else if (selection.equals(R.string.salary_3)){
+                        mSalary = SALARY_3;
+                    }
+                    else if (selection.equals(R.string.salary_4)){
+                        mSalary = SALARY_4;
+                    }
+                    else if (selection.equals(R.string.salary_5)){
+                        mSalary = SALARY_5;
+                    }
+                    else{
+                        mSalary = SALARY_6;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+                mSalary = SALARY_1;
+
+            }
+        });
     }
 
 
