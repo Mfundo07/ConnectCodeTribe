@@ -1,11 +1,7 @@
 package com.example.android.connectcodetribe;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
@@ -17,26 +13,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Model.Profile;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import java.io.IOException;
-import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -53,7 +36,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private EditText mProfileCellPhoneNumberEditText;
     private EditText mProfileQualificationEditText;
     private EditText mProfileInstitutionEditText;
-    private EditText mProfileFacultycourseEditText;
+    private EditText mProfileFacultyCourseEditText;
     private EditText mProfileCompanyNameEditText;
     private EditText mProfileCompanyContactEditText;
 
@@ -104,8 +87,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/").child(currentUser.getUid());
-        mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles").child(currentUser.getUid());
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/");
+        mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles");
         mProfileNameEditText= (EditText) findViewById(R.id.profile_name_edit_text);
         mProfileSurnameEditText = (EditText) findViewById(R.id.profile_surname_edit_text);
         mProfileAgeEditText = (EditText) findViewById(R.id.profile_age_edit_text);
@@ -115,7 +98,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfileEmailEditText = (EditText) findViewById(R.id.profile_email_edit_text);
         mProfileQualificationEditText = (EditText) findViewById(R.id.profile_qualification_type_edit_text);
         mProfileInstitutionEditText = (EditText) findViewById(R.id.profile_institution_edit_text);
-        mProfileFacultycourseEditText  = (EditText) findViewById(R.id.profile_faculty_course_edit_text);
+        mProfileFacultyCourseEditText = (EditText) findViewById(R.id.profile_faculty_course_edit_text);
         mProfileEmploymentStatusSpinner = (Spinner) findViewById(R.id.profile_employment_status_spinner);
         mProfileCompanyNameEditText = (EditText) findViewById(R.id.profile_company_name_edit_text);
         mProfileIntakePeriodButton = (Button) findViewById(R.id.profile_intake_period_button);
@@ -126,20 +109,24 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
 
         mProfileGenderSpinner.setOnTouchListener(mTouchListener);
-        setupSpinner();
+        setupGenderSpinner();
         mProfileEthnicitySpinner.setOnTouchListener(mTouchListener);
-        codetribeSpinner();
+        setupEthnicitySpinner();
 
 
         mProfileNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileSurnameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileAgeEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileEmailEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileQualificationEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileInstitutionEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileFacultyCourseEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileCompanyNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mProfileCompanyContactEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
 
     }
 
-    private void setupSpinner() {
+    private void setupGenderSpinner() {
         // Create adapter for spinner. The list options are from the String array it will use
         // the spinner will use the default layout
         ArrayAdapter statusSpinnerAdapter = ArrayAdapter.createFromResource(this,
@@ -152,7 +139,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfileGenderSpinner.setAdapter(statusSpinnerAdapter);
 
         // Set the integer mSelected to the constant values
-        mProfileEthnicitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mProfileGenderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
@@ -175,11 +162,11 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         });
     }
 
-    private void codetribeSpinner(){
+    private void setupEthnicitySpinner(){
         ArrayAdapter codeTribeSpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_ethnicity_option, android.R.layout.simple_spinner_item);
         codeTribeSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        mProfileGenderSpinner.setAdapter(codeTribeSpinnerAdapter);
+        mProfileEthnicitySpinner.setAdapter(codeTribeSpinnerAdapter);
         mProfileEthnicitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -204,6 +191,9 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    private void setupEmploymentStatusSpinner(){
 
     }
 

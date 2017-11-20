@@ -10,8 +10,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.connectcodetribe.profile.ProfileActivity;
-
 /**
  * Created by Admin on 10/23/2017.
  */
@@ -51,7 +49,7 @@ public class SplashScreen extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
 
-                Intent intent = new Intent(SplashScreen.this, ProfileActivity.class);
+                Intent intent = new Intent(SplashScreen.this, UserProfileEditorActivity.class);
                 SplashScreen.this.startActivity(intent);
                 finish();
 
