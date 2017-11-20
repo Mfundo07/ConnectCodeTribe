@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
@@ -29,14 +30,15 @@ import com.example.android.connectcodetribe.ChatActivityPretoria;
 import com.example.android.connectcodetribe.ChatActivitySoweto;
 import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
-import com.example.android.connectcodetribe.EditExperienceActivity;
+import com.example.android.connectcodetribe.Experience_more;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
-import com.example.android.connectcodetribe.ProjectsActivity;
+import com.example.android.connectcodetribe.Projects_more;
 import com.example.android.connectcodetribe.R;
+import com.example.android.connectcodetribe.Skills_more;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,10 +53,8 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
-    TextView mBio, mStatus, mCodeTribe, userName, userDescription;
-    ImageButton btnStatus, btnGithubLink, btnCodeTribe, btnAddProject;
-    ImageButton btnAddExperience;
-    RecyclerView mSkills, mProjects, mExperience;
+    TextView mBio, mStatus, mCodeTribe, btnAddProject, skiills_editor, AddExperience;
+    ImageButton btnStatus, btnGithubLink, btnCodeTribe ;
     ImageView userImage;
     public String gihubLink;
     ImageButton skillName;
@@ -73,7 +73,6 @@ public class ProfileActivity extends AppCompatActivity {
     private boolean expandable = true;
     Toolbar toolbar;
     Toolbar toolbar1;
-    private FloatingActionButton editPen;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,19 +106,14 @@ public class ProfileActivity extends AppCompatActivity {
         btnCodeTribe = (ImageButton) findViewById(R.id.userCodeTribeImage);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
-        btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
+        btnAddProject = (TextView) findViewById(R.id.btnAddProject);
+        skiills_editor = (TextView) findViewById(R.id.skiills_editor);
+        AddExperience = (TextView) findViewById(R.id.AddExperience);
 
         skillName = (ImageButton) findViewById(R.id.skill_display_picture);
-        editPen=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
-        btnAddExperience = (ImageButton) findViewById(R.id.AddExperience);
-        editPen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nonclair = new Intent(ProfileActivity.this,UserProfileEditorActivity.class);
-                startActivity(nonclair);
-            }
-        });
+
+
         mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
         //Setup layout manager to a horizontal scrolling recyclerView
         LinearLayoutManager horizontalLayoutManagaer
@@ -140,11 +134,30 @@ public class ProfileActivity extends AppCompatActivity {
         LinearLayoutManager expVertLayoutManager
                 = new LinearLayoutManager(ProfileActivity.this, LinearLayoutManager.HORIZONTAL, false);
         mExperiencesRecyclerView.setLayoutManager(expVertLayoutManager);
-        btnAddExperience.setOnClickListener(new View.OnClickListener() {
+        btnAddProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, EditExperienceActivity.class));
+                startActivity(new Intent(ProfileActivity.this, Projects_more.class));
             }
+
+
+        });
+
+        skiills_editor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, Skills_more.class));
+            }
+
+
+        });
+        AddExperience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, Experience_more.class));
+            }
+
+
         });
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -228,7 +241,22 @@ public class ProfileActivity extends AppCompatActivity {
                 btnAddProject.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(ProfileActivity.this,ProjectsActivity.class);
+                        Intent intent=new Intent(ProfileActivity.this,Projects_more.class);
+                        startActivity(intent);
+                    }
+                });
+
+                skiills_editor.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(ProfileActivity.this,Skills_more.class);
+                        startActivity(intent);
+                    }
+                });
+                AddExperience.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(ProfileActivity.this,Experience_more.class);
                         startActivity(intent);
                     }
                 });
@@ -282,5 +310,25 @@ public class ProfileActivity extends AppCompatActivity {
         }
         if (dots.length > 0)
             dots[currentPage].setTextColor(colorsActive[currentPage]);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getGroupId();
+
+        if(id==R.id.btnEdit);
+
+        Intent intentAdmin = new Intent(ProfileActivity.this,UserProfileEditorActivity.class);
+        startActivity(intentAdmin);
+
+        return true;
     }
 }
