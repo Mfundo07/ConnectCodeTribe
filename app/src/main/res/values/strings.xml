@@ -40,6 +40,10 @@
     <string name="colored">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
 
+    <string name="employed_status">Employed</string>
+    <string name="unemployed_status">Unemployed</string>
+    <string name="self_employed_status">Self Employed</string>
+
 
     <string name="tab_soweto">Soweto</string>
     <string name="tab_tembisa">Tembisa</string>
@@ -47,8 +51,14 @@
     <string name="action_settings1">Settings</string>
     <string name="section_format1">Hello World from section: %1$d</string>
 
+    <string-array name="array_employment_option">
+        <item>@string/employed_status</item>
+        <item>@string/unemployed_status</item>
+        <item>@string/self_employed_status</item>
+    </string-array>
 
-    <string-array name="names">
+
+    <string-array name="array_qualification_option">
         <item>Select Qualification</item>
         <item>High School Matric</item>
         <item>Certificate</item>

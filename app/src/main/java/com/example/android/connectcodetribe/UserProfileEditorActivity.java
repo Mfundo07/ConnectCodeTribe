@@ -57,13 +57,18 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int ETHNIC_COLORED= 3;
     public static final int ETHNIC_ASIAN = 4;
 
+    public static final int STATUS_EMPLOYED = 1;
+    public static final int STATUS_UNEMPLOYED = 2;
+    public static final int STATUS_SELF_EMPLOYED = 3;
+
 
     private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
             mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
     private boolean mUserHasChanged = false;
     FirebaseUser currentUser;
-    private int mStatus = GENDER_UNKNOWN;
-    private  int mCodeTribe = ETHNIC_BLACK;
+    private int mGender = GENDER_UNKNOWN;
+    private  int mEthinicity = ETHNIC_BLACK;
+    private int mEmployment = STATUS_EMPLOYED;
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -112,7 +117,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         setupGenderSpinner();
         mProfileEthnicitySpinner.setOnTouchListener(mTouchListener);
         setupEthnicitySpinner();
-
+        mProfileEmploymentStatusSpinner.setOnTouchListener(mTouchListener);
+        setupEmploymentStatusSpinner();
 
         mProfileNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileSurnameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
@@ -145,11 +151,11 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.male))) {
-                        mStatus = GENDER_MALE;
+                        mGender = GENDER_MALE;
                     } else if (selection.equals(getString(R.string.female))) {
-                        mStatus = GENDER_FEMALE;
+                        mGender = GENDER_FEMALE;
                     } else {
-                        mStatus = GENDER_UNKNOWN;
+                        mGender = GENDER_UNKNOWN;
                     }
                 }
             }
@@ -157,43 +163,70 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             // Because AdapterView is an abstract class, onNothingSelected must be defined
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                mStatus = GENDER_UNKNOWN;
+                mGender = GENDER_UNKNOWN;
             }
         });
     }
 
     private void setupEthnicitySpinner(){
-        ArrayAdapter codeTribeSpinnerAdapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter ethnicitySpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_ethnicity_option, android.R.layout.simple_spinner_item);
-        codeTribeSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        mProfileEthnicitySpinner.setAdapter(codeTribeSpinnerAdapter);
+        ethnicitySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        mProfileEthnicitySpinner.setAdapter(ethnicitySpinnerAdapter);
         mProfileEthnicitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selection = (String) adapterView.getItemAtPosition(i);
                 if (!TextUtils.isEmpty(selection)){
                     if (selection.equals(R.string.black)){
-                        mCodeTribe = ETHNIC_WHITE;
+                        mEthinicity = ETHNIC_WHITE;
 
                     }else if (selection.equals(R.string.white)){
-                        mCodeTribe = ETHNIC_WHITE;
+                        mEthinicity = ETHNIC_WHITE;
                     }else if (selection.equals(R.string.indian)){
-                        mCodeTribe = ETHNIC_ASIAN;
+                        mEthinicity = ETHNIC_ASIAN;
                     }else {
-                        mCodeTribe = ETHNIC_BLACK;
+                        mEthinicity = ETHNIC_BLACK;
                     }
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                mCodeTribe = ETHNIC_BLACK;
+                mEthinicity = ETHNIC_BLACK;
 
             }
         });
 
     }
     private void setupEmploymentStatusSpinner(){
+        ArrayAdapter employmentStatusSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.array_employment_option,
+                android.R.layout.simple_dropdown_item_1line);
+        mProfileEmploymentStatusSpinner.setAdapter(employmentStatusSpinnerAdapter);
+        mProfileEmploymentStatusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selection = (String) adapterView.getItemAtPosition(i);
+                if (!TextUtils.isEmpty(selection)){
+                    if (selection.equals(R.string.employed_status)){
+                        mEmployment = STATUS_EMPLOYED;
+                    }
+                    else if (selection.equals(R.string.unemployed_status)){
+                        mEmployment = STATUS_UNEMPLOYED;
+                    }
+                    else{
+                        mEmployment = STATUS_SELF_EMPLOYED;
+                    }
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                mEmployment = STATUS_UNEMPLOYED;
+
+            }
+        });
 
     }
 
