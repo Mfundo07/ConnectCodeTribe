@@ -77,7 +77,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/convert/");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/soweto_codetribe/");
 
 
         // Set the adapter

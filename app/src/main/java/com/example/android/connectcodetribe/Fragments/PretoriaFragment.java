@@ -77,7 +77,7 @@ public class PretoriaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/convert/");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/pretoria_codetribe/");
 
 
         // Set the adapter
