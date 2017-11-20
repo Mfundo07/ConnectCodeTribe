@@ -53,9 +53,9 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
-    TextView mBio, mStatus, mCodeTribe, btnAddProject, skiills_editor, AddExperience;
+    TextView mBio, mStatus, mCodeTribe;
     ImageButton btnStatus, btnGithubLink, btnCodeTribe ;
-    ImageView userImage;
+    ImageView userImage, btnAddProject, skiills_editor, AddExperience;
     public String gihubLink;
     ImageButton skillName;
     private  ImageButton viewMoreButton;
@@ -106,9 +106,9 @@ public class ProfileActivity extends AppCompatActivity {
         btnCodeTribe = (ImageButton) findViewById(R.id.userCodeTribeImage);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
-        btnAddProject = (TextView) findViewById(R.id.btnAddProject);
-        skiills_editor = (TextView) findViewById(R.id.skiills_editor);
-        AddExperience = (TextView) findViewById(R.id.AddExperience);
+        btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
+        skiills_editor = (ImageButton) findViewById(R.id.skiills_editor);
+        AddExperience = (ImageButton) findViewById(R.id.AddExperience);
 
         skillName = (ImageButton) findViewById(R.id.skill_display_picture);
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
