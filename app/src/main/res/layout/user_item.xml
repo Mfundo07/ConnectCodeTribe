@@ -6,16 +6,15 @@
     android:id="@+id/user_cardView"
     android:background="@color/grey_300"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:layout_margin="4dp"
-    card_view:cardCornerRadius="8dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_marginTop="2dp"
     android:elevation="4dp"
     app:cardBackgroundColor="@android:color/transparent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-         android:background="#FFF8E1"
         android:padding="8dp">
 
 
@@ -26,8 +25,7 @@
             android:layout_gravity="center"
             android:layout_margin="4dp"
             android:src="@drawable/man_user_user"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="1dp" />
+            app:civ_border_color="#FF000000"/>
 
         <LinearLayout
             android:layout_width="0dp"
