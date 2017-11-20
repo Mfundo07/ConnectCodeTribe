@@ -10,61 +10,58 @@ import java.util.Map;
  */
 
 public class Employment {
-    public Employment() {
+    public String getEmploymenyStatus() {
+        return mEmploymenyStatus;
     }
 
-    public String getEmploy() {
-        return mEmploy;
+    public String getCompanyContactNumber() {
+        return mCompanyContactNumber;
     }
 
-    public String getCurrent() {
-        return mCurrent;
+    public String getCompanyName() {
+        return mCompanyName;
     }
 
-    public String getCompany() {
-        return mCompany;
+    public String getSalary() {
+        return mSalary;
     }
 
-    public String getJobTitle() {
-        return mJobTitle;
+    public String getStartDate() {
+        return mStartDate;
     }
 
-    public String getStart() {
-        return mStart;
+    public void setEmploymenyStatus(String employmenyStatus) {
+        mEmploymenyStatus = employmenyStatus;
     }
 
-    public void setEmploy(String employ) {
-        mEmploy = employ;
+    public void setCompanyContactNumber(String companyContactNumber) {
+        mCompanyContactNumber = companyContactNumber;
     }
 
-    public void setCurrent(String current) {
-        mCurrent = current;
+    public void setCompanyName(String companyName) {
+        mCompanyName = companyName;
     }
 
-    public void setCompany(String company) {
-        mCompany = company;
+    public void setSalary(String salary) {
+        mSalary = salary;
     }
 
-    public void setJobTitle(String jobTitle) {
-        mJobTitle = jobTitle;
+    public void setStartDate(String startDate) {
+        mStartDate = startDate;
     }
 
-    public void setStart(String start) {
-        mStart = start;
-    }
-
-    private String mEmploy;
-    private String mCurrent;
-    private String mCompany;
-    private String mJobTitle;
-    private String mStart;
+    private String mEmploymenyStatus;
+    private String mCompanyContactNumber;
+    private String mCompanyName;
+    private String mSalary;
+    private String mStartDate;
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("employed", mEmploy);
-        result.put("Job Title", mJobTitle);
-        result.put("Company Name", mCompany);
-        result.put("companyContactDetails", mCurrent);
+        result.put("employment_status", mEmploymenyStatus);
+        result.put("salary", mSalary);
+        result.put("company_name", mCompanyName);
+        result.put("company_contact_number", mCompanyContactNumber);
         return result;
     }
 }

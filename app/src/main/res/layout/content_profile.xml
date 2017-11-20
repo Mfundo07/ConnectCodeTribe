@@ -9,10 +9,23 @@
     tools:context="com.example.android.connectcodetribe.profile.ProfileActivity"
     tools:showIn="@layout/activity_profile_layout">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/grey_300">
+
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_options_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,7 +122,16 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-        </LinearLayout>
+        </LinearLayout></android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_bio_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:layout_weight="1">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,155 +159,200 @@
                 android:contentDescription="@string/todo" />
 
         </LinearLayout>
-
-
-        <LinearLayout
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/projects_card_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="2"
-            android:paddingTop="16dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="4">
+                android:padding="8dp">
 
             <TextView
                 android:id="@+id/userProjectTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:fontFamily="sans-serif"
-                android:layout_weight="3"
-                android:text="Projects"
-                android:textColor="#142030"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/btnAddProject"
-                android:background="#ffffff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/userProjectTitle"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_weight="1"
-                android:layout_marginEnd="22dp"
-                app:srcCompat="@drawable/add_circle" android:contentDescription="@string/todo" />
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/projectsRecyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/userProjectTitle">
-
-            </android.support.v7.widget.RecyclerView>
-
-            <LinearLayout
-                android:id="@+id/layoutDots"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dots_height"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/dots_margin_bottom"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="16dp">
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-            <TextView
-                android:id="@+id/userSkillsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif"
-                android:text="Skiills"
-                android:textColor="#142030"
-                android:layout_weight="3"
-                android:textSize="22sp"
+                android:layout_weight="1"
+                android:text="Projects"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
                 <ImageButton
+                    android:id="@+id/btnAddProject"
+                    android:background="#ffffff"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="#fff"
-                    android:id="@+id/skiills_editor"
-                    app:srcCompat="@drawable/add_circle"/>
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/add_circle"
+                    android:contentDescription="@string/todo" />
 
             </LinearLayout>
 
-        </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/skillsRecyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
-
-            </android.support.v7.widget.RecyclerView>
-
-
-
-        <LinearLayout
+        <android.support.v7.widget.CardView
+            android:id="@+id/project_list_card_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/projectsRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_weight="1">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <LinearLayout
+                    android:id="@+id/layoutDots"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dots_height"
+                    android:layout_alignParentBottom="true"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="@dimen/dots_margin_bottom"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/skills_title_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="4">
+                android:padding="8dp">
 
-            <TextView
-                android:id="@+id/userExpTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Experience"
-                android:layout_weight="3"
-                android:textColor="#142030"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/userSkillsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif"
+                    android:text="Skills"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
 
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:id="@+id/skiills_editor"
+                    android:layout_gravity="end"
+                    app:srcCompat="@drawable/add_circle"
+                    android:padding="8dp"/>
 
-            <ImageButton
-                android:id="@+id/AddExperience"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#fff"
-                app:srcCompat="@drawable/add_circle" />
             </LinearLayout>
 
-        </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/experienceRecyclerView"
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/skills_list_card_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:layout_weight="1">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/skillsRecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp">
 
-        </android.support.v7.widget.RecyclerView>
+            </android.support.v7.widget.RecyclerView>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/experience_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            app:cardCornerRadius="4dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/userExpTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif"
+                    android:text="Experience"
+                    android:layout_weight="2"
+                    android:padding="8dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/AddExperience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    app:srcCompat="@drawable/add_circle"
+                    android:layout_gravity="end"
+                    android:padding="8dp"/>
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/experience_list_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/experienceRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </android.support.v7.widget.CardView>
 
 
     </LinearLayout>

@@ -138,6 +138,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
 
 
+
+
         mProfileGenderSpinner.setOnTouchListener(mTouchListener);
         setupGenderSpinner();
         mProfileEthnicitySpinner.setOnTouchListener(mTouchListener);
@@ -222,17 +224,17 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final Employment employment = new Employment();
-                employment.setEmploy(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
-                employment.setEmploy(mProfileCompanyNameEditText.getText().toString());
-                employment.setEmploy(mProfileSalarySpinner.getSelectedItem().toString());
-                employment.setJobTitle(mProfileCompanyContactEditText.getText().toString());
+                employment.setEmploymenyStatus(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
+                employment.setEmploymenyStatus(mProfileCompanyNameEditText.getText().toString());
+                employment.setEmploymenyStatus(mProfileSalarySpinner.getSelectedItem().toString());
+                employment.setSalary(mProfileCompanyContactEditText.getText().toString());
                 mDatabaseReference.child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mProfileCompanyNameEditText.setText(employment.getCompany());
-                            mProfileCompanyContactEditText.setText(employment.getJobTitle());
+                            mProfileCompanyNameEditText.setText(employment.getCompanyName());
+                            mProfileCompanyContactEditText.setText(employment.getSalary());
                             Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
                             mProfileEmploymentSaveButton.setEnabled(false);
                             mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));

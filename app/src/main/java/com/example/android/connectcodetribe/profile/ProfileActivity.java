@@ -232,6 +232,7 @@ public class ProfileActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
                 projects.clear();
                 for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
                     Project project = new Project();
