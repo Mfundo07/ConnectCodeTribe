@@ -9,6 +9,12 @@
     android:orientation="vertical"
     tools:context="com.example.android.connectcodetribe.DifferentCodetribeTabs">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -16,13 +22,7 @@
             style="@style/CategoryTab"
             android:background="#93c841">
 
-
-
         </android.support.design.widget.TabLayout>
-
-
-
-
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
@@ -30,13 +30,13 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    </LinearLayout>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-
+        app:srcCompat="@drawable/user_white" />
 </android.support.design.widget.CoordinatorLayout>
