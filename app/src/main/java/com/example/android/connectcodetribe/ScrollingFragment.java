@@ -3,6 +3,7 @@ package com.example.android.connectcodetribe;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -16,11 +17,13 @@ public class ScrollingFragment extends AppCompatActivity {
     private TextView userProfileSurname;
 
     private TextView userEMC;
-    private TextView userEthncity;
+    private TextView userEthnicity;
     private TextView userGender;
     private TextView userAge;
     private TextView userEmail;
     private TextView userMobileNo;
+    private TextView userProgramStatus;
+    private TextView userCodeTribeLocation;
 
     String mName;
     String mImage;
@@ -34,31 +37,29 @@ public class ScrollingFragment extends AppCompatActivity {
     String mAge;
     String mEmail;
     String mMobile;
+    Toolbar userProfileToolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_screen);
+        setContentView(R.layout.activity_scrolling);
 
 
-        userProfileName = findViewById(R.id.user_profile_name);
-        userProfileImage = findViewById(R.id.user_profile_image_view);
-        userProfileStatus = findViewById(R.id.user_profile_status);
-        userProfileCodeTribe = findViewById(R.id.user_profile_codeTribe);
-        userProfileSurname = findViewById(R.id.user_profile_surname);
 
-        userEMC = findViewById(R.id.Userprofile_employeeCode);
-        userEthncity = findViewById(R.id.Userprofile_ethenicity);
-        userGender = findViewById(R.id.Userprofile_gender);
-        userAge = findViewById(R.id.Userprofile_age);
-        userEmail = findViewById(R.id.Userprofile_email);
-        userMobileNo = findViewById(R.id.Userprofile_mobile);
+        userEthnicity = findViewById(R.id.user_ethnicity);
+        userGender = findViewById(R.id.user_gender);
+        userAge = findViewById(R.id.user_age);
+        userEmail = findViewById(R.id.user_email);
+        userMobileNo = findViewById(R.id.user_cell_number);
+        userProfileStatus = findViewById(R.id.user_status);
+        userCodeTribeLocation = findViewById(R.id.user_code_tribe);
 
         mName = getIntent().getExtras().getString("Name");
         mImage = getIntent().getExtras().getString("Image");
         mStatus = getIntent().getExtras().getString("Status");
         mCodeTribe = getIntent().getExtras().getString("CodeTribe");
         mSurname = getIntent().getExtras().getString("Surname");
+
 
         mGender = getIntent().getExtras().getString("Gender");
         mEMC = getIntent().getExtras().getString("Employee_code");
@@ -67,29 +68,14 @@ public class ScrollingFragment extends AppCompatActivity {
         mEmail = getIntent().getExtras().getString("Email");
         mMobile = getIntent().getExtras().getString("Mobile");
 
+        userProfileToolbar =  findViewById(R.id.toolbar);
+        userProfileToolbar.setTitle(mName + " " + mSurname);
+        setSupportActionBar(userProfileToolbar);
 
-        if (getIntent().getExtras().getString("Name") != null){
-        userProfileName.setText(mName);}
-        else{
-      userProfileName.setText("");
-  }
 
-        if (getIntent().getExtras().getString("Status") != null){
-            userProfileStatus.setText(mStatus);}
-            else{
-            userProfileStatus.setText(" ");
-        }
-       if (getIntent().getExtras().getString("CodeTribe") != null){
-            userProfileCodeTribe.setText(mCodeTribe);}
-            else{
-           userProfileCodeTribe.setText("  ");
-       }
+        userProfileStatus.setText(mStatus);
+        userCodeTribeLocation.setText(mCodeTribe);
 
-        if (getIntent().getExtras().getString("Employee_code") != null){
-            userEMC.setText(mEMC);}
-        else{
-            userEthncity.setText("");
-        }
 
         if (getIntent().getExtras().getString("Gender") != null){
             userGender.setText(mGender);}
@@ -98,9 +84,9 @@ public class ScrollingFragment extends AppCompatActivity {
         }
 
         if (getIntent().getExtras().getString("Ethnicity") != null){
-            userEthncity.setText(mEthnicity);}
+            userEthnicity.setText(mEthnicity);}
         else{
-            userEthncity.setText("");
+            userEthnicity.setText("");
         }
 
         if (getIntent().getExtras().getString("Age") != null){
@@ -121,7 +107,7 @@ public class ScrollingFragment extends AppCompatActivity {
             userMobileNo.setText("");
         }
 
-       userProfileSurname.setText(mSurname);
+
 
 
     }

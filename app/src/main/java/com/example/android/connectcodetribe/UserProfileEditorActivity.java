@@ -258,9 +258,9 @@ Calendar mCalendar = Calendar.getInstance();
             public void onClick(View view) {
                 final Employment employment = new Employment();
                 employment.setEmploymenyStatus(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
-                employment.setEmploymenyStatus(mProfileCompanyNameEditText.getText().toString());
-                employment.setEmploymenyStatus(mProfileSalarySpinner.getSelectedItem().toString());
-                employment.setSalary(mProfileCompanyContactEditText.getText().toString());
+                employment.setCompanyName(mProfileCompanyNameEditText.getText().toString());
+                employment.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
+                employment.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
                 employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
                 mDatabaseReference.child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
@@ -268,7 +268,7 @@ Calendar mCalendar = Calendar.getInstance();
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             mProfileCompanyNameEditText.setText(employment.getCompanyName());
-                            mProfileCompanyContactEditText.setText(employment.getSalary());
+                            mProfileCompanyContactEditText.setText(employment.getCompanyContactNumber());
                             Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
                             mProfileEmploymentSaveButton.setEnabled(false);
                             mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));
@@ -470,19 +470,22 @@ Calendar mCalendar = Calendar.getInstance();
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             TribeMate item = new TribeMate();
                             item.setProfileImage(downloadUri.toString());
-                            mDatabaseReference.child("personal_details").setValue(item.toMap());
+                            mDatabaseReference.child("profile_images").setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    try {
+                                        Bitmap bitmap  = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                                        mProfileCircleImage.setImageBitmap(bitmap);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
 
+                                }
+                            });
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                             mProfileImageSaveButton.setEnabled(false);
                             mProfileImageSaveButton.setVisibility(View.INVISIBLE);
-                            Bitmap bitmap = null;
-                            try {
-                                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
-                                mProfileCircleImage.setImageBitmap(bitmap);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
 
 
 

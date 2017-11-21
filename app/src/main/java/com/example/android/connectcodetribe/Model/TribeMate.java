@@ -160,6 +160,7 @@ public class TribeMate {
         result.put("ethnicity", mEthnicity);
         result.put("cellNumber", mMobile);
         result.put("email", mEmail);
+        result.put("profile_image", mProfileImage);
         return result;
     }
 }

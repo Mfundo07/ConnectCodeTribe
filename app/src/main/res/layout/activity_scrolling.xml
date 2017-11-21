@@ -35,7 +35,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="TODO"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/kratos" />
+                    android:src="@drawable/man_user_user" />
 
             </LinearLayout>
 
@@ -47,13 +47,7 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar1"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_gravity="right"
-                app:layout_collapseMode="parallax"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
 
 
 
