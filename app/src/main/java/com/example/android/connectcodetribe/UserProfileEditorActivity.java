@@ -1,9 +1,12 @@
 package com.example.android.connectcodetribe;
 
 import android.annotation.TargetApi;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -43,6 +47,7 @@ import java.io.IOException;
  * Created by RP on 2017/09/02.
  */
 
+@TargetApi(Build.VERSION_CODES.N)
 public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
 
@@ -62,6 +67,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private EditText mProfileFacultyCourseEditText;
     private EditText mProfileCompanyNameEditText;
     private EditText mProfileCompanyContactEditText;
+    private Button mProfileStartDatePickerButton;
 
     private EditText mProfileAgeEditText;
     private Button mProfileIntakePeriodButton, mProfilePersonaInfoButton, mProfileEducationSaveButton,
@@ -104,6 +110,11 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private int mEthinicity = ETHNIC_BLACK;
     private int mEmployment = STATUS_EMPLOYED;
     private int mSalary = SALARY_1;
+
+Calendar mCalendar = Calendar.getInstance();
+    int day = mCalendar.get(Calendar.DAY_OF_MONTH) ;
+    int month = mCalendar.get(Calendar.MONTH);
+    int year = mCalendar.get(Calendar.YEAR);
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -147,11 +158,13 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);
         mProfileEducationSaveButton = findViewById(R.id.profile_education_save_button);
         mProfileEmploymentSaveButton = findViewById(R.id.profile_employment_save_button);
+        mProfileStartDatePickerButton = findViewById(R.id.profile_intake_period_button);
         mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
         mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileImageSaveButton.setEnabled(false);
         mProfileImageSaveButton.setVisibility(View.INVISIBLE);
+
 
 
         mProfileGenderSpinner.setOnTouchListener(mTouchListener);
@@ -233,21 +246,29 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             }
         });
 
+        mProfileStartDatePickerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog(0);
+            }
+        });
+
         mProfileEmploymentSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Employment employment = new Employment();
                 employment.setEmploymenyStatus(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
-                employment.setEmploymenyStatus(mProfileCompanyNameEditText.getText().toString());
-                employment.setEmploymenyStatus(mProfileSalarySpinner.getSelectedItem().toString());
-                employment.setSalary(mProfileCompanyContactEditText.getText().toString());
+                employment.setCompanyName(mProfileCompanyNameEditText.getText().toString());
+                employment.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
+                employment.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
+                employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
                 mDatabaseReference.child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             mProfileCompanyNameEditText.setText(employment.getCompanyName());
-                            mProfileCompanyContactEditText.setText(employment.getSalary());
+                            mProfileCompanyContactEditText.setText(employment.getCompanyContactNumber());
                             Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
                             mProfileEmploymentSaveButton.setEnabled(false);
                             mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));
@@ -258,6 +279,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 });
             }
         });
+
 
 
         mProfileImageEditButton.setOnClickListener(new View.OnClickListener() {
@@ -273,6 +295,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                 uploadImage();
             }
         });
+
 
 
     }
@@ -447,12 +470,23 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             TribeMate item = new TribeMate();
                             item.setProfileImage(downloadUri.toString());
-                            mDatabaseReference.child("personal_details").setValue(item);
+                            mDatabaseReference.child("profile_images").setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    try {
+                                        Bitmap bitmap  = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                                        mProfileCircleImage.setImageBitmap(bitmap);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
 
+                                }
+                            });
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                             mProfileImageSaveButton.setEnabled(false);
                             mProfileImageSaveButton.setVisibility(View.INVISIBLE);
+
 
 
                             // Creating Method to get the selected image file Extension from File Path URI.
@@ -460,6 +494,23 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                     });
         }
     }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        return new DatePickerDialog(this, datePickerListener, year, month, day);
+    }
+
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
+            day = selectedDay;
+            month = selectedMonth;
+            year = selectedYear;
+            mProfileStartDatePickerButton.setText(selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear);
+
+        }
+    };
 }
 
 

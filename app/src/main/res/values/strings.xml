@@ -39,16 +39,17 @@
     <string name="indian">Indian</string>
     <string name="colored">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
+    <string name="date_picker_title">Select Start Date</string>
 
     <string name="employed_status">Employed</string>
     <string name="unemployed_status">Unemployed</string>
     <string name="self_employed_status">Self Employed</string>
 
-    <string name="salary_1"> less 2000 p.m</string>
-    <string name="salary_2"> 2000-4000 p.m</string>
-    <string name="salary_3">4000-6000 p.m</string>
-    <string name="salary_4">6000-8000 p.m</string>
-    <string name="salary_5">8000-10000 p.m</string>
+    <string name="salary_1">less 2000 p.m</string>
+    <string name="salary_2">2000–4000 p.m</string>
+    <string name="salary_3">4000–6000 p.m</string>
+    <string name="salary_4">6000–8000 p.m</string>
+    <string name="salary_5">8000–10000 p.m</string>
     <string name="salary_6">more than 10000 p.m</string>
 
 
@@ -57,6 +58,12 @@
     <string name="tab_pretoria">Pretoria</string>
     <string name="action_settings1">Settings</string>
     <string name="section_format1">Hello World from section: %1$d</string>
+
+    <string-array name="array_code_tribe_option">
+        <item>@string/tab_soweto</item>
+        <item>@string/tab_pretoria</item>
+        <item>@string/tab_tembisa</item>
+    </string-array>
 
     <string-array name="array_employment_option">
         <item>@string/employed_status</item>

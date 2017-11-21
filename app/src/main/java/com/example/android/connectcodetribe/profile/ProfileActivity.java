@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -79,6 +80,16 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent kabza= new Intent(ProfileActivity.this,UserProfileEditorActivity.class);
+                startActivity(kabza);
+            }
+        });
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
@@ -104,7 +115,6 @@ public class ProfileActivity extends AppCompatActivity {
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
         mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
-        btnCodeTribe = (ImageButton) findViewById(R.id.userCodeTribeImage);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
