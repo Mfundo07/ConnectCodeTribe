@@ -99,17 +99,31 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int SALARY_5 = 5;
     public static final int SALARY_6 = 6;
 
+    public static final int TRIBE_SOWETO = 1;
+    public static final int TRIBE_PRETORIA = 2;
+    public static final int TRIBE_TEMBISA = 3;
+
+
+    public static final int IN_PROGRAM = 1;
+    public static final int POST_PROGRAM = 2;
+
     private Uri filepath;
 
 
     private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
             mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
+
+    private Spinner mProfileCodeTribeSpinner;
+    private Spinner mProfileProgramStateSpinner;
+
     private boolean mUserHasChanged = false;
     FirebaseUser currentUser;
     private int mGender = GENDER_UNKNOWN;
     private int mEthinicity = ETHNIC_BLACK;
     private int mEmployment = STATUS_EMPLOYED;
     private int mSalary = SALARY_1;
+    private int mCodeTribe = TRIBE_SOWETO;
+    private int mStatus = IN_PROGRAM;
 
 Calendar mCalendar = Calendar.getInstance();
     int day = mCalendar.get(Calendar.DAY_OF_MONTH) ;
@@ -158,7 +172,9 @@ Calendar mCalendar = Calendar.getInstance();
         mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);
         mProfileEducationSaveButton = findViewById(R.id.profile_education_save_button);
         mProfileEmploymentSaveButton = findViewById(R.id.profile_employment_save_button);
+        mProfileCodeTribeSpinner = findViewById(R.id.profile_code_tribe_name_spinner);
         mProfileStartDatePickerButton = findViewById(R.id.profile_intake_period_button);
+        mProfileProgramStateSpinner = findViewById(R.id.profile_tribe_status_spinner);
         mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
         mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
@@ -175,6 +191,10 @@ Calendar mCalendar = Calendar.getInstance();
         setupEmploymentStatusSpinner();
         mProfileSalarySpinner.setOnTouchListener(mTouchListener);
         setupSalarySpinner();
+        mProfileCodeTribeSpinner.setOnTouchListener(mTouchListener);
+        setupCodeTribeSpinner();
+        mProfileProgramStateSpinner.setOnTouchListener(mTouchListener);
+        setupProgramStatusSpinner();
 
         mProfileNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileSurnameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
@@ -298,6 +318,69 @@ Calendar mCalendar = Calendar.getInstance();
 
 
 
+    }
+
+
+    private void setupProgramStatusSpinner(){
+        ArrayAdapter programStatusSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.array_status_options, android.R.layout.simple_spinner_item);
+
+        programStatusSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        mProfileProgramStateSpinner.setAdapter(programStatusSpinnerAdapter);
+        mProfileProgramStateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (selection.equals(R.string.in_program)){
+                    mStatus = IN_PROGRAM;
+                }else{
+                    mStatus = POST_PROGRAM;
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                mStatus = IN_PROGRAM;
+
+            }
+        });
+    }
+
+
+    private void setupCodeTribeSpinner(){
+        ArrayAdapter codetribeNameSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.array_code_tribe_option, android.R.layout.simple_spinner_item);
+
+        codetribeNameSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        mProfileCodeTribeSpinner.setAdapter(codetribeNameSpinnerAdapter);
+
+        mProfileCodeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)){
+                    if (selection.equals(R.string.tab_soweto)){
+                        mCodeTribe = TRIBE_SOWETO;
+
+                    }else if (selection.equals(R.string.tab_pretoria)){
+                        mCodeTribe = TRIBE_PRETORIA;
+                    }
+                }
+                else {
+                    mCodeTribe = TRIBE_TEMBISA;
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                mCodeTribe = TRIBE_SOWETO;
+
+            }
+        });
     }
 
     private void setupGenderSpinner() {

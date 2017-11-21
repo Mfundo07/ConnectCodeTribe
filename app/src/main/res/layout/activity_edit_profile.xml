@@ -390,7 +390,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:id="@+id/profile_code_tribe_name_edit_text"/>
+                            android:id="@+id/profile_code_tribe_name_spinner"/>
 
                     </LinearLayout>
 
@@ -437,7 +437,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:id="@+id/profile_tribe_status_edit_text"/>
+                            android:id="@+id/profile_tribe_status_spinner"/>
                     </LinearLayout>
 
 

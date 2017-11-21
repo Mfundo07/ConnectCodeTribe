@@ -27,10 +27,6 @@ import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Adapters.SkillAdapter;
-import com.example.android.connectcodetribe.ChatActivityAlexandra;
-import com.example.android.connectcodetribe.ChatActivityPretoria;
-import com.example.android.connectcodetribe.ChatActivitySoweto;
-import com.example.android.connectcodetribe.ChatActivityThembisa;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.Experience_more;
 import com.example.android.connectcodetribe.LoginActivity;
@@ -55,8 +51,8 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
-    TextView mBio, mStatus, mCodeTribe;
-    ImageButton btnStatus, btnGithubLink, btnCodeTribe ;
+    TextView mBio, mStatus,mAge, mEthnicity,mCellNumber, mGender, mEmail, mTribe;
+    ImageButton btnStatus, btnGithubLink ;
     ImageView userImage, btnAddProject, skiills_editor, AddExperience;
     public String gihubLink;
     ImageButton skillName;
@@ -114,7 +110,11 @@ public class ProfileActivity extends AppCompatActivity {
         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
-        mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
+        mAge  = findViewById(R.id.user_age);
+        mEthnicity = findViewById(R.id.user_ethnicity);
+        mCellNumber = findViewById(R.id.user_cell_number);
+        mEmail = findViewById(R.id.user_email);
+        mTribe = findViewById(R.id.user_code_tribe);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
@@ -208,7 +208,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
                 gihubLink = (String) dataSnapshot.child("github_link").getValue();
-                mCodeTribe.setText((String) dataSnapshot.child("0").child("tribe").getValue());
                 btnGithubLink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -219,30 +218,7 @@ public class ProfileActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-                codeTribeName = (String) dataSnapshot.child("tribe").getValue();
-                mCodeTribe.setText(codeTribeName);
-                btnCodeTribe.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (codeTribeName.equals("Soweto")){
-                            mCodeTribe.setText(codeTribeName);
-                            Intent intent = new Intent(ProfileActivity.this, ChatActivitySoweto.class);
-                            startActivity(intent);
-                        }else if (codeTribeName.equals("Tembisa")){
-                            mCodeTribe.setText(codeTribeName);
-                            Intent intent = new Intent(ProfileActivity.this,ChatActivityThembisa.class);
-                            startActivity(intent);
-                        }else if (codeTribeName.equals("Pretoria")){
-                            mCodeTribe.setText(codeTribeName);
-                            Intent intent = new Intent(ProfileActivity.this,ChatActivityPretoria.class);
-                            startActivity(intent);
-                        }else{
-                            mCodeTribe.setText(codeTribeName);
-                            Intent intent = new Intent(ProfileActivity.this,ChatActivityAlexandra.class);
-                            startActivity(intent);
-                        }
-                    }
-                });
+
                 btnStatus.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
