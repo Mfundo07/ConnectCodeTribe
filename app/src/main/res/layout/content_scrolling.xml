@@ -22,8 +22,9 @@
             android:id="@+id/profile_Personal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_margin="4dp"
             android:padding="8dp"
+            app:cardCornerRadius="4dp"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,8 +50,9 @@
             android:id="@+id/profile_options_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_margin="4dp"
             android:padding="8dp"
+            app:cardCornerRadius="4dp"
             android:layout_weight="1">
 
             <LinearLayout
@@ -153,8 +155,9 @@
             android:id="@+id/profile_bio_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_margin="4dp"
             android:padding="8dp"
+            app:cardCornerRadius="4dp"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -178,8 +181,9 @@
             android:id="@+id/profile_bio_data_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="2dp"
+            android:layout_margin="4dp"
             android:padding="8dp"
+            app:cardCornerRadius="4dp"
             android:layout_weight="1">
 
 
@@ -213,8 +217,9 @@
             android:id="@+id/projects_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_margin="4dp"
             android:padding="8dp"
+            app:cardCornerRadius="4dp"
             android:layout_weight="1">
 
             <LinearLayout
@@ -283,7 +288,7 @@
             android:id="@+id/skills_tittle_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="4dp"
             android:padding="8dp"
             app:cardCornerRadius="4dp"
             android:layout_weight="1">
@@ -388,7 +393,7 @@
             android:id="@+id/profile_current_employment_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="4dp"
             android:padding="8dp"
             app:cardCornerRadius="4dp"
             android:layout_weight="1">
