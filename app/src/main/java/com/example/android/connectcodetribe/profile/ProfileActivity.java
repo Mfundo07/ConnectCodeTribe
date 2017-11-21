@@ -116,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity {
         mStatus = (TextView) findViewById(R.id.userStatus);
      //   mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
-        btnStatus = (ImageButton) findViewById(R.id.userStatusImage);
+
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         skiills_editor = (ImageButton) findViewById(R.id.skiills_editor);
         AddExperience = (ImageButton) findViewById(R.id.AddExperience);
@@ -222,12 +222,6 @@ public class ProfileActivity extends AppCompatActivity {
                 codeTribeName = (String) dataSnapshot.child("tribe").getValue();
                 mCodeTribe.setText(codeTribeName);
 
-                btnStatus.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(ProfileActivity.this, DifferentCodetribeTabs.class));
-                    }
-                });
                 btnAddProject.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
