@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ import java.io.IOException;
  * Created by RP on 2017/09/02.
  */
 
+@TargetApi(Build.VERSION_CODES.N)
 public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
 
@@ -109,9 +111,10 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private int mEmployment = STATUS_EMPLOYED;
     private int mSalary = SALARY_1;
 
-    int day;
-    int month;
-    int year;
+Calendar mCalendar = Calendar.getInstance();
+    int day = mCalendar.get(Calendar.DAY_OF_MONTH) ;
+    int month = mCalendar.get(Calendar.MONTH);
+    int year = mCalendar.get(Calendar.YEAR);
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
