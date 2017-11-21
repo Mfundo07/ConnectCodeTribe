@@ -347,7 +347,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif"
-                    android:text="Experience"
+                    android:text="Employment"
                     android:layout_weight="2"
                     android:padding="8dp"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
