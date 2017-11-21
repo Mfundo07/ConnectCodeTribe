@@ -5,19 +5,23 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,10 +37,13 @@ import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.Skill;
+import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.Projects_more;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.Skills_more;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -51,16 +58,18 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     TextView mBio, mStatus, mCodeTribe;
-    ImageButton btnStatus, btnGithubLink, btnCodeTribe ;
+    ImageButton btnStatus, btnGithubLink, btnAddBio ;
     ImageView userImage, btnAddProject, skiills_editor, AddExperience;
     public String gihubLink;
     ImageButton skillName;
+
     private  ImageButton viewMoreButton;
     private String codeTribeName;
     RecyclerView mSkillsRecyclerView, mProjectsRecyclerView, mExperiencesRecyclerView;
     ProjectsHorizontalAdapter mProjectsAdapter;
     SkillAdapter mSkillsAdapter;
     ExperienceAdapter mExperienceAdapter;
+    FloatingActionButton mProfileEditrFAButton;
     List<Project> projects = new ArrayList<>();
     List<Skill> skills = new ArrayList<>();
     List<Experience> mExperiences = new ArrayList<>();
@@ -91,6 +100,7 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar.setTitle("");
         toolbar1.setTitle("");
         setSupportActionBar(toolbar);
+        btnAddBio = findViewById(R.id.add_bio_button);
         setSupportActionBar(toolbar1);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         // adding bottom dots
@@ -115,9 +125,11 @@ public class ProfileActivity extends AppCompatActivity {
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         skiills_editor = (ImageButton) findViewById(R.id.skiills_editor);
         AddExperience = (ImageButton) findViewById(R.id.AddExperience);
+        btnAddBio = findViewById(R.id.btn_add_bio);
 
         skillName = (ImageButton) findViewById(R.id.skill_display_picture);
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
+        mProfileEditrFAButton = findViewById(R.id.fab_button);
 
 
         mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
@@ -164,6 +176,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
 
+        });
+        mProfileEditrFAButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, UserProfileEditorActivity.class));
+            }
         });
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -272,6 +290,47 @@ public class ProfileActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+        btnAddBio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                LayoutInflater inflater = ProfileActivity.this.getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.bio_editor, null);
+                final EditText mBioEditText = dialogView.findViewById(R.id.bio_edit_text);
+                Button addBioButton = dialogView.findViewById(R.id.bio_text_submit_button);
+                builder.setView(dialogView);
+                final AlertDialog alertDialog = builder.create();
+
+                addBioButton.setOnClickListener(new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View v) {
+
+                        TribeMate tribeMate = new TribeMate();
+                        tribeMate.setBio(mBioEditText.getText().toString());
+                        myRef.child("bio_input").setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    mBioEditText.setText("");
+                                    alertDialog.cancel();
+                                }
+                            }
+                        });
+
+                    }
+
+
+                });
+
+
+                alertDialog.show();
+
+            }
+
+        });
     }
     public void addBottomDots(int currentPage) {
         dots = new TextView[projects.size()];
@@ -298,16 +357,4 @@ public class ProfileActivity extends AppCompatActivity {
         
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getGroupId();
-
-        if(id==R.id.btnEdit);
-
-        Intent intentAdmin = new Intent(ProfileActivity.this,UserProfileEditorActivity.class);
-        startActivity(intentAdmin);
-
-        return true;
-    }
 }

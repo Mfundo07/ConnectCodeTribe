@@ -111,8 +111,8 @@
     </string-array>
 
     <string-array name="array_status_options">
-        <item>@string/post_program</item>
         <item>@string/in_program</item>
+        <item>@string/post_program</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

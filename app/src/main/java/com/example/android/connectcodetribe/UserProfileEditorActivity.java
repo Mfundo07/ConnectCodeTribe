@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.android.connectcodetribe.Model.CodeTribe;
 import com.example.android.connectcodetribe.Model.Education;
 import com.example.android.connectcodetribe.Model.Employment;
 import com.example.android.connectcodetribe.Model.TribeMate;
@@ -68,6 +69,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private EditText mProfileCompanyNameEditText;
     private EditText mProfileCompanyContactEditText;
     private Button mProfileStartDatePickerButton;
+    private EditText mProfileEmployeeCodeEditText;
+    private Button mProfilecodeTribeSaveButton;
 
     private EditText mProfileAgeEditText;
     private Button mProfileIntakePeriodButton, mProfilePersonaInfoButton, mProfileEducationSaveButton,
@@ -154,6 +157,7 @@ Calendar mCalendar = Calendar.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/").child(currentUser.getUid());
         mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles").child(currentUser.getUid());
+        mProfileEmployeeCodeEditText = findViewById(R.id.profile_emc_edit_text);
         mProfileNameEditText = (EditText) findViewById(R.id.profile_name_edit_text);
         mProfileSurnameEditText = (EditText) findViewById(R.id.profile_surname_edit_text);
         mProfileAgeEditText = (EditText) findViewById(R.id.profile_age_edit_text);
@@ -180,6 +184,24 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileImageSaveButton.setEnabled(false);
         mProfileImageSaveButton.setVisibility(View.INVISIBLE);
+        mProfilecodeTribeSaveButton = findViewById(R.id.profile_code_tribe_save_button);
+        mProfilecodeTribeSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final CodeTribe codeTribe = new CodeTribe();
+                codeTribe.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
+                codeTribe.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
+                codeTribe.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
+                mDatabaseReference.child("codeTribe_details").setValue(codeTribe.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            mProfileEmployeeCodeEditText.setText(codeTribe.getEmployeeCode());
+                        }
+                    }
+                });
+            }
+        });
 
 
 
@@ -238,6 +260,8 @@ Calendar mCalendar = Calendar.getInstance();
 
             }
         });
+
+
 
 
         mProfileEducationSaveButton.setOnClickListener(new View.OnClickListener() {
