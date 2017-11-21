@@ -453,6 +453,14 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                             mProfileImageSaveButton.setEnabled(false);
                             mProfileImageSaveButton.setVisibility(View.INVISIBLE);
+                            Bitmap bitmap = null;
+                            try {
+                                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                                mProfileCircleImage.setImageBitmap(bitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
 
 
                             // Creating Method to get the selected image file Extension from File Path URI.
