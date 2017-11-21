@@ -34,7 +34,7 @@
             android:alpha="0.50"
             android:layout_margin="16dp"
             android:layout_weight="1"
-            android:text="add"
+            android:text="add bio"
             android:background="@drawable/button_green"/>
 
 
