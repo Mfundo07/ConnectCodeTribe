@@ -39,6 +39,7 @@
     <string name="indian">Indian</string>
     <string name="colored">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
+    <string-array name="date_picker_title">Start Date</string-array>
 
     <string name="employed_status">Employed</string>
     <string name="unemployed_status">Unemployed</string>

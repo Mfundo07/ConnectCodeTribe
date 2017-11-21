@@ -62,6 +62,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private EditText mProfileFacultyCourseEditText;
     private EditText mProfileCompanyNameEditText;
     private EditText mProfileCompanyContactEditText;
+    private Button mProfileStartDatePickerButton;
 
     private EditText mProfileAgeEditText;
     private Button mProfileIntakePeriodButton, mProfilePersonaInfoButton, mProfileEducationSaveButton,
@@ -147,11 +148,13 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);
         mProfileEducationSaveButton = findViewById(R.id.profile_education_save_button);
         mProfileEmploymentSaveButton = findViewById(R.id.profile_employment_save_button);
+        mProfileStartDatePickerButton = findViewById(R.id.profile_intake_period_button);
         mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
         mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileImageSaveButton.setEnabled(false);
         mProfileImageSaveButton.setVisibility(View.INVISIBLE);
+
 
 
         mProfileGenderSpinner.setOnTouchListener(mTouchListener);
