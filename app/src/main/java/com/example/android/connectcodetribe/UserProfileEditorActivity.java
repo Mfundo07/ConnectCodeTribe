@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -37,8 +38,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by RP on 2017/09/02.
@@ -69,7 +68,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             mProfileEmploymentSaveButton, mProfileImageEditButton, mProfileImageSaveButton;
 
 
-    private CircleImageView mProfileCircleImage;
+    private ImageView mProfileCircleImage;
     DatabaseReference mDatabaseReference;
     StorageReference mStoragereference;
     Uri FilePathUri;
@@ -150,6 +149,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfileEmploymentSaveButton = findViewById(R.id.profile_employment_save_button);
         mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
         mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
+        mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileImageSaveButton.setEnabled(false);
         mProfileImageSaveButton.setVisibility(View.INVISIBLE);
 
