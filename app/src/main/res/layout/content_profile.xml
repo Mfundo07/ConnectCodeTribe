@@ -73,11 +73,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="2dp"
                 android:orientation="vertical">
 
                 <TextView
-
+                    android:id="@+id/user_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Age"
@@ -85,7 +85,23 @@
                     android:textColorHint="#000"/>
 
                 <TextView
+                    android:id="@+id/user_ethnicity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ethnicity"
+                    android:textSize="12sp"
+                    android:textColorHint="#000"/>
 
+                <TextView
+                    android:id="@+id/user_cell_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone.no"
+                    android:textSize="12sp"
+                    android:textColorHint="#000"/>
+
+                <TextView
+                    android:id="@+id/user_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Gender"
@@ -93,18 +109,18 @@
                     android:textColorHint="#000" />
 
                 <TextView
-
+                    android:id="@+id/user_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Soweto CodeTribe"
+                    android:hint="nonhlanhlamokena11@gmail.com"
                     android:textSize="12sp"
                     android:textColorHint="#000" />
 
                 <TextView
-
+                    android:id="@+id/user_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="nonhlanhlamokena11@gmail.com"
+                    android:hint="Intern"
                     android:textSize="12sp"
                     android:textColorHint="#000" />
 
