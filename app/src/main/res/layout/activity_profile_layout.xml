@@ -71,4 +71,13 @@
         tools:layout_editor_absoluteY="400dp" />
 
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_person_add_white"/>
+
+
 </android.support.design.widget.CoordinatorLayout>

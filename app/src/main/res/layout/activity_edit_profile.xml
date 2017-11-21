@@ -406,7 +406,7 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:gravity="center_vertical"
-                            android:text="Institution"
+                            android:text="Employee Code"
                             android:textColor="#000"
                             android:textStyle="bold"/>
                         <EditText
@@ -570,7 +570,6 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:id="@+id/profile_faculty_course_edit_text"
-
                             android:textColor="#000"
                             android:hint="e.g Information Technology"/>
                     </LinearLayout>

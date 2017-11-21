@@ -9,19 +9,10 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"></android.support.v4.view.ViewPager>
 
-        android:layout_alignBottom="@+id/view2"></android.support.v4.view.ViewPager>
 
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:alpha=".5"
-        android:layout_above="@+id/dotsLayout"
-        android:background="#ffffff"
-        android:layout_marginBottom="15dp"
-        android:id="@+id/view2"></View>
 
 
     <LinearLayout
@@ -30,9 +21,17 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="55sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/moreskillRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bndeleteproject"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
 
     <Button
         android:layout_width="wrap_content"

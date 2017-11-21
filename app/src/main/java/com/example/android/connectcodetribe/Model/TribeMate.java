@@ -23,6 +23,16 @@ public class TribeMate {
     private String mCodeTribe;
     private String mProfileImage;
 
+    public String getBio() {
+        return mBio;
+    }
+
+    public void setBio(String bio) {
+        mBio = bio;
+    }
+
+    private String mBio;
+
     public String getProfileImage() {
         return mProfileImage;
     }
@@ -161,6 +171,7 @@ public class TribeMate {
         result.put("cell_number", mMobile);
         result.put("email", mEmail);
         result.put("profile_image", mProfileImage);
+        result.put("bio", mBio);
         return result;
     }
 }
