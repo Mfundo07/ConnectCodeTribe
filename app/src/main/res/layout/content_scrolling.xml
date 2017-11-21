@@ -104,6 +104,20 @@
                         android:layout_height="wrap_content"
                         android:text="Email"
                         android:textColor="#000"/>
+
+                    <TextView
+                        android:id="@+id/user_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Intern"
+                        android:textColor="#000"/>
+
+                    <TextView
+                        android:id="@+id/user_code_tribe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Soweto"
+                        android:textColor="#000"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -111,6 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:layout_marginTop="9dp"
                     android:orientation="vertical">
 
 
