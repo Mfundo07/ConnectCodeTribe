@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.android.connectcodetribe.Model.Project;
@@ -34,7 +33,7 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.skills_item_layout, parent, false);
+                .inflate(R.layout.skills_items, parent, false);
         return new ViewHolder(view);
     }
 
@@ -42,13 +41,9 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mSkills.get(position);
         holder.mTitle.setText(mSkills.get(position).getTitle());
+        //holder.mEndorsements.setText(mSkills.get(position).getSkillLevel() + activity.getString(R.string.endorsed));
 
 
-        /*
-        Glide.with(activity)
-                .load(mSkills.get(position).getSnapshot())
-                .into(holder.projectDisplayPicture);
-                */
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,13 +63,13 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
         public final View mView;
         public final TextView mTitle;
         public Skill mItem;
-        public ImageButton projectDisplayPicture;
+        public TextView mEndorsements;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mTitle = view.findViewById(R.id.skill_title);
-            projectDisplayPicture = view.findViewById(R.id.skill_display_picture);
+            mTitle = view.findViewById(R.id.skills_title_text_view);
+            mEndorsements = view.findViewById(R.id.endorse_text_view);
         }
 
         @Override
