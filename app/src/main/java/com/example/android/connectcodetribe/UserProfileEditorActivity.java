@@ -1,6 +1,8 @@
 package com.example.android.connectcodetribe;
 
 import android.annotation.TargetApi;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -105,6 +108,10 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private int mEthinicity = ETHNIC_BLACK;
     private int mEmployment = STATUS_EMPLOYED;
     private int mSalary = SALARY_1;
+
+    int day;
+    int month;
+    int year;
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -263,6 +270,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         });
 
 
+
         mProfileImageEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -274,6 +282,12 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 uploadImage();
+            }
+        });
+        mProfileStartDatePickerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog(0);
             }
         });
 
@@ -471,6 +485,23 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                     });
         }
     }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        return new DatePickerDialog(this, datePickerListener, year, month, day);
+    }
+
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
+            day = selectedDay;
+            month = selectedMonth;
+            year = selectedYear;
+            mProfileStartDatePickerButton.setText(selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear);
+
+        }
+    };
 }
 
 
