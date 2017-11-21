@@ -62,6 +62,7 @@ public class Employment {
         result.put("salary", mSalary);
         result.put("company_name", mCompanyName);
         result.put("company_contact_number", mCompanyContactNumber);
+        result.put("start_date", mStartDate);
         return result;
     }
 }

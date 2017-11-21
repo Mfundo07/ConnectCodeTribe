@@ -246,6 +246,13 @@ Calendar mCalendar = Calendar.getInstance();
             }
         });
 
+        mProfileStartDatePickerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog(0);
+            }
+        });
+
         mProfileEmploymentSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -254,6 +261,7 @@ Calendar mCalendar = Calendar.getInstance();
                 employment.setEmploymenyStatus(mProfileCompanyNameEditText.getText().toString());
                 employment.setEmploymenyStatus(mProfileSalarySpinner.getSelectedItem().toString());
                 employment.setSalary(mProfileCompanyContactEditText.getText().toString());
+                employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
                 mDatabaseReference.child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
@@ -287,12 +295,7 @@ Calendar mCalendar = Calendar.getInstance();
                 uploadImage();
             }
         });
-        mProfileStartDatePickerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog(0);
-            }
-        });
+
 
 
     }
@@ -467,7 +470,7 @@ Calendar mCalendar = Calendar.getInstance();
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             TribeMate item = new TribeMate();
                             item.setProfileImage(downloadUri.toString());
-                            mDatabaseReference.child("personal_details").setValue(item);
+                            mDatabaseReference.child("personal_details").setValue(item.toMap());
 
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();

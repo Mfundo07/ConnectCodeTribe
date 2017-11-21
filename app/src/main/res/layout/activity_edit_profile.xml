@@ -572,6 +572,9 @@
                             android:id="@+id/profile_intake_period_button"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:text="@string/date_picker_title"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/colorPrimary"
                             android:layout_weight="1"/>
                     </LinearLayout>
 
