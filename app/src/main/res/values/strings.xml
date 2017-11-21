@@ -111,7 +111,7 @@
     </string-array>
 
     <string-array name="array_status_options">
-        <item>@string/alumni</item>
+        <item>@string/post_program</item>
         <item>@string/in_program</item>
     </string-array>
 
