@@ -163,7 +163,6 @@
             android:id="@+id/profile_bio_data_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="2dp"
             android:padding="8dp"
             android:layout_weight="1">
 
@@ -237,7 +236,6 @@
             android:id="@+id/project_list_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="2dp"
             android:padding="8dp"
             android:layout_weight="1">
 
@@ -316,7 +314,6 @@
             android:id="@+id/skills_list_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="2dp"
             android:padding="8dp"
             android:layout_weight="1">
             <android.support.v7.widget.RecyclerView
