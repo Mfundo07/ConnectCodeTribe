@@ -21,7 +21,6 @@ import android.widget.TextView;
 
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

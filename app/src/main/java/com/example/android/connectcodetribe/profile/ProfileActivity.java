@@ -119,7 +119,7 @@ public class ProfileActivity extends AppCompatActivity {
         myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
-     //   mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
+        //   mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
 
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
@@ -147,7 +147,7 @@ public class ProfileActivity extends AppCompatActivity {
         mSkillsAdapter = new SkillAdapter(ProfileActivity.this, skills);
         mSkillsRecyclerView.setAdapter(mSkillsAdapter);
         mExperienceAdapter = new ExperienceAdapter(mExperiences, ProfileActivity.this);
-        mExperiencesRecyclerView = (RecyclerView) findViewById(R.id.experienceRecyclerView);
+       // mExperiencesRecyclerView = (RecyclerView) findViewById(R.id.experienceRecyclerView);
         mExperiencesRecyclerView.setAdapter(mExperienceAdapter);
         LinearLayoutManager expVertLayoutManager
                 = new LinearLayoutManager(ProfileActivity.this, LinearLayoutManager.HORIZONTAL, false);
@@ -354,7 +354,7 @@ public class ProfileActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
-        
+
     }
 
 }

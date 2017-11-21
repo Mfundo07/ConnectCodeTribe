@@ -10,8 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
-
 public class MainActivity extends AppCompatActivity {
 
 

@@ -40,9 +40,7 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by Admin on 10/13/2017.
- */
+
 public class ChatActivityPretoria extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener, ClickListenerChatFirebase {
 
     private static final int IMAGE_GALLERY_REQUEST = 1;
