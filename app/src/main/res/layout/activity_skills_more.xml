@@ -7,11 +7,11 @@
     tools:context="com.example.beatspice.walkthrough.Welcome_activity">
 
     <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/viewPager"
 
-        ></android.support.v4.view.ViewPager>
+        android:layout_alignBottom="@+id/view2"></android.support.v4.view.ViewPager>
 
 
     <View
@@ -21,7 +21,7 @@
         android:layout_above="@+id/dotsLayout"
         android:background="#ffffff"
         android:layout_marginBottom="15dp"
-        ></View>
+        android:id="@+id/view2"></View>
 
 
     <LinearLayout
