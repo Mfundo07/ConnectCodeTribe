@@ -1,9 +1,13 @@
 package com.example.android.connectcodetribe;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +26,7 @@ import com.example.android.connectcodetribe.Model.Education;
 import com.example.android.connectcodetribe.Model.Employment;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,6 +34,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -38,7 +46,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
+
+
+    private static final int GALLERY_REQUEST = 1;
+    private static final int CAMERA_REQUEST_CODE = 1;
     public static final int RC_PHOTO_PICKER = 2;
+
+    private final int PICK_IMAGE_REQUEST = 71;
+
     private EditText mProfileNameEditText;
     private EditText mProfileSurnameEditText;
     private EditText mProfileEmailEditText;
@@ -51,7 +66,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
     private EditText mProfileAgeEditText;
     private Button mProfileIntakePeriodButton, mProfilePersonaInfoButton, mProfileEducationSaveButton,
-    mProfileEmploymentSaveButton;
+            mProfileEmploymentSaveButton, mProfileImageEditButton, mProfileImageSaveButton;
 
 
     private CircleImageView mProfileCircleImage;
@@ -64,7 +79,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
     public static final int ETHNIC_BLACK = 1;
     public static final int ETHNIC_WHITE = 2;
-    public static final int ETHNIC_COLORED= 3;
+    public static final int ETHNIC_COLORED = 3;
     public static final int ETHNIC_ASIAN = 4;
 
     public static final int STATUS_EMPLOYED = 1;
@@ -79,13 +94,15 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     public static final int SALARY_5 = 5;
     public static final int SALARY_6 = 6;
 
+    private Uri filepath;
+
 
     private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
             mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
     private boolean mUserHasChanged = false;
     FirebaseUser currentUser;
     private int mGender = GENDER_UNKNOWN;
-    private  int mEthinicity = ETHNIC_BLACK;
+    private int mEthinicity = ETHNIC_BLACK;
     private int mEmployment = STATUS_EMPLOYED;
     private int mSalary = SALARY_1;
     String Database_Path = "All_Image_Uploads_Database";
@@ -113,7 +130,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/UserProfiles/").child(currentUser.getUid());
         mStoragereference = FirebaseStorage.getInstance().getReference("/UserProfiles").child(currentUser.getUid());
-        mProfileNameEditText= (EditText) findViewById(R.id.profile_name_edit_text);
+        mProfileNameEditText = (EditText) findViewById(R.id.profile_name_edit_text);
         mProfileSurnameEditText = (EditText) findViewById(R.id.profile_surname_edit_text);
         mProfileAgeEditText = (EditText) findViewById(R.id.profile_age_edit_text);
         mProfileGenderSpinner = (Spinner) findViewById(R.id.profile_gender_spinner);
@@ -131,13 +148,10 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);
         mProfileEducationSaveButton = findViewById(R.id.profile_education_save_button);
         mProfileEmploymentSaveButton = findViewById(R.id.profile_employment_save_button);
-
-
-
-
-
-
-
+        mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
+        mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
+        mProfileImageSaveButton.setEnabled(false);
+        mProfileImageSaveButton.setVisibility(View.INVISIBLE);
 
 
         mProfileGenderSpinner.setOnTouchListener(mTouchListener);
@@ -204,15 +218,14 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             mProfileQualificationEditText.setText(education.getQualification());
                             mProfileInstitutionEditText.setText(education.getInstitute());
                             mProfileFacultyCourseEditText.setText(education.getDesc());
                             Toast.makeText(getApplicationContext(), "Education updated", Toast.LENGTH_SHORT).show();
                             mProfileEducationSaveButton.setEnabled(false);
                             mProfileEducationSaveButton.setTextColor(getColor(R.color.grey_300));
-                        }
-                        else{
+                        } else {
                             task.getException().printStackTrace();
                         }
                     }
@@ -246,6 +259,20 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             }
         });
 
+
+        mProfileImageEditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chooseImage();
+
+            }
+        });
+        mProfileImageSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadImage();
+            }
+        });
 
 
     }
@@ -286,7 +313,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         });
     }
 
-    private void setupEthnicitySpinner(){
+    private void setupEthnicitySpinner() {
         ArrayAdapter ethnicitySpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_ethnicity_option, android.R.layout.simple_spinner_item);
         ethnicitySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -295,15 +322,15 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selection = (String) adapterView.getItemAtPosition(i);
-                if (!TextUtils.isEmpty(selection)){
-                    if (selection.equals(R.string.black)){
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(R.string.black)) {
                         mEthinicity = ETHNIC_WHITE;
 
-                    }else if (selection.equals(R.string.white)){
+                    } else if (selection.equals(R.string.white)) {
                         mEthinicity = ETHNIC_WHITE;
-                    }else if (selection.equals(R.string.indian)){
+                    } else if (selection.equals(R.string.indian)) {
                         mEthinicity = ETHNIC_ASIAN;
-                    }else {
+                    } else {
                         mEthinicity = ETHNIC_BLACK;
                     }
                 }
@@ -317,7 +344,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         });
 
     }
-    private void setupEmploymentStatusSpinner(){
+
+    private void setupEmploymentStatusSpinner() {
         ArrayAdapter employmentStatusSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.array_employment_option,
                 android.R.layout.simple_dropdown_item_1line);
         mProfileEmploymentStatusSpinner.setAdapter(employmentStatusSpinnerAdapter);
@@ -325,14 +353,12 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selection = (String) adapterView.getItemAtPosition(i);
-                if (!TextUtils.isEmpty(selection)){
-                    if (selection.equals(R.string.employed_status)){
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(R.string.employed_status)) {
                         mEmployment = STATUS_EMPLOYED;
-                    }
-                    else if (selection.equals(R.string.unemployed_status)){
+                    } else if (selection.equals(R.string.unemployed_status)) {
                         mEmployment = STATUS_UNEMPLOYED;
-                    }
-                    else{
+                    } else {
                         mEmployment = STATUS_SELF_EMPLOYED;
                     }
 
@@ -348,7 +374,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
     }
 
-    private void setupSalarySpinner(){
+    private void setupSalarySpinner() {
         ArrayAdapter salarySpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.array_salary_option,
                 android.R.layout.simple_dropdown_item_1line);
         mProfileSalarySpinner.setAdapter(salarySpinnerAdapter);
@@ -356,23 +382,18 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selection = (String) adapterView.getItemAtPosition(i);
-                if (!TextUtils.isEmpty(selection)){
-                    if (selection.equals(R.string.salary_1)){
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(R.string.salary_1)) {
                         mSalary = SALARY_1;
-                    }
-                    else if (selection.equals(R.string.salary_2)){
+                    } else if (selection.equals(R.string.salary_2)) {
                         mSalary = SALARY_2;
-                    }
-                    else if (selection.equals(R.string.salary_3)){
+                    } else if (selection.equals(R.string.salary_3)) {
                         mSalary = SALARY_3;
-                    }
-                    else if (selection.equals(R.string.salary_4)){
+                    } else if (selection.equals(R.string.salary_4)) {
                         mSalary = SALARY_4;
-                    }
-                    else if (selection.equals(R.string.salary_5)){
+                    } else if (selection.equals(R.string.salary_5)) {
                         mSalary = SALARY_5;
-                    }
-                    else{
+                    } else {
                         mSalary = SALARY_6;
                     }
                 }
@@ -387,9 +408,58 @@ public class UserProfileEditorActivity extends AppCompatActivity {
         });
     }
 
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            filepath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                mProfileCircleImage.setImageBitmap(bitmap);
+                mProfileImageSaveButton.setEnabled(true);
+                mProfileImageSaveButton.setVisibility(View.VISIBLE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
+    private void uploadImage() {
+        if (filepath != null) {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading Image.....");
+            progressDialog.show();
 
-    // Creating Method to get the selected image file Extension from File Path URI.
+            StorageReference ref = mStoragereference.child("profile_images");
+            ref.putFile(filepath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Uri downloadUri = taskSnapshot.getDownloadUrl();
+                            TribeMate item = new TribeMate();
+                            item.setProfileImage(downloadUri.toString());
+                            mDatabaseReference.child("personal_details").setValue(item);
+
+                            progressDialog.dismiss();
+                            Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                            mProfileImageSaveButton.setEnabled(false);
+                            mProfileImageSaveButton.setVisibility(View.INVISIBLE);
+
+
+                            // Creating Method to get the selected image file Extension from File Path URI.
+                        }
+                    });
+        }
+    }
 }
+
 

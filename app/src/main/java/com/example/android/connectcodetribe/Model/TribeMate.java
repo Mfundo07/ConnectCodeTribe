@@ -21,6 +21,15 @@ public class TribeMate {
     private String mIntakeYear;
     private String mStatus;
     private String mCodeTribe;
+    private String mProfileImage;
+
+    public String getProfileImage() {
+        return mProfileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        mProfileImage = profileImage;
+    }
 
     public String getCodeTribe() {
         return mCodeTribe;
