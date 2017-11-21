@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Gender"
                     android:textSize="12sp"
-                    android:textColorHint="#000" />
+                    android:textColorHint="#000"/>
 
                 <TextView
                     android:id="@+id/user_email"
@@ -117,10 +117,10 @@
                     android:textColorHint="#000" />
 
                 <TextView
-                    android:id="@+id/user_status"
+                    android:id="@+id/user_code_tribe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Intern"
+                    android:hint="Soweto"
                     android:textSize="12sp"
                     android:textColorHint="#000" />
 
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif"
-                    android:text="@string/alumni"
+                    android:text="Intern"
                     android:textStyle="bold"
 
                     />
