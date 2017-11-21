@@ -27,11 +27,6 @@ import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Adapters.SkillAdapter;
-import com.example.android.connectcodetribe.ChatActivityAlexandra;
-import com.example.android.connectcodetribe.ChatActivityPretoria;
-import com.example.android.connectcodetribe.ChatActivitySoweto;
-import com.example.android.connectcodetribe.ChatActivityThembisa;
-import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.Experience_more;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Experience;
@@ -208,7 +203,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
                 gihubLink = (String) dataSnapshot.child("github_link").getValue();
-                mCodeTribe.setText((String) dataSnapshot.child("0").child("tribe").getValue());
                 btnGithubLink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -220,7 +214,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
                 codeTribeName = (String) dataSnapshot.child("tribe").getValue();
-                mCodeTribe.setText(codeTribeName);
 
                 btnAddProject.setOnClickListener(new View.OnClickListener() {
                     @Override
