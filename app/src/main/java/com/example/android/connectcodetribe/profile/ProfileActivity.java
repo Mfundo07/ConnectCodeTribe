@@ -27,10 +27,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
+import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
-import com.example.android.connectcodetribe.Projects_more;
+import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -77,6 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar1.setTitle("");
         setSupportActionBar(toolbar);
         btnAddBio = findViewById(R.id.add_bio_button);
+        btnAddProject = findViewById(R.id.btn_add_project);
         setSupportActionBar(toolbar1);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         // adding bottom dots
@@ -97,6 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
         mStatus = (TextView) findViewById(R.id.userStatus);
         //   mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
+        btnStatus = findViewById(R.id.userStatusImage);
         btnAddBio = findViewById(R.id.btn_add_bio);
 
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
@@ -111,8 +114,12 @@ public class ProfileActivity extends AppCompatActivity {
         mProjectsAdapter = new ProjectsHorizontalAdapter(ProfileActivity.this, projects);
         mProjectsRecyclerView.setAdapter(mProjectsAdapter);
         //Setup layout manager to a staggered scrolling recyclerView
-       // mExperiencesRecyclerView = (RecyclerView) findViewById(R.id.experienceRecyclerView);
-
+       btnStatus.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               startActivity(new Intent(ProfileActivity.this, DifferentCodetribeTabs.class));
+           }
+       });
 
 
 
@@ -177,7 +184,7 @@ public class ProfileActivity extends AppCompatActivity {
                 btnAddProject.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(ProfileActivity.this,Projects_more.class);
+                        Intent intent=new Intent(ProfileActivity.this, ProjectsActivity.class);
                         startActivity(intent);
                     }
                 });
