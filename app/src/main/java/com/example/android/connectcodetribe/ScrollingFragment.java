@@ -51,7 +51,7 @@ public class ScrollingFragment extends AppCompatActivity {
         userAge = findViewById(R.id.user_age);
         userEmail = findViewById(R.id.user_email);
         userMobileNo = findViewById(R.id.user_cell_number);
-        userProfileStatus = findViewById(R.id.user_status);
+        userProfileStatus = findViewById(R.id.userStatus);
         userCodeTribeLocation = findViewById(R.id.user_code_tribe);
 
         mName = getIntent().getExtras().getString("Name");

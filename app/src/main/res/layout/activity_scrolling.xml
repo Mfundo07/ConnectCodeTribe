@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.android.connectcodetribe.profile.ProfileActivity">
+    tools:context="com.example.android.connectcodetribe.ScrollingFragment">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -15,14 +14,14 @@
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,37 +31,23 @@
                 <ImageView
                     android:id="@+id/userImage"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:contentDescription="TODO"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/man_user_user" />
+                    android:src="@drawable/kratos" />
 
             </LinearLayout>
 
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-
-
-
-
         </android.support.design.widget.CollapsingToolbarLayout>
-
     </android.support.design.widget.AppBarLayout>
 
-
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_scrolling"
-        app:layout_anchor="@+id/floatingActionButton"
-        app:layout_anchorGravity="bottom|center"
-        tools:layout_editor_absoluteY="400dp" />
-
+    <include layout="@layout/content_scrolling" />
 
 </android.support.design.widget.CoordinatorLayout>
