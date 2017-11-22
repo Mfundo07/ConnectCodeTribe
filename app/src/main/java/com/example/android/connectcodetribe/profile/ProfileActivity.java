@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -27,17 +26,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
-import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.Projects_more;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -58,9 +53,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private  ImageButton viewMoreButton;
     private String codeTribeName;
-    RecyclerView mProjectsRecyclerView, mExperiencesRecyclerView;
+    RecyclerView mProjectsRecyclerView;
     ProjectsHorizontalAdapter mProjectsAdapter;
-    ExperienceAdapter mExperienceAdapter;
     FloatingActionButton mProfileEditrFAButton;
     List<Project> projects = new ArrayList<>();
     private LinearLayout dotsLayout;
@@ -103,8 +97,6 @@ public class ProfileActivity extends AppCompatActivity {
         mStatus = (TextView) findViewById(R.id.userStatus);
         //   mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
-
-        btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
         btnAddBio = findViewById(R.id.btn_add_bio);
 
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
@@ -120,14 +112,7 @@ public class ProfileActivity extends AppCompatActivity {
         mProjectsRecyclerView.setAdapter(mProjectsAdapter);
         //Setup layout manager to a staggered scrolling recyclerView
        // mExperiencesRecyclerView = (RecyclerView) findViewById(R.id.experienceRecyclerView);
-        btnAddProject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, Projects_more.class));
-            }
 
-
-        });
 
 
 
@@ -230,18 +215,10 @@ public class ProfileActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
+                        myRef.child("bio").setValue(mBioEditText.getText().toString());
+                        mBioEditText.setText("");
+                        alertDialog.cancel();
 
-                        TribeMate tribeMate = new TribeMate();
-                        tribeMate.setBio(mBioEditText.getText().toString());
-                        myRef.child("bio_input").setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    mBioEditText.setText("");
-                                    alertDialog.cancel();
-                                }
-                            }
-                        });
 
                     }
 
