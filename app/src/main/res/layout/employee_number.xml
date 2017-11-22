@@ -42,11 +42,14 @@
 
     <ProgressBar
         android:id="@+id/progress_bar_employee_number"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_height="100dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_centerHorizontal="true"
         android:progress="10"
+        android:max="10"
         android:progressDrawable="@drawable/progress_custom"
         android:layout_gravity="center"/>
 
@@ -56,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:gravity="center"
             android:layout_weight="1">
 
     <EditText
@@ -66,11 +70,34 @@
         android:textSize="14sp"/>
 
         </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/colorAccent"
+            android:textSize="14sp"
+            android:layout_marginLeft="5dp"
+            android:spinnerMode="dropdown" />
+
+
+    </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:gravity="center"
                 android:layout_weight="1">
 
     <Button
