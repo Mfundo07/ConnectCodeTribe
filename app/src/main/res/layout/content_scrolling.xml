@@ -91,7 +91,7 @@
             <TextView
                 android:id="@+id/userBio"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:maxLines="4"
@@ -135,7 +135,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Age"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -145,7 +144,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
                         tools:text="25"
                         android:textColor="#000" />
                 </LinearLayout>
@@ -160,7 +158,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Employee Code"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -171,7 +168,6 @@
                         android:layout_height="match_parent"
                         tools:text="CTR01141"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:textColor="#000" />
                 </LinearLayout>
 
@@ -185,7 +181,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Gender"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -196,8 +191,6 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         tools:text="Female"
-                        android:gravity="center"
-
                         android:textColor="#000" />
                 </LinearLayout>
 
@@ -211,7 +204,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Ethnicity"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -221,7 +213,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         tools:text="Black"
                         android:textColor="#000" />
                 </LinearLayout>
@@ -236,7 +227,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Cell Number"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -246,7 +236,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         tools:text="0628475207"
                         android:textColor="#000" />
                 </LinearLayout>
@@ -261,7 +250,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Email"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -271,7 +259,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         tools:text="nonhlanhlamokoena11@gmail.com"
                         android:textColor="#000" />
                 </LinearLayout>
@@ -285,7 +272,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text=" Intake Year"
                         android:textColor="#000"
                         android:textStyle="bold"/>
@@ -293,8 +279,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:id="@+id/user_intakeYear"
+                        tools:text="2017/2018"
                         android:textColor="#000"
                         />
                 </LinearLayout>
