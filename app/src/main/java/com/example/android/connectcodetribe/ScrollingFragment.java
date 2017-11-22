@@ -12,18 +12,10 @@ public class ScrollingFragment extends AppCompatActivity {
 
     private CircleImageView userProfileImage;
     private TextView userProfileName;
-    private TextView userProfileStatus;
     private TextView userProfileCodeTribe;
-    private TextView userProfileSurname;
 
-    private TextView userEMC;
-    private TextView userEthnicity;
-    private TextView userGender;
-    private TextView userAge;
-    private TextView userEmail;
-    private TextView userMobileNo;
+
     private TextView userProgramStatus;
-    private TextView userCodeTribeLocation;
 
     String mName;
     String mImage;
@@ -45,14 +37,14 @@ public class ScrollingFragment extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
 
 
-
-        userEthnicity = findViewById(R.id.user_ethnicity);
-        userGender = findViewById(R.id.user_gender);
-        userAge = findViewById(R.id.user_age);
-        userEmail = findViewById(R.id.user_email);
-        userMobileNo = findViewById(R.id.user_cell_number);
-        userProfileStatus = findViewById(R.id.userStatus);
-        userCodeTribeLocation = findViewById(R.id.user_code_tribe);
+        TextView userEthnicity = findViewById(R.id.user_ethnicity);
+        TextView userGender = findViewById(R.id.user_gender);
+        TextView userAge = findViewById(R.id.user_age);
+        TextView userEmail = findViewById(R.id.user_email);
+        TextView userMobileNo = findViewById(R.id.user_cell_number);
+        TextView userProfileStatus = findViewById(R.id.userStatus);
+        TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
+        TextView userEMC = findViewById(R.id.user_code);
 
         mName = getIntent().getExtras().getString("Name");
         mImage = getIntent().getExtras().getString("Image");
@@ -75,6 +67,7 @@ public class ScrollingFragment extends AppCompatActivity {
 
         userProfileStatus.setText(mStatus);
         userCodeTribeLocation.setText(mCodeTribe);
+        userEMC.setText(mEMC);
 
 
         if (getIntent().getExtras().getString("Gender") != null){
