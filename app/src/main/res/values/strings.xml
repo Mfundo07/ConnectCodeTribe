@@ -55,7 +55,6 @@
     <string name="in_program">In Program</string>
     <string name="post_program">Post Program</string>
 
-    <string name="endorsed">Endorsements</string>
 
 
 
@@ -78,16 +77,6 @@
         <item>@string/self_employed_status</item>
     </string-array>
 
-
-    <string-array name="array_qualification_option">
-        <item>Select Qualification</item>
-        <item>High School Matric</item>
-        <item>Certificate</item>
-        <item>Diploma</item>
-        <item>Degree</item>
-        <item>PHD</item>
-        <item>Masters</item>
-    </string-array>
 
 
 

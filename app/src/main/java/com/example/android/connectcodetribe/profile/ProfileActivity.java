@@ -12,7 +12,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -30,17 +29,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ExperienceAdapter;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
-import com.example.android.connectcodetribe.Adapters.SkillAdapter;
-import com.example.android.connectcodetribe.Experience_more;
 import com.example.android.connectcodetribe.LoginActivity;
-import com.example.android.connectcodetribe.Model.Experience;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
-import com.example.android.connectcodetribe.Model.Skill;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.Projects_more;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.Skills_more;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -59,20 +53,16 @@ public class ProfileActivity extends AppCompatActivity {
     DatabaseReference myRef;
     TextView mBio, mStatus, mCodeTribe;
     ImageButton btnStatus, btnGithubLink, btnAddBio ;
-    ImageView userImage, btnAddProject, skiills_editor, AddExperience;
+    ImageView userImage, btnAddProject, AddExperience;
     public String gihubLink;
-    ImageButton skillName;
 
     private  ImageButton viewMoreButton;
     private String codeTribeName;
-    RecyclerView mSkillsRecyclerView, mProjectsRecyclerView, mExperiencesRecyclerView;
+    RecyclerView mProjectsRecyclerView, mExperiencesRecyclerView;
     ProjectsHorizontalAdapter mProjectsAdapter;
-    SkillAdapter mSkillsAdapter;
     ExperienceAdapter mExperienceAdapter;
     FloatingActionButton mProfileEditrFAButton;
     List<Project> projects = new ArrayList<>();
-    List<Skill> skills = new ArrayList<>();
-    List<Experience> mExperiences = new ArrayList<>();
     private LinearLayout dotsLayout;
     private TextView[] dots;
     FirebaseUser currentUser;
@@ -85,14 +75,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent kabza= new Intent(ProfileActivity.this,UserProfileEditorActivity.class);
-                startActivity(kabza);
-            }
-        });
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -123,11 +105,8 @@ public class ProfileActivity extends AppCompatActivity {
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
 
         btnAddProject = (ImageButton) findViewById(R.id.btnAddProject);
-        skiills_editor = (ImageButton) findViewById(R.id.skiills_editor);
-        AddExperience = (ImageButton) findViewById(R.id.AddExperience);
         btnAddBio = findViewById(R.id.btn_add_bio);
 
-        skillName = (ImageButton) findViewById(R.id.skill_display_picture);
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
         mProfileEditrFAButton = findViewById(R.id.fab_button);
 
@@ -139,19 +118,8 @@ public class ProfileActivity extends AppCompatActivity {
         mProjectsRecyclerView.setLayoutManager(horizontalLayoutManagaer);
         mProjectsAdapter = new ProjectsHorizontalAdapter(ProfileActivity.this, projects);
         mProjectsRecyclerView.setAdapter(mProjectsAdapter);
-        mSkillsRecyclerView = (RecyclerView) findViewById(R.id.skillsRecyclerview);
         //Setup layout manager to a staggered scrolling recyclerView
-        LinearLayoutManager verticalLayoutmanager
-                = new LinearLayoutManager(ProfileActivity.this, StaggeredGridLayoutManager.VERTICAL, false);
-        mSkillsRecyclerView.setLayoutManager(verticalLayoutmanager);
-        mSkillsAdapter = new SkillAdapter(ProfileActivity.this, skills);
-        mSkillsRecyclerView.setAdapter(mSkillsAdapter);
-        mExperienceAdapter = new ExperienceAdapter(mExperiences, ProfileActivity.this);
        // mExperiencesRecyclerView = (RecyclerView) findViewById(R.id.experienceRecyclerView);
-        mExperiencesRecyclerView.setAdapter(mExperienceAdapter);
-        LinearLayoutManager expVertLayoutManager
-                = new LinearLayoutManager(ProfileActivity.this, LinearLayoutManager.HORIZONTAL, false);
-        mExperiencesRecyclerView.setLayoutManager(expVertLayoutManager);
         btnAddProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -161,22 +129,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
 
-        skiills_editor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, Skills_more.class));
-            }
 
 
-        });
-        AddExperience.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, Experience_more.class));
-            }
 
 
-        });
         mProfileEditrFAButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,20 +197,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
 
-                skiills_editor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(ProfileActivity.this,Skills_more.class);
-                        startActivity(intent);
-                    }
-                });
-                AddExperience.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(ProfileActivity.this,Experience_more.class);
-                        startActivity(intent);
-                    }
-                });
 
                 projects.clear();
                 for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
@@ -266,25 +208,6 @@ public class ProfileActivity extends AppCompatActivity {
                     projects.add(project);
                 }
                 mProjectsAdapter.notifyDataSetChanged();
-                skills.clear();
-                for (DataSnapshot _snapshot : dataSnapshot.child("skills").getChildren()) {
-                    Skill skill = new Skill();
-                    //skill.setSkillLevel(Long.parseLong( _snapshot.child("level").getValue().toString()));
-                    skill.setTitle((String) _snapshot.child("skill").getValue());
-                    System.out.println(skill.toMap());
-                    skills.add(skill);
-                }
-                mSkillsAdapter.notifyDataSetChanged();
-                mExperiences.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child("experience").getChildren()){
-                    Experience experience  = new Experience();
-                    experience.setCompanyName((String) snapshot.child("company_name").getValue());
-                    experience.setPosition((String) snapshot.child("job_position").getValue());
-                    experience.setStartYear( snapshot.child("startYear").getValue().toString());
-                    experience.setEndYear( snapshot.child("endYear").getValue().toString());
-                    mExperiences.add(experience);
-                }
-                mExperienceAdapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
