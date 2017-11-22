@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter your epmloyeeCode "
+        android:text="Enter your Employee  Code "
         android:textAllCaps="true"
         android:textColor="#fff"
         android:textAlignment="center"
@@ -63,6 +63,7 @@
             android:layout_weight="1">
 
     <EditText
+        android:id="@+id/employee_code_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="e.g CTR9999"
@@ -78,7 +79,7 @@
         android:layout_weight="1">
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/code_tribe_option_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -101,13 +102,13 @@
                 android:layout_weight="1">
 
     <Button
+        android:id="@+id/employee_confirm_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="search"
         android:layout_margin="8dp"
         android:textColor="#fff"
         android:background="@drawable/button_green"/>
-
             </LinearLayout>
 
 </LinearLayout>

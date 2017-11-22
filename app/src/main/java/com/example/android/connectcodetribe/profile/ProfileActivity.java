@@ -49,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
     DatabaseReference myRef;
     TextView mBio, mStatus, mCodeTribe;
     ImageButton btnStatus, btnGithubLink, btnAddBio ;
-    ImageView userImage, btnAddProject, AddExperience;
+    ImageView userImage, btnAddProject, AddEx;
     public String gihubLink;
 
     private  ImageButton viewMoreButton;
