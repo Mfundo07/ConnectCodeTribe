@@ -2,24 +2,36 @@ package com.example.android.connectcodetribe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
+import com.example.android.connectcodetribe.profile.ProfileActivity;
 
 public class DifferentCodetribeTabs extends AppCompatActivity {
 
-
+    FloatingActionButton mProfileEditorFAButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+
+        mProfileEditorFAButton = findViewById(R.id.fab1);
+        mProfileEditorFAButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nonclair = new Intent(DifferentCodetribeTabs.this, ProfileActivity.class);
+                startActivity(nonclair);
+            }
+        });
 
         CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
 
