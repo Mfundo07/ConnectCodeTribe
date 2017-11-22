@@ -10,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 
 public class DifferentCodetribeTabs extends AppCompatActivity {
 
@@ -46,9 +45,6 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.fresh_config_menu:
-                startActivity(new Intent(this, ProfileActivity.class));
-                return true;
             case R.id.sign_out_menu:
                 startActivity(new Intent(this, LoginActivity.class));
                 return true;
