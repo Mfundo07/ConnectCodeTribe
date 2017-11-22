@@ -11,43 +11,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/grey_300">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_button_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingBottom="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:weightSum="3"
+            android:padding="8dp"
             android:baselineAligned="false">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageButton
-                    android:id="@+id/userCodeTribeImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_codetribe_buttton"
-                    android:padding="24dp"
-                    android:tint="@android:color/white"
-                    app:srcCompat="@drawable/ic_school_black"
-                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/user_code_tribe"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:fontFamily="sans-serif"
-                    android:text="@string/tribes"
+                    tools:text="@string/tribes"
                     android:textStyle="bold"
 
                     />
@@ -55,62 +53,34 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/userStatusImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_status_button"
-                    android:padding="24dp"
-                    android:tint="@android:color/white"
-                    app:srcCompat="@drawable/ic_alumni_black" android:contentDescription="@string/todo" />
-
-                <TextView
-                    android:id="@+id/userStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/alumni"
-                    android:textStyle="bold"
-
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
-
-                <ImageButton
-                    android:id="@+id/userGithubImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_github_button"
-                    android:padding="24dp"
-                    android:tint="@android:color/white"
-                    app:srcCompat="@drawable/ic_github_black" android:contentDescription="@string/todo" />
-
                 <TextView
-                    android:id="@+id/userGihubProjects"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:id="@+id/userStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:fontFamily="sans-serif"
-                    android:text="@string/projects"
-                    android:textStyle="bold" />
+                    tools:text="@string/alumni"
+                    android:textStyle="bold"
+
+                    />
+
             </LinearLayout>
 
         </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_bio_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,7 +91,7 @@
             <TextView
                 android:id="@+id/userBio"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:maxLines="4"
@@ -135,246 +105,376 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_expand_more"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:contentDescription="@string/todo" />
 
         </LinearLayout>
 
+        </android.support.v7.widget.CardView>
 
-
-        <LinearLayout
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_options_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="20dp">
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Age"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/user_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:text="25"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Employee Code"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/user_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:text="CTR01141"
+                        android:layout_weight="1"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Gender"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/user_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:text="Female"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Ethnicity"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/user_ethnicity"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:text="Black"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Cell Number"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/user_cell_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:text="0628475207"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Email"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/user_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:text="nonhlanhlamokoena11@gmail.com"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=" Intake Year"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/user_intakeYear"
+                        tools:text="2017/2018"
+                        android:textColor="#000"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/project_list_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:weightSum="2">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <TextView
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/projectsRecyclerview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Name"
-                    android:textColor="#000"
-                    android:textStyle="bold" />
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/user_name"
+                </android.support.v7.widget.RecyclerView>
+
+                <LinearLayout
+                    android:id="@+id/layoutDots"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dots_height"
                     android:layout_weight="1"
+                    android:layout_marginBottom="@dimen/dots_margin_bottom"
                     android:gravity="center"
-                    tools:text="Nonhlanhla"
-                    android:textColor="#000" />
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_employment_card_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:weightSum="2">
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:layout_weight="1">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Surname"
-                android:textColor="#000"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:text="Employment Status"
+                        android:padding="8dp"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/profile_employment_status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        tools:text="Employed"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/company_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Company Name"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:gravity="center_vertical"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/profile_company_name_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        tools:text="Mlab"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/startDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Start Date"
+                        android:gravity="center_vertical"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/profile_intake_period_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        tools:text="2017/2018"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/Salary"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Salary"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/profile_salary_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        tools:text="2000-4000 p.m"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/contactDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Company Contact Number"
+                        android:padding="8dp"
+                        android:gravity="center_vertical"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/profile_company_contact_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        tools:text="(011) 9844608"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/user_surname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                tools:text="Mokoena"
-                android:textColor="#000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                tools:text="Age"
-                android:textColor="#000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/user_age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                tools:text="25"
-                android:textColor="#000" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="TIH Employee Code"
-                android:textColor="#000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/user_code"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="CTR01141"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="#000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Gender"
-                android:textColor="#000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/user_gender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="Female"
-                android:gravity="center"
-
-                android:textColor="#000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Ethenicity"
-                android:textColor="#000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/user_ethnicity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                tools:text="Black"
-                android:textColor="#000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Cell Number"
-                android:textColor="#000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/user_cell_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                tools:text="0628475207"
-                android:textColor="#000" />
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Email"
-                android:textColor="#000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/user_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                tools:text="nonhlanhlamokoena11@gmail.com"
-                android:textColor="#000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:padding="16dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text=" Intake Year"
-                android:textColor="#000"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:id="@+id/user_intakeYear"
-                android:textColor="#000"
-                />
-        </LinearLayout>
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 

@@ -49,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
     DatabaseReference myRef;
     TextView mBio, mStatus, mCodeTribe;
     ImageButton btnStatus, btnGithubLink, btnAddBio ;
-    ImageView userImage, btnAddProject, AddExperience;
+    ImageView userImage, btnAddProject, AddEx;
     public String gihubLink;
 
     private  ImageButton viewMoreButton;
@@ -103,7 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnAddBio = findViewById(R.id.btn_add_bio);
 
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
-        mProfileEditrFAButton = findViewById(R.id.fab_button);
+        mProfileEditrFAButton = findViewById(R.id.fab);
 
 
         mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
