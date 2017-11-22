@@ -67,6 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="e.g CTR9999"
+        android:textAllCaps="true"
         android:layout_margin="8dp"
         android:textSize="14sp"/>
 
