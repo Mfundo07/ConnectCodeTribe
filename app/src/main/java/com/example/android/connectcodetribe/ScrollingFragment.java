@@ -9,13 +9,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class ScrollingFragment extends AppCompatActivity {
 
-    private CircleImageView userProfileImage;
-    private TextView userProfileName;
-    private TextView userProfileCodeTribe;
+
 
 
     private TextView userProgramStatus;
@@ -24,7 +20,7 @@ public class ScrollingFragment extends AppCompatActivity {
     String mStatus;
     String mCodeTribe;
     String mSurname;
-
+    String mBio;
     String mGender;
     String mEMC;
     String mEthnicity;
@@ -49,6 +45,7 @@ public class ScrollingFragment extends AppCompatActivity {
         TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
         TextView userEMC = findViewById(R.id.user_code);
         ImageView userImage = findViewById(R.id.userImage);
+        TextView userBio = findViewById(R.id.userBio);
 
         mName = getIntent().getExtras().getString("Name");
         mImage = getIntent().getExtras().getString("Image");
@@ -56,6 +53,7 @@ public class ScrollingFragment extends AppCompatActivity {
         mCodeTribe = getIntent().getExtras().getString("CodeTribe");
         mSurname = getIntent().getExtras().getString("Surname");
         mImage = getIntent().getExtras().getString("image");
+        mBio = getIntent().getExtras().getString("bio");
 
 
         mGender = getIntent().getExtras().getString("Gender");
