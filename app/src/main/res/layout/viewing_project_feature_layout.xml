@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp">
+    android:layout_margin="2dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#F2F7FF">
+            >
 
             <TextView
                 android:id="@+id/photodesc"
@@ -53,11 +53,10 @@
 
             <Button
                 android:id="@+id/ButUpload"
-                android:alpha="0.50"
-                android:background="@drawable/button_green"
+                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#fff"
+                android:textColor="@color/colorAccent"
                 android:text="Upload Project" />
 
 

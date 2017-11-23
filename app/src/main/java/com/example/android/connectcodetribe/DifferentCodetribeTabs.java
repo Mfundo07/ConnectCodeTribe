@@ -10,32 +10,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class DifferentCodetribeTabs extends AppCompatActivity {
 
 
-    FirebaseUser currentUser;
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(DifferentCodetribeTabs.this, ProfileActivity.class));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
-
-
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (currentUser == null){
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();}
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
 
         CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
