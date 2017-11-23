@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:paddingRight="16dp">
+    android:paddingRight="8dp">
 
     <ImageView
         android:id="@+id/project_display_picture"
@@ -16,7 +16,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#90000000" />
+        android:background="#90616161" />
 
     <TextView
         android:id="@+id/project_title"
