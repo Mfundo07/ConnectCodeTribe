@@ -182,6 +182,7 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
         mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
+        mProfileCircleImage.setImageResource(R.drawable.man_user_user);
         mProfileImageSaveButton.setEnabled(false);
         mProfileImageSaveButton.setVisibility(View.INVISIBLE);
         mProfilecodeTribeSaveButton = findViewById(R.id.profile_code_tribe_save_button);
@@ -246,7 +247,7 @@ Calendar mCalendar = Calendar.getInstance();
                         if (task.isSuccessful()) {
                             mProfileNameEditText.setText(tribeMate.getName());
                             mProfileSurnameEditText.setText(tribeMate.getSurname());
-                            mProfileAgeEditText.setText(tribeMate.getAge());
+                            mProfileAgeEditText.setText(String.valueOf(tribeMate.getAge()));
                             mProfileCellPhoneNumberEditText.setText(tribeMate.getMobile());
                             mProfileEmailEditText.setText(tribeMate.getEmail());
                             Toast.makeText(getApplicationContext(), "Personal Details updated", Toast.LENGTH_SHORT).show();

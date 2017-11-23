@@ -102,7 +102,7 @@ public class TembisaFragment extends Fragment {
                             TribeMate user = new TribeMate();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
-                            user.setAge(String.valueOf(snapshot.child("age").getValue()));
+                            user.setAge(snapshot.child("age").getValue().toString());
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());
