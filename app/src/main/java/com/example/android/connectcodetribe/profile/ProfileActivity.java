@@ -30,6 +30,7 @@ import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Project;
+import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
@@ -146,7 +147,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Glide.with(userImage.getContext())
                             .load((String) dataSnapshot.child("profile_images").child("profileImage").getValue())
                             .into(userImage);
-                    mBio.setText((String) dataSnapshot.child("bio").getValue());
+                    mBio.setText((String) dataSnapshot.child("personal_details").child("bio").getValue());
                     mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
                         public void onGlobalLayout() {
@@ -231,7 +232,9 @@ public class ProfileActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        myRef.child("personal_details").child("bio").setValue(mBioEditText.getText().toString());
+                        TribeMate mate = new TribeMate();
+                        mate.setBio(mBioEditText.getText().toString());
+                        myRef.child(currentUser.getUid()).child("personal_details").child("bio").setValue(mBioEditText.getText().toString());
                         mBioEditText.setText("");
                         alertDialog.cancel();
 
