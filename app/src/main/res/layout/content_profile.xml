@@ -548,8 +548,8 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="Employment Status"
-                        android:padding="8dp"
                         android:textColor="#000"
+                        android:textSize="12sp"
                         android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/profile_employment_status_text"
@@ -558,7 +558,6 @@
                         android:layout_weight="1"
                         android:textSize="12sp"
                         android:gravity="center_vertical"
-                        android:padding="8dp"
                         tools:text="Employed"
                         android:textColor="#000"
                         android:textStyle="bold"/>
@@ -574,7 +573,7 @@
                         android:layout_height="match_parent"
                         android:text="Company Name"
                         android:layout_weight="1"
-                        android:padding="8dp"
+                        android:textSize="12sp"
                         android:gravity="center_vertical"
                         android:textColor="#000"
                         android:textStyle="bold"/>
@@ -585,7 +584,6 @@
                         android:layout_weight="1"
                         android:textSize="12sp"
                         android:gravity="center_vertical"
-                        android:padding="8dp"
                         tools:text="Mlab"
                         android:textColor="#000"
                         android:textStyle="bold"/>
@@ -599,7 +597,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:padding="8dp"
+                        android:textSize="12sp"
                         android:text="Start Date"
                         android:gravity="center_vertical"
                         android:textColor="#000"
@@ -611,7 +609,6 @@
                         android:layout_weight="1"
                         android:textSize="12sp"
                         android:gravity="center_vertical"
-                        android:padding="8dp"
                         tools:text="2017/2018"
                         android:textColor="#000"
                         android:textStyle="bold"/>
@@ -627,8 +624,8 @@
                         android:layout_weight="1"
                         android:text="Salary"
                         android:gravity="center_vertical"
-                        android:padding="8dp"
                         android:textColor="#000"
+                        android:textSize="12sp"
                         android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/profile_salary_text"
@@ -637,7 +634,6 @@
                         android:layout_weight="1"
                         android:textSize="12sp"
                         android:gravity="center_vertical"
-                        android:padding="8dp"
                         tools:text="2000-4000 p.m"
                         android:textColor="#000"
                         android:textStyle="bold"/>
@@ -652,8 +648,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="Company Contact Number"
-                        android:padding="8dp"
                         android:gravity="center_vertical"
+                        android:textSize="12sp"
                         android:textColor="#000"
                         android:textStyle="bold"/>
                     <TextView
@@ -663,7 +659,6 @@
                         android:layout_weight="1"
                         android:textSize="12sp"
                         android:gravity="center_vertical"
-                        android:padding="8dp"
                         tools:text="(011) 9844608"
                         android:textColor="#000"
                         android:textStyle="bold"/>

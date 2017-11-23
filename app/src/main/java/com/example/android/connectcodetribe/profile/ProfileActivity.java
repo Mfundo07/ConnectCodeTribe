@@ -29,7 +29,6 @@ import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.LoginActivity;
-import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
@@ -45,12 +44,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
+    String mEmployee;
+    String mCodeTribeOption;
+
     FirebaseDatabase database;
     DatabaseReference myRef;
     TextView mBio, mStatus, mCodeTribe;
     ImageButton btnStatus, btnGithubLink, btnAddBio ;
     ImageView userImage, btnAddProject, AddEx;
     public String gihubLink;
+
+
 
     private  ImageButton viewMoreButton;
     private String codeTribeName;
@@ -87,6 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         userImage = (ImageView) findViewById(R.id.userImage);
         if (currentUser == null){
+            userImage.setImageResource(R.drawable.man_user_user);
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }else{
@@ -94,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
                     .load(currentUser.getPhotoUrl())
                     .into(userImage);
         }
-        myRef = database.getReference("testing").child("users").child("codetribe").child("Soweto").child("0");
+        myRef = database.getReference("/users/").child(currentUser.getUid());
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
         //   mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
@@ -134,9 +139,9 @@ public class ProfileActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
-                Profile profile = dataSnapshot.getValue(Profile.class);
-                mStatus.setText(dataSnapshot.child("status").getValue().toString());
-                toolbar.setTitle(dataSnapshot.child("name").getValue().toString());
+                mStatus.setText((String)dataSnapshot.child("codeTribe_details").child("status").getValue());
+                mCodeTribe.setText( (String)dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
+                toolbar.setTitle(dataSnapshot.child("personal_details").child("name").getValue() + " " + dataSnapshot.child("personal_details").child("surname").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {

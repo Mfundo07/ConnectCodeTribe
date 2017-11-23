@@ -12,32 +12,35 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 
 public class DifferentCodetribeTabs extends AppCompatActivity {
 
-    FloatingActionButton mProfileEditorFAButton;
+    FloatingActionButton mProfileBackFabButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
+
+        mProfileBackFabButton = findViewById(R.id.profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
 
-        mProfileEditorFAButton = findViewById(R.id.fab1);
-        mProfileEditorFAButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nonclair = new Intent(DifferentCodetribeTabs.this, ProfileActivity.class);
-                startActivity(nonclair);
-            }
-        });
+
 
         CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
 
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class));
+            }
+        });
 
 
 
