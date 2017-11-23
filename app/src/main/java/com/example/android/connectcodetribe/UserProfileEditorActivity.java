@@ -244,11 +244,11 @@ Calendar mCalendar = Calendar.getInstance();
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mProfileNameEditText.setText(tribeMate.getName());
-                            mProfileSurnameEditText.setText(tribeMate.getSurname());
-                            mProfileAgeEditText.setText(String.valueOf(tribeMate.getAge()));
-                            mProfileCellPhoneNumberEditText.setText(tribeMate.getMobile());
-                            mProfileEmailEditText.setText(tribeMate.getEmail());
+                            mProfileNameEditText.setText("");
+                            mProfileSurnameEditText.setText("");
+                            mProfileAgeEditText.setText("");
+                            mProfileCellPhoneNumberEditText.setText("");
+                            mProfileEmailEditText.setText("");
                             Toast.makeText(getApplicationContext(), "Personal Details updated", Toast.LENGTH_SHORT).show();
                             mProfilePersonaInfoButton.setEnabled(false);
                             mProfilePersonaInfoButton.setTextColor(getColor(R.color.grey_300));
@@ -276,9 +276,9 @@ Calendar mCalendar = Calendar.getInstance();
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mProfileQualificationEditText.setText(education.getQualification());
-                            mProfileInstitutionEditText.setText(education.getInstitute());
-                            mProfileFacultyCourseEditText.setText(education.getDesc());
+                            mProfileQualificationEditText.setText("");
+                            mProfileInstitutionEditText.setText("");
+                            mProfileFacultyCourseEditText.setText("");
                             Toast.makeText(getApplicationContext(), "Education updated", Toast.LENGTH_SHORT).show();
                             mProfileEducationSaveButton.setEnabled(false);
                             mProfileEducationSaveButton.setTextColor(getColor(R.color.grey_300));
