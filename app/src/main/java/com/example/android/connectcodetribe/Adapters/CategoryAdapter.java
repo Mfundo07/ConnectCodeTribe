@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.android.connectcodetribe.Fragments.PretoriaFragment;
 import com.example.android.connectcodetribe.Fragments.SowetoFragment;
+import com.example.android.connectcodetribe.Fragments.TembisaFragment;
 import com.example.android.connectcodetribe.R;
 
 /**
@@ -21,19 +23,33 @@ public class CategoryAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-            return new SowetoFragment();
+        if (position == 0){
+            return new SowetoFragment();}
+            else if (position == 1){
+            return new PretoriaFragment();
+        }else{
+                return new TembisaFragment();
+        }
 
     }
 
     @Override
     public int getCount() {
-        return 1;
+        return 3;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
 
+        if (position == 0){
             return mContext.getString(R.string.tab_soweto);
+        }
+        else if (position == 1){
+            return mContext.getString(R.string.tab_pretoria);
+        }
+        else{
+            return mContext.getString(R.string.tab_tembisa);
+        }
 
     }
 }

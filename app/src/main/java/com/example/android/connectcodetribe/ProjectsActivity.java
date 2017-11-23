@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.example.android.connectcodetribe.Model.Project;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -36,6 +38,8 @@ public class ProjectsActivity extends AppCompatActivity {
     DatabaseReference mRef;
     private EditText mProjectTitle, mProjectLink;
 
+    FirebaseUser currentUser;
+
     FirebaseStorage storage;
     StorageReference storageReference;
 
@@ -47,13 +51,14 @@ public class ProjectsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewing_project_feature_layout);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         //Firebase Init
         storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
+        storageReference = storage.getReference().child("users");
         //Init view
         ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
         ButUpload = (Button) findViewById(R.id.ButUpload);
-        mRef = FirebaseDatabase.getInstance().getReference("/users/");
+        mRef = FirebaseDatabase.getInstance().getReference().child("users");
         mProjectTitle = (EditText) findViewById(R.id.post_Title);
         mProjectLink = (EditText) findViewById(R.id.post_Desc);
 
@@ -93,7 +98,7 @@ public class ProjectsActivity extends AppCompatActivity {
                             item.setSnapshot(downloadUri.toString());
                             item.setName(mProjectTitle.getText().toString());
                             item.setGithub_link(mProjectLink.getText().toString());
-                            mRef.child("projects").push().setValue(item);
+                            mRef.child(currentUser.getUid()).child("projects").push().setValue(item);
 
                             progressDialog.dismiss();
                             Toast.makeText(ProjectsActivity.this, "Project Upload Successful", Toast.LENGTH_SHORT).show();
