@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -18,7 +21,6 @@ public class ScrollingFragment extends AppCompatActivity {
     private TextView userProgramStatus;
 
     String mName;
-    String mImage;
     String mStatus;
     String mCodeTribe;
     String mSurname;
@@ -29,6 +31,7 @@ public class ScrollingFragment extends AppCompatActivity {
     String mAge;
     String mEmail;
     String mMobile;
+    String mImage;
     Toolbar userProfileToolbar;
 
     @Override
@@ -45,12 +48,14 @@ public class ScrollingFragment extends AppCompatActivity {
         TextView userProfileStatus = findViewById(R.id.userStatus);
         TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
         TextView userEMC = findViewById(R.id.user_code);
+        ImageView userImage = findViewById(R.id.userImage);
 
         mName = getIntent().getExtras().getString("Name");
         mImage = getIntent().getExtras().getString("Image");
         mStatus = getIntent().getExtras().getString("Status");
         mCodeTribe = getIntent().getExtras().getString("CodeTribe");
         mSurname = getIntent().getExtras().getString("Surname");
+        mImage = getIntent().getExtras().getString("image");
 
 
         mGender = getIntent().getExtras().getString("Gender");
@@ -68,6 +73,9 @@ public class ScrollingFragment extends AppCompatActivity {
         userProfileStatus.setText(mStatus);
         userCodeTribeLocation.setText(mCodeTribe);
         userEMC.setText(mEMC);
+        Glide.with(userImage.getContext())
+                .load(mImage)
+                .into(userImage);
 
 
         if (getIntent().getExtras().getString("Gender") != null){
@@ -94,7 +102,7 @@ public class ScrollingFragment extends AppCompatActivity {
             userEmail.setText("");
         }
 
-        if (getIntent().getExtras().getString("Mobile No") != null){
+        if (getIntent().getExtras().getString("Mobile") != null){
             userMobileNo.setText(mMobile);}
         else{
             userMobileNo.setText("");
