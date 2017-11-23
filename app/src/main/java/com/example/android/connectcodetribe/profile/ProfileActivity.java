@@ -23,7 +23,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
@@ -52,6 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView mBio, mStatus, mCodeTribe;
     ImageButton btnStatus, btnGithubLink, btnAddBio ;
     ImageView userImage, btnAddProject, AddEx;
+    Button  mProfileEducationSaveButton;
     public String gihubLink;
 
 
@@ -68,11 +71,24 @@ public class ProfileActivity extends AppCompatActivity {
     private boolean expandable = true;
     Toolbar toolbar;
     Toolbar toolbar1;
+
+    Spinner profileEmploymentSpinner;
+    TextView profileCompanynameTextview;
+    Button profileIntakePeriodButton;
+    Spinner profileSalarySpinner;
+    TextView profileCompanyContactTextview;
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
+
+        profileEmploymentSpinner =(Spinner) findViewById(R.id.profile_employment_status_spinner);
+        profileCompanyContactTextview = (TextView) findViewById(R.id.profile_company_contact_text_view);
+        profileCompanynameTextview = findViewById(R.id.profile_company_name_text_view);
+        profileIntakePeriodButton = (Button)findViewById(R.id.profile_intake_period_button);
+        profileSalarySpinner = (Spinner)findViewById(R.id.profile_salary_spinner);
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -83,6 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         btnAddBio = findViewById(R.id.add_bio_button);
         btnAddProject = findViewById(R.id.btn_add_project);
+        mProfileEducationSaveButton = findViewById(R.id.profile_education_save_button);
         setSupportActionBar(toolbar1);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         // adding bottom dots
@@ -143,9 +160,17 @@ public class ProfileActivity extends AppCompatActivity {
                     mStatus.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeProgramStatus").getValue());
                     mCodeTribe.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
                     toolbar.setTitle(((String)dataSnapshot.child("personal_details").child("name").getValue() +" "+  dataSnapshot.child("personal_details").child("surname").getValue()));
+
+                profileCompanyContactTextview.setText((String) dataSnapshot.child("employment").child("CompanyContactNumber").getValue());
+                profileCompanynameTextview.setText((String) dataSnapshot.child("employment").child("CompanyName").getValue());
+
+
                     Glide.with(userImage.getContext())
                             .load((String) dataSnapshot.child("profile_images").child("profileImage").getValue())
                             .into(userImage);
+
+
+
                     mBio.setText((String) dataSnapshot.child("bio").getValue());
                     mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
@@ -161,6 +186,9 @@ public class ProfileActivity extends AppCompatActivity {
                             mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
+
+
+
                     viewMoreButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -189,6 +217,8 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     });
                     codeTribeName = (String) dataSnapshot.child("tribe").getValue();
+
+
 
                     btnAddProject.setOnClickListener(new View.OnClickListener() {
                         @Override
