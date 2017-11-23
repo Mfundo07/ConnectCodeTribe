@@ -80,7 +80,7 @@ public class Bio extends AppCompatActivity {
                 tribeMate.setCodeTribe(mTribe.getText().toString());
                 tribeMate.setIntakeYear(mIntake.getText().toString());
                 tribeMate.setStatus(mStatus.getText().toString());
-                mRef.setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mRef.setValue(tribeMate).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {

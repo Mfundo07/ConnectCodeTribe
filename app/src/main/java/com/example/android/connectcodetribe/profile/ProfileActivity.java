@@ -99,10 +99,10 @@ public class ProfileActivity extends AppCompatActivity {
                     .load(currentUser.getPhotoUrl())
                     .into(userImage);
         }
-        myRef = database.getReference("/users/").child(currentUser.getUid());
+        myRef = database.getReference("/users/");
         mBio = (TextView) findViewById(R.id.userBio);
         mStatus = (TextView) findViewById(R.id.userStatus);
-        //   mCodeTribe = (TextView) findViewById(R.id.userCodeTribeName);
+        mCodeTribe = findViewById(R.id.userCodeTribeName);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = findViewById(R.id.userStatusImage);
         btnAddBio = findViewById(R.id.btn_add_bio);
@@ -136,80 +136,84 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, UserProfileEditorActivity.class));
             }
         });
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
-                mStatus.setText((String)dataSnapshot.child("codeTribe_details").child("status").getValue());
-                mCodeTribe.setText( (String)dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
-                toolbar.setTitle(dataSnapshot.child("personal_details").child("name").getValue() + " " + dataSnapshot.child("personal_details").child("surname").getValue());
-                toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
-                mBio.setText((String) dataSnapshot.child("bio").getValue());
-                mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        if (expandable){
-                            expandable = false;
-                            if (mBio.getLineCount() > 4){
-                                viewMoreButton.setVisibility(View.VISIBLE);
+
+                    mStatus.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeProgramStatus").getValue());
+                    mCodeTribe.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
+                    toolbar.setTitle(((String)dataSnapshot.child("personal_details").child("name").getValue() +" "+  dataSnapshot.child("personal_details").child("surname").getValue()));
+                    Glide.with(userImage.getContext())
+                            .load((String) dataSnapshot.child("profile_images").child("profileImage").getValue())
+                            .into(userImage);
+                    mBio.setText((String) dataSnapshot.child("bio").getValue());
+                    mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                        @Override
+                        public void onGlobalLayout() {
+                            if (expandable) {
+                                expandable = false;
+                                if (mBio.getLineCount() > 4) {
+                                    viewMoreButton.setVisibility(View.VISIBLE);
+                                    ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
+                                    animation.setDuration(0).start();
+                                }
+                            }
+                            mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        }
+                    });
+                    viewMoreButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (!expandable) {
+                                expandable = true;
+                                ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", mBio.length());
+                                animation.setDuration(100).start();
+                                viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_less));
+                            } else {
+                                expandable = false;
                                 ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
-                                animation.setDuration(0).start();
+                                animation.setDuration(100).start();
+                                viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_more));
                             }
                         }
-                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);}
-                });
-                viewMoreButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (!expandable){
-                            expandable = true;
-                            ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", mBio.length());
-                            animation.setDuration(100).start();
-                            viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_less));
-                        }else{
-                            expandable = false;
-                            ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
-                            animation.setDuration(100).start();
-                            viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_expand_more));
+                    });
+                    gihubLink = (String) dataSnapshot.child("github_link").getValue();
+                    btnGithubLink.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_VIEW);
+                            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                            intent.setData(Uri.parse(gihubLink));
+                            startActivity(intent);
                         }
-                    }
-                });
-                gihubLink = (String) dataSnapshot.child("github_link").getValue();
-                btnGithubLink.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_VIEW);
-                        intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                        intent.setData(Uri.parse(gihubLink));
-                        startActivity(intent);
-                    }
-                });
-                codeTribeName = (String) dataSnapshot.child("tribe").getValue();
+                    });
+                    codeTribeName = (String) dataSnapshot.child("tribe").getValue();
 
-                btnAddProject.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(ProfileActivity.this, ProjectsActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                    btnAddProject.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(ProfileActivity.this, ProjectsActivity.class);
+                            startActivity(intent);
+                        }
+                    });
 
 
-                projects.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
-                    Project project = new Project();
-                    project.setSnapshot((String) snapshot.child("snapshot").getValue());
-                    project.setName((String) snapshot.child("name").getValue());
-                    project.setGithub_link((String) snapshot.child("github_link").getValue());
-                    System.out.println(project.toMap());
-                    projects.add(project);
+                    projects.clear();
+                    for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
+                        Project project = new Project();
+                        project.setSnapshot((String) snapshot.child("snapshot").getValue());
+                        project.setName((String) snapshot.child("name").getValue());
+                        project.setGithub_link((String) snapshot.child("github_link").getValue());
+                        System.out.println(project.toMap());
+                        projects.add(project);
+                    }
+                    mProjectsAdapter.notifyDataSetChanged();
                 }
-                mProjectsAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+                @Override
+                public void onCancelled (DatabaseError databaseError){
+                }
+            });
 
         btnAddBio.setOnClickListener(new View.OnClickListener() {
             @Override
