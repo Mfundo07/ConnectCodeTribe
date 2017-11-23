@@ -4,31 +4,30 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+import com.bumptech.glide.Glide;
 
 public class ScrollingFragment extends AppCompatActivity {
 
-    private CircleImageView userProfileImage;
-    private TextView userProfileName;
-    private TextView userProfileCodeTribe;
+
 
 
     private TextView userProgramStatus;
 
     String mName;
-    String mImage;
     String mStatus;
     String mCodeTribe;
     String mSurname;
-
+    String mBio;
     String mGender;
     String mEMC;
     String mEthnicity;
     String mAge;
     String mEmail;
     String mMobile;
+    String mImage;
     Toolbar userProfileToolbar;
 
     @Override
@@ -45,12 +44,16 @@ public class ScrollingFragment extends AppCompatActivity {
         TextView userProfileStatus = findViewById(R.id.userStatus);
         TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
         TextView userEMC = findViewById(R.id.user_code);
+        ImageView userImage = findViewById(R.id.userImage);
+        TextView userBio = findViewById(R.id.userBio);
 
         mName = getIntent().getExtras().getString("Name");
         mImage = getIntent().getExtras().getString("Image");
         mStatus = getIntent().getExtras().getString("Status");
         mCodeTribe = getIntent().getExtras().getString("CodeTribe");
         mSurname = getIntent().getExtras().getString("Surname");
+        mImage = getIntent().getExtras().getString("image");
+        mBio = getIntent().getExtras().getString("bio");
 
 
         mGender = getIntent().getExtras().getString("Gender");
@@ -68,6 +71,11 @@ public class ScrollingFragment extends AppCompatActivity {
         userProfileStatus.setText(mStatus);
         userCodeTribeLocation.setText(mCodeTribe);
         userEMC.setText(mEMC);
+        Glide.with(userImage.getContext())
+                .load(mImage)
+                .into(userImage);
+
+        userBio.setText(mBio);
 
 
         if (getIntent().getExtras().getString("Gender") != null){
@@ -94,7 +102,7 @@ public class ScrollingFragment extends AppCompatActivity {
             userEmail.setText("");
         }
 
-        if (getIntent().getExtras().getString("Mobile No") != null){
+        if (getIntent().getExtras().getString("Mobile") != null){
             userMobileNo.setText(mMobile);}
         else{
             userMobileNo.setText("");

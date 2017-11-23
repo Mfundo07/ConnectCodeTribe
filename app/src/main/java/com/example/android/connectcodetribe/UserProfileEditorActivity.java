@@ -175,7 +175,6 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileFacultyCourseEditText = (EditText) findViewById(R.id.profile_faculty_course_edit_text);
         mProfileEmploymentStatusSpinner = (Spinner) findViewById(R.id.profile_employment_status_spinner);
         mProfileCompanyNameEditText = (EditText) findViewById(R.id.profile_company_name_edit_text);
-        mProfileIntakePeriodButton = (Button) findViewById(R.id.profile_intake_period_button);
         mProfileSalarySpinner = (Spinner) findViewById(R.id.profile_salary_spinner);
         mProfileCompanyContactEditText = (EditText) findViewById(R.id.profile_company_contact_edit_text);
         mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);
@@ -250,11 +249,11 @@ Calendar mCalendar = Calendar.getInstance();
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mProfileNameEditText.setText(tribeMate.getName());
-                            mProfileSurnameEditText.setText(tribeMate.getSurname());
-                            mProfileAgeEditText.setText(String.valueOf(tribeMate.getAge()));
-                            mProfileCellPhoneNumberEditText.setText(tribeMate.getMobile());
-                            mProfileEmailEditText.setText(tribeMate.getEmail());
+                            mProfileNameEditText.setText("");
+                            mProfileSurnameEditText.setText("");
+                            mProfileAgeEditText.setText("");
+                            mProfileCellPhoneNumberEditText.setText("");
+                            mProfileEmailEditText.setText("");
                             Toast.makeText(getApplicationContext(), "Personal Details updated", Toast.LENGTH_SHORT).show();
                             mProfilePersonaInfoButton.setEnabled(false);
                             mProfilePersonaInfoButton.setTextColor(getColor(R.color.grey_300));
@@ -282,9 +281,9 @@ Calendar mCalendar = Calendar.getInstance();
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mProfileQualificationEditText.setText(education.getQualification());
-                            mProfileInstitutionEditText.setText(education.getInstitute());
-                            mProfileFacultyCourseEditText.setText(education.getDesc());
+                            mProfileQualificationEditText.setText("");
+                            mProfileInstitutionEditText.setText("");
+                            mProfileFacultyCourseEditText.setText("");
                             Toast.makeText(getApplicationContext(), "Education updated", Toast.LENGTH_SHORT).show();
                             mProfileEducationSaveButton.setEnabled(false);
                             mProfileEducationSaveButton.setTextColor(getColor(R.color.grey_300));
@@ -324,11 +323,12 @@ Calendar mCalendar = Calendar.getInstance();
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mProfileCompanyNameEditText.setText(employment.getCompanyName());
-                            mProfileCompanyContactEditText.setText(employment.getCompanyContactNumber());
+                            mProfileCompanyNameEditText.setText("");
+                            mProfileCompanyContactEditText.setText("");
                             Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
                             mProfileEmploymentSaveButton.setEnabled(false);
                             mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));
+                            finish();
                         } else {
                             task.getException().printStackTrace();
                         }
