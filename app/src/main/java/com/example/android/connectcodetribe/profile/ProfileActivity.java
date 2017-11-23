@@ -49,14 +49,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference myRef;
-    TextView mBio, mStatus, mCodeTribe;
     ImageButton btnStatus, btnGithubLink, btnAddBio ;
     ImageView userImage, btnAddProject, AddEx;
     public String gihubLink;
 
 
 
-
+    TextView mBio, mStatus, mCodeTribe,mAge,mEmail,mEthnicity,mGender,mMobile,mName,mSurname,mCompanyName,mCompanyNumber,mEmploymentStatus,mSalary,mStartDate;
 
 
     private  ImageButton viewMoreButton;
@@ -76,6 +75,17 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
+
+        mMobile = (TextView) findViewById(R.id.profile_cell_number);
+        mGender = (TextView) findViewById(R.id.profile_gender);
+        mEthnicity = (TextView) findViewById(R.id.profile_ethnicity);
+        mEmail = (TextView) findViewById(R.id.profile_email);
+        mAge = (TextView) findViewById(R.id.profile_age);
+        mCompanyName = (TextView) findViewById(R.id.profile_company_name_text_view);
+        mCompanyNumber = (TextView) findViewById(R.id.profile_company_contact_text_view);
+        mEmploymentStatus = (TextView) findViewById(R.id.profile_employment_status_text);
+        mSalary = (TextView) findViewById(R.id.profile_salary_text);
+        mStartDate = (TextView) findViewById(R.id.profile_intake_period_text);
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -146,6 +156,16 @@ public class ProfileActivity extends AppCompatActivity {
                     mStatus.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeProgramStatus").getValue());
                     mCodeTribe.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
                     toolbar.setTitle(((String)dataSnapshot.child("personal_details").child("name").getValue() +" "+  dataSnapshot.child("personal_details").child("surname").getValue()));
+                    mMobile.setText((String) dataSnapshot.child("personal_details").child("mobile").getValue());
+                    mGender.setText((String) dataSnapshot.child("personal_details").child("gender").getValue());
+                    mEthnicity.setText((String) dataSnapshot.child("personal_details").child("ethnicity").getValue());
+                    mEmail.setText((String) dataSnapshot.child("personal_details").child("email").getValue());
+                    mAge.setText((String) dataSnapshot.child("personal_details").child("age").getValue());
+                    mCompanyName.setText((String) dataSnapshot.child("employment").child("companyName").getValue());
+                    mCompanyNumber.setText((String) dataSnapshot.child("employment").child("companyContactNumber").getValue());
+                    mEmploymentStatus.setText((String) dataSnapshot.child("employment").child("employmentStatus").getValue());
+                    mSalary.setText((String) dataSnapshot.child("employment").child("salary").getValue());
+                    mStartDate.setText((String) dataSnapshot.child("employment").child("startDate").getValue());
                     Glide.with(userImage.getContext())
                             .load((String) dataSnapshot.child("profile_images").child("profileImage").getValue())
                             .into(userImage);
