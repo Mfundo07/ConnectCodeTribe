@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
     tools:context="com.example.beatspice.walkthrough.Welcome_activity">
 
@@ -11,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_above="@+id/view3"></android.support.v4.view.ViewPager>
+        android:layout_above="@+id/view3">
+
+    </android.support.v4.view.ViewPager>
 
 
     <View
@@ -19,9 +20,11 @@
         android:layout_height="1dp"
         android:alpha=".5"
         android:layout_above="@+id/dotsLayout"
-        android:background="#ffffff"
+        android:background="#000"
         android:layout_marginBottom="15dp"
-        android:id="@+id/view3"></View>
+        android:id="@+id/view3">
+
+    </View>
 
 
     <LinearLayout
@@ -32,7 +35,9 @@
         android:gravity="center"
         android:layout_marginBottom="55sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></LinearLayout>
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -44,7 +49,7 @@
         android:background="@null"
         android:id="@+id/bnDeletexperience"
         android:layout_marginBottom="8dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorPrimary"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -56,7 +61,7 @@
         android:background="@null"
         android:id="@+id/bnAddexperience"
         android:layout_marginBottom="8dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorPrimary"/>
 
 
 
