@@ -533,8 +533,7 @@
                         android:textSize="12sp"
                         android:gravity="center_vertical"
                         tools:text="Mlab"
-                        android:textColor="#000"
-                     />
+                        android:textColor="#000" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
