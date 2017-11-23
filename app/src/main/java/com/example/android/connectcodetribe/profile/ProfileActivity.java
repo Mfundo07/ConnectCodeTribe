@@ -142,11 +142,11 @@ public class ProfileActivity extends AppCompatActivity {
 
                     mStatus.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeProgramStatus").getValue());
                     mCodeTribe.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
-                    toolbar.setTitle((dataSnapshot.child("personal_details").child("name").getValue() +" "+  dataSnapshot.child("personal_details").child("surname").getValue()));
+                    toolbar.setTitle(((String)dataSnapshot.child("personal_details").child("name").getValue() +" "+  dataSnapshot.child("personal_details").child("surname").getValue()));
                     Glide.with(userImage.getContext())
                             .load((String) dataSnapshot.child("profile_images").child("profileImage").getValue())
                             .into(userImage);
-                    mBio.setText((String) dataSnapshot.child("personal_details").child("").getValue());
+                    mBio.setText((String) dataSnapshot.child("bio").getValue());
                     mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
                         public void onGlobalLayout() {
