@@ -21,12 +21,12 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connecting "
+            android:text="The future of mobile is"
             android:id="@+id/splashAppName"
             android:textColor="#FF9800 "
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -38,8 +38,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="people"
+            android:text="the future of everything."
             android:id="@+id/splashAppName2"
+            android:gravity="center"
             android:textColor="#93c841 "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20dp"
