@@ -77,7 +77,7 @@ public class TembisaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/thembisa_codetribe/");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("users");
 
 
         // Set the adapter
@@ -99,28 +99,28 @@ public class TembisaFragment extends Fragment {
                     if (dataSnapshot.hasChildren()) {
                         mTribeMates.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            TribeMate user = new TribeMate();
-                            user.setName((String) snapshot.child("name").getValue());
-                            user.setSurname((String) snapshot.child("surname").getValue());
-                            user.setAge(snapshot.child("age").getValue().toString());
-                            user.setEMC((String) snapshot.child("employeeCode").getValue());
-                            user.setEthnicity((String) snapshot.child("ethnicity").getValue());
-                            user.setGender((String) snapshot.child("gender").getValue());
-                            user.setIntakeYear((String) snapshot.child("inTakePeriod").getValue());
-                            user.setStatus((String) snapshot.child("status").getValue());
-                            user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
+                            if ((String) snapshot.child("codeTribe_details").child("codeTribeLocation").getValue() == "Tembisa") {
+                                TribeMate user = new TribeMate();
+                                user.setName((String) snapshot.child("personal_details").child("name").getValue());
+                                user.setSurname((String) snapshot.child("personal_details").child("surname").getValue());
+                                user.setAge(snapshot.child("personal_details").child("age").getValue().toString());
+                                user.setEMC((String) snapshot.child("codeTribe_details").child("employeeCode").getValue());
+                                user.setEthnicity((String) snapshot.child("personal_details").child("ethnicity").getValue());
+                                user.setGender((String) snapshot.child("personal_details").child("gender").getValue());
+                                user.setStatus((String) snapshot.child("codeTribe_details").child("codeTribeProgramStatus").getValue());
+                                user.setCodeTribe((String) snapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
+                                user.setEmail((String) snapshot.child("personal_details").child("email").getValue());
+                                user.setMobile((String) snapshot.child("personal_details").child("mobile").getValue());
+                                user.setProfileImage((String) snapshot.child("profile_images").child("profileImage").getValue());
 
-                            user.setEmail((String) snapshot.child("emailAddress").getValue());
-                            user.setMobile((String) snapshot.child("mobileNumber").getValue());
-
-                            mTribeMates.add(user);
-                        }
-                        if (mTribeMates.size() > 0) {
-                            adapter.notifyDataSetChanged();
-                        } else {
-                            System.out.println("No active users found");
-                        }
-                    }
+                                mTribeMates.add(user);
+                            }
+                            if (mTribeMates.size() > 0) {
+                                adapter.notifyDataSetChanged();
+                            } else {
+                                System.out.println("No active users found");
+                            }
+                        }}
                 }
 
                 @Override
