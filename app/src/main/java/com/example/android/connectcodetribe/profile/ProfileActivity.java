@@ -16,6 +16,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
@@ -114,6 +115,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
         myRef = database.getReference("/users/");
         mBio = (TextView) findViewById(R.id.userBio);
+
         mStatus = (TextView) findViewById(R.id.userStatus);
         mCodeTribe = findViewById(R.id.userCodeTribeName);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
@@ -293,7 +295,24 @@ public class ProfileActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
-
     }
 
-}
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+
+            int id = item.getGroupId();
+
+            if(id==R.id.btnLogout);
+
+            Intent intentAdmin = new Intent(ProfileActivity.this,LoginActivity.class);
+            startActivity(intentAdmin);
+            finish();
+
+            return true;
+
+        }
+    }
+
+
+
+
