@@ -312,8 +312,8 @@ Calendar mCalendar = Calendar.getInstance();
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mProfileCompanyNameEditText.setText(employment.getCompanyName());
-                            mProfileCompanyContactEditText.setText(employment.getCompanyContactNumber());
+                            mProfileCompanyNameEditText.setText("");
+                            mProfileCompanyContactEditText.setText("");
                             Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
                             mProfileEmploymentSaveButton.setEnabled(false);
                             mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));

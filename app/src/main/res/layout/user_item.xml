@@ -10,7 +10,7 @@
     android:layout_weight="1"
     android:layout_marginTop="2dp"
     android:elevation="4dp"
-    app:cardBackgroundColor="@android:color/transparent">
+    app:cardBackgroundColor="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
