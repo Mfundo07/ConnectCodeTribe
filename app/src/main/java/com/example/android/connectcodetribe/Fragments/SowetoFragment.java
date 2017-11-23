@@ -112,6 +112,7 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setEmail((String) snapshot.child("personal_details").child("email").getValue());
                         user.setMobile((String) snapshot.child("personal_details").child("mobile").getValue());
                         user.setProfileImage((String) snapshot.child("profile_images").child("profileImage").getValue());
+                        user.setBio((String) snapshot.child("personal_details").child("bio").getValue());
 
                         mTribeMates.add(user);
                 }
