@@ -68,6 +68,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 intent.putExtra("Email", mTribeMates.get(position).getEmail());
                 intent.putExtra("Mobile", mTribeMates.get(position).getMobile());
                 intent.putExtra("image", mTribeMates.get(position).getProfileImage());
+                intent.putExtra("bio", mTribeMates.get(position).getBio());
                 context = view.getContext();
                 context.startActivity(intent);
 

@@ -93,17 +93,17 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
         adapter = new MyItemRecyclerViewAdapter(getActivity(), mTribeMates);
         recyclerView.setAdapter(adapter);
 
-        mDatabaseReference.child(mAuth.getUid()).addValueEventListener(new ValueEventListener() {
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
 @Override
 public void onDataChange(DataSnapshot dataSnapshot) {
         if (dataSnapshot.hasChildren()) {
         mTribeMates.clear();
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                if ((String) snapshot.child("codeTribe_details").child("codeTribeLocation").getValue() == "Soweto") {
+
                         TribeMate user = new TribeMate();
                         user.setName((String) snapshot.child("personal_details").child("name").getValue());
                         user.setSurname((String) snapshot.child("personal_details").child("surname").getValue());
-                        user.setAge(snapshot.child("personal_details").child("age").getValue().toString());
+                        user.setAge((String) snapshot.child("personal_details").child("age").getValue());
                         user.setEMC((String) snapshot.child("codeTribe_details").child("employeeCode").getValue());
                         user.setEthnicity((String) snapshot.child("personal_details").child("ethnicity").getValue());
                         user.setGender((String) snapshot.child("personal_details").child("gender").getValue());
@@ -120,7 +120,7 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                 } else {
                         System.out.println("No active users found");
                 }
-        }}
+        }
         }
 
 @Override
