@@ -24,7 +24,7 @@
             android:id="@+id/profile_options_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
 
         <LinearLayout
@@ -129,7 +129,7 @@
             android:id="@+id/profile_Personal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -153,7 +153,7 @@
             android:id="@+id/profile_personal_info_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
 
 
@@ -309,7 +309,7 @@
             android:id="@+id/profile_bio_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -343,7 +343,7 @@
             android:id="@+id/profile_bio_data_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
 
 
@@ -381,7 +381,7 @@
             android:id="@+id/projects_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
 
             <LinearLayout
@@ -420,7 +420,7 @@
             android:id="@+id/project_list_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
 
             <LinearLayout
@@ -443,8 +443,8 @@
                     android:layout_height="@dimen/dots_height"
                     android:layout_alignParentBottom="true"
                     android:layout_weight="1"
-                    android:layout_marginBottom="@dimen/dots_margin_bottom"
                     android:gravity="center"
+                    android:layout_marginBottom="@dimen/dots_margin_bottom"
                     android:orientation="horizontal">
 
                 </LinearLayout>
@@ -457,7 +457,7 @@
             android:id="@+id/profile_Employment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -469,7 +469,7 @@
                     android:layout_height="match_parent"
                     android:text="Employment"
                     android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
             </LinearLayout>
@@ -479,7 +479,7 @@
             android:id="@+id/AddExperience"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
