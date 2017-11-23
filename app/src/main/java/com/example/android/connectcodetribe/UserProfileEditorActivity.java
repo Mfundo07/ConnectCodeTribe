@@ -170,7 +170,6 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileFacultyCourseEditText = (EditText) findViewById(R.id.profile_faculty_course_edit_text);
         mProfileEmploymentStatusSpinner = (Spinner) findViewById(R.id.profile_employment_status_spinner);
         mProfileCompanyNameEditText = (EditText) findViewById(R.id.profile_company_name_edit_text);
-        mProfileIntakePeriodButton = (Button) findViewById(R.id.profile_intake_period_button);
         mProfileSalarySpinner = (Spinner) findViewById(R.id.profile_salary_spinner);
         mProfileCompanyContactEditText = (EditText) findViewById(R.id.profile_company_contact_edit_text);
         mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);

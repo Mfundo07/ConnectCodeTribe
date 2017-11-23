@@ -9,11 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.ScrollingFragment;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
@@ -43,6 +46,9 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mStatus.setText(mTribeMates.get(position).getStatus());
         holder.mIntakeYear.setText(mTribeMates.get(position).getEMC());
         holder.mCodeTribe.setText(mTribeMates.get(position).getCodeTribe());
+        Glide.with(holder.mCircleImageView.getContext())
+                .load(mTribeMates.get(position).getProfileImage())
+                .into(holder.mCircleImageView);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +90,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public TribeMate mItem;
         public TextView mIntakeYear;
         public TextView mCodeTribe;
+        public CircleImageView mCircleImageView;
 
         public ViewHolder(View view) {
             super(view);
@@ -93,6 +100,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mStatus = view.findViewById(R.id.User_Status);
             mIntakeYear = view.findViewById(R.id.intake_year_text);
             mCodeTribe = view.findViewById(R.id.soweto_orange);
+            mCircleImageView = view.findViewById(R.id.profile_image);
         }
 
         @Override
