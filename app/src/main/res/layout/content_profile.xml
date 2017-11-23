@@ -141,6 +141,7 @@
                     android:layout_height="match_parent"
                     android:text="Personal Details"
                     android:textStyle="bold"
+                    android:gravity="center"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -371,7 +372,7 @@
                     android:layout_height="match_parent"
                     android:text="Bio"
                     android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:padding="8dp"/>
@@ -448,6 +449,7 @@
                 android:layout_weight="1"
                 android:text="Projects"
                 android:padding="8dp"
+                android:gravity="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
@@ -523,8 +525,6 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
-
 
         <android.support.v7.widget.CardView
             android:id="@+id/AddExperience"
