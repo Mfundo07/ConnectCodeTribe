@@ -75,6 +75,8 @@ public class ScrollingFragment extends AppCompatActivity {
                 .load(mImage)
                 .into(userImage);
 
+        userBio.setText(mBio);
+
 
         if (getIntent().getExtras().getString("Gender") != null){
             userGender.setText(mGender);}
