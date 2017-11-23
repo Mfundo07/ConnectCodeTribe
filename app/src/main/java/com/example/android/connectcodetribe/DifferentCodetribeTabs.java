@@ -2,16 +2,20 @@ package com.example.android.connectcodetribe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
 
 public class DifferentCodetribeTabs extends AppCompatActivity {
+
+    FloatingActionButton mProfileBackFabButton;
 
 
 
@@ -19,13 +23,24 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
+
+        mProfileBackFabButton = findViewById(R.id.profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+
+
 
         CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
 
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class));
+            }
+        });
 
 
 

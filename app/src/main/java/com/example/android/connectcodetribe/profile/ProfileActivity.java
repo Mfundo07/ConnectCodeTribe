@@ -30,7 +30,6 @@ import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Project;
-import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
@@ -140,10 +139,9 @@ public class ProfileActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
-                TribeMate value = dataSnapshot.getValue(TribeMate.class);
-                mStatus.setText(value.getStatus());
-                mCodeTribe.setText( value.getCodeTribe());
-                toolbar.setTitle(value.getName() + " " + value.getSurname());
+                mStatus.setText((String)dataSnapshot.child("codeTribe_details").child("status").getValue());
+                mCodeTribe.setText( (String)dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
+                toolbar.setTitle(dataSnapshot.child("personal_details").child("name").getValue() + " " + dataSnapshot.child("personal_details").child("surname").getValue());
                 toolbar1.setTitle((String)dataSnapshot.child("three_words").getValue());
                 mBio.setText((String) dataSnapshot.child("bio").getValue());
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
