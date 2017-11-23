@@ -56,6 +56,9 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+
+
+
     private  ImageButton viewMoreButton;
     private String codeTribeName;
     RecyclerView mProjectsRecyclerView;
