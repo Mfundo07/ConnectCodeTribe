@@ -1,17 +1,12 @@
 package com.example.android.connectcodetribe.Model;
 
-import com.google.firebase.database.Exclude;
-
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by Admin on 11/10/2017.
  */
 
 public class Employment {
-    public String getEmploymenyStatus() {
-        return mEmploymenyStatus;
+    public String getEmploymentStatus() {
+        return mEmploymentStatus;
     }
 
     public String getCompanyContactNumber() {
@@ -30,8 +25,8 @@ public class Employment {
         return mStartDate;
     }
 
-    public void setEmploymenyStatus(String employmenyStatus) {
-        mEmploymenyStatus = employmenyStatus;
+    public void setEmploymentStatus(String employmentStatus) {
+        mEmploymentStatus = employmentStatus;
     }
 
     public void setCompanyContactNumber(String companyContactNumber) {
@@ -50,21 +45,12 @@ public class Employment {
         mStartDate = startDate;
     }
 
-    private String mEmploymenyStatus;
+    private String mEmploymentStatus;
     private String mCompanyContactNumber;
     private String mCompanyName;
     private String mSalary;
     private String mStartDate;
-    @Exclude
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("employment_status", mEmploymenyStatus);
-        result.put("salary", mSalary);
-        result.put("company_name", mCompanyName);
-        result.put("company_contact_number", mCompanyContactNumber);
-        result.put("start_date", mStartDate);
-        return result;
-    }
+
 }
 
 

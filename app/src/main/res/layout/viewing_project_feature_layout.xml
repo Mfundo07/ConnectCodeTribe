@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="setTitle"
+                android:textAlignment="center"
                 android:padding="10dp"
                 android:text="Click to select project image"
                 android:textStyle="bold" />
@@ -36,28 +37,31 @@
 
             <EditText
                 android:id="@+id/post_Title"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="59dp"
-                android:hint="Project Title...."
+                android:hint="e.g Miwok"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:padding="10dp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/post_Desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="81dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:hint="https://github.com/Unknown/ConnectCodeTribe"
                 android:padding="10dp"
-                android:inputType="textEmailAddress"
                 android:textStyle="italic" />
 
             <Button
                 android:id="@+id/ButUpload"
-                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:text="Upload Project" />
+                android:layout_height="87dp"
+                android:background="@android:color/transparent"
+                android:text="Upload Project"
+                android:textColor="@color/colorAccent" />
 
 
         </LinearLayout>

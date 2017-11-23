@@ -63,14 +63,14 @@ public class Employement_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Employment employment = new Employment();
-                employment.setEmploymenyStatus(mEmploy.getText().toString());
+                employment.setEmploymentStatus(mEmploy.getText().toString());
                 employment.setCompanyContactNumber(mCurrent.getText().toString());
                 employment.setCompanyName(mCompany.getText().toString());
                 employment.setSalary(mJobtitle.getText().toString());
                 employment.setStartDate(mStart.getText().toString());
                 Toast.makeText(Employement_Activity.this, "info added", Toast.LENGTH_SHORT).show();
 
-                mRef.setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mRef.setValue(employment).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
