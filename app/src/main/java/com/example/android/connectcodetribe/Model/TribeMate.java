@@ -172,6 +172,7 @@ public class TribeMate {
         result.put("email", mEmail);
         result.put("profile_image", mProfileImage);
         result.put("bio", mBio);
+        result.put("employee_code", mEMC);
         return result;
     }
 }
