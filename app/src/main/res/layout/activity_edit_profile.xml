@@ -11,16 +11,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <android.support.v7.widget.CardView
                 android:id="@+id/profile_image_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -33,7 +31,6 @@
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:src="@drawable/kratos" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -63,21 +60,17 @@
                             android:textColor="@color/colorPrimary"
                             android:textStyle="bold"/>
 
-
                     </LinearLayout>
 
                 </LinearLayout>
 
-
-
             </android.support.v7.widget.CardView>
-
 
             <android.support.v7.widget.CardView
                 android:id="@+id/profile_personal_title_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -98,7 +91,7 @@
                 android:id="@+id/profile_personal_info_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -324,7 +317,11 @@
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold"/>
 
+
                     </LinearLayout>
+
+
+
 
                 </LinearLayout>
 
@@ -334,7 +331,7 @@
                 android:id="@+id/profile_code_tribe_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -354,7 +351,7 @@
                 android:id="@+id/profile_code_tribe_info_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -486,7 +483,7 @@
                 android:id="@+id/profile_education_title_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:padding="8dp"
                 app:cardCornerRadius="4dp"
                 android:layout_weight="1">
@@ -506,7 +503,7 @@
                 android:id="@+id/profile_qualification_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -618,7 +615,7 @@
                 android:id="@+id/profile_current_employment__title_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:padding="8dp"
                 app:cardCornerRadius="4dp"
                 android:layout_weight="1">
@@ -637,7 +634,7 @@
                 android:id="@+id/profile_current_employment_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:padding="8dp"
                 app:cardCornerRadius="4dp"
                 android:layout_weight="1">
@@ -659,7 +656,7 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:gravity="center_vertical"
-                            android:text="Currently Employed"
+                            android:text="Employment Status"
                             android:textColor="#000"
                             android:textStyle="bold"/>
 
@@ -674,7 +671,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
@@ -684,6 +681,7 @@
                             android:layout_height="match_parent"
                             android:text="Company Name"
                             android:layout_weight="1"
+                            android:textSize="12sp"
                             android:gravity="center_vertical"
                             android:textColor="#000"
                             android:textStyle="bold"/>
@@ -702,13 +700,15 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
                         <TextView
                             android:id="@+id/startDate"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:text="Start Date"
+                            android:textSize="12sp"
                             android:gravity="center_vertical"
                             android:textColor="#000"
                             android:textStyle="bold"/>
@@ -716,6 +716,7 @@
                             android:id="@+id/profile_intake_period_button"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:textSize="12sp"
                             android:text="@string/date_picker_title"
                             android:background="@android:color/transparent"
                             android:textColor="@color/colorPrimary"
@@ -725,12 +726,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
                         <TextView
                             android:id="@+id/Salary"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:textSize="12sp"
                             android:text="Monthly Salary"
                             android:gravity="center_vertical"
                             android:textColor="#000"
@@ -747,12 +750,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
                         <TextView
                             android:id="@+id/contactDetails"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:textSize="12sp"
                             android:text="Company Contact Number"
                             android:gravity="center_vertical"
                             android:textColor="#000"
