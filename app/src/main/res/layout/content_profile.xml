@@ -494,8 +494,8 @@
                     android:layout_height="@dimen/dots_height"
                     android:layout_alignParentBottom="true"
                     android:layout_weight="1"
-                    android:layout_marginBottom="@dimen/dots_margin_bottom"
                     android:gravity="center"
+                    android:layout_marginBottom="@dimen/dots_margin_bottom"
                     android:orientation="horizontal">
 
                 </LinearLayout>
@@ -520,7 +520,7 @@
                     android:layout_height="match_parent"
                     android:text="Employment"
                     android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
             </LinearLayout>
