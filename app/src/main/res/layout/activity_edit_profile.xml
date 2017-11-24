@@ -7,10 +7,123 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="@color/grey_300">
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="4dp"
+        android:padding="8dp">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:padding="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/User_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textStyle="bold"
+                        android:textColor="@color/textColorUser"
+                        android:textSize="12sp"
+                        android:text="Employee Code" />
+
+                    <EditText
+                        android:id="@+id/edit_employee_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="@color/textColorUser"
+                        android:textSize="12sp"
+                        android:hint="CTR0141" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/User_Status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="@color/textColorUser"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:text="CodeTribe" />
+
+                    <Spinner
+                        android:id="@+id/tribe_profile_option_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="16dp"
+                        android:paddingLeft="16dp"
+                        android:textSize="12sp"
+                        android:paddingEnd="16dp"
+                        android:layout_weight="1"
+                        android:spinnerMode="dropdown" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="4dp">
+
+                    <Button
+                        android:id="@+id/search_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:gravity="end"
+                        android:layout_marginLeft="4dp"
+                        android:text="Search"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
             <android.support.v7.widget.CardView
                 android:id="@+id/profile_image_card_view"
                 android:layout_width="match_parent"
@@ -773,7 +886,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -792,21 +904,7 @@
                             android:textStyle="bold"/>
                     </LinearLayout>
 
-
-
                 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
 
             </android.support.v7.widget.CardView>
 
