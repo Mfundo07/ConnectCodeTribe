@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.android.connectcodetribe.AboutActivity;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Admin_Login_Activity;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
@@ -310,9 +311,16 @@ public class ProfileActivity extends AppCompatActivity {
         Intent intentLogout = new Intent(ProfileActivity.this,LoginActivity.class);
         startActivity(intentLogout);
         finish();
+
         if(id==R.id.btnLogout);
 
         Intent intentAdmin = new Intent(ProfileActivity.this,Admin_Login_Activity.class);
+        startActivity(intentAdmin);
+        finish();
+
+        if(id==R.id.btnAbout);
+
+        Intent intentAbout = new Intent(ProfileActivity.this,AboutActivity.class);
         startActivity(intentAdmin);
         finish();
 

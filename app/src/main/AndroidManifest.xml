@@ -42,6 +42,7 @@
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".Welcome_activity" />
         <activity android:name=".Main3Activity" />
+        <activity android:name=".AboutActivity" />
         <activity android:name=".Admin_profile" />
         <activity android:name=".Admin_register" />
         <activity android:name=".Admin_Login_Activity" />
@@ -83,7 +84,8 @@
         <activity android:name=".Experience_more" />
         <activity android:name=".Admin_Login_Activity" />
         <activity android:name=".Admin_ScrollingFragment" />
-        <activity android:name=".Admin_scrolling_editor"></activity>
+        <activity android:name=".Admin_scrolling_editor" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>
