@@ -42,7 +42,6 @@
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".Welcome_activity" />
         <activity android:name=".Main3Activity" />
-        <activity android:name=".AboutActivity" />
         <activity android:name=".Admin_profile" />
         <activity android:name=".Admin_register" />
         <activity android:name=".Admin_Login_Activity" />

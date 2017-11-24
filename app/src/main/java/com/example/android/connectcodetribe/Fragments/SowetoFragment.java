@@ -110,7 +110,7 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setStatus((String) snapshot.child("codeTribeProgramStatus").getValue());
                         user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                         user.setEmail((String) snapshot.child("email").getValue());
-                        user.setMobile((String) snapshot.child("mobile").getValue());
+                        user.setMobile((String) snapshot.child("mobileNumber").getValue());
                         user.setProfileImage((String) snapshot.child("profileImage").getValue());
                         user.setBio((String) snapshot.child("bio").getValue());
 

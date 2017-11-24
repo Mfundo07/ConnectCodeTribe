@@ -27,7 +27,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.AboutActivity;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Admin_Login_Activity;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
@@ -74,13 +73,10 @@ public class ProfileActivity extends AppCompatActivity {
     Toolbar toolbar;
     Toolbar toolbar1;
     @SuppressLint("WrongViewCast")
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
-
-
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
         mGender = (TextView) findViewById(R.id.profile_gender);
         mEthnicity = (TextView) findViewById(R.id.profile_ethnicity);
@@ -155,27 +151,27 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, UserProfileEditorActivity.class));
             }
         });
-        myRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
 
-                    mStatus.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeProgramStatus").getValue());
-                    mCodeTribe.setText((String) dataSnapshot.child("codeTribe_details").child("codeTribeLocation").getValue());
-                    toolbar.setTitle(((String)dataSnapshot.child("personal_details").child("name").getValue() +" "+  dataSnapshot.child("personal_details").child("surname").getValue()));
-                    mMobile.setText((String) dataSnapshot.child("personal_details").child("mobile").getValue());
-                    mGender.setText((String) dataSnapshot.child("personal_details").child("gender").getValue());
-                    mEthnicity.setText((String) dataSnapshot.child("personal_details").child("ethnicity").getValue());
-                    mEmail.setText((String) dataSnapshot.child("personal_details").child("email").getValue());
-                    mAge.setText((String) dataSnapshot.child("personal_details").child("age").getValue());
-                    mCompanyName.setText((String) dataSnapshot.child("employment").child("companyName").getValue());
-                    mCompanyNumber.setText((String) dataSnapshot.child("employment").child("companyContactNumber").getValue());
-                    mEmploymentStatus.setText((String) dataSnapshot.child("employment").child("employmentStatus").getValue());
-                    mSalary.setText((String) dataSnapshot.child("employment").child("salary").getValue());
-                    mStartDate.setText((String) dataSnapshot.child("employment").child("startDate").getValue());
+                    mStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("status").getValue());
+                    mCodeTribe.setText((String) dataSnapshot.child(currentUser.getUid()).child("codeTribeLocation").getValue());
+                    toolbar.setTitle(((String)dataSnapshot.child(currentUser.getUid()).child("name").getValue() +" "+  dataSnapshot.child(currentUser.getUid()).child("surname").getValue()));
+                    mMobile.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNumber").getValue());
+                    mGender.setText((String) dataSnapshot.child(currentUser.getUid()).child("gender").getValue());
+                    mEthnicity.setText((String) dataSnapshot.child(currentUser.getUid()).child("ethnicity").getValue());
+                    mEmail.setText((String) dataSnapshot.child(currentUser.getUid()).child("email").getValue());
+                    mAge.setText((String) dataSnapshot.child(currentUser.getUid()).child("age").getValue());
+                    mCompanyName.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
+                    mCompanyNumber.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactNumber").getValue());
+                    mEmploymentStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("employed").getValue());
+                    mSalary.setText((String) dataSnapshot.child(currentUser.getUid()).child("salary").getValue());
+                    mStartDate.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());
                     Glide.with(userImage.getContext())
-                            .load((String) dataSnapshot.child("profile_images").child("profileImage").getValue())
+                            .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
                             .into(userImage);
-                    mBio.setText((String) dataSnapshot.child("personal_details").child("bio").getValue());
+                    mBio.setText((String) dataSnapshot.child(currentUser.getUid()).child("bio").getValue());
                     mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
                         public void onGlobalLayout() {
@@ -229,7 +225,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
                     projects.clear();
-                    for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
+                    for (DataSnapshot snapshot : dataSnapshot.child(currentUser.getUid()).child("projects").getChildren()) {
                         Project project = new Project();
                         project.setSnapshot((String) snapshot.child("snapshot").getValue());
                         project.setName((String) snapshot.child("name").getValue());
@@ -260,7 +256,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        myRef.child(currentUser.getUid()).child("personal_details").child("bio").setValue(mBioEditText.getText().toString());
+                        myRef.child(currentUser.getUid()).child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
                         mBioEditText.setText("");
                         alertDialog.cancel();
 
@@ -320,8 +316,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         if(id==R.id.btnAbout);
 
-        Intent intentAbout = new Intent(ProfileActivity.this,AboutActivity.class);
-        startActivity(intentAbout);
+        //Intent intentAbout = new Intent(ProfileActivity.this,AboutActivity.class);
+       // startActivity(intentAbout);
         finish();
 
         return true;
