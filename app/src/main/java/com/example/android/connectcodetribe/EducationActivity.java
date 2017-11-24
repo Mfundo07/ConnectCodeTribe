@@ -67,7 +67,7 @@ public class EducationActivity extends AppCompatActivity {
                 education.setQualification(mHighestQualification.getText().toString());
                 education.setDesc(mQualificationDesc.getText().toString());
                 education.setInstitute(mQualificationInst.getText().toString());
-                mRef.setValue(education).addOnCompleteListener(new OnCompleteListener<Void>() {
+                /**mRef.setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -76,7 +76,7 @@ public class EducationActivity extends AppCompatActivity {
                             task.getException().printStackTrace();
                         }
                     }
-                });
+                });**/
 
             }
         });

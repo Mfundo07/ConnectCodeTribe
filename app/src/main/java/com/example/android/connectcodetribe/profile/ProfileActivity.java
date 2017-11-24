@@ -27,7 +27,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.AboutActivity;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Admin_Login_Activity;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
@@ -74,13 +73,10 @@ public class ProfileActivity extends AppCompatActivity {
     Toolbar toolbar;
     Toolbar toolbar1;
     @SuppressLint("WrongViewCast")
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
-
-
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
         mGender = (TextView) findViewById(R.id.profile_gender);
         mEthnicity = (TextView) findViewById(R.id.profile_ethnicity);
@@ -320,8 +316,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         if(id==R.id.btnAbout);
 
-        Intent intentAbout = new Intent(ProfileActivity.this,AboutActivity.class);
-        startActivity(intentAbout);
+        //Intent intentAbout = new Intent(ProfileActivity.this,AboutActivity.class);
+       // startActivity(intentAbout);
         finish();
 
         return true;

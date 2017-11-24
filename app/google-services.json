@@ -111,6 +111,38 @@
       },
       "oauth_client": [
         {
+          "client_id": "738027451162-broqfoe5ja4g1qsurgtq2puccokq2sqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.connectcodetribe",
+            "certificate_hash": "0d1a1381f6bbefff7e0b3eeb2cfeda59e0c3d3a2"
+          }
+        },
+        {
+          "client_id": "738027451162-jlj749n14tp2ipbm64uv2vcllo3rbkr0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.connectcodetribe",
+            "certificate_hash": "a66ab39749ac0d07344b1a03a6a5a90f76d54863"
+          }
+        },
+        {
+          "client_id": "738027451162-2qeu5l53nmm63lm4vk3d79o2g74pesld.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.connectcodetribe",
+            "certificate_hash": "b497fb898f68f142926f4d1bdd9e013d1f2722e0"
+          }
+        },
+        {
+          "client_id": "738027451162-bei9tc9lu5ijhe1a3rd59ml9neqgpp4m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.connectcodetribe",
+            "certificate_hash": "d3e139c365948b7ba9348a641ad25419ee32bc36"
+          }
+        },
+        {
           "client_id": "738027451162-5juadi5ruf1e36fjmk1pssehu16o7ja5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -170,6 +202,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "738027451162-1tcbh5saou5sm4f5qjfhrd8o7f4u9t2s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "alessandro.firebaseandroid",
+            "certificate_hash": "a66ab39749ac0d07344b1a03a6a5a90f76d54863"
+          }
+        },
         {
           "client_id": "738027451162-hn6k2ets2b6lpfl63clmkd0b9g8abgfd.apps.googleusercontent.com",
           "client_type": 1,
