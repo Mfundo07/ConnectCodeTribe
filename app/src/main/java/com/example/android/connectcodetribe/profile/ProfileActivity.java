@@ -57,7 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-    TextView mBio, mStatus, mCodeTribe,mAge,mEmail,mEthnicity,mGender,mMobile,mName,mSurname,mCompanyName,mCompanyNumber,mEmploymentStatus,mSalary,mStartDate;
+    TextView mBio, mStatus, mCodeTribe,mAge,mEmail,mEthnicity,mGender,mMobile,mCompanyName,mCompanyNumber,mEmploymentStatus,mSalary,mStartDate;
 
 
     private  ImageButton viewMoreButton;
