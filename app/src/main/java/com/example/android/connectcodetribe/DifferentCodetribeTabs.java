@@ -64,21 +64,37 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
-            case R.id.sign_out_menu:
-                startActivity(new Intent(this, LoginActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getGroupId();
 
-        }
+        if(id==R.id.btnLogout);
+
+        Intent intentLogout = new Intent(DifferentCodetribeTabs.this,LoginActivity.class);
+        startActivity(intentLogout);
+        finish();
+
+        if(id==R.id.btnAdmin);
+
+        Intent intentAdmin = new Intent(DifferentCodetribeTabs.this,Admin_Login_Activity.class);
+        startActivity(intentAdmin);
+        finish();
+
+        if(id==R.id.btnAbout);
+
+        Intent intentAbout = new Intent(DifferentCodetribeTabs.this,AboutActivity.class);
+        startActivity(intentAbout);
+        finish();
+
+        return true;
+
+
+
 
     }
 }

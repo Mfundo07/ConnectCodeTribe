@@ -14,8 +14,37 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Editext for Search -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#93c841"
+            android:weightSum="6">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                android:background="#93c841"/>
+
+
+            <Spinner
+                android:id="@+id/annual_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#fff"
+                android:spinnerMode="dropdown"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:background="#93c841"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <!-- Editext for Search -->
 
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"

@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">CodeTribe Connect</string>
+
+    <string name="info">CodeTribe Academy Launched on 1 September 2014 as a partnership between The Innovation Hub and mLab Southern Africa to increase the skills of young ICT enthusiasts through  a dedicated programme to of practical development of high impact and market relevant solutions.
+The academy focuses on Android SDK’s, Cloud, Architecture and design of innovative mobility solutions. The “Tribe” is more than just students sharing a class but rather a community of Coders who learn, work, code, hack and teach together to strengthen the group as a whole.
+CodeTribe is a dedicated programme for developing the next generation of software developers. While established startups are welcome to have members participate in their own time and at own expense, they do not qualify for bursaries as full time students. Startups and their staff or members are advised to apply for incubation and acceleration support through Maxum Business Incubator and mLab.
+If you think you have what it takes to be part of the Tribe then apply for available bursaries below or keep an eye out for any of our open classes that can be attended by any one interested in learning from a specific topic.</string>
+
     <string name="title_members">Members</string>
     <string name="title_tribes">CodeTribes</string>
     <string name="my_preference" />
@@ -40,26 +46,20 @@
     <string name="colored">Colored</string>
     <string name="app_name_spin">RecyclerViewSearchBoX</string>
     <string name="date_picker_title">Select Start Date</string>
-
     <string name="employed_status">Employed</string>
     <string name="unemployed_status">Unemployed</string>
     <string name="self_employed_status">Self Employed</string>
-
     <string name="salary_1">less 2000 p.m</string>
     <string name="salary_2">2000–4000 p.m</string>
     <string name="salary_3">4000–6000 p.m</string>
     <string name="salary_4">6000–8000 p.m</string>
     <string name="salary_5">8000–10000 p.m</string>
     <string name="salary_6">more than 10000 p.m</string>
-
     <string name="in_program">In Program</string>
     <string name="post_program">Post Program</string>
-
     <string name="soweto">soweto_codetribe</string>
     <string name="tembisa">thembisa_codetribe</string>
     <string name="pretoria">pretoria_codetribe</string>
-
-
     <string name="tab_soweto">Soweto</string>
     <string name="tab_tembisa">Tembisa</string>
     <string name="tab_pretoria">Pretoria</string>
@@ -70,6 +70,7 @@
         <item>@string/tab_soweto</item>
         <item>@string/tab_pretoria</item>
         <item>@string/tab_tembisa</item>
+        
     </string-array>
 
     <string-array name="array_employment_option">
