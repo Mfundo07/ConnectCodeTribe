@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.android.connectcodetribe.profile.ProfileActivity"
-    tools:showIn="@layout/admin_users_profile">
+    tools:showIn="@layout/admin_profile">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"

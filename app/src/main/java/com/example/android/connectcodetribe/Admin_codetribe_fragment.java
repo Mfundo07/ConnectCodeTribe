@@ -18,14 +18,12 @@ public class Admin_codetribe_fragment extends AppCompatActivity {
 
     FloatingActionButton mProfileBackFabButton;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_codetribe_fragment);
 
-        mProfileBackFabButton = findViewById(R.id.profile_back_fab_button);
+        mProfileBackFabButton =(FloatingActionButton) findViewById(R.id.admin_profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
 
 
@@ -36,7 +34,12 @@ public class Admin_codetribe_fragment extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-
+        mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Admin_codetribe_fragment.this, Admin_profile.class));
+            }
+        });
 
 
 
@@ -65,4 +68,5 @@ public class Admin_codetribe_fragment extends AppCompatActivity {
         }
 
     }
+
 }

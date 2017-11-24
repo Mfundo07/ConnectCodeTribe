@@ -41,8 +41,10 @@
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".Welcome_activity" />
+        <activity android:name=".Admin_codetribe_fragment" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".ProjectsActivity" />
+        <activity android:name=".Admin_profile" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".EmployeeActivity"
