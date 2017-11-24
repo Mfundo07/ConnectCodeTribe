@@ -155,17 +155,17 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
 
-                    mStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("codeTribeProgramStatus").getValue());
+                    mStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("status").getValue());
                     mCodeTribe.setText((String) dataSnapshot.child(currentUser.getUid()).child("codeTribeLocation").getValue());
                     toolbar.setTitle(((String)dataSnapshot.child(currentUser.getUid()).child("name").getValue() +" "+  dataSnapshot.child(currentUser.getUid()).child("surname").getValue()));
-                    mMobile.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobile").getValue());
+                    mMobile.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNumber").getValue());
                     mGender.setText((String) dataSnapshot.child(currentUser.getUid()).child("gender").getValue());
                     mEthnicity.setText((String) dataSnapshot.child(currentUser.getUid()).child("ethnicity").getValue());
                     mEmail.setText((String) dataSnapshot.child(currentUser.getUid()).child("email").getValue());
                     mAge.setText((String) dataSnapshot.child(currentUser.getUid()).child("age").getValue());
                     mCompanyName.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
                     mCompanyNumber.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactNumber").getValue());
-                    mEmploymentStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("employmentStatus").getValue());
+                    mEmploymentStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("employed").getValue());
                     mSalary.setText((String) dataSnapshot.child(currentUser.getUid()).child("salary").getValue());
                     mStartDate.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());
                     Glide.with(userImage.getContext())
