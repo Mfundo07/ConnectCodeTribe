@@ -141,11 +141,6 @@ Calendar mCalendar = Calendar.getInstance();
             return false;
         }
     };
-    private String mEmploymentStatus;
-    private String mCompanyContactNumber;
-    private String mCompanyName;
-    private String mStartDate;
-    //private  int mSalary;
 
 
     public static boolean isValidGender(int gender) {
@@ -197,7 +192,7 @@ Calendar mCalendar = Calendar.getInstance();
                 codeTribe.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
                 codeTribe.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
                 codeTribe.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
-                mDatabaseReference.child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("codeTribe_details").setValue(codeTribe).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mDatabaseReference.child(currentUser.getUid()).child("codeTribe_details").setValue(codeTribe).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
@@ -244,7 +239,7 @@ Calendar mCalendar = Calendar.getInstance();
                 tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
                 tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
                 tribeMate.setEmail(mProfileEmailEditText.getText().toString());
-                mDatabaseReference.child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("personal_details").setValue(tribeMate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mDatabaseReference.child(currentUser.getUid()).child("personal_details").setValue(tribeMate).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -276,7 +271,7 @@ Calendar mCalendar = Calendar.getInstance();
                 education.setQualification(mProfileQualificationEditText.getText().toString());
                 education.setInstitute(mProfileInstitutionEditText.getText().toString());
                 education.setDesc(mProfileFacultyCourseEditText.getText().toString());
-                mDatabaseReference.child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mDatabaseReference.child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -312,13 +307,6 @@ Calendar mCalendar = Calendar.getInstance();
                 employment.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
                 employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
                 mDatabaseReference.child(currentUser.getUid()).child("employment").setValue(employment).addOnCompleteListener(new OnCompleteListener<Void>() {
-
-
-
-
-
-
-
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -590,7 +578,7 @@ Calendar mCalendar = Calendar.getInstance();
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             TribeMate item = new TribeMate();
                             item.setProfileImage(downloadUri.toString());
-                            mDatabaseReference.child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("profile_images").setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            mDatabaseReference.child(currentUser.getUid()).child("profile_images").setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     try {

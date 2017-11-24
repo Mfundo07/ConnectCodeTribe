@@ -5,11 +5,6 @@ package com.example.android.connectcodetribe.Model;
  */
 
 public class Employment {
-
-    public Employment(){}
-
-
-
     public String getEmploymentStatus() {
         return mEmploymentStatus;
     }
@@ -56,14 +51,6 @@ public class Employment {
     private String mSalary;
     private String mStartDate;
 
-
-    public Employment(String mEmploymentStatus, String mCompanyContactNumber, String mCompanyName, String mSalary, String mStartDate) {
-        this.mEmploymentStatus = mEmploymentStatus;
-        this.mCompanyContactNumber = mCompanyContactNumber;
-        this.mCompanyName = mCompanyName;
-        this.mSalary = mSalary;
-        this.mStartDate = mStartDate;
-    }
 }
 
 
