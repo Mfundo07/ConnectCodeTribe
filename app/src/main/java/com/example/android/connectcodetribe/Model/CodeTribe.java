@@ -1,5 +1,10 @@
 package com.example.android.connectcodetribe.Model;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Admin on 11/21/2017.
  */
@@ -42,6 +47,15 @@ public class CodeTribe {
         mCodeTribeLocation = codeTribeLocation;
         mEmployeeCode = employeeCode;
         mCodeTribeProgramStatus = codeTribeProgramStatus;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("codeTribeLocation", mCodeTribeLocation);
+        result.put("employeeCode", mEmployeeCode);
+        result.put("status", mCodeTribeProgramStatus);
+        return result;
     }
 
 

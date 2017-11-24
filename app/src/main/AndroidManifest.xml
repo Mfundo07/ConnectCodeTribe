@@ -41,10 +41,8 @@
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".Welcome_activity" />
-        <activity android:name=".Admin_codetribe_fragment" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".ProjectsActivity" />
-        <activity android:name=".Admin_profile" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".EmployeeActivity"
@@ -79,8 +77,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Projects_more" />
         <activity android:name=".Experience_more" />
-        <activity android:name=".Admin_Login_Activity" />
-        <activity android:name=".Admin_register"></activity>
+        <activity android:name=".Admin_Login_Activity"></activity>
     </application>
 
 </manifest>
