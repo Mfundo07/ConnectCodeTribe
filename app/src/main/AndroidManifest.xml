@@ -44,9 +44,8 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".EmployeeActivity"
-            android:label="ENTER YOUR EMPLOYEE CODE" />
+        <activity android:name=".EmployeeActivity"
+            android:label="ENTER YOUR EMPLOYEE CODE"/>
         <activity android:name=".EmailPasswordActivity" />
         <activity android:name=".FullScreenActivity" />
         <activity android:name=".LoginActivity" />
@@ -62,9 +61,8 @@
         </provider>
 
         <activity android:name=".ChatActivitySoweto" />
-        <activity
-            android:name=".SplashScreen"
-            android:label="Welcome to CodeTribe Connect">
+        <activity android:name=".SplashScreen"
+            android:label="CodeTribe Connect">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,8 +74,7 @@
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Projects_more" />
-        <activity android:name=".Experience_more" />
-        <activity android:name=".Admin_Login_Activity"></activity>
+        <activity android:name=".Experience_more"></activity>
     </application>
 
 </manifest>

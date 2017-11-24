@@ -1,5 +1,10 @@
 package com.example.android.connectcodetribe.Model;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Admin on 11/10/2017.
  */
@@ -50,6 +55,17 @@ public class Employment {
     private String mCompanyName;
     private String mSalary;
     private String mStartDate;
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("employed", mEmploymentStatus);
+        result.put("companyContactDetails", mCompanyContactNumber);
+        result.put("companyName", mCompanyName);
+        result.put("monthlySalary(ZAR)", mSalary);
+        result.put("startDate", mStartDate);
+        return result;
+    }
 
 }
 
