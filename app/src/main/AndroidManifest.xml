@@ -62,7 +62,7 @@
 
         <activity android:name=".ChatActivitySoweto" />
         <activity android:name=".SplashScreen"
-            android:label="Welcome to CodeTribe Connect">
+            android:label="CodeTribe Connect">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

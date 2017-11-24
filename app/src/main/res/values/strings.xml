@@ -55,6 +55,12 @@
     <string name="in_program">In Program</string>
     <string name="post_program">Post Program</string>
 
+    <string name="soweto">soweto_codetribe</string>
+    <string name="tembisa">thembisa_codetribe</string>
+    <string name="pretoria">pretoria_codetribe</string>
+
+
+
 
 
 
@@ -79,6 +85,14 @@
         <item>@string/unemployed_status</item>
         <item>@string/self_employed_status</item>
     </string-array>
+
+    <string-array name="array_employee_options">
+        <item>@string/soweto</item>
+        <item>@string/pretoria</item>
+        <item>@string/tembisa</item>
+    </string-array>
+
+
 
 
 
