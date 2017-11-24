@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 
 public class DifferentCodetribeTabs extends AppCompatActivity {
 
@@ -39,7 +38,7 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DifferentCodetribeTabs.this, ProfileActivity.class));
+                startActivity(new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class));
             }
         });
 
