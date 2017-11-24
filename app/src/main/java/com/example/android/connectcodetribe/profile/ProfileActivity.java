@@ -321,7 +321,7 @@ public class ProfileActivity extends AppCompatActivity {
         if(id==R.id.btnAbout);
 
         Intent intentAbout = new Intent(ProfileActivity.this,AboutActivity.class);
-        startActivity(intentAdmin);
+        startActivity(intentAbout);
         finish();
 
         return true;
