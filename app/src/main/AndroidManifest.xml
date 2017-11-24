@@ -77,7 +77,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Projects_more" />
         <activity android:name=".Experience_more" />
-        <activity android:name=".Admin_Login_Activity"></activity>
+        <activity android:name=".Admin_Login_Activity" />
+        <activity android:name=".Admin_register"></activity>
     </application>
 
 </manifest>
