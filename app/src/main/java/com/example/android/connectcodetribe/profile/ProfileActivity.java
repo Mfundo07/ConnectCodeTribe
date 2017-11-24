@@ -309,7 +309,7 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(intentLogout);
         finish();
 
-        if(id==R.id.btnLogout);
+        if(id==R.id.btnAdmin);
 
         Intent intentAdmin = new Intent(ProfileActivity.this,Admin_Login_Activity.class);
         startActivity(intentAdmin);
