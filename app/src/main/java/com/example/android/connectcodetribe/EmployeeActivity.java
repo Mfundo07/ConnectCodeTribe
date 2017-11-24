@@ -16,6 +16,6 @@ public class EmployeeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_number);
 
-        EditText mEmployeeCodeEditText = findViewById(R.id.employee_code_edit_text);
+        EditText mEmployeeCodeEditText = findViewById(R.id.edit_employee_code);
     }
 }
