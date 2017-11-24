@@ -14,8 +14,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Editext for Search -->
+        <Spinner
+            android:id="@+id/annual_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:backgroundTint="#93c841"
+            android:spinnerMode="dropdown" />
 
+        <!-- Editext for Search -->
 
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"

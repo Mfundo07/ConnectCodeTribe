@@ -16,6 +16,14 @@
 
         <!-- Editext for Search -->
 
+        <Spinner
+            android:id="@+id/admin_annual_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:backgroundTint="#93c841"
+            android:spinnerMode="dropdown" />
+
 
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
