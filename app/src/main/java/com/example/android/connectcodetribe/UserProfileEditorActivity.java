@@ -245,7 +245,7 @@ Calendar mCalendar = Calendar.getInstance();
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.toString().trim().length()>7){
+                if (s.toString().trim().length()>0){
                     mProfileEmploymentSaveButton.setEnabled(true);
 
                 }else {
@@ -344,7 +344,7 @@ Calendar mCalendar = Calendar.getInstance();
             }
         });
 
-        MyRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+        MyRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
