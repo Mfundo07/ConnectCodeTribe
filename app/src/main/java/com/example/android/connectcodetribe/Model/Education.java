@@ -14,6 +14,12 @@ public class Education {
     private String mDesc;
     private String mInstitute;
 
+    private String mEmploymentStatus;
+    private String mCompanyContactNumber;
+    private String mCompanyName;
+    private String mSalary;
+    private String mStartDate;
+
     public Education() {
     }
 

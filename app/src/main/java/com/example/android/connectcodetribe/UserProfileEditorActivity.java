@@ -14,8 +14,10 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,9 +29,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.android.connectcodetribe.Model.CodeTribe;
-import com.example.android.connectcodetribe.Model.Education;
-import com.example.android.connectcodetribe.Model.Employment;
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -196,6 +196,7 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileCircleImage.setImageResource(R.drawable.man_user_user);
+        mProfileEmploymentSaveButton.setEnabled(false);
 
         mProfileImageSaveButton.setEnabled(false);
         mProfileImageSaveButton.setVisibility(View.INVISIBLE);
@@ -203,17 +204,7 @@ Calendar mCalendar = Calendar.getInstance();
         mProfilecodeTribeSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final CodeTribe codeTribe = new CodeTribe();
-                codeTribe.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
-                codeTribe.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
-                codeTribe.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
-                MyRef.child(currentUser.getUid()).child("codeTribe_details").setValue(codeTribe).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-                        }
-                    }
-                });
+
             }
         });
 
@@ -246,68 +237,26 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileCompanyNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileCompanyContactEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mEmployeeCodeEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-
-        mProfilePersonaInfoButton.setOnClickListener(new View.OnClickListener() {
+        mEmployeeCodeEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
-                final TribeMate tribeMate = new TribeMate();
-                tribeMate.setName(mProfileNameEditText.getText().toString());
-                tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
-                tribeMate.setAge(mProfileAgeEditText.getText().toString());
-                tribeMate.setGender(mProfileGenderSpinner.getSelectedItem().toString());
-                tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
-                tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
-                tribeMate.setEmail(mProfileEmailEditText.getText().toString());
-                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
-                MyRef.child(currentUser.getUid()).child("personal_details").setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @TargetApi(Build.VERSION_CODES.M)
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            mProfileNameEditText.setText("");
-                            mProfileSurnameEditText.setText("");
-                            mProfileAgeEditText.setText("");
-                            mProfileCellPhoneNumberEditText.setText("");
-                            mProfileEmailEditText.setText("");
-                            Toast.makeText(getApplicationContext(), "Personal Details updated", Toast.LENGTH_SHORT).show();
-                            mProfilePersonaInfoButton.setEnabled(false);
-                            mProfilePersonaInfoButton.setTextColor(getColor(R.color.grey_300));
-                        } else {
-                            task.getException().printStackTrace();
-                        }
-                    }
-                });
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-        });
 
-
-
-
-        mProfileEducationSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                final Education education = new Education();
-                education.setQualification(mProfileQualificationEditText.getText().toString());
-                education.setInstitute(mProfileInstitutionEditText.getText().toString());
-                education.setDesc(mProfileFacultyCourseEditText.getText().toString());
-                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(education.toMap());
-                MyRef.child(currentUser.getUid()).child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @TargetApi(Build.VERSION_CODES.M)
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            mProfileQualificationEditText.setText("");
-                            mProfileInstitutionEditText.setText("");
-                            mProfileFacultyCourseEditText.setText("");
-                            Toast.makeText(getApplicationContext(), "Education updated", Toast.LENGTH_SHORT).show();
-                            mProfileEducationSaveButton.setEnabled(false);
-                            mProfileEducationSaveButton.setTextColor(getColor(R.color.grey_300));
-                        } else {
-                            task.getException().printStackTrace();
-                        }
-                    }
-                });
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().trim().length()>7){
+                    mProfileEmploymentSaveButton.setEnabled(true);
+
+                }else {
+                    mProfileEmploymentSaveButton.setEnabled(false);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
@@ -321,37 +270,41 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileEmploymentSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Employment employment = new Employment();
-                employment.setEmploymentStatus(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
-                employment.setCompanyName(mProfileCompanyNameEditText.getText().toString());
-                employment.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
-                employment.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
-                employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
-                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(employment.toMap());
-                MyRef.child(currentUser.getUid()).child(currentUser.getUid()).child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @TargetApi(Build.VERSION_CODES.M)
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            mProfileCompanyNameEditText.setText("");
-                            mProfileCompanyContactEditText.setText("");
-                            Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
-                            mProfileEmploymentSaveButton.setEnabled(false);
-                            mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));
 
-                        } else {
-                            task.getException().printStackTrace();
-                        }
-                    }
-                });
-            }
-        });
+
+                final TribeMate tribeMate = new TribeMate();
+
+                tribeMate.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
+                tribeMate.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
+                tribeMate.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
+
+                tribeMate.setQualification(mProfileQualificationEditText.getText().toString());
+                tribeMate.setInstitute(mProfileInstitutionEditText.getText().toString());
+                tribeMate.setDesc(mProfileFacultyCourseEditText.getText().toString());
+
+                tribeMate.setName(mProfileNameEditText.getText().toString());
+                tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
+                tribeMate.setAge(mProfileAgeEditText.getText().toString());
+                tribeMate.setGender(mProfileGenderSpinner.getSelectedItem().toString());
+                tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
+                tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
+                tribeMate.setEmail(mProfileEmailEditText.getText().toString());
+                tribeMate.setEmploymentStatus(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
+                tribeMate.setCompanyName(mProfileCompanyNameEditText.getText().toString());
+                tribeMate.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
+                tribeMate.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
+                tribeMate.setStartDate(mProfileStartDatePickerButton.getText().toString());
+                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
+                MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
+
+
+        }});
         mEmployeeSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 System.out.println(mEmployeeCodeEditText.getText().toString());
-                mDatabaseReference.addValueEventListener(new ValueEventListener() {
+                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).addValueEventListener(new ValueEventListener() {
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -390,6 +343,42 @@ Calendar mCalendar = Calendar.getInstance();
                 uploadImage();
             }
         });
+
+        MyRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                mProfileNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("name").getValue());
+                mProfileSurnameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("surname").getValue());
+                mProfileAgeEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("age").getValue());
+                mProfileCellPhoneNumberEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNo").getValue());
+                mProfileEmployeeCodeEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("employeeCode").getValue());
+                mProfileQualificationEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("highestQualification").getValue());
+                mProfileInstitutionEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("qualificationInstitution").getValue());
+                mProfileFacultyCourseEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("qualificationDescription").getValue());
+                mEmployeeCodeEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("employeeCode").getValue());
+                mProfileCellPhoneNumberEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNo").getValue());
+                mProfileStartDatePickerButton.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());
+                mProfileCompanyNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
+                mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
+                mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
+                Glide.with(mProfileCircleImage.getContext())
+                        .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_image").getValue())
+                        .into(mProfileCircleImage);
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
 
 
 
@@ -656,7 +645,8 @@ Calendar mCalendar = Calendar.getInstance();
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             TribeMate item = new TribeMate();
                             item.setProfileImage(downloadUri.toString());
-                            mDatabaseReference.child(currentUser.getUid()).child("profile_images").setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            MyRef.child(currentUser.getUid()).setValue(item.toMap());
+                            mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     try {

@@ -23,6 +23,108 @@ public class TribeMate {
     private String mCodeTribe;
     private String mProfileImage;
 
+    private String mQualification;
+    private String mDesc;
+    private String mInstitute;
+
+    private String mEmploymentStatus;
+    private String mCompanyContactNumber;
+    private String mCompanyName;
+    private String mSalary;
+    private String mStartDate;
+
+    private String mCodeTribeLocation;
+    private String mEmployeeCode;
+    private String mCodeTribeProgramStatus;
+
+    public String getCodeTribeLocation() {
+        return mCodeTribeLocation;
+    }
+
+    public void setCodeTribeLocation(String codeTribeLocation) {
+        mCodeTribeLocation = codeTribeLocation;
+    }
+
+    public String getEmployeeCode() {
+        return mEmployeeCode;
+    }
+
+    public void setEmployeeCode(String employeeCode) {
+        mEmployeeCode = employeeCode;
+    }
+
+    public String getCodeTribeProgramStatus() {
+        return mCodeTribeProgramStatus;
+    }
+
+    public void setCodeTribeProgramStatus(String codeTribeProgramStatus) {
+        mCodeTribeProgramStatus = codeTribeProgramStatus;
+    }
+
+    public String getQualification() {
+        return mQualification;
+    }
+
+    public void setQualification(String qualification) {
+        mQualification = qualification;
+    }
+
+    public String getDesc() {
+        return mDesc;
+    }
+
+    public void setDesc(String desc) {
+        mDesc = desc;
+    }
+
+    public String getInstitute() {
+        return mInstitute;
+    }
+
+    public void setInstitute(String institute) {
+        mInstitute = institute;
+    }
+
+    public String getEmploymentStatus() {
+        return mEmploymentStatus;
+    }
+
+    public void setEmploymentStatus(String employmentStatus) {
+        mEmploymentStatus = employmentStatus;
+    }
+
+    public String getCompanyContactNumber() {
+        return mCompanyContactNumber;
+    }
+
+    public void setCompanyContactNumber(String companyContactNumber) {
+        mCompanyContactNumber = companyContactNumber;
+    }
+
+    public String getCompanyName() {
+        return mCompanyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        mCompanyName = companyName;
+    }
+
+    public String getSalary() {
+        return mSalary;
+    }
+
+    public void setSalary(String salary) {
+        mSalary = salary;
+    }
+
+    public String getStartDate() {
+        return mStartDate;
+    }
+
+    public void setStartDate(String startDate) {
+        mStartDate = startDate;
+    }
+
     public String getBio() {
         return mBio;
     }
@@ -174,6 +276,17 @@ public class TribeMate {
         result.put("intakePeriod", mIntakeYear);
         result.put("gender", mGender);
         result.put("ethnicity",mEthnicity);
+        result.put("employed", mEmploymentStatus);
+        result.put("companyContactDetails", mCompanyContactNumber);
+        result.put("companyName", mCompanyName);
+        result.put("monthlySalary(ZAR)", mSalary);
+        result.put("startDate", mStartDate);
+        result.put("highestQualification", mQualification);
+        result.put("qualificationDescription", mDesc);
+        result.put("qualificationInstitution", mInstitute);
+        result.put("codeTribeLocation", mCodeTribeLocation);
+        result.put("employeeCode", mEmployeeCode);
+        result.put("status", mCodeTribeProgramStatus);
         return result;
     }
 
