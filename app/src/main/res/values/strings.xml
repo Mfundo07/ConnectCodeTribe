@@ -313,6 +313,17 @@
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="please_enter_information_here_first">Please Enter information Here First</string>
+    <string name="codetribe">CodeTribe</string>
+    <string name="employee_code">Employee Code</string>
+    <string name="code_hint">CTR0141</string>
+    <string name="search">Search</string>
+    <string name="edit">Edit</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="name_text">Name</string>
+    <string name="name_hint">eg. Kratos</string>
+    <string name="surname_text">Surname</string>
+    <string name="age_text">Age</string>
     <!-- Label for dropdown menu option if the pet is male [CHAR LIMIT=20] -->
 
 

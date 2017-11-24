@@ -108,12 +108,14 @@ public class TembisaFragment extends Fragment {
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());
-                            user.setStatus((String) snapshot.child("codeTribeProgramStatus").getValue());
+                            user.setStatus((String) snapshot.child("status").getValue());
                             user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                             user.setEmail((String) snapshot.child("email").getValue());
-                            user.setMobile((String) snapshot.child("mobile").getValue());
-                            user.setProfileImage((String) snapshot.child("profileImage").getValue());
+                            user.setMobile((String) snapshot.child("mobileNo").getValue());
+                            if ((String) snapshot.child("profile_picture").getValue() != null){
+                                user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                             user.setBio((String) snapshot.child("bio").getValue());
+
                             mTribeMates.add(user);
                         }
                         if (mTribeMates.size() > 0) {

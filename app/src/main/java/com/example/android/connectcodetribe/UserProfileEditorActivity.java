@@ -278,7 +278,7 @@ Calendar mCalendar = Calendar.getInstance();
             public void onClick(View v) {
 
                 System.out.println(mEmployeeCodeEditText.getText().toString());
-                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).addValueEventListener(new ValueEventListener() {
+                mDatabaseReference.addValueEventListener(new ValueEventListener() {
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

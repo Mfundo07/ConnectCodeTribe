@@ -34,6 +34,7 @@ import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
+import com.example.android.connectcodetribe.SowetoFragment;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,8 +52,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference myRef;
-    ImageButton btnStatus, btnGithubLink, btnAddBio ;
-    ImageView userImage, btnAddProject, AddEx;
+    ImageButton btnStatus, btnGithubLink, btnAddBio, btnTribeChat ;
+    ImageView userImage, btnAddProject;
     public String gihubLink;
 
 
@@ -109,9 +110,8 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }else{
-            Glide.with(userImage.getContext())
-                    .load(currentUser.getPhotoUrl())
-                    .into(userImage);
+            userImage.setImageResource(R.drawable.man_user_user);
+
         }
         myRef = database.getReference("/users/");
         mBio = (TextView) findViewById(R.id.userBio);
@@ -202,6 +202,15 @@ public class ProfileActivity extends AppCompatActivity {
                             }
                         }
                     });
+
+                btnTribeChat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if ((String) dataSnapshot.child(currentUser.getUid()).child("codeTribeLocation").getValue()  == "Soweto"){
+                            startActivity(new Intent(ProfileActivity.this, SowetoFragment.class));
+                        }
+                    }
+                });
                     gihubLink = (String) dataSnapshot.child("github_link").getValue();
                     btnGithubLink.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -272,6 +281,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
         });
+
     }
     public void addBottomDots(int currentPage) {
         dots = new TextView[projects.size()];

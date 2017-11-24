@@ -24,7 +24,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Start Here"
+                android:text="@string/please_enter_information_here_first"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="8dp"
@@ -69,7 +69,7 @@
                         android:textColor="@color/textColorUser"
                         android:textSize="12sp"
                         android:textStyle="bold"
-                        android:text="CodeTribe" />
+                        android:text="@string/codetribe" />
 
                     <Spinner
                         android:id="@+id/tribe_profile_option_spinner"
@@ -98,7 +98,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/textColorUser"
                         android:textSize="12sp"
-                        android:text="Employee Code" />
+                        android:text="@string/employee_code" />
 
                     <EditText
                         android:id="@+id/edit_employee_code"
@@ -109,7 +109,7 @@
                         android:maxLines="2"
                         android:textColor="@color/textColorUser"
                         android:textSize="12sp"
-                        android:hint="CTR0141" />
+                        android:hint="@string/code_hint" />
 
 
                 </LinearLayout>
@@ -128,7 +128,7 @@
                         android:padding="8dp"
                         android:gravity="end"
                         android:layout_marginLeft="4dp"
-                        android:text="Search"
+                        android:text="@string/search"
                         android:background="@android:color/transparent"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold"/>
@@ -168,13 +168,13 @@
 
                         <Button
                             android:id="@+id/profile_image_edit_button"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:padding="8dp"
                             android:gravity="center"
                             android:layout_weight="1"
                             android:layout_marginLeft="4dp"
-                            android:text="Edit"
+                            android:text="@string/edit"
                             android:background="@android:color/transparent"
                             android:textColor="@color/colorPrimary"
                             android:textStyle="bold"/>
@@ -197,7 +197,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Personal Details"
+                    android:text="@string/personal_details"
                     android:layout_weight="1"
                     android:padding="8dp"
                     android:textSize="20sp"
@@ -233,7 +233,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
-                            android:text="Name"
+                            android:text="@string/name_text"
                             android:gravity="center_vertical"
                             android:textColor="#000"
                             android:textStyle="bold"/>
@@ -245,7 +245,7 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textColor="#000"
-                            android:hint="eg. Kratos"/>
+                            android:hint="@string/name_hint"/>
 
 
                     </LinearLayout>
@@ -260,7 +260,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="Surname"
+                            android:text="@string/surname_text"
                             android:gravity="center_vertical"
                             android:textSize="12sp"
                             android:textColor="#000"
@@ -290,7 +290,7 @@
                             android:textColor="#000"
                             android:textSize="12sp"
                             android:gravity="center_vertical"
-                            android:text="Age "
+                            android:text="@string/age_text"
                             android:textStyle="bold"/>
 
                         <EditText

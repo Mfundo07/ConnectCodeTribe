@@ -13,10 +13,13 @@ import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
 import com.example.android.connectcodetribe.profile.ProfileActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class DifferentCodetribeTabs extends AppCompatActivity {
 
     FloatingActionButton mProfileBackFabButton;
+    FirebaseUser currentUser;
 
 
 
@@ -24,6 +27,14 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null){
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }else {
+            startActivity(new Intent(this, UserProfileEditorActivity.class));
+        }
 
         mProfileBackFabButton = findViewById(R.id.profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
