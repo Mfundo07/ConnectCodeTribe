@@ -258,6 +258,7 @@ Calendar mCalendar = Calendar.getInstance();
                 tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
                 tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
                 tribeMate.setEmail(mProfileEmailEditText.getText().toString());
+                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
                 MyRef.child(currentUser.getUid()).child("personal_details").setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
@@ -290,6 +291,7 @@ Calendar mCalendar = Calendar.getInstance();
                 education.setQualification(mProfileQualificationEditText.getText().toString());
                 education.setInstitute(mProfileInstitutionEditText.getText().toString());
                 education.setDesc(mProfileFacultyCourseEditText.getText().toString());
+                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(education.toMap());
                 MyRef.child(currentUser.getUid()).child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
@@ -325,6 +327,7 @@ Calendar mCalendar = Calendar.getInstance();
                 employment.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
                 employment.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
                 employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
+                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(employment.toMap());
                 MyRef.child(currentUser.getUid()).child(currentUser.getUid()).child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
