@@ -42,10 +42,16 @@
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".Welcome_activity" />
         <activity android:name=".Main3Activity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".Admin_profile" />
+        <activity android:name=".Admin_register" />
+        <activity android:name=".Admin_Login_Activity" />
+        <activity android:name=".Admin_codetribe_fragment" />
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".EmployeeActivity"
-            android:label="ENTER YOUR EMPLOYEE CODE"/>
+        <activity
+            android:name=".EmployeeActivity"
+            android:label="ENTER YOUR EMPLOYEE CODE" />
         <activity android:name=".EmailPasswordActivity" />
         <activity android:name=".FullScreenActivity" />
         <activity android:name=".LoginActivity" />
@@ -61,8 +67,9 @@
         </provider>
 
         <activity android:name=".ChatActivitySoweto" />
-        <activity android:name=".SplashScreen"
-            android:label="CodeTribe Connect">
+        <activity
+            android:name=".SplashScreen"
+            android:label="Welcome to CodeTribe Connect">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -74,7 +81,11 @@
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Projects_more" />
-        <activity android:name=".Experience_more"></activity>
+        <activity android:name=".Experience_more" />
+        <activity android:name=".Admin_Login_Activity" />
+        <activity android:name=".Admin_ScrollingFragment" />
+        <activity android:name=".Admin_scrolling_editor" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

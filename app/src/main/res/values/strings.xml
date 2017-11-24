@@ -60,8 +60,6 @@
     <string name="pretoria">pretoria_codetribe</string>
 
 
-
-
     <string name="tab_soweto">Soweto</string>
     <string name="tab_tembisa">Tembisa</string>
     <string name="tab_pretoria">Pretoria</string>
@@ -85,8 +83,6 @@
         <item>@string/pretoria</item>
         <item>@string/tembisa</item>
     </string-array>
-
-
 
 
     <string-array name="array_gender_options">
