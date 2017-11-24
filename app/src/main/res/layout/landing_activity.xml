@@ -17,6 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#93c841"
             android:weightSum="6">
 
             <TextView
@@ -31,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#93c841"
+                android:backgroundTint="#fff"
                 android:spinnerMode="dropdown"
                 android:textSize="12sp" />
 
