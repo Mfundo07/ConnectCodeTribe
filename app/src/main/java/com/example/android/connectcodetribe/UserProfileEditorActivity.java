@@ -590,8 +590,6 @@ Calendar mCalendar = Calendar.getInstance();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
                 mProfileCircleImage.setImageBitmap(bitmap);
-                mProfileImageSaveButton.setEnabled(true);
-                mProfileImageSaveButton.setVisibility(View.VISIBLE);
             } catch (IOException e) {
                 e.printStackTrace();
             }

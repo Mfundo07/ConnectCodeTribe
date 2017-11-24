@@ -271,7 +271,7 @@ public class TribeMate {
         result.put("surname", mSurname);
         result.put("employeeCode", mEMC);
         result.put("emailAddress",mEmail);
-        result.put("mobileNumber", mMobile);
+        result.put("mobileNo", mMobile);
         result.put("profile_picture",mProfileImage);
         result.put("intakePeriod", mIntakeYear);
         result.put("gender", mGender);

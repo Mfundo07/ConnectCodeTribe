@@ -77,7 +77,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/soweto_codetribe");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/soweto_codetribe/");
 
 
         // Set the adapter
@@ -111,7 +111,8 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                         user.setEmail((String) snapshot.child("email").getValue());
                         user.setMobile((String) snapshot.child("mobileNumber").getValue());
-                        user.setProfileImage((String) snapshot.child("profileImage").getValue());
+                        if ((String) snapshot.child("profile_picture").getValue() != null){
+                        user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                         user.setBio((String) snapshot.child("bio").getValue());
 
                         mTribeMates.add(user);
