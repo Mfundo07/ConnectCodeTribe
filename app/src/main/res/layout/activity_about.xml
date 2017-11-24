@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.connectcodetribe.AboutActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="3"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/icon"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:text="MLAB CodeTribeConnect"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textStyle="italic"
+                    android:text="Southern Africa"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#EB1C24"
+        android:tint="#000"
+        android:background="@drawable/location_on_black"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="18dp"
+    android:text="CodeTribe Academy Launched on 1 September 2014 as a partnership between The Innovation Hub and mLab Southern Africa to increase the skills of young ICT enthusiasts through  a dedicated programme to of practical development of high impact and market relevant solutions.
+
+The academy focuses on Android SDK’s, Cloud, Architecture and design of innovative mobility solutions. The “Tribe” is more than just students sharing a class but rather a community of Coders who learn, work, code, hack and teach together to strengthen the group as a whole.
+
+CodeTribe is a dedicated programme for developing the next generation of software developers. While established startups are welcome to have members participate in their own time and at own expense, they do not qualify for bursaries as full time students. Startups and their staff or members are advised to apply for incubation and acceleration support through Maxum Business Incubator and mLab.
+
+If you think you have what it takes to be part of the Tribe then apply for available bursaries below or keep an eye out for any of our open classes that can be attended by any one interested in learning from a specific topic."/>
+        <Button
+            android:id="@+id/more_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="more info"
+            android:background="@android:color/transparent"
+            android:textColor="#6bcce4 "/>
+
+    </LinearLayout>
+
+
+
+    </ScrollView>
+</LinearLayout>
