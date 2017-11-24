@@ -108,7 +108,7 @@ public class PretoriaFragment extends Fragment {
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());
-                            user.setStatus((String) snapshot.child("status").getValue());
+                            user.setStatus((String) snapshot.child("codeTribeProgramStatus").getValue());
                             user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                             user.setEmail((String) snapshot.child("email").getValue());
                             user.setMobile((String) snapshot.child("mobile").getValue());

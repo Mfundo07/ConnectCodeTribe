@@ -328,7 +328,7 @@ Calendar mCalendar = Calendar.getInstance();
                             Toast.makeText(getApplicationContext(), "Employment updated", Toast.LENGTH_SHORT).show();
                             mProfileEmploymentSaveButton.setEnabled(false);
                             mProfileEmploymentSaveButton.setTextColor(getColor(R.color.grey_300));
-                            finish();
+
                         } else {
                             task.getException().printStackTrace();
                         }
