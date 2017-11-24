@@ -911,14 +911,14 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="horizontal"
-                        android:gravity="end">
+                        android:gravity="center">
                         <Button
                             android:id="@+id/profile_employment_save_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
                             android:gravity="center"
-                            android:text="@string/button_text_save"
+                            android:text= "Save All"
                             android:background="@android:color/transparent"
                             android:textColor="@color/colorPrimary"
                             android:textStyle="bold"/>
@@ -927,6 +927,7 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
 
         </LinearLayout>
 
