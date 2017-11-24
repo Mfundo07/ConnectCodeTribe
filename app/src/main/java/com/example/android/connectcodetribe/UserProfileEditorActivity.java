@@ -193,13 +193,11 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileStartDatePickerButton = findViewById(R.id.profile_intake_period_button);
         mProfileProgramStateSpinner = findViewById(R.id.profile_tribe_status_spinner);
         mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
-        mProfileImageSaveButton = findViewById(R.id.profile_image_save_button);
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileCircleImage.setImageResource(R.drawable.man_user_user);
         mProfileEmploymentSaveButton.setEnabled(false);
 
-        mProfileImageSaveButton.setEnabled(false);
-        mProfileImageSaveButton.setVisibility(View.INVISIBLE);
+
         mProfilecodeTribeSaveButton = findViewById(R.id.profile_code_tribe_save_button);
         mProfilecodeTribeSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -313,7 +311,6 @@ Calendar mCalendar = Calendar.getInstance();
 
             }
         });
-        mProfileImageSaveButton.setVisibility(View.GONE);
 
         MyRef.addValueEventListener(new ValueEventListener() {
             @Override

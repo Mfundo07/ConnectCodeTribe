@@ -147,7 +147,7 @@
                 android:layout_margin="4dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
-                android:layout_weight="1">
+                android:layout_weight="2">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -165,17 +165,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/profile_image_save_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="8dp"
-                            android:gravity="center"
-                            android:layout_weight="1"
-                            android:text="@string/button_text_save"
-                            android:background="@android:color/transparent"
-                            android:textColor="@color/colorPrimary"
-                            android:textStyle="bold"/>
+
                         <Button
                             android:id="@+id/profile_image_edit_button"
                             android:layout_width="match_parent"
