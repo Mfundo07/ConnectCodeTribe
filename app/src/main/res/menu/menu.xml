@@ -12,5 +12,13 @@
         app:showAsAction="never"
         />
 
+    <item
+
+        android:title="Admin"
+        android:id="@+id/btnAdmin"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+
 
 </menu>
