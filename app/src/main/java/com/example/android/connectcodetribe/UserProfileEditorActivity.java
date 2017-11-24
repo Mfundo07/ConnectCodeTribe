@@ -605,7 +605,7 @@ Calendar mCalendar = Calendar.getInstance();
     private void uploadImage() {
         if (filepath != null) {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading Information.....");
+            progressDialog.setTitle("Uploading Information...");
             progressDialog.show();
 
             StorageReference ref = mStoragereference.child("profile_images");
