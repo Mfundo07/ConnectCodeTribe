@@ -62,7 +62,7 @@ public class Employement_Activity extends AppCompatActivity {
         bnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Employment employment = new Employment(mEmploymentStatus);
+                Employment employment = new Employment();
                 employment.setEmploymentStatus(mEmploy.getText().toString());
                 employment.setCompanyContactNumber(mCurrent.getText().toString());
                 employment.setCompanyName(mCompany.getText().toString());

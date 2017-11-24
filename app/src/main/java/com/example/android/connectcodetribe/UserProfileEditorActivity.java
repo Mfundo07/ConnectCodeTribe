@@ -290,7 +290,7 @@ Calendar mCalendar = Calendar.getInstance();
                 education.setQualification(mProfileQualificationEditText.getText().toString());
                 education.setInstitute(mProfileInstitutionEditText.getText().toString());
                 education.setDesc(mProfileFacultyCourseEditText.getText().toString());
-                MyRef.child(currentUser.getUid()).child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                MyRef.child(currentUser.getUid()).child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -325,7 +325,7 @@ Calendar mCalendar = Calendar.getInstance();
                 employment.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
                 employment.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
                 employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
-                MyRef.child(currentUser.getUid()).child(currentUser.getUid()).child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                MyRef.child(currentUser.getUid()).child(currentUser.getUid()).child("employment").setValue(employment).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

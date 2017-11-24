@@ -80,13 +80,13 @@
                             android:textStyle="bold"/>
 
                         <TextView
-                            android:id="@+id/profile_age"
+                            android:id="@+id/profile_name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textColor="#000"
                             android:textSize="12sp"
-                            android:hint="e.g Kratos" />
+                            android:hint="Kratos" />
 
                     </LinearLayout>
 
@@ -109,13 +109,39 @@
                             android:textStyle="bold"/>
 
                         <TextView
+                            android:id="@+id/profile_surname"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textColor="#000"
+                            android:hint="War" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                            android:text="Gender"
+                            android:gravity="center_vertical"
+                            android:textStyle="bold"/>
+
+                        <TextView
                             android:id="@+id/profile_gender"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textColor="#000"
-                            android:hint="e.g War" />
+                            android:hint="F" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -141,7 +167,7 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textColor="#000"
-                            android:hint="e.g Black " />
+                            android:hint="Black " />
 
                     </LinearLayout>
 
@@ -169,7 +195,7 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textColor="#000"
-                            android:hint="e.g 072 984 4608" />
+                            android:hint="072 984 4608" />
 
                     </LinearLayout>
 
@@ -196,8 +222,35 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textColor="#000"
-                            android:hint="e.g kratoswar@gmail.com" />
+                            android:hint="kratoswar@gmail.com" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            android:text="Country of Birth"
+                            android:textColor="#000"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/profile_countryOfBirth"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textColor="#000"
+                            android:hint="South Africa" />
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
