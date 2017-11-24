@@ -56,12 +56,6 @@
     <string name="post_program">Post Program</string>
 
 
-
-
-
-
-
-
     <string name="tab_soweto">Soweto</string>
     <string name="tab_tembisa">Tembisa</string>
     <string name="tab_pretoria">Pretoria</string>
@@ -79,8 +73,6 @@
         <item>@string/unemployed_status</item>
         <item>@string/self_employed_status</item>
     </string-array>
-
-
 
 
     <string-array name="array_gender_options">
@@ -288,7 +280,7 @@
     <string name="tribes" />
     <string name="skills" />
     <string name="experience" />
-    <string name="alumni"/>
+    <string name="alumni" />
     <string name="todo" />
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>

@@ -28,6 +28,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
+import com.example.android.connectcodetribe.Admin_Login_Activity;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Project;
@@ -76,7 +77,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
-
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
         mGender = (TextView) findViewById(R.id.profile_gender);
         mEthnicity = (TextView) findViewById(R.id.profile_ethnicity);
@@ -297,20 +297,28 @@ public class ProfileActivity extends AppCompatActivity {
         return true;
     }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-            int id = item.getGroupId();
+        int id = item.getGroupId();
 
-            if(id==R.id.btnLogout);
+        if(id==R.id.btnLogout);
 
-            Intent intentAdmin = new Intent(ProfileActivity.this,LoginActivity.class);
-            startActivity(intentAdmin);
-            finish();
+        Intent intentLogout = new Intent(ProfileActivity.this,LoginActivity.class);
+        startActivity(intentLogout);
+        finish();
+        if(id==R.id.btnLogout);
 
-            return true;
+        Intent intentAdmin = new Intent(ProfileActivity.this,Admin_Login_Activity.class);
+        startActivity(intentAdmin);
+        finish();
 
-        }
+        return true;
+
+
+
+
+    }
     }
 
 
