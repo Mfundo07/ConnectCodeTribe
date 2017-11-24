@@ -73,10 +73,13 @@ public class ProfileActivity extends AppCompatActivity {
     Toolbar toolbar;
     Toolbar toolbar1;
     @SuppressLint("WrongViewCast")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
+
+
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
         mGender = (TextView) findViewById(R.id.profile_gender);
         mEthnicity = (TextView) findViewById(R.id.profile_ethnicity);
