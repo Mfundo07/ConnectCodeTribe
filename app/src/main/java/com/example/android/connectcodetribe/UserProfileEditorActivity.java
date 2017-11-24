@@ -270,32 +270,8 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileEmploymentSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                uploadImage();
 
-
-                final TribeMate tribeMate = new TribeMate();
-
-                tribeMate.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
-                tribeMate.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
-                tribeMate.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
-
-                tribeMate.setQualification(mProfileQualificationEditText.getText().toString());
-                tribeMate.setInstitute(mProfileInstitutionEditText.getText().toString());
-                tribeMate.setDesc(mProfileFacultyCourseEditText.getText().toString());
-
-                tribeMate.setName(mProfileNameEditText.getText().toString());
-                tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
-                tribeMate.setAge(mProfileAgeEditText.getText().toString());
-                tribeMate.setGender(mProfileGenderSpinner.getSelectedItem().toString());
-                tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
-                tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
-                tribeMate.setEmail(mProfileEmailEditText.getText().toString());
-                tribeMate.setEmploymentStatus(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
-                tribeMate.setCompanyName(mProfileCompanyNameEditText.getText().toString());
-                tribeMate.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
-                tribeMate.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
-                tribeMate.setStartDate(mProfileStartDatePickerButton.getText().toString());
-                mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
-                MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
 
 
         }});
@@ -337,12 +313,7 @@ Calendar mCalendar = Calendar.getInstance();
 
             }
         });
-        mProfileImageSaveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                uploadImage();
-            }
-        });
+        mProfileImageSaveButton.setVisibility(View.GONE);
 
         MyRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -363,7 +334,7 @@ Calendar mCalendar = Calendar.getInstance();
                 mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
                 mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
                 Glide.with(mProfileCircleImage.getContext())
-                        .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_image").getValue())
+                        .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
                         .into(mProfileCircleImage);
 
 
@@ -634,7 +605,7 @@ Calendar mCalendar = Calendar.getInstance();
     private void uploadImage() {
         if (filepath != null) {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading Image.....");
+            progressDialog.setTitle("Uploading Information.....");
             progressDialog.show();
 
             StorageReference ref = mStoragereference.child("profile_images");
@@ -643,10 +614,33 @@ Calendar mCalendar = Calendar.getInstance();
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
-                            TribeMate item = new TribeMate();
-                            item.setProfileImage(downloadUri.toString());
-                            MyRef.child(currentUser.getUid()).setValue(item.toMap());
-                            mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(item.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            final TribeMate tribeMate = new TribeMate();
+
+                            tribeMate.setProfileImage(downloadUri.toString());
+
+                            tribeMate.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
+                            tribeMate.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
+                            tribeMate.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
+
+                            tribeMate.setQualification(mProfileQualificationEditText.getText().toString());
+                            tribeMate.setInstitute(mProfileInstitutionEditText.getText().toString());
+                            tribeMate.setDesc(mProfileFacultyCourseEditText.getText().toString());
+
+                            tribeMate.setName(mProfileNameEditText.getText().toString());
+                            tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
+                            tribeMate.setAge(mProfileAgeEditText.getText().toString());
+                            tribeMate.setGender(mProfileGenderSpinner.getSelectedItem().toString());
+                            tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
+                            tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
+                            tribeMate.setEmail(mProfileEmailEditText.getText().toString());
+                            tribeMate.setEmploymentStatus(mProfileEmploymentStatusSpinner.getSelectedItem().toString());
+                            tribeMate.setCompanyName(mProfileCompanyNameEditText.getText().toString());
+                            tribeMate.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
+                            tribeMate.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
+                            tribeMate.setStartDate(mProfileStartDatePickerButton.getText().toString());
+
+                            MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
+                            mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     try {
@@ -660,8 +654,6 @@ Calendar mCalendar = Calendar.getInstance();
                             });
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
-                            mProfileImageSaveButton.setEnabled(false);
-                            mProfileImageSaveButton.setVisibility(View.INVISIBLE);
 
 
 
