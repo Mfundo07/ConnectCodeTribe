@@ -1,5 +1,10 @@
 package com.example.android.connectcodetribe.Model;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Admin on 11/10/2017.
  */
@@ -153,6 +158,23 @@ public class TribeMate {
         mMobile = mobile;
         mEmail = email;
 
+    }
+
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("age", mAge);
+        result.put("name", mName);
+        result.put("surname", mSurname);
+        result.put("employeeCode", mEMC);
+        result.put("emailAddress",mEmail);
+        result.put("mobileNo", mMobile);
+        result.put("profile_picture",mProfileImage);
+        result.put("intakePeriod", mIntakeYear);
+        result.put("gender", mGender);
+        result.put("ethnicity",mEthnicity);
+        return result;
     }
 
 

@@ -170,6 +170,7 @@ Calendar mCalendar = Calendar.getInstance();
         mEmployeeTribeSpinner = findViewById(R.id.tribe_profile_option_spinner);
         mEmployeeSearchButton = findViewById(R.id.employee_search_button);
         mStoragereference = FirebaseStorage.getInstance().getReference("/users/");
+        MyRef = FirebaseDatabase.getInstance().getReference("/users/");
         mProfileEmployeeCodeEditText = findViewById(R.id.profile_emc_edit_text);
         mProfileNameEditText = (EditText) findViewById(R.id.profile_name_edit_text);
         mProfileSurnameEditText = (EditText) findViewById(R.id.profile_surname_edit_text);
@@ -206,11 +207,10 @@ Calendar mCalendar = Calendar.getInstance();
                 codeTribe.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
                 codeTribe.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
                 codeTribe.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
-                mDatabaseReference.child("users").child(currentUser.getUid()).child("codeTribe_details").setValue(codeTribe).addOnCompleteListener(new OnCompleteListener<Void>() {
+                MyRef.child(currentUser.getUid()).child("codeTribe_details").setValue(codeTribe).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            mProfileEmployeeCodeEditText.setText(codeTribe.getEmployeeCode());
                         }
                     }
                 });
@@ -258,7 +258,7 @@ Calendar mCalendar = Calendar.getInstance();
                 tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
                 tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());
                 tribeMate.setEmail(mProfileEmailEditText.getText().toString());
-                mDatabaseReference.child(currentUser.getUid()).child("personal_details").setValue(tribeMate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                MyRef.child(currentUser.getUid()).child("personal_details").setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -290,7 +290,7 @@ Calendar mCalendar = Calendar.getInstance();
                 education.setQualification(mProfileQualificationEditText.getText().toString());
                 education.setInstitute(mProfileInstitutionEditText.getText().toString());
                 education.setDesc(mProfileFacultyCourseEditText.getText().toString());
-                mDatabaseReference.child("users").child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education).addOnCompleteListener(new OnCompleteListener<Void>() {
+                MyRef.child(currentUser.getUid()).child(mProfileCodeTribeSpinner.getSelectedItem().toString()).child(currentUser.getUid()).child("education").setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -325,7 +325,7 @@ Calendar mCalendar = Calendar.getInstance();
                 employment.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
                 employment.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
                 employment.setStartDate(mProfileStartDatePickerButton.getText().toString());
-                mDatabaseReference.child("users").child(currentUser.getUid()).child("employment").setValue(employment).addOnCompleteListener(new OnCompleteListener<Void>() {
+                MyRef.child(currentUser.getUid()).child(currentUser.getUid()).child("employment").setValue(employment.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
