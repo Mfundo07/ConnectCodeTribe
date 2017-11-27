@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -31,9 +30,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.TribeMate;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -269,7 +266,7 @@ Calendar mCalendar = Calendar.getInstance();
             @Override
             public void onClick(View view) {
                 uploadImage();
-                startActivity(new Intent(UserProfileEditorActivity.this, DifferentCodetribeTabs.class));
+
 
 
 
@@ -294,6 +291,7 @@ Calendar mCalendar = Calendar.getInstance();
                         Glide.with(mProfileCircleImage.getContext())
                                 .load((String) dataSnapshot.child(mEmployeeCodeEditText.getText().toString()).child("profile_picture").getValue())
                                 .into(mProfileCircleImage);
+
                     }
 
                     @Override
@@ -337,6 +335,7 @@ Calendar mCalendar = Calendar.getInstance();
                 Glide.with(mProfileCircleImage.getContext())
                         .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
                         .into(mProfileCircleImage);
+
 
 
 
@@ -641,20 +640,10 @@ Calendar mCalendar = Calendar.getInstance();
                             tribeMate.setStartDate(mProfileStartDatePickerButton.getText().toString());
 
                             MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
-                            mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    try {
-                                        Bitmap bitmap  = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
-                                        mProfileCircleImage.setImageBitmap(bitmap);
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            });
+                            mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                            finish();
 
 
 

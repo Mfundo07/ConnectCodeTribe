@@ -160,7 +160,7 @@ public class ProfileActivity extends AppCompatActivity {
                     mMobile.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNo").getValue());
                     mGender.setText((String) dataSnapshot.child(currentUser.getUid()).child("gender").getValue());
                     mEthnicity.setText((String) dataSnapshot.child(currentUser.getUid()).child("ethnicity").getValue());
-                    mEmail.setText((String) dataSnapshot.child(currentUser.getUid()).child("email").getValue());
+                    mEmail.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
                     mAge.setText((String) dataSnapshot.child(currentUser.getUid()).child("age").getValue());
                     mCompanyName.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
                     mCompanyNumber.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactNumber").getValue());

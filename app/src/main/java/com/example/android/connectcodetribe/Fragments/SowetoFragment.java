@@ -109,7 +109,7 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setGender((String) snapshot.child("gender").getValue());
                         user.setStatus((String) snapshot.child("status").getValue());
                         user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
-                        user.setEmail((String) snapshot.child("email").getValue());
+                        user.setEmail((String) snapshot.child("emailAddress").getValue());
                         user.setMobile((String) snapshot.child("mobileNo").getValue());
                         if ((String) snapshot.child("profile_picture").getValue() != null){
                         user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
