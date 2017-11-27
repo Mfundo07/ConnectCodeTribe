@@ -31,10 +31,7 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser == null){
             startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }else {
-            startActivity(new Intent(this, UserProfileEditorActivity.class));
-        }
+            finish();}
 
         mProfileBackFabButton = findViewById(R.id.profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
