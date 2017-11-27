@@ -253,7 +253,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        myRef.child(currentUser.getUid()).child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
+                        myRef.child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
                         mBioEditText.setText("");
                         alertDialog.cancel();
 
