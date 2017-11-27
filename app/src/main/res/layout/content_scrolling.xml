@@ -169,7 +169,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        tools:text="25"
+                        tools:text="22"
                         android:textColor="#000" />
                 </LinearLayout>
 
@@ -191,7 +191,7 @@
                         android:id="@+id/user_code"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        tools:text="CTR01141"
+                        tools:text="CTR0141"
                         android:layout_weight="1"
                         android:textColor="#000" />
                 </LinearLayout>
