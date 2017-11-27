@@ -269,6 +269,7 @@ Calendar mCalendar = Calendar.getInstance();
             @Override
             public void onClick(View view) {
                 uploadImage();
+                startActivity(new Intent(UserProfileEditorActivity.this, DifferentCodetribeTabs.class));
 
 
 
@@ -290,6 +291,9 @@ Calendar mCalendar = Calendar.getInstance();
                         mProfileQualificationEditText.setText((String) dataSnapshot.child(mEmployeeCodeEditText.getText().toString()).child("highestQualification").getValue());
                         mProfileInstitutionEditText.setText((String) dataSnapshot.child(mEmployeeCodeEditText.getText().toString()).child("qualificationInstitution").getValue());
                         mProfileFacultyCourseEditText.setText((String) dataSnapshot.child(mEmployeeCodeEditText.getText().toString()).child("qualificationDescription").getValue());
+                        Glide.with(mProfileCircleImage.getContext())
+                                .load((String) dataSnapshot.child(mEmployeeCodeEditText.getText().toString()).child("profile_picture").getValue())
+                                .into(mProfileCircleImage);
                     }
 
                     @Override
@@ -604,6 +608,8 @@ Calendar mCalendar = Calendar.getInstance();
             progressDialog.show();
 
             StorageReference ref = mStoragereference.child("profile_images");
+
+
             ref.putFile(filepath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -652,8 +658,10 @@ Calendar mCalendar = Calendar.getInstance();
 
 
 
+
                             // Creating Method to get the selected image file Extension from File Path URI.
                         }
+
                     });
         }
     }

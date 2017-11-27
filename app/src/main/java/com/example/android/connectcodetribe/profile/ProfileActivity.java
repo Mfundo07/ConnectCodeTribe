@@ -26,7 +26,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.AboutActivity;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Admin_Login_Activity;
@@ -35,7 +34,6 @@ import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.SowetoFragment;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -80,6 +78,11 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
 
+        if (currentUser == null){
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+
 
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
         mGender = (TextView) findViewById(R.id.profile_gender);
@@ -108,14 +111,7 @@ public class ProfileActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         userImage = (ImageView) findViewById(R.id.userImage);
-        if (currentUser == null){
-            userImage.setImageResource(R.drawable.man_user_user);
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }else{
-            userImage.setImageResource(R.drawable.man_user_user);
 
-        }
         myRef = database.getReference("/users/");
         mBio = (TextView) findViewById(R.id.userBio);
 
@@ -171,9 +167,9 @@ public class ProfileActivity extends AppCompatActivity {
                     mEmploymentStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("employed").getValue());
                     mSalary.setText((String) dataSnapshot.child(currentUser.getUid()).child("salary").getValue());
                     mStartDate.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());
-                    Glide.with(userImage.getContext())
-                            .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
-                            .into(userImage);
+                    //Glide.with(userImage.getContext())
+                           //.load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
+                            //.into(userImage);
                     mBio.setText((String) dataSnapshot.child(currentUser.getUid()).child("bio").getValue());
                     mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
@@ -206,14 +202,6 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     });
 
-                btnTribeChat.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if ((String) dataSnapshot.child(currentUser.getUid()).child("codeTribeLocation").getValue()  == "Soweto"){
-                            startActivity(new Intent(ProfileActivity.this, SowetoFragment.class));
-                        }
-                    }
-                });
                     gihubLink = (String) dataSnapshot.child("github_link").getValue();
                     btnGithubLink.setOnClickListener(new View.OnClickListener() {
                         @Override
