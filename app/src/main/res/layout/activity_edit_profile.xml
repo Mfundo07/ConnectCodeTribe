@@ -151,8 +151,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="4">
+                    android:orientation="vertical">
 
 
                     <ImageView
@@ -160,13 +159,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/kratos"
-                        android:layout_weight="2"/>
+                        android:src="@drawable/kratos" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:orientation="horizontal">
 
 
                         <Button

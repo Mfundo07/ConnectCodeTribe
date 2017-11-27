@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.AboutActivity;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Admin_Login_Activity;
@@ -78,10 +79,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
 
-        if (currentUser == null){
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }
 
 
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
@@ -167,9 +164,9 @@ public class ProfileActivity extends AppCompatActivity {
                     mEmploymentStatus.setText((String) dataSnapshot.child(currentUser.getUid()).child("employed").getValue());
                     mSalary.setText((String) dataSnapshot.child(currentUser.getUid()).child("salary").getValue());
                     mStartDate.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());
-                    //Glide.with(userImage.getContext())
-                           //.load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
-                            //.into(userImage);
+                    Glide.with(userImage.getContext())
+                           .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
+                            .into(userImage);
                     mBio.setText((String) dataSnapshot.child(currentUser.getUid()).child("bio").getValue());
                     mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
@@ -256,7 +253,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        myRef.child(currentUser.getUid()).child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
+                        myRef.child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
                         mBioEditText.setText("");
                         alertDialog.cancel();
 

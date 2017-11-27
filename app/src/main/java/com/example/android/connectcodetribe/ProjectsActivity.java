@@ -58,7 +58,7 @@ public class ProjectsActivity extends AppCompatActivity {
         //Init view
         ProjectImage = (ImageButton) findViewById(R.id.ProjectImage);
         ButUpload = (Button) findViewById(R.id.ButUpload);
-        mRef = FirebaseDatabase.getInstance().getReference();
+        mRef = FirebaseDatabase.getInstance().getReference("/users/");
         mProjectTitle = (EditText) findViewById(R.id.post_Title);
         mProjectLink = (EditText) findViewById(R.id.post_Desc);
 

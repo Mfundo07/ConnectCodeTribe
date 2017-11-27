@@ -332,7 +332,7 @@ Calendar mCalendar = Calendar.getInstance();
                 mProfileCompanyNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
                 mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
                 mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
-                  Glide.with(mProfileCircleImage.getContext())
+                Glide.with(mProfileCircleImage.getContext())
                         .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
                         .into(mProfileCircleImage);
 
