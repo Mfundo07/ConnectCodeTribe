@@ -185,8 +185,6 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileCompanyNameEditText = (EditText) findViewById(R.id.profile_company_name_edit_text);
         mProfileSalarySpinner = (Spinner) findViewById(R.id.profile_salary_spinner);
         mProfileCompanyContactEditText = (EditText) findViewById(R.id.profile_company_contact_edit_text);
-        mProfilePersonaInfoButton = findViewById(R.id.profile_personal_info_button);
-        mProfileEducationSaveButton = findViewById(R.id.profile_education_save_button);
         mProfileEmploymentSaveButton = findViewById(R.id.profile_employment_save_button);
         mProfileCodeTribeSpinner = findViewById(R.id.profile_code_tribe_name_spinner);
         mProfileStartDatePickerButton = findViewById(R.id.profile_intake_period_button);
@@ -196,14 +194,6 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileCircleImage.setImageResource(R.drawable.man_user_user);
         mProfileEmploymentSaveButton.setEnabled(false);
 
-
-        mProfilecodeTribeSaveButton = findViewById(R.id.profile_code_tribe_save_button);
-        mProfilecodeTribeSaveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
 
 
