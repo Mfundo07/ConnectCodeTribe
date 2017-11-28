@@ -33,6 +33,10 @@ public class ScrollingFragment extends AppCompatActivity {
     String mEmail;
     String mMobile;
     String mImage;
+    String mEmployed;
+    String mSalary;
+    String mCompanyName;
+    String mCompanyContact;
     Toolbar userProfileToolbar;
 
     Boolean expandable = true;
@@ -52,6 +56,9 @@ public class ScrollingFragment extends AppCompatActivity {
         TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
         TextView userEMC = findViewById(R.id.user_code);
         ImageView userImage = findViewById(R.id.userImage);
+        TextView userSalary = findViewById(R.id.profile_salary_text);
+        TextView userCompanyName = findViewById(R.id.profile_company_name_text_view);
+        TextView userCompanyContact = findViewById(R.id.profile_company_contact_text_view);
         final TextView userBio = findViewById(R.id.userBio);
         final ImageButton viewMoreButton = findViewById(R.id.moreOnUserBio);
 
@@ -71,6 +78,9 @@ public class ScrollingFragment extends AppCompatActivity {
         mAge = getIntent().getExtras().getString("Age");
         mEmail = getIntent().getExtras().getString("Email");
         mMobile = getIntent().getExtras().getString("Mobile");
+        mSalary = getIntent().getExtras().getString("salary");
+        mCompanyName = getIntent().getExtras().getString("company_name");
+        mCompanyContact = getIntent().getExtras().getString("company_contact");
 
         userProfileToolbar =  findViewById(R.id.toolbar);
         userProfileToolbar.setTitle(mName + " " + mSurname);
@@ -80,6 +90,9 @@ public class ScrollingFragment extends AppCompatActivity {
         userProfileStatus.setText(mStatus);
         userCodeTribeLocation.setText(mCodeTribe);
         userEMC.setText(mEMC);
+        userSalary.setText(mSalary);
+        userCompanyName.setText(mCompanyName);
+        userCompanyContact.setText(mCompanyContact);
         Glide.with(userImage.getContext())
                 .load(mImage)
                 .into(userImage);

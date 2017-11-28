@@ -33,7 +33,6 @@ import com.example.android.connectcodetribe.Admin_Login_Activity;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.Project;
-import com.example.android.connectcodetribe.ProjectsActivity;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -116,7 +115,7 @@ public class ProfileActivity extends AppCompatActivity {
         mCodeTribe = findViewById(R.id.userCodeTribeName);
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = findViewById(R.id.userStatusImage);
-        btnAddBio = findViewById(R.id.btn_add_bio);
+
 
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
         mProfileEditrFAButton = findViewById(R.id.fab);
@@ -212,13 +211,6 @@ public class ProfileActivity extends AppCompatActivity {
                     });
                     codeTribeName = (String) dataSnapshot.child("tribe").getValue();
 
-                    btnAddProject.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(ProfileActivity.this, ProjectsActivity.class);
-                            startActivity(intent);
-                        }
-                    });
 
 
                     projects.clear();

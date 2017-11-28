@@ -116,6 +116,10 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         if ((String) snapshot.child("profile_picture").getValue() != null){
                         user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                         user.setBio((String) snapshot.child("bio").getValue());
+                        user.setEmploymentStatus((String) snapshot.child("employed").getValue());
+                        user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
+                        user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
+                        user.setCompanyName((String) snapshot.child("companyName").getValue());
 
                         mTribeMates.add(user);
                 }

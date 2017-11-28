@@ -44,7 +44,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mIdView.setText(mTribeMates.get(position).getName());
         holder.mContentView.setText(mTribeMates.get(position).getSurname());
         holder.mStatus.setText(mTribeMates.get(position).getStatus());
-        holder.mIntakeYear.setText(mTribeMates.get(position).getEMC());
+        holder.mIntakeYear.setText(mTribeMates.get(position).getIntakeYear());
         holder.mCodeTribe.setText(mTribeMates.get(position).getCodeTribe());
         Glide.with(holder.mCircleImageView.getContext())
                 .load(mTribeMates.get(position).getProfileImage())
@@ -69,6 +69,11 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 intent.putExtra("Mobile", mTribeMates.get(position).getMobile());
                 intent.putExtra("image", mTribeMates.get(position).getProfileImage());
                 intent.putExtra("bio", mTribeMates.get(position).getBio());
+                intent.putExtra("company_name",mTribeMates.get(position).getCompanyName());
+                intent.putExtra("employed_year", mTribeMates.get(position).getIntakeYear());
+                intent.putExtra("company_contact", mTribeMates.get(position).getCompanyContactNumber());
+                intent.putExtra("employment_status", mTribeMates.get(position).getEmploymentStatus());
+                intent.putExtra("salary", mTribeMates.get(position).getSalary());
                 context = view.getContext();
                 context.startActivity(intent);
 
@@ -92,6 +97,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public TextView mIntakeYear;
         public TextView mCodeTribe;
         public CircleImageView mCircleImageView;
+
 
         public ViewHolder(View view) {
             super(view);

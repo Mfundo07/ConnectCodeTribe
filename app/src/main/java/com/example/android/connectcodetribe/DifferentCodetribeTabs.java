@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -47,7 +46,7 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DifferentCodetribeTabs.this, ProfileActivity.class));
+                startActivity(new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class));
             }
         });
 

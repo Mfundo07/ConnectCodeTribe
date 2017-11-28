@@ -1,5 +1,6 @@
 package com.example.android.connectcodetribe;
 
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -12,25 +13,34 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
+import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,6 +54,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by RP on 2017/09/02.
@@ -75,10 +87,13 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     private EditText mEmployeeCodeEditText;
     private Spinner mEmployeeTribeSpinner;
     private Button mEmployeeSearchButton;
+    private FloatingActionButton mProfileListButton;
 
     private EditText mProfileAgeEditText;
     private Button mProfileIntakePeriodButton, mProfilePersonaInfoButton, mProfileEducationSaveButton,
             mProfileEmploymentSaveButton, mProfileImageEditButton, mProfileImageSaveButton;
+    private ImageButton btnAddBio,btnAddProject, viewMoreButton;
+    private TextView mBio;
 
 
     private ImageView mProfileCircleImage;
@@ -117,6 +132,9 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
     private Uri filepath;
 
+    RecyclerView mProjectsRecyclerView;
+    ProjectsHorizontalAdapter mProjectsAdapter;
+
 
     private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
             mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
@@ -126,7 +144,10 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
     DatabaseReference MyRef;
 
+    List<Project> projects = new ArrayList<>();
     private boolean mUserHasChanged = false;
+
+    private boolean expandable = true;
     FirebaseUser currentUser;
     private int mGender = GENDER_UNKNOWN;
     private int mEthinicity = ETHNIC_BLACK;
@@ -192,7 +213,21 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileImageEditButton = findViewById(R.id.profile_image_edit_button);
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileCircleImage.setImageResource(R.drawable.man_user_user);
+        btnAddProject = findViewById(R.id.btn_add_project);
+        btnAddBio = findViewById(R.id.btn_add_bio);
+        mBio =  findViewById(R.id.userBio);
+        mProfileListButton = findViewById(R.id.profile_list_back_fab_button);
+        viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
         mProfileEmploymentSaveButton.setEnabled(false);
+
+        mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
+        //Setup layout manager to a horizontal scrolling recyclerView
+        LinearLayoutManager horizontalLayoutManagaer
+                = new LinearLayoutManager(UserProfileEditorActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        mProjectsRecyclerView.setLayoutManager(horizontalLayoutManagaer);
+        mProjectsAdapter = new ProjectsHorizontalAdapter(UserProfileEditorActivity.this, projects);
+        mProjectsRecyclerView.setAdapter(mProjectsAdapter);
+        //Setup layout manager to a staggered scrolling recyclerView
 
 
 
@@ -206,10 +241,15 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileSalarySpinner.setOnTouchListener(mTouchListener);
         setupSalarySpinner();
         mProfileCodeTribeSpinner.setOnTouchListener(mTouchListener);
+        setupProfilecodeTribeSpinner();
         mProfileProgramStateSpinner.setOnTouchListener(mTouchListener);
         setupProgramStatusSpinner();
         mEmployeeTribeSpinner.setOnTouchListener(mTouchListener);
         setupEmployeeTribeSpinner();
+
+        String tribe = mEmployeeTribeSpinner.getSelectedItem().toString();
+
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
 
 
 
@@ -262,6 +302,12 @@ Calendar mCalendar = Calendar.getInstance();
 
 
         }});
+        mProfileListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfileEditorActivity.this, DifferentCodetribeTabs.class));
+            }
+        });
         mEmployeeSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -285,6 +331,7 @@ Calendar mCalendar = Calendar.getInstance();
                         Glide.with(mProfileCircleImage.getContext())
                                 .load((String) dataSnapshot.child(mEmployeeCodeEditText.getText().toString()).child("profile_picture").getValue())
                                 .into(mProfileCircleImage);
+                        mEmployeeCodeEditText.setEnabled(false);
 
                     }
 
@@ -326,6 +373,33 @@ Calendar mCalendar = Calendar.getInstance();
                 mProfileCompanyNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
                 mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
                 mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
+                mBio.setText((String) dataSnapshot.child(currentUser.getUid()).child("bio").getValue());
+                mEmployeeSearchButton.setEnabled(false);
+                mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        if (expandable) {
+                            expandable = false;
+                            if (mBio.getLineCount() > 4) {
+                                viewMoreButton.setVisibility(View.VISIBLE);
+                                ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
+                                animation.setDuration(0).start();
+                            }
+                        }
+                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                });
+
+                projects.clear();
+                for (DataSnapshot snapshot : dataSnapshot.child(currentUser.getUid()).child("projects").getChildren()) {
+                    Project project = new Project();
+                    project.setSnapshot((String) snapshot.child("snapshot").getValue());
+                    project.setName((String) snapshot.child("name").getValue());
+                    project.setGithub_link((String) snapshot.child("github_link").getValue());
+                    System.out.println(project.toMap());
+                    projects.add(project);
+                }
+                mProjectsAdapter.notifyDataSetChanged();
 
 
 
@@ -338,6 +412,52 @@ Calendar mCalendar = Calendar.getInstance();
 
             }
         });
+
+        btnAddBio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(UserProfileEditorActivity.this);
+                LayoutInflater inflater = UserProfileEditorActivity.this.getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.bio_editor, null);
+                final EditText mBioEditText = dialogView.findViewById(R.id.bio_edit_text);
+                Button addBioButton = dialogView.findViewById(R.id.bio_text_submit_button);
+                builder.setView(dialogView);
+                final AlertDialog alertDialog = builder.create();
+
+                addBioButton.setOnClickListener(new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View v) {
+                        String tribe = mEmployeeTribeSpinner.getSelectedItem().toString();
+
+                        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
+                        mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).child("bio").setValue(mBioEditText.getText().toString());
+                        MyRef.child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
+                        mBioEditText.setText("");
+                        alertDialog.cancel();
+
+
+                    }
+
+
+                });
+
+
+                alertDialog.show();
+
+            }
+
+        });
+
+        btnAddProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(UserProfileEditorActivity.this, ProjectsActivity.class));
+            }
+        });
+
+
 
 
 
@@ -403,6 +523,33 @@ Calendar mCalendar = Calendar.getInstance();
             }
         });
 
+    }
+
+    private void setupProfilecodeTribeSpinner(){
+        ArrayAdapter profileCodeTribeSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.array_code_tribe_option,android.R.layout.simple_dropdown_item_1line);
+        mProfileCodeTribeSpinner.setAdapter(profileCodeTribeSpinnerAdapter);
+        mProfileCodeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)){
+                    if (selection.equals(R.string.tab_soweto)){
+                        mCodeTribe = TRIBE_SOWETO;
+                    }else if (selection.equals(R.string.tab_tembisa)){
+                        mCodeTribe = TRIBE_TEMBISA;
+                    }else{
+                        mCodeTribe = TRIBE_PRETORIA;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                mCodeTribe = TRIBE_SOWETO;
+
+            }
+        });
     }
 
 
@@ -537,6 +684,7 @@ Calendar mCalendar = Calendar.getInstance();
 
             }
         });
+
     }
 
     private void chooseImage() {
@@ -602,10 +750,10 @@ Calendar mCalendar = Calendar.getInstance();
                             tribeMate.setStartDate(mProfileStartDatePickerButton.getText().toString());
 
                             MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
-                            mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
+                            mDatabaseReference.child(mEmployeeTribeSpinner.getSelectedItem().toString()).child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(UserProfileEditorActivity.this, ProfileActivity.class));
+                            startActivity(new Intent(UserProfileEditorActivity.this, DifferentCodetribeTabs.class));
 
 
 

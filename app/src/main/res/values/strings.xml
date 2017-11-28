@@ -80,9 +80,9 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     </string-array>
 
     <string-array name="array_employee_options">
-        <item>@string/tembisa</item>
-        <item>@string/pretoria</item>
         <item>@string/soweto</item>
+        <item>@string/pretoria</item>
+        <item>@string/tembisa</item>
     </string-array>
 
 
@@ -325,6 +325,7 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="name_hint">eg. Kratos</string>
     <string name="surname_text">Surname</string>
     <string name="age_text">Age</string>
+    <string name="employee_code_tribe">Employee CodeTribe</string>
     <!-- Label for dropdown menu option if the pet is male [CHAR LIMIT=20] -->
 
 
