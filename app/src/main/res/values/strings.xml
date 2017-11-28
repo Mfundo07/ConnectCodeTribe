@@ -64,13 +64,20 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="tab_tembisa">Tembisa</string>
     <string name="tab_pretoria">Pretoria</string>
     <string name="action_settings1">Settings</string>
-    <string name="section_format1">Hello World from section: %1$d</string>
 
+    <string name="action_admin_profile">Admin Profile</string>
+    <string name="action_logout">Logout</string>
+    <string name="list_of_members">List of Members</string>
+    <string name="add_member">Add Member</string>
+    <string name="accept_member">Accept Member</string>
+    <string name="delete_profile">Delete Profile</string>
+    <string name="decline_member">Decline Member</string>
+    <string name="section_format1">Hello World from section: %1$d</string>
     <string-array name="array_code_tribe_option">
         <item>@string/tab_soweto</item>
         <item>@string/tab_pretoria</item>
         <item>@string/tab_tembisa</item>
-        
+
     </string-array>
 
     <string-array name="array_employment_option">
@@ -325,6 +332,10 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="name_hint">eg. Kratos</string>
     <string name="surname_text">Surname</string>
     <string name="age_text">Age</string>
+    <string name="title_activity_admin_landing_page">AdminLandingPage</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- Label for dropdown menu option if the pet is male [CHAR LIMIT=20] -->
 
 

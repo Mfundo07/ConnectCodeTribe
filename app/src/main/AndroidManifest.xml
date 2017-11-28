@@ -80,11 +80,10 @@
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Projects_more" />
-        <activity android:name=".Experience_more" />
-        <activity android:name=".Admin_Login_Activity" />
+        <activity android:name=".Experience_more" />/>
         <activity android:name=".Admin_ScrollingFragment" />
         <activity android:name=".Admin_scrolling_editor" />
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".AboutActivity" />
     </application>
 
 </manifest>
