@@ -211,7 +211,7 @@
                 android:id="@+id/profile_personal_info_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="4dp"
+                android:layout_margin="2dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -418,27 +418,6 @@
                     </LinearLayout>
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="end">
-
-
-                        <Button
-                        android:id="@+id/profile_personal_info_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:gravity="center"
-                        android:text="@string/button_text_save"
-                        android:background="@android:color/transparent"
-                        android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"/>
-
-
-                    </LinearLayout>
 
 
 
@@ -472,7 +451,7 @@
                 android:id="@+id/profile_code_tribe_info_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="4dp"
+                android:layout_margin="2dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -577,24 +556,6 @@
                     </LinearLayout>
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="end">
-                        <Button
-                            android:id="@+id/profile_code_tribe_save_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            android:gravity="center"
-                            android:text="@string/button_text_save"
-                            android:background="@android:color/transparent"
-                            android:textColor="@color/colorPrimary"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
@@ -625,7 +586,7 @@
                 android:id="@+id/profile_qualification_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="4dp"
+                android:layout_margin="2dp"
                 app:cardCornerRadius="4dp"
                 android:padding="8dp"
                 android:layout_weight="1">
@@ -712,23 +673,6 @@
                     </LinearLayout>
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="end">
-                        <Button
-                            android:id="@+id/profile_education_save_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            android:gravity="center"
-                            android:text="@string/button_text_save"
-                            android:background="@android:color/transparent"
-                            android:textColor="@color/colorPrimary"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -757,7 +701,7 @@
                 android:id="@+id/profile_current_employment_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="4dp"
+                android:layout_margin="2dp"
                 android:padding="8dp"
                 app:cardCornerRadius="4dp"
                 android:layout_weight="1">
