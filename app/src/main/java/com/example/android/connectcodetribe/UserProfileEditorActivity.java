@@ -752,7 +752,7 @@ Calendar mCalendar = Calendar.getInstance();
                             MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
                             mDatabaseReference.child(mEmployeeTribeSpinner.getSelectedItem().toString()).child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
                             progressDialog.dismiss();
-                            Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful ", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(UserProfileEditorActivity.this, DifferentCodetribeTabs.class));
 
 
