@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.TribeMate;
+import com.example.android.connectcodetribe.profile.ProfileActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -147,6 +148,7 @@ Calendar mCalendar = Calendar.getInstance();
             mUserHasChanged = true;
             return false;
         }
+
     };
 
 
@@ -214,13 +216,12 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileSalarySpinner.setOnTouchListener(mTouchListener);
         setupSalarySpinner();
         mProfileCodeTribeSpinner.setOnTouchListener(mTouchListener);
-        setupCodeTribeSpinner();
         mProfileProgramStateSpinner.setOnTouchListener(mTouchListener);
         setupProgramStatusSpinner();
         mEmployeeTribeSpinner.setOnTouchListener(mTouchListener);
         setupEmployeeTribeSpinner();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference(mEmployeeTribeSpinner.getSelectedItem().toString());
+
 
         mProfileNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mProfileSurnameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
@@ -276,6 +277,9 @@ Calendar mCalendar = Calendar.getInstance();
             public void onClick(View v) {
 
                 System.out.println(mEmployeeCodeEditText.getText().toString());
+                String tribe = mEmployeeTribeSpinner.getSelectedItem().toString();
+
+                mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
                 mDatabaseReference.addValueEventListener(new ValueEventListener() {
 
                     @Override
@@ -367,6 +371,7 @@ Calendar mCalendar = Calendar.getInstance();
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
+
                 if (selection.equals(R.string.in_program)){
                     mStatus = IN_PROGRAM;
                 }else{
@@ -393,14 +398,15 @@ Calendar mCalendar = Calendar.getInstance();
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
-                if (selection.equals(R.string.soweto)){
-                    mTribe = TRIBE_SOWETO;
-                }
-                else if (selection.equals(R.string.pretoria)){
-                    mTribe = TRIBE_PRETORIA;
-                }
-                else{
-                    mTribe = TRIBE_TEMBISA;
+                Toast.makeText(UserProfileEditorActivity.this, "Selected " + selection, Toast.LENGTH_SHORT).show();
+                if (!TextUtils.isEmpty(selection)){
+                    if (selection.equals(R.string.soweto)){
+                        mTribe = TRIBE_SOWETO;
+                    }else if (selection.equals(R.string.tembisa)){
+                        mTribe = TRIBE_TEMBISA;
+                    }else {
+                        mTribe = TRIBE_PRETORIA;
+                    }
                 }
             }
 
@@ -409,42 +415,11 @@ Calendar mCalendar = Calendar.getInstance();
                 mTribe = TRIBE_SOWETO;
             }
         });
+
     }
 
 
-    private void setupCodeTribeSpinner(){
-        ArrayAdapter codetribeNameSpinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.array_code_tribe_option, android.R.layout.simple_spinner_item);
 
-        codetribeNameSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-
-        mProfileCodeTribeSpinner.setAdapter(codetribeNameSpinnerAdapter);
-
-        mProfileCodeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selection = (String) parent.getItemAtPosition(position);
-                if (!TextUtils.isEmpty(selection)){
-                    if (selection.equals(R.string.tab_soweto)){
-                        mCodeTribe = TRIBE_SOWETO;
-
-                    }else if (selection.equals(R.string.tab_pretoria)){
-                        mCodeTribe = TRIBE_PRETORIA;
-                    }
-                }
-                else {
-                    mCodeTribe = TRIBE_TEMBISA;
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                mCodeTribe = TRIBE_SOWETO;
-
-            }
-        });
-    }
 
     private void setupGenderSpinner() {
         // Create adapter for spinner. The list options are from the String array it will use
@@ -643,7 +618,7 @@ Calendar mCalendar = Calendar.getInstance();
                             mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
-                            finish();
+                            startActivity(new Intent(UserProfileEditorActivity.this, ProfileActivity.class));
 
 
 

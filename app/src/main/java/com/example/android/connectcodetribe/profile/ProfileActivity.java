@@ -51,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
     String mCodeTribeOption;
 
     FirebaseDatabase database;
-    DatabaseReference myRef;
+    DatabaseReference myRef, mDatabaseReference;
     ImageButton btnStatus, btnGithubLink, btnAddBio, btnTribeChat ;
     ImageView userImage, btnAddProject;
     public String gihubLink;
