@@ -35,7 +35,7 @@ public class ProjectsActivity extends AppCompatActivity {
     private Button ButUpload;
     private Uri filepath;
     private final int PICK_IMAGE_REQUEST = 71;
-    DatabaseReference mRef;
+    DatabaseReference mRef, mDatabaseReference;
     private EditText mProjectTitle, mProjectLink;
 
     FirebaseUser currentUser;
@@ -62,6 +62,8 @@ public class ProjectsActivity extends AppCompatActivity {
         mProjectTitle = (EditText) findViewById(R.id.post_Title);
         mProjectLink = (EditText) findViewById(R.id.post_Desc);
 
+
+
         ProjectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +77,7 @@ public class ProjectsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uploadImage();
+
 
             }
         });
@@ -92,7 +95,7 @@ public class ProjectsActivity extends AppCompatActivity {
             ref.putFile(filepath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             Project item = new Project();
                             item.setSnapshot(downloadUri.toString());

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
+import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +41,7 @@ private int mColumnCount = 1;
         DatabaseReference mDatabaseReference;
 
         List<TribeMate> mTribeMates = new ArrayList<>();
+        List<Project> mProjects = new ArrayList<>();
         FirebaseUser mAuth;
 
         MyItemRecyclerViewAdapter adapter;

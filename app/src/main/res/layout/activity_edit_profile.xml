@@ -159,7 +159,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/man_user_user" />
+                        android:src="@drawable/kratos" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
