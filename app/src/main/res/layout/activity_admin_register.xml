@@ -27,16 +27,6 @@
             android:layout_gravity="center_horizontal"
             android:src="@drawable/icon" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:textColor="#e4761c "
-            android:textSize="30dp"
-            android:layout_marginTop="14dp"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:text="Admin Register" />
-
         <EditText
             android:id="@+id/admin_email"
             android:layout_width="match_parent"
