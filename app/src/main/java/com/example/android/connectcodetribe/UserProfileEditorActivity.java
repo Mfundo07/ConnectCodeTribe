@@ -374,7 +374,6 @@ Calendar mCalendar = Calendar.getInstance();
                 mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
                 mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
                 mBio.setText((String) dataSnapshot.child(currentUser.getUid()).child("bio").getValue());
-                mEmployeeSearchButton.setEnabled(false);
                 mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
@@ -429,11 +428,13 @@ Calendar mCalendar = Calendar.getInstance();
 
                     @Override
                     public void onClick(View v) {
+                        TribeMate tribeMate = new TribeMate();
                         String tribe = mEmployeeTribeSpinner.getSelectedItem().toString();
-
+                        tribeMate.setBio(mBioEditText.getText().toString());
                         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
-                        mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).child("bio").setValue(mBioEditText.getText().toString());
-                        MyRef.child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
+                        mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).child("bio").setValue(tribeMate.toMap());
+                        MyRef.child(currentUser.getUid()).child("bio").setValue(tribeMate.toMap());
+                        mBio.setText(mBioEditText.getText().toString());
                         mBioEditText.setText("");
                         alertDialog.cancel();
 
