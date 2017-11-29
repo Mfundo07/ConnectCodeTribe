@@ -122,6 +122,8 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
                         user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
                         user.setStartDate((String) snapshot.child("startDate").getValue());
+                        user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
+                        user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
                         user.setCompanyName((String) snapshot.child("companyName").getValue());
                         for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
                             project.setGithub_link((String) projectSnapshot.child("github_link").getValue());

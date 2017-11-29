@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,8 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
+import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Model.Project;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +32,10 @@ public class ScrollingFragment extends AppCompatActivity {
 
 
     private TextView userProgramStatus;
-    MyItemRecyclerViewAdapter mProjectsAdapter;
+    ProjectsHorizontalAdapter mProjectsAdapter;
     List<Project> projects = new ArrayList<>();
 
-    RecyclerView mOtherUserProjectRecyclerView;
+    RecyclerView mProjectsRecyclerView;
 
 
     String mName;
@@ -48,9 +54,13 @@ public class ScrollingFragment extends AppCompatActivity {
     String mCompanyName;
     String mCompanyContact;
     String mStartDate;
+    String mUserCode;
+    String mTribeUnderline;
     Toolbar userProfileToolbar;
 
     Boolean expandable = true;
+
+    DatabaseReference mRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +84,15 @@ public class ScrollingFragment extends AppCompatActivity {
         final TextView userBio = findViewById(R.id.userBio);
         final ImageButton viewMoreButton = findViewById(R.id.moreOnUserBio);
 
+        mProjectsRecyclerView = findViewById(R.id.OtherUserProjectsRecyclerView);
+        //Setup layout manager to a horizontal scrolling recyclerView
+        LinearLayoutManager horizontalLayoutManagaer
+                = new LinearLayoutManager(ScrollingFragment.this, LinearLayoutManager.VERTICAL, false);
+        mProjectsRecyclerView.setLayoutManager(horizontalLayoutManagaer);
+        mProjectsAdapter = new ProjectsHorizontalAdapter(ScrollingFragment.this, projects);
+        mProjectsRecyclerView.setAdapter(mProjectsAdapter);
+        //Setup layout manager to a staggered scrolling recyclerView
+
 
         mName = getIntent().getExtras().getString("Name");
         mImage = getIntent().getExtras().getString("Image");
@@ -94,6 +113,11 @@ public class ScrollingFragment extends AppCompatActivity {
         mSalary = getIntent().getExtras().getString("salary");
         mCompanyName = getIntent().getExtras().getString("company_name");
         mCompanyContact = getIntent().getExtras().getString("company_contact");
+
+        mUserCode = getIntent().getExtras().getString("user_code");
+        mTribeUnderline = getIntent().getExtras().getString("tribe_underline");
+
+        mRef = FirebaseDatabase.getInstance().getReference(mTribeUnderline).child(mUserCode);
 
         userProfileToolbar =  findViewById(R.id.toolbar);
         userProfileToolbar.setTitle(mName + " " + mSurname);
@@ -139,6 +163,29 @@ public class ScrollingFragment extends AppCompatActivity {
                     animation.setDuration(100).start();
                     viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ScrollingFragment.this, R.drawable.ic_expand_more));
                 }
+            }
+        });
+
+
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                projects.clear();
+                for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
+                    Project project = new Project();
+                    project.setName((String) snapshot.child("name").getValue());
+                    project.setGithub_link((String) snapshot.child("github_link").getValue());
+                    System.out.println(project.toMap());
+                    projects.add(project);
+                }
+                mProjectsAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
