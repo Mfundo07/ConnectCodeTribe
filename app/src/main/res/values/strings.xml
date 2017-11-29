@@ -64,6 +64,16 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="tab_tembisa">Tembisa</string>
     <string name="tab_pretoria">Pretoria</string>
     <string name="action_settings1">Settings</string>
+    <string name="action_admin_profile">Admin Profile</string>
+    <string name="action_logout">Logout</string>
+    <string name="list_of_members">List of Members</string>
+    <string name="add_member">Add Member</string>
+    <string name="accept_member">Accept Member</string>
+    <string name="delete_profile">Delete Profile</string>
+    <string name="decline_member">Decline Member</string>
+    <string name="title_activity_main4">Main</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="navigation_drawer_open">Open</string>
     <string name="section_format1">Hello World from section: %1$d</string>
 
     <string-array name="array_code_tribe_option">
