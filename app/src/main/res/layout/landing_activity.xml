@@ -22,17 +22,25 @@
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
+                android:id="@+id/toolbarkb"
+                android:layout_width="293dp"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:background="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:title="@string/app_name">
 
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+
             </android.support.v7.widget.Toolbar>
+
+
 
         </android.support.design.widget.AppBarLayout>
         <!-- Editext for Search -->

@@ -287,7 +287,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="CodeTribe Details"
-            android:layout_weight=""
             android:padding="8dp"
             android:textSize="20sp"
             android:gravity="center"
