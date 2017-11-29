@@ -57,15 +57,28 @@
                     android:textStyle="italic"
                     android:text="Southern Africa"/>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="find us"/>
+
                 <ImageButton
                     android:id="@+id/location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
                     android:layout_marginRight="16dp"
                     android:backgroundTint="#EB1C24"
                     android:tint="#000"
                     android:background="@drawable/location_on_black"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
