@@ -130,7 +130,7 @@ public class Welcome_activity extends AppCompatActivity implements View.OnClickL
 
     }
     private void loadHome(){
-        startActivity(new Intent(this,Main3Activity.class));
+        startActivity(new Intent(this,Main4Activity.class));
         finish();
     }
 
