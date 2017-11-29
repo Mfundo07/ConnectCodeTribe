@@ -44,6 +44,8 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".Admin_profile" />
         <activity android:name=".Admin_register" />
+        <activity android:name=".Admin_user_profile_editor"
+            android:label="Admin Profile Editor"/>
         <activity android:name=".Admin_Login_Activity" />
         <activity android:name=".Admin_codetribe_fragment" />
         <activity android:name=".ProjectsActivity" />
@@ -80,10 +82,12 @@
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Projects_more" />
-        <activity android:name=".Experience_more" />/>
+        <activity android:name=".Experience_more" />
+        />
         <activity android:name=".Admin_ScrollingFragment" />
         <activity android:name=".Admin_scrolling_editor" />
         <activity android:name=".AboutActivity" />
+        <activity android:name=".Admin_user_profile_editor"></activity>
     </application>
 
 </manifest>
