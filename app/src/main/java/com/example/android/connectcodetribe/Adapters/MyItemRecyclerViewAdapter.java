@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.ScrollingFragment;
@@ -21,6 +22,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
     private List<TribeMate> mTribeMates;
+    private List<Project> mProjects;
+
+    public MyItemRecyclerViewAdapter(List<Project> projects, Activity activity) {
+        mProjects = projects;
+        this.activity = activity;
+    }
+
     private Activity activity;
     private Context context;
 
@@ -44,7 +52,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mIdView.setText(mTribeMates.get(position).getName());
         holder.mContentView.setText(mTribeMates.get(position).getSurname());
         holder.mStatus.setText(mTribeMates.get(position).getStatus());
-        holder.mIntakeYear.setText(mTribeMates.get(position).getIntakeYear());
+        holder.mIntakeYear.setText(mTribeMates.get(position).getGender());
         holder.mCodeTribe.setText(mTribeMates.get(position).getCodeTribe());
         Glide.with(holder.mCircleImageView.getContext())
                 .load(mTribeMates.get(position).getProfileImage())
@@ -74,6 +82,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 intent.putExtra("company_contact", mTribeMates.get(position).getCompanyContactNumber());
                 intent.putExtra("employment_status", mTribeMates.get(position).getEmploymentStatus());
                 intent.putExtra("salary", mTribeMates.get(position).getSalary());
+                intent.putExtra("start_date", mTribeMates.get(position).getStartDate());
                 context = view.getContext();
                 context.startActivity(intent);
 

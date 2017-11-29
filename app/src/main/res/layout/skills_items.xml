@@ -10,7 +10,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:paddingBottom="16dp">
 
         <RelativeLayout
         android:layout_width="wrap_content"
@@ -37,27 +38,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="left|center"
-            android:orientation="horizontal">
+            android:gravity="left|center_vertical"
+            android:orientation="vertical">
 
 
             <TextView
-                android:id="@+id/skills_title_text_view"
+                android:id="@+id/project_title_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                tools:text="UX/UI Designer"
-                android:layout_margin="8dp"
+                tools:text="Miwok"
                 android:textSize="12sp"
+                android:layout_marginLeft="8dp"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
              <TextView
                  android:id="@+id/endorse_text_view"
-                 android:layout_width="279dp"
+                 android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:layout_margin="8dp"
-                 android:gravity="center|end"
+                 android:layout_marginLeft="8dp"
                  tools:text="0"
                  android:textAppearance="?android:attr/textAppearanceMedium"
                  android:textColor="#000"

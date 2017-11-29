@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -13,6 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
+import com.example.android.connectcodetribe.Model.Project;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScrollingFragment extends AppCompatActivity {
 
@@ -20,6 +26,11 @@ public class ScrollingFragment extends AppCompatActivity {
 
 
     private TextView userProgramStatus;
+    MyItemRecyclerViewAdapter mProjectsAdapter;
+    List<Project> projects = new ArrayList<>();
+
+    RecyclerView mOtherUserProjectRecyclerView;
+
 
     String mName;
     String mStatus;
@@ -33,10 +44,10 @@ public class ScrollingFragment extends AppCompatActivity {
     String mEmail;
     String mMobile;
     String mImage;
-    String mEmployed;
     String mSalary;
     String mCompanyName;
     String mCompanyContact;
+    String mStartDate;
     Toolbar userProfileToolbar;
 
     Boolean expandable = true;
@@ -56,9 +67,10 @@ public class ScrollingFragment extends AppCompatActivity {
         TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
         TextView userEMC = findViewById(R.id.user_code);
         ImageView userImage = findViewById(R.id.userImage);
-        TextView userSalary = findViewById(R.id.profile_salary_text);
+        TextView userSalary = findViewById(R.id.user_salary_text_view);
         TextView userCompanyName = findViewById(R.id.profile_company_name_text_view);
         TextView userCompanyContact = findViewById(R.id.profile_company_contact_text_view);
+        TextView userStartDate = findViewById(R.id.user_start_date_text_view);
         final TextView userBio = findViewById(R.id.userBio);
         final ImageButton viewMoreButton = findViewById(R.id.moreOnUserBio);
 
@@ -70,6 +82,7 @@ public class ScrollingFragment extends AppCompatActivity {
         mSurname = getIntent().getExtras().getString("Surname");
         mImage = getIntent().getExtras().getString("image");
         mBio = getIntent().getExtras().getString("bio");
+        mStartDate = getIntent().getExtras().getString("start_date");
 
 
         mGender = getIntent().getExtras().getString("Gender");
@@ -93,6 +106,7 @@ public class ScrollingFragment extends AppCompatActivity {
         userSalary.setText(mSalary);
         userCompanyName.setText(mCompanyName);
         userCompanyContact.setText(mCompanyContact);
+        userStartDate.setText(mStartDate);
         Glide.with(userImage.getContext())
                 .load(mImage)
                 .into(userImage);
@@ -127,6 +141,11 @@ public class ScrollingFragment extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
+
 
 
         if (getIntent().getExtras().getString("Gender") != null){

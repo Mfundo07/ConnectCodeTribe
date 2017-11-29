@@ -36,6 +36,24 @@ public class TribeMate {
     private String mCodeTribeLocation;
     private String mEmployeeCode;
     private String mCodeTribeProgramStatus;
+    private String mTribeUnderline;
+    private String mTribeEmploymentCodeUnderline;
+
+    public String getTribeUnderline() {
+        return mTribeUnderline;
+    }
+
+    public void setTribeUnderline(String tribeUnderline) {
+        mTribeUnderline = tribeUnderline;
+    }
+
+    public String getTribeEmploymentCodeUnderline() {
+        return mTribeEmploymentCodeUnderline;
+    }
+
+    public void setTribeEmploymentCodeUnderline(String tribeEmploymentCodeUnderline) {
+        mTribeEmploymentCodeUnderline = tribeEmploymentCodeUnderline;
+    }
 
     public String getCodeTribeLocation() {
         return mCodeTribeLocation;
@@ -287,6 +305,8 @@ public class TribeMate {
         result.put("codeTribeLocation", mCodeTribeLocation);
         result.put("employeeCode", mEmployeeCode);
         result.put("status", mCodeTribeProgramStatus);
+        result.put("tribe_underline", mTribeUnderline);
+        result.put("code_underline", mTribeEmploymentCodeUnderline);
         return result;
     }
 

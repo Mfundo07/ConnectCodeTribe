@@ -49,7 +49,6 @@ public class Project {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("snapshot", this.snapshot);
         result.put("name", this.name);
         result.put("github_link", this.github_link);
         return result;

@@ -67,7 +67,7 @@ public class ProjectsActivity extends AppCompatActivity {
         ProjectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chooseImage();
+                chooseProjectImage();
 
 
             }
@@ -76,7 +76,7 @@ public class ProjectsActivity extends AppCompatActivity {
         ButUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadImage();
+                uploadProjectImage();
 
 
             }
@@ -84,7 +84,7 @@ public class ProjectsActivity extends AppCompatActivity {
 
     }
 
-    private void uploadImage() {
+    private void uploadProjectImage() {
         if (filepath != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -133,7 +133,7 @@ public class ProjectsActivity extends AppCompatActivity {
 
     }
 
-    private void chooseImage() {
+    private void chooseProjectImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);

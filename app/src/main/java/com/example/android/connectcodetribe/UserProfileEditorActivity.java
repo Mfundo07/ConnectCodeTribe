@@ -72,6 +72,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
     private final int PICK_IMAGE_REQUEST = 71;
 
+    private Button ButUpload;
+
     private EditText mProfileNameEditText;
     private EditText mProfileSurnameEditText;
     private EditText mProfileEmailEditText;
@@ -136,6 +138,8 @@ public class UserProfileEditorActivity extends AppCompatActivity {
     ProjectsHorizontalAdapter mProjectsAdapter;
 
 
+
+
     private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
             mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
 
@@ -163,6 +167,8 @@ Calendar mCalendar = Calendar.getInstance();
     int year = mCalendar.get(Calendar.YEAR);
     String Database_Path = "All_Image_Uploads_Database";
     String Storage_Path = "All_Image_Uploads/";
+    private EditText mProjectTitle, mProjectLink;
+    private ImageButton ProjectImage;
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -223,10 +229,11 @@ Calendar mCalendar = Calendar.getInstance();
         mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
         //Setup layout manager to a horizontal scrolling recyclerView
         LinearLayoutManager horizontalLayoutManagaer
-                = new LinearLayoutManager(UserProfileEditorActivity.this, LinearLayoutManager.HORIZONTAL, false);
+                = new LinearLayoutManager(UserProfileEditorActivity.this, LinearLayoutManager.VERTICAL, false);
         mProjectsRecyclerView.setLayoutManager(horizontalLayoutManagaer);
         mProjectsAdapter = new ProjectsHorizontalAdapter(UserProfileEditorActivity.this, projects);
         mProjectsRecyclerView.setAdapter(mProjectsAdapter);
+
         //Setup layout manager to a staggered scrolling recyclerView
 
 
@@ -296,7 +303,7 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileEmploymentSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadImage();
+                uploadProfileImage();
 
 
 
@@ -350,7 +357,7 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileImageEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseImage();
+                chooseProfileImage();
 
             }
         });
@@ -392,7 +399,6 @@ Calendar mCalendar = Calendar.getInstance();
                 projects.clear();
                 for (DataSnapshot snapshot : dataSnapshot.child(currentUser.getUid()).child("projects").getChildren()) {
                     Project project = new Project();
-                    project.setSnapshot((String) snapshot.child("snapshot").getValue());
                     project.setName((String) snapshot.child("name").getValue());
                     project.setGithub_link((String) snapshot.child("github_link").getValue());
                     System.out.println(project.toMap());
@@ -454,16 +460,35 @@ Calendar mCalendar = Calendar.getInstance();
         btnAddProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(UserProfileEditorActivity.this, ProjectsActivity.class));
-            }
+                AlertDialog.Builder builder = new AlertDialog.Builder(UserProfileEditorActivity.this);
+                LayoutInflater inflater = UserProfileEditorActivity.this.getLayoutInflater();
+                View projectView = inflater.inflate(R.layout.viewing_project_feature_layout, null);
+                mProjectTitle =  projectView.findViewById(R.id.post_Title);
+                mProjectLink =  projectView.findViewById(R.id.post_Desc);
+                ButUpload = projectView.findViewById(R.id.ButUpload);
+                builder.setView(projectView);
+                final AlertDialog alertDialog = builder.create();
+                ButUpload.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Project project = new Project();
+                        project.setName(mProjectTitle.getText().toString());
+                        project.setGithub_link(mProjectLink.getText().toString());
+                        mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).child("projects").push().setValue(project.toMap());
+                        MyRef.child(currentUser.getUid()).child("projects").push().setValue(project.toMap());
+                        alertDialog.cancel();
+
+
+                    }
+
+                });
+                alertDialog.show();
+
+
+
+
+    }
         });
-
-
-
-
-
-
-
 
     }
 
@@ -688,7 +713,8 @@ Calendar mCalendar = Calendar.getInstance();
 
     }
 
-    private void chooseImage() {
+
+    private void chooseProfileImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -711,13 +737,14 @@ Calendar mCalendar = Calendar.getInstance();
     }
 
 
-    private void uploadImage() {
+    private void uploadProfileImage() {
         if (filepath != null) {
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading Information...");
             progressDialog.show();
 
             StorageReference ref = mStoragereference.child("profile_images");
+            final TribeMate tribeMate = new TribeMate();
 
 
             ref.putFile(filepath)
@@ -725,7 +752,7 @@ Calendar mCalendar = Calendar.getInstance();
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
-                            final TribeMate tribeMate = new TribeMate();
+
 
                             tribeMate.setProfileImage(downloadUri.toString());
 
@@ -736,7 +763,8 @@ Calendar mCalendar = Calendar.getInstance();
                             tribeMate.setQualification(mProfileQualificationEditText.getText().toString());
                             tribeMate.setInstitute(mProfileInstitutionEditText.getText().toString());
                             tribeMate.setDesc(mProfileFacultyCourseEditText.getText().toString());
-
+                            tribeMate.setTribeUnderline(mEmployeeTribeSpinner.getSelectedItem().toString());
+                            tribeMate.setTribeEmploymentCodeUnderline(mEmployeeCodeEditText.getText().toString());
                             tribeMate.setName(mProfileNameEditText.getText().toString());
                             tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
                             tribeMate.setAge(mProfileAgeEditText.getText().toString());
@@ -749,9 +777,8 @@ Calendar mCalendar = Calendar.getInstance();
                             tribeMate.setCompanyContactNumber(mProfileCompanyContactEditText.getText().toString());
                             tribeMate.setSalary(mProfileSalarySpinner.getSelectedItem().toString());
                             tribeMate.setStartDate(mProfileStartDatePickerButton.getText().toString());
-
                             MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
-                            mDatabaseReference.child(mEmployeeTribeSpinner.getSelectedItem().toString()).child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
+                            mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
                             progressDialog.dismiss();
                             Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful ", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(UserProfileEditorActivity.this, DifferentCodetribeTabs.class));

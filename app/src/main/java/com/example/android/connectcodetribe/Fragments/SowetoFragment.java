@@ -100,9 +100,11 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 public void onDataChange(DataSnapshot dataSnapshot) {
         if (dataSnapshot.hasChildren()) {
         mTribeMates.clear();
+        mProjects.clear();
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                         TribeMate user = new TribeMate();
+                        Project project = new Project();
                         user.setName((String) snapshot.child("name").getValue());
                         user.setSurname((String) snapshot.child("surname").getValue());
                         user.setAge((String) snapshot.child("age").getValue());
@@ -120,7 +122,11 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
                         user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
                         user.setCompanyName((String) snapshot.child("companyName").getValue());
-
+                        for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
+                            project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
+                            project.setName((String) projectSnapshot.child("name").getValue());
+                        }
+                        mProjects.add(project);
                         mTribeMates.add(user);
                 }
                 if (mTribeMates.size() > 0) {
@@ -128,6 +134,11 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                 } else {
                         System.out.println("No active users found");
                 }
+            if (mProjects.size() > 0) {
+                adapter.notifyDataSetChanged();
+            } else {
+                System.out.println("No active users found");
+            }
         }
         }
 

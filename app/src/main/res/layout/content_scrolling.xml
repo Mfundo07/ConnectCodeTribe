@@ -359,7 +359,7 @@
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/projectsRecyclerview"
+                    android:id="@+id/OtherUserProjectsRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -456,7 +456,7 @@
                         android:textColor="#000"
                         android:textStyle="bold"/>
                     <TextView
-                        android:id="@+id/profile_intake_period_text"
+                        android:id="@+id/user_start_date_text_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -479,7 +479,7 @@
                         android:textColor="#000"
                         android:textStyle="bold"/>
                     <TextView
-                        android:id="@+id/profile_salary_text"
+                        android:id="@+id/user_salary_text_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

@@ -7,10 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.R;
 
@@ -35,7 +33,7 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.project_item_layout, parent, false);
+                .inflate(R.layout.skills_items, parent, false);
         return new ViewHolder(view);
     }
 
@@ -43,9 +41,7 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mProjects.get(position);
         holder.mTitle.setText(mProjects.get(position).getName());
-        Glide.with(activity)
-                .load(mProjects.get(position).getSnapshot())
-                .into(holder.projectDisplayPicture);
+        holder.projectLink.setText(mProjects.get(position).getGithub_link());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +65,13 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
         public final View mView;
         public final TextView mTitle;
         public Project mItem;
-        public ImageView projectDisplayPicture;
+        public TextView projectLink;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mTitle = view.findViewById(R.id.project_title);
-            projectDisplayPicture = view.findViewById(R.id.project_display_picture);
+            mTitle = view.findViewById(R.id.project_title_text_view);
+            projectLink = view.findViewById(R.id.endorse_text_view);
         }
 
         @Override

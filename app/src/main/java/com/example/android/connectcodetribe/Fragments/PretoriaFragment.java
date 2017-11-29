@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
+import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,6 +42,7 @@ public class PretoriaFragment extends Fragment {
     DatabaseReference mDatabaseReference;
 
     List<TribeMate> mTribeMates = new ArrayList<>();
+    List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
 
     MyItemRecyclerViewAdapter adapter;
@@ -102,6 +104,7 @@ public class PretoriaFragment extends Fragment {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                             TribeMate user = new TribeMate();
+                            Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
                             user.setAge((String) snapshot.child("age").getValue());
@@ -115,10 +118,23 @@ public class PretoriaFragment extends Fragment {
                             if ((String) snapshot.child("profile_picture").getValue() != null){
                                 user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                             user.setBio((String) snapshot.child("bio").getValue());
-
+                            user.setEmploymentStatus((String) snapshot.child("employed").getValue());
+                            user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
+                            user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
+                            user.setCompanyName((String) snapshot.child("companyName").getValue());
+                            for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
+                                project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
+                                project.setName((String) projectSnapshot.child("name").getValue());
+                            }
+                            mProjects.add(project);
                             mTribeMates.add(user);
                         }
                         if (mTribeMates.size() > 0) {
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            System.out.println("No active users found");
+                        }
+                        if (mProjects.size() > 0) {
                             adapter.notifyDataSetChanged();
                         } else {
                             System.out.println("No active users found");
