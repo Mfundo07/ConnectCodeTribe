@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/list_of_members"
+            android:icon="@drawable/ic_people_black_24dp"
+            android:title="@string/list_of_members" />
+        <item
+            android:id="@+id/add_members"
+            android:icon="@drawable/ic_person_add_white"
+            android:title="@string/add_member" />
+        <item
+            android:id="@+id/accept_member"
+            android:icon="@drawable/users_group"
+            android:title="@string/accept_member" />
+
+
+        <item
+            android:id="@+id/delete_profile"
+            android:icon="@drawable/delete"
+            android:title="@string/delete_profile" />
+    </group>
+
+
+</menu>
