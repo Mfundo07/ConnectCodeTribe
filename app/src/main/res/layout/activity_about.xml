@@ -37,7 +37,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -57,6 +57,16 @@
                     android:textStyle="italic"
                     android:text="Southern Africa"/>
 
+                <ImageButton
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="16dp"
+                    android:backgroundTint="#EB1C24"
+                    android:tint="#000"
+                    android:background="@drawable/location_on_black"/>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -64,16 +74,40 @@
 
 
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="#EB1C24"
-        android:tint="#000"
-        android:background="@drawable/location_on_black"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/soweto1"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@drawable/alex1"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@drawable/pretoria1"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@drawable/tembisa1"/>
+
+        </LinearLayout>
 
 <TextView
     android:layout_width="match_parent"

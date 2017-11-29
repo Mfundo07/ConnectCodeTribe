@@ -88,7 +88,8 @@
         />
         <activity android:name=".Admin_ScrollingFragment" />
         <activity android:name=".Admin_scrolling_editor" />
-        <activity android:name=".AboutActivity" />
+        <activity android:name=".AboutActivity"
+            android:parentActivityName=".DifferentCodetribeTabs"/>
     </application>
 
 </manifest>
