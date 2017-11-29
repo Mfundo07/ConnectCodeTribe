@@ -73,31 +73,47 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getGroupId();
+        //int id = item.getGroupId();
 
         //noinspection SimplifiableIfStatement
-        if(id==R.id.btnLogout);
+       // if(id==R.id.btnLogout);
 
-        Intent intentLogout = new Intent(DifferentCodetribeTabs.this,LoginActivity.class);
-        startActivity(intentLogout);
-        finish();
+       // Intent intentLogout = new Intent(DifferentCodetribeTabs.this,LoginActivity.class);
+       // startActivity(intentLogout);
+        //finish();
+        //onStop();
 
-        if(id==R.id.btnAdmin);
+       // if(id==R.id.btnAdmin);
 
-        Intent intentAdmin = new Intent(DifferentCodetribeTabs.this,Admin_Login_Activity.class);
-        startActivity(intentAdmin);
-        finish();
+        //Intent intentAdmin = new Intent(DifferentCodetribeTabs.this,Admin_Login_Activity.class);
+        //startActivity(intentAdmin);
+        //finish();
 
-        if(id==R.id.btnAbout);
+      //  if(id==R.id.btnAbout);
 
-        Intent intentAbout = new Intent(DifferentCodetribeTabs.this,AboutActivity.class);
-        startActivity(intentAbout);
-        finish();
+       // Intent intentAbout = new Intent(DifferentCodetribeTabs.this,AboutActivity.class);
+       // startActivity(intentAbout);
+       // finish();
 
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.btnLogout:
+                Intent logout = new Intent(DifferentCodetribeTabs.this, LoginActivity.class);
+                startActivity(logout);
+                return true;
+            case R.id.btnAdmin:
+                Intent admin = new Intent(DifferentCodetribeTabs.this, Admin_Login_Activity.class);
+                startActivity(admin);
+                return true;
+            case R.id.btnAbout:
+                Intent about = new Intent(DifferentCodetribeTabs.this, AboutActivity.class);
+                startActivity(about);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
 
 
 
+    }
     }
 }
