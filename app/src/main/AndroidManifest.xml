@@ -36,7 +36,7 @@
         <activity
             android:name=".DifferentCodetribeTabs"
             android:label="CodeTribe Connect"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
         <activity android:name=".QualificationActivity" />
@@ -89,6 +89,7 @@
         <activity android:name=".Admin_ScrollingFragment" />
         <activity android:name=".Admin_scrolling_editor" />
         <activity android:name=".AboutActivity" />
+        <activity android:name=".Admin_profileView"></activity>
     </application>
 
 </manifest>
