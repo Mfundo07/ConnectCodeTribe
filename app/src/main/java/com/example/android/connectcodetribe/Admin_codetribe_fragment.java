@@ -71,31 +71,6 @@ implements NavigationView.OnNavigationItemSelectedListener{
         }
     }
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()){
-            case R.id.sign_out_menu:
-                startActivity(new Intent(this, LoginActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-
-    }
-
-
-
         @SuppressWarnings("StatementWithEmptyBody")
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
