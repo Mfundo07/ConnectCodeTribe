@@ -117,7 +117,6 @@ public class ScrollingFragment extends AppCompatActivity {
         mUserCode = getIntent().getExtras().getString("user_code");
         mTribeUnderline = getIntent().getExtras().getString("tribe_underline");
 
-        mRef = FirebaseDatabase.getInstance().getReference(mTribeUnderline).child(mUserCode);
 
         userProfileToolbar =  findViewById(R.id.toolbar);
         userProfileToolbar.setTitle(mName + " " + mSurname);
@@ -166,6 +165,9 @@ public class ScrollingFragment extends AppCompatActivity {
             }
         });
 
+        if (mTribeUnderline != null && mUserCode != null){
+            mRef = FirebaseDatabase.getInstance().getReference(mTribeUnderline).child(mUserCode);
+
 
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -174,8 +176,10 @@ public class ScrollingFragment extends AppCompatActivity {
                 projects.clear();
                 for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
                     Project project = new Project();
-                    project.setName((String) snapshot.child("name").getValue());
-                    project.setGithub_link((String) snapshot.child("github_link").getValue());
+                    if (snapshot.child("name").getValue() != null){
+                    project.setName((String) snapshot.child("name").getValue());}
+                    if (snapshot.child("github_link").getValue() !=null){
+                    project.setGithub_link((String) snapshot.child("github_link").getValue());}
                     System.out.println(project.toMap());
                     projects.add(project);
                 }
@@ -187,7 +191,7 @@ public class ScrollingFragment extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });}
 
 
 
