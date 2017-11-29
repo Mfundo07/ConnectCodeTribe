@@ -35,7 +35,8 @@
         <activity android:name=".ChatActivityThembisa" />
         <activity
             android:name=".DifferentCodetribeTabs"
-            android:label="CodeTribe Connect" />
+            android:label="CodeTribe Connect"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
         <activity android:name=".QualificationActivity" />
@@ -43,6 +44,9 @@
         <activity android:name=".Welcome_activity" />
         <activity android:name=".Admin_profile" />
         <activity android:name=".Admin_register" />
+        <activity
+            android:name=".Admin_user_profile_editor"
+            android:label="Admin Profile Editor" />
         <activity android:name=".Admin_Login_Activity" />
         <activity android:name=".Admin_codetribe_fragment" />
         <activity android:name=".ProjectsActivity" />
