@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:orientation="vertical"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout3">
 
 
         <ImageView
