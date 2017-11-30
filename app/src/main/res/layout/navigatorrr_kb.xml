@@ -12,7 +12,7 @@
 
 
     <include
-        layout="@layout/landing_activity"
+        layout="@layout/admin_codetribe_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

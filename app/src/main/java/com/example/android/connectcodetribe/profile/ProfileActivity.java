@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -102,6 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar1);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         // adding bottom dots
+        addBottomDots(0);
         database = FirebaseDatabase.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         userImage = (ImageView) findViewById(R.id.userImage);
@@ -260,7 +262,21 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
-
+    public void addBottomDots(int currentPage) {
+        dots = new TextView[projects.size()];
+        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
+        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
+        dotsLayout.removeAllViews();
+        for (int i = 0; i < dots.length; i++) {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#8226;"));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(colorsInactive[currentPage]);
+            dotsLayout.addView(dots[i]);
+        }
+        if (dots.length > 0)
+            dots[currentPage].setTextColor(colorsActive[currentPage]);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
