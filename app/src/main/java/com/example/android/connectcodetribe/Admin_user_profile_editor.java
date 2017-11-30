@@ -148,7 +148,7 @@ public class Admin_user_profile_editor extends AppCompatActivity {
         mAdmin_emc_edit_text = (EditText) findViewById(R.id.admin_emc_edit_text);
         mAdmin_code_tribe_name_spinner = (Spinner) findViewById(R.id.admin_code_tribe_name_spinner);
         mAdmin_tribe_status_spinner = (Spinner) findViewById(R.id.admin_tribe_status_spinner);
-       // mAdmin_personal_search_button = findViewById(R.id.admin_personal_search_button);
+        mAdmin_personal_search_button = findViewById(R.id.admin_personal_search_button);
         mAdmin_code_tribe_save_button = findViewById(R.id.admin_code_tribe_save_button);
         mBio = findViewById(R.id.userBio);
         mProfileListButton = findViewById(R.id.profile_list_back_fab_button);
@@ -218,7 +218,7 @@ public class Admin_user_profile_editor extends AppCompatActivity {
             }
         });
 
-       /** mAdmin_personal_search_button.setOnClickListener(new View.OnClickListener() {
+        mAdmin_personal_search_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -250,7 +250,7 @@ public class Admin_user_profile_editor extends AppCompatActivity {
 
 
             }
-        });**/
+        });
 
 
         MyRef.addValueEventListener(new ValueEventListener() {
