@@ -26,6 +26,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
 
                 <ImageView
@@ -35,6 +38,10 @@
                     android:contentDescription="TODO"
                     android:scaleType="centerCrop"
                     android:src="@drawable/kratos" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#90616161" /></RelativeLayout>
 
             </LinearLayout>
 
