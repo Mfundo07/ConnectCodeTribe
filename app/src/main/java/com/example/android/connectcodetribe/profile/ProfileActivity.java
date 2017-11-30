@@ -94,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnAddBio = findViewById(R.id.add_bio_button);
         btnAddProject = findViewById(R.id.btn_add_project);
         setSupportActionBar(toolbar1);
-        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
+         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         // adding bottom dots
         addBottomDots(0);
         database = FirebaseDatabase.getInstance();
