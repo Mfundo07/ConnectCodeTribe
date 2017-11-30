@@ -29,13 +29,22 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
 
+        mProfileBackFabButton=(FloatingActionButton)findViewById(R.id.profile_back_fab_button);
+        mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profile = new Intent(DifferentCodetribeTabs.this, ProfileActivity.class);
+                startActivity(profile);
+            }
+        });
+
        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
         setSupportActionBar(toolbar);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser == null){
             startActivity(new Intent(this, LoginActivity.class));
-            finish();}
+        finish();}
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
 
