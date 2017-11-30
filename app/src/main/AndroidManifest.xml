@@ -83,7 +83,6 @@
             android:name=".ScrollingFragment"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Projects_more" />
         <activity android:name=".Experience_more" />
         />
         <activity android:name=".Admin_ScrollingFragment" />

@@ -32,7 +32,7 @@ import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Admin_Login_Activity;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
 import com.example.android.connectcodetribe.LoginActivity;
-import com.example.android.connectcodetribe.Model.Project;
+import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
 import com.example.android.connectcodetribe.UserProfileEditorActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -65,7 +65,7 @@ public class ProfileActivity extends AppCompatActivity {
     RecyclerView mProjectsRecyclerView;
     ProjectsHorizontalAdapter mProjectsAdapter;
     FloatingActionButton mProfileEditrFAButton;
-    List<Project> projects = new ArrayList<>();
+    List<TribeMate> projects = new ArrayList<>();
     private LinearLayout dotsLayout;
     private TextView[] dots;
     FirebaseUser currentUser;
@@ -215,10 +215,9 @@ public class ProfileActivity extends AppCompatActivity {
 
                     projects.clear();
                     for (DataSnapshot snapshot : dataSnapshot.child(currentUser.getUid()).child("projects").getChildren()) {
-                        Project project = new Project();
-                        project.setSnapshot((String) snapshot.child("snapshot").getValue());
-                        project.setName((String) snapshot.child("name").getValue());
-                        project.setGithub_link((String) snapshot.child("github_link").getValue());
+                        TribeMate project = new TribeMate();
+                        project.setProjectTitle((String) snapshot.child("name").getValue());
+                        project.setProjectLink((String) snapshot.child("github_link").getValue());
                         System.out.println(project.toMap());
                         projects.add(project);
                     }

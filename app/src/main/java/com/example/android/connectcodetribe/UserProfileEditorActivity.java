@@ -39,7 +39,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
-import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -148,7 +147,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
 
     DatabaseReference MyRef;
 
-    List<Project> projects = new ArrayList<>();
+    List<TribeMate> projects = new ArrayList<>();
     private boolean mUserHasChanged = false;
 
     private boolean expandable = true;
@@ -397,10 +396,10 @@ Calendar mCalendar = Calendar.getInstance();
                 });
 
                 projects.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child(currentUser.getUid()).child("projects").getChildren()) {
-                    Project project = new Project();
-                    project.setName((String) snapshot.child("name").getValue());
-                    project.setGithub_link((String) snapshot.child("github_link").getValue());
+                for (DataSnapshot snapshot : dataSnapshot.child("user_projects").child(currentUser.getUid()).child("projects").getChildren()) {
+                    TribeMate project = new TribeMate();
+                    project.setProjectTitle((String) snapshot.child("project_name").getValue());
+                    project.setProjectLink((String) snapshot.child("github_link").getValue());
                     System.out.println(project.toMap());
                     projects.add(project);
                 }
@@ -471,11 +470,11 @@ Calendar mCalendar = Calendar.getInstance();
                 ButUpload.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Project project = new Project();
-                        project.setName(mProjectTitle.getText().toString());
-                        project.setGithub_link(mProjectLink.getText().toString());
-                        mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).child("projects").push().setValue(project.toMap());
-                        MyRef.child(currentUser.getUid()).child("projects").push().setValue(project.toMap());
+                        TribeMate project = new TribeMate();
+                        project.setProjectTitle(mProjectTitle.getText().toString());
+                        project.setProjectLink(mProjectLink.getText().toString());
+                        mDatabaseReference.child("user_projects").child(mEmployeeCodeEditText.getText().toString()).child("projects").push().setValue(project.toMap());
+                        MyRef.child("user_projects").child(currentUser.getUid()).child("projects").push().setValue(project.toMap());
                         alertDialog.cancel();
 
 

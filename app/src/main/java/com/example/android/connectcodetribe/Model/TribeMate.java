@@ -39,6 +39,25 @@ public class TribeMate {
     private String mTribeUnderline;
     private String mTribeEmploymentCodeUnderline;
 
+    private String mProjectTitle;
+    private String mProjectLink;
+
+    public String getProjectTitle() {
+        return mProjectTitle;
+    }
+
+    public void setProjectTitle(String projectTitle) {
+        mProjectTitle = projectTitle;
+    }
+
+    public String getProjectLink() {
+        return mProjectLink;
+    }
+
+    public void setProjectLink(String projectLink) {
+        mProjectLink = projectLink;
+    }
+
     public String getTribeUnderline() {
         return mTribeUnderline;
     }
@@ -307,6 +326,8 @@ public class TribeMate {
         result.put("status", mCodeTribeProgramStatus);
         result.put("tribe_underline", mTribeUnderline);
         result.put("code_underline", mTribeEmploymentCodeUnderline);
+        result.put("project_name", mProjectTitle);
+        result.put("github_link", mProjectLink);
         return result;
     }
 

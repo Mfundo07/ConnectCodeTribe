@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.android.connectcodetribe.Model.Project;
+import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
 
 import java.util.List;
@@ -20,11 +20,11 @@ import java.util.List;
 
 public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHorizontalAdapter.ViewHolder> {
 
-    private List<Project> mProjects;
+    private List<TribeMate> mProjects;
     private Activity activity;
 
 
-    public ProjectsHorizontalAdapter(Activity activity, List<Project> mProjects) {
+    public ProjectsHorizontalAdapter(Activity activity, List<TribeMate> mProjects) {
         this.activity = activity;
         this.mProjects = mProjects;
     }
@@ -40,8 +40,8 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mProjects.get(position);
-        holder.mTitle.setText(mProjects.get(position).getName());
-        holder.projectLink.setText(mProjects.get(position).getGithub_link());
+        holder.mTitle.setText(mProjects.get(position).getProjectTitle());
+        holder.projectLink.setText(mProjects.get(position).getProjectLink());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +50,7 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(mProjects.get(position).getGithub_link()));
+                intent.setData(Uri.parse(mProjects.get(position).getProjectLink()));
                 activity.startActivity(intent);
             }
         });
@@ -64,7 +64,7 @@ public class ProjectsHorizontalAdapter extends RecyclerView.Adapter<ProjectsHori
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mTitle;
-        public Project mItem;
+        public TribeMate mItem;
         public TextView projectLink;
 
         public ViewHolder(View view) {
