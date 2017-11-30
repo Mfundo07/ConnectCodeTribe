@@ -88,7 +88,13 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
             } else if (id == R.id.nav_user_request) {
 
-            } else if (id == R.id.nav_delete_request) {
+            }else if (id == R.id.nav_my_profile) {
+
+              Intent profile = new Intent(Admin_codetribe_fragment.this, Admin_profile.class);
+              startActivity(profile);
+              return true;
+
+          } else if (id == R.id.nav_delete_request) {
 
             } else if (id == R.id.nav_logout) {
 

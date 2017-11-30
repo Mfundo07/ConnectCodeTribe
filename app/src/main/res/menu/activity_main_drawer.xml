@@ -4,10 +4,16 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_my_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="My Profile" />
+
         <item
             android:id="@+id/nav_add_members"
             android:icon="@drawable/user"
-            android:title="Add Member" />
+            android:title="Add User Profile" />
         <item
             android:id="@+id/nav_user_request"
             android:icon="@drawable/new_notification"
