@@ -35,7 +35,10 @@ implements NavigationView.OnNavigationItemSelectedListener{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
         setSupportActionBar(toolbar);
 
+        mProfileBackFabButton =(FloatingActionButton) findViewById(R.id.admin_profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+
+
 
         CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
 
@@ -57,7 +60,7 @@ implements NavigationView.OnNavigationItemSelectedListener{
         mDrawerToggle.syncState();
 
 
-        NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 

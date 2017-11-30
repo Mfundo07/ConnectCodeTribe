@@ -44,6 +44,7 @@
         <activity android:name=".Welcome_activity" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Admin_profile" />
+        <activity android:name=".Admin_register" />
         <activity
             android:name=".Admin_user_profile_editor"
             android:label="Admin Profile Editor" />
@@ -89,8 +90,7 @@
         <activity android:name=".AboutActivity" />
         <activity
             android:name=".LoginActivity2"
-            android:label="@string/title_activity_login2" />
-        <activity android:name=".Users_request_Activity"></activity>
+            android:label="@string/title_activity_login2"></activity>
     </application>
 
 </manifest>

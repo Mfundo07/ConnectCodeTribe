@@ -27,13 +27,13 @@ public class AdminProfileEditor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_user_editor);
 
-        profileName = findViewById(R.id.profile_name_edit);
-        profileSurname = findViewById(R.id.profile_surname_edit);
+        profileName = findViewById(R.id.profile_name_edit_text);
+        profileSurname = findViewById(R.id.profile_surname_edit_text);
         profileGender = findViewById(R.id.profile_gender_spinner);
         profileEthnicity = findViewById(R.id.profile_ethnicity_spinner);
-        profileCell_number = findViewById(R.id.profile_cell_number_edit);
-        profileEmail = findViewById(R.id.profile_email_edit);
-        profileAge = findViewById(R.id.profile_age_edit);
+        profileCell_number = findViewById(R.id.profile_cell_number_edit_text);
+        profileEmail = findViewById(R.id.profile_email_edit_text);
+        profileAge = findViewById(R.id.profile_age_edit_text);
         profilePersonalInfobutton = findViewById(R.id.profile_personal_info_button);
         profileCodeTribeName = findViewById(R.id.profile_code_tribe_name_spinner);
 
