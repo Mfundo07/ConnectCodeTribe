@@ -25,12 +25,14 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
     FloatingActionButton mProfileBackFabButton;
 
+    private ActionBarDrawerToggle mDrawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigatorrr_kb);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
         setSupportActionBar(toolbar);
 
         mProfileBackFabButton =(FloatingActionButton) findViewById(R.id.admin_profile_back_fab_button);
@@ -52,10 +54,11 @@ implements NavigationView.OnNavigationItemSelectedListener{
        // });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        drawer.addDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -98,5 +101,9 @@ implements NavigationView.OnNavigationItemSelectedListener{
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
+
+
+
     }
 }

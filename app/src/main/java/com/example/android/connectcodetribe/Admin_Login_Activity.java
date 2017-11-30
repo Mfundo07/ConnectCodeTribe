@@ -13,15 +13,7 @@ public class Admin_Login_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin__login_);
 
-        Button button = (Button)findViewById(R.id.admin_register);
         Button button1 = (Button)findViewById(R.id.admin_sign_in_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent kb =new Intent(Admin_Login_Activity.this, Admin_register.class);
-                startActivity(kb);
-            }
-        });
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
