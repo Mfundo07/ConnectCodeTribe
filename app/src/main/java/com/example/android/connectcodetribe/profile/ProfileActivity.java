@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,17 +48,13 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
     String mEmployee;
     String mCodeTribeOption;
-
     FirebaseDatabase database;
     DatabaseReference myRef, mDatabaseReference;
     ImageButton btnStatus, btnGithubLink, btnAddBio, btnTribeChat ;
     ImageView userImage, btnAddProject;
     public String gihubLink;
 
-
-
     TextView mBio, mStatus, mCodeTribe,mAge,mEmail,mEthnicity,mGender,mMobile,mCompanyName,mCompanyNumber,mEmploymentStatus,mSalary,mStartDate;
-
 
     private  ImageButton viewMoreButton;
     private String codeTribeName;
@@ -77,8 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
 
-
-
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
         mGender = (TextView) findViewById(R.id.profile_gender);
         mEthnicity = (TextView) findViewById(R.id.profile_ethnicity);
@@ -89,7 +84,6 @@ public class ProfileActivity extends AppCompatActivity {
         mEmploymentStatus = (TextView) findViewById(R.id.profile_employment_status_text);
         mSalary = (TextView) findViewById(R.id.profile_salary_text);
         mStartDate = (TextView) findViewById(R.id.profile_intake_period_text);
-
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -102,6 +96,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar1);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         // adding bottom dots
+        addBottomDots(0);
         database = FirebaseDatabase.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         userImage = (ImageView) findViewById(R.id.userImage);
@@ -114,10 +109,8 @@ public class ProfileActivity extends AppCompatActivity {
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = findViewById(R.id.userStatusImage);
 
-
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
         mProfileEditrFAButton = findViewById(R.id.fab);
-
 
         mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
         //Setup layout manager to a horizontal scrolling recyclerView
@@ -133,10 +126,6 @@ public class ProfileActivity extends AppCompatActivity {
                startActivity(new Intent(ProfileActivity.this, DifferentCodetribeTabs.class));
            }
        });
-
-
-
-
 
         mProfileEditrFAButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,16 +228,13 @@ public class ProfileActivity extends AppCompatActivity {
 
                 addBioButton.setOnClickListener(new View.OnClickListener() {
 
-
                     @Override
                     public void onClick(View v) {
                         myRef.child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
                         mBioEditText.setText("");
                         alertDialog.cancel();
 
-
                     }
-
 
                 });
 
@@ -260,7 +246,21 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
-
+    public void addBottomDots(int currentPage) {
+        dots = new TextView[projects.size()];
+        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
+        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
+        dotsLayout.removeAllViews();
+        for (int i = 0; i < dots.length; i++) {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#8226;"));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(colorsInactive[currentPage]);
+            dotsLayout.addView(dots[i]);
+        }
+        if (dots.length > 0)
+            dots[currentPage].setTextColor(colorsActive[currentPage]);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -295,11 +295,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         return true;
 
-
-
-
     }
-    }
+}
 
 
 

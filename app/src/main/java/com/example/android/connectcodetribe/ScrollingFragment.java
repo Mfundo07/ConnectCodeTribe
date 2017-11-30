@@ -1,16 +1,11 @@
 package com.example.android.connectcodetribe;
 
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -81,8 +76,6 @@ public class ScrollingFragment extends AppCompatActivity {
         TextView userCompanyName = findViewById(R.id.profile_company_name_text_view);
         TextView userCompanyContact = findViewById(R.id.profile_company_contact_text_view);
         TextView userStartDate = findViewById(R.id.user_start_date_text_view);
-        final TextView userBio = findViewById(R.id.userBio);
-        final ImageButton viewMoreButton = findViewById(R.id.moreOnUserBio);
 
         mProjectsRecyclerView = findViewById(R.id.OtherUserProjectsRecyclerView);
         //Setup layout manager to a horizontal scrolling recyclerView
@@ -133,38 +126,6 @@ public class ScrollingFragment extends AppCompatActivity {
         Glide.with(userImage.getContext())
                 .load(mImage)
                 .into(userImage);
-
-        userBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if (expandable) {
-                    expandable = false;
-                    if (userBio.getLineCount() > 4) {
-                        viewMoreButton.setVisibility(View.VISIBLE);
-                        ObjectAnimator animation = ObjectAnimator.ofInt(userBio, "maxLines", 4);
-                        animation.setDuration(0).start();
-                    }
-                }
-                userBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            }
-        });
-        viewMoreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!expandable) {
-                    expandable = true;
-                    ObjectAnimator animation = ObjectAnimator.ofInt(userBio, "maxLines", userBio.length());
-                    animation.setDuration(100).start();
-                    viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ScrollingFragment.this, R.drawable.ic_expand_less));
-                } else {
-                    expandable = false;
-                    ObjectAnimator animation = ObjectAnimator.ofInt(userBio, "maxLines", 4);
-                    animation.setDuration(100).start();
-                    viewMoreButton.setImageDrawable(ContextCompat.getDrawable(ScrollingFragment.this, R.drawable.ic_expand_more));
-                }
-            }
-        });
-
         if (mTribeUnderline != null && mUserCode != null){
             mRef = FirebaseDatabase.getInstance().getReference(mTribeUnderline);
 
