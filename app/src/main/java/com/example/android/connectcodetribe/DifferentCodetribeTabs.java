@@ -8,12 +8,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -29,34 +27,30 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
 
+        mProfileBackFabButton=(FloatingActionButton)findViewById(R.id.profile_back_fab_button);
+        mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profile = new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class);
+                startActivity(profile);
+            }
+        });
+
        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
         setSupportActionBar(toolbar);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser == null){
             startActivity(new Intent(this, LoginActivity.class));
-            finish();}
+        finish();}
 
-        mProfileBackFabButton = findViewById(R.id.profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
-
 
         CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
 
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
-        mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class));
-            }
-        });
-
-
-
 
     }
 
