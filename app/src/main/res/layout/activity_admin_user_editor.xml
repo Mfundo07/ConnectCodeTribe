@@ -256,7 +256,16 @@
             android:gravity="end">
 
 
-
+            <Button
+                android:id="@+id/admin_profile_personal_info_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:gravity="center"
+                android:text="@string/button_text_save"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"/>
 
 
         </LinearLayout>
@@ -374,18 +383,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:gravity="end">
-
-                <Button
-                    android:id="@+id/admin_personal_search_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:gravity="center"
-                    android:text="Search"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"/>
-
                 <Button
                     android:id="@+id/admin_code_tribe_save_button"
                     android:layout_width="wrap_content"
@@ -396,6 +393,18 @@
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/admin_personal_search_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:text="search"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"/>
+
             </LinearLayout>
 
         </LinearLayout>

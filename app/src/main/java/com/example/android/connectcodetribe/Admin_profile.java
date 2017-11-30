@@ -30,9 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Admin_profile extends AppCompatActivity {
 
-    public static final int GENDER_UNKNOWN = 0;
-    public static final int GENDER_MALE = 1;
-    public static final int GENDER_FEMALE = 2;
 
     TextView profileName,profileSurname,profileCell_number,profileEmail,profileAge;
     Spinner profileGender,profileEthnicity,profileCodetribeName;
