@@ -48,17 +48,13 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
     String mEmployee;
     String mCodeTribeOption;
-
     FirebaseDatabase database;
     DatabaseReference myRef, mDatabaseReference;
     ImageButton btnStatus, btnGithubLink, btnAddBio, btnTribeChat ;
     ImageView userImage, btnAddProject;
     public String gihubLink;
 
-
-
     TextView mBio, mStatus, mCodeTribe,mAge,mEmail,mEthnicity,mGender,mMobile,mCompanyName,mCompanyNumber,mEmploymentStatus,mSalary,mStartDate;
-
 
     private  ImageButton viewMoreButton;
     private String codeTribeName;
@@ -78,8 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_layout);
 
-
-
         mMobile = (TextView) findViewById(R.id.profile_cell_number);
         mGender = (TextView) findViewById(R.id.profile_gender);
         mEthnicity = (TextView) findViewById(R.id.profile_ethnicity);
@@ -91,7 +85,6 @@ public class ProfileActivity extends AppCompatActivity {
         mSalary = (TextView) findViewById(R.id.profile_salary_text);
         mStartDate = (TextView) findViewById(R.id.profile_intake_period_text);
 
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
@@ -101,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnAddBio = findViewById(R.id.add_bio_button);
         btnAddProject = findViewById(R.id.btn_add_project);
         setSupportActionBar(toolbar1);
-        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
+         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         // adding bottom dots
         addBottomDots(0);
         database = FirebaseDatabase.getInstance();
@@ -116,10 +109,8 @@ public class ProfileActivity extends AppCompatActivity {
         btnGithubLink = (ImageButton) findViewById(R.id.userGithubImage);
         btnStatus = findViewById(R.id.userStatusImage);
 
-
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
         mProfileEditrFAButton = findViewById(R.id.fab);
-
 
         mProjectsRecyclerView = (RecyclerView) findViewById(R.id.projectsRecyclerview);
         //Setup layout manager to a horizontal scrolling recyclerView
@@ -135,10 +126,6 @@ public class ProfileActivity extends AppCompatActivity {
                startActivity(new Intent(ProfileActivity.this, DifferentCodetribeTabs.class));
            }
        });
-
-
-
-
 
         mProfileEditrFAButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,16 +228,13 @@ public class ProfileActivity extends AppCompatActivity {
 
                 addBioButton.setOnClickListener(new View.OnClickListener() {
 
-
                     @Override
                     public void onClick(View v) {
                         myRef.child(currentUser.getUid()).child("bio").setValue(mBioEditText.getText().toString());
                         mBioEditText.setText("");
                         alertDialog.cancel();
 
-
                     }
-
 
                 });
 
@@ -311,11 +295,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         return true;
 
-
-
-
     }
-    }
+}
 
 
 

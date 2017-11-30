@@ -76,10 +76,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_status_button"
+                    android:contentDescription="@string/todo"
                     android:padding="24dp"
                     android:tint="@android:color/white"
-                    app:srcCompat="@drawable/ic_alumni_black"
-                    android:contentDescription="@string/todo" />
+                    app:srcCompat="@drawable/ic_alumni_black" />
 
                 <TextView
                     android:id="@+id/userStatus"
