@@ -336,6 +336,59 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="surname_text">Surname</string>
     <string name="age_text">Age</string>
     <string name="employee_code_tribe">Employee CodeTribe</string>
+    <string name="intake_year">Intake Year</string>
+    <string name="email">Email</string>
+    <string name="cell_number">Cell Number</string>
+    <string name="ethnicity">Ethnicity</string>
+    <string name="gender">Gender</string>
+
+    <string name="age">Age</string>
+
+    <string name="employment">Employment</string>
+    <string name="company_name">Company Name</string>
+    <string name="start_date">Start Date</string>
+    <string name="salary">Salary</string>
+    <string name="company_contact_number">Company Contact Number</string>
+
+    <string name="github_profile">GitHub Profile</string>
+    <string name="intern">Intern</string>
+
+
+    <string name="black_hint">e.g Black</string>
+
+    <string name="cell_hint">e.g 072 984 4608</string>
+
+    <string name="email_hint">e.g kratoswar@gmail.com</string>
+
+    <string name="employment_status">Employment Status</string>
+
+
+    <string name="ccompany_contact_number">CCompany Contact Number</string>
+    <string name="gender_hint">e.g Female</string>
+    <string name="age_hint">e.g 12</string>
+
+    <string name="surname_hint">e.g War</string>
+    <string name="codetribe_details">CodeTribe Details</string>
+    <string name="codetribe_location">CodeTribe Location</string>
+
+    <string name="employee_code_hint">e.g CTR0000</string>
+    <string name="codetribe_program_status">CodeTribe Program Status</string>
+    <string name="githublink">GithubLink</string>
+    <string name="github_link_hint">e.g https://github.com/Kratos01</string>
+    <string name="education">Education</string>
+    <string name="highest_qualification">Highest Qualification</string>
+    <string name="certificate_hint">e.g Diploma</string>
+    <string name="qualification_institution">Qualification Institution</string>
+    <string name="institution_hint">e.g UUniversity of Johannesburg</string>
+    <string name="qualification_description">Qualification Description</string>
+    <string name="study_field_hint">e.g Information Technology</string>
+
+
+    <string name="company_name_hint">e.g Mlab</string>
+    <string name="monthly_salary">Monthly Salary</string>
+
+    <string name="company_contact_hint">e.g (011) 9844608</string>
+    <string name="save_all">Save All</string>
     <!-- Label for dropdown menu option if the pet is male [CHAR LIMIT=20] -->
 
 
