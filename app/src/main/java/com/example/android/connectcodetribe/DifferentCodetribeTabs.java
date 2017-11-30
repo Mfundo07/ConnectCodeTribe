@@ -8,12 +8,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
-import com.example.android.connectcodetribe.profile.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -33,7 +31,7 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent profile = new Intent(DifferentCodetribeTabs.this, ProfileActivity.class);
+                Intent profile = new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class);
                 startActivity(profile);
             }
         });

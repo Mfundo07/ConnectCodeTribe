@@ -1,6 +1,5 @@
 package com.example.android.connectcodetribe;
 
-import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -25,7 +24,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -219,8 +217,6 @@ Calendar mCalendar = Calendar.getInstance();
         mProfileCircleImage = findViewById(R.id.profile_circle_image);
         mProfileCircleImage.setImageResource(R.drawable.man_user_user);
         btnAddProject = findViewById(R.id.btn_add_project);
-        btnAddBio = findViewById(R.id.btn_add_bio);
-        mBio =  findViewById(R.id.userBio);
         mProfileListButton = findViewById(R.id.profile_list_back_fab_button);
         viewMoreButton = (ImageButton) findViewById(R.id.moreOnUserBio);
         mProfileEmploymentSaveButton.setEnabled(false);
@@ -379,21 +375,10 @@ Calendar mCalendar = Calendar.getInstance();
                 mProfileCompanyNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
                 mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
                 mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
-                mBio.setText((String) dataSnapshot.child(currentUser.getUid()).child("bio").getValue());
-                mBio.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        if (expandable) {
-                            expandable = false;
-                            if (mBio.getLineCount() > 4) {
-                                viewMoreButton.setVisibility(View.VISIBLE);
-                                ObjectAnimator animation = ObjectAnimator.ofInt(mBio, "maxLines", 4);
-                                animation.setDuration(0).start();
-                            }
-                        }
-                        mBio.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    }
-                });
+                if (dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue() != null){
+                Glide.with(mProfileCircleImage.getContext())
+                        .load((String) dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue())
+                        .into(mProfileCircleImage);}
 
                 projects.clear();
                 for (DataSnapshot snapshot : dataSnapshot.child("user_projects").child(currentUser.getUid()).child("projects").getChildren()) {
@@ -417,44 +402,6 @@ Calendar mCalendar = Calendar.getInstance();
             }
         });
 
-        btnAddBio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(UserProfileEditorActivity.this);
-                LayoutInflater inflater = UserProfileEditorActivity.this.getLayoutInflater();
-                final View dialogView = inflater.inflate(R.layout.bio_editor, null);
-                final EditText mBioEditText = dialogView.findViewById(R.id.bio_edit_text);
-                Button addBioButton = dialogView.findViewById(R.id.bio_text_submit_button);
-                builder.setView(dialogView);
-                final AlertDialog alertDialog = builder.create();
-
-                addBioButton.setOnClickListener(new View.OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View v) {
-                        TribeMate tribeMate = new TribeMate();
-                        String tribe = mEmployeeTribeSpinner.getSelectedItem().toString();
-                        tribeMate.setBio(mBioEditText.getText().toString());
-                        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
-                        mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).child("bio").setValue(tribeMate.toMap());
-                        MyRef.child(currentUser.getUid()).child("bio").setValue(tribeMate.toMap());
-                        mBio.setText(mBioEditText.getText().toString());
-                        mBioEditText.setText("");
-                        alertDialog.cancel();
-
-
-                    }
-
-
-                });
-
-
-                alertDialog.show();
-
-            }
-
-        });
 
         btnAddProject.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -754,11 +701,9 @@ Calendar mCalendar = Calendar.getInstance();
 
 
                             tribeMate.setProfileImage(downloadUri.toString());
-
                             tribeMate.setCodeTribeLocation(mProfileCodeTribeSpinner.getSelectedItem().toString());
                             tribeMate.setCodeTribeProgramStatus(mProfileProgramStateSpinner.getSelectedItem().toString());
                             tribeMate.setEmployeeCode(mProfileEmployeeCodeEditText.getText().toString());
-
                             tribeMate.setQualification(mProfileQualificationEditText.getText().toString());
                             tribeMate.setInstitute(mProfileInstitutionEditText.getText().toString());
                             tribeMate.setDesc(mProfileFacultyCourseEditText.getText().toString());
