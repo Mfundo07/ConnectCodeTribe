@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
-import com.example.android.connectcodetribe.Model.Project;
+import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +33,7 @@ public class ScrollingFragment extends AppCompatActivity {
 
     private TextView userProgramStatus;
     ProjectsHorizontalAdapter mProjectsAdapter;
-    List<Project> projects = new ArrayList<>();
+    List<TribeMate> projects = new ArrayList<>();
 
     RecyclerView mProjectsRecyclerView;
 
@@ -166,7 +166,7 @@ public class ScrollingFragment extends AppCompatActivity {
         });
 
         if (mTribeUnderline != null && mUserCode != null){
-            mRef = FirebaseDatabase.getInstance().getReference(mTribeUnderline).child(mUserCode);
+            mRef = FirebaseDatabase.getInstance().getReference(mTribeUnderline);
 
 
         mRef.addValueEventListener(new ValueEventListener() {
@@ -174,12 +174,12 @@ public class ScrollingFragment extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 projects.clear();
-                for (DataSnapshot snapshot : dataSnapshot.child("projects").getChildren()) {
-                    Project project = new Project();
-                    if (snapshot.child("name").getValue() != null){
-                    project.setName((String) snapshot.child("name").getValue());}
+                for (DataSnapshot snapshot : dataSnapshot.child("user_projects").child(mUserCode).child("projects").getChildren()) {
+                    TribeMate project = new TribeMate();
+                    if (snapshot.child("project_name").getValue() != null){
+                    project.setProjectTitle((String) snapshot.child("project_name").getValue());}
                     if (snapshot.child("github_link").getValue() !=null){
-                    project.setGithub_link((String) snapshot.child("github_link").getValue());}
+                    project.setProjectLink((String) snapshot.child("github_link").getValue());}
                     System.out.println(project.toMap());
                     projects.add(project);
                 }
