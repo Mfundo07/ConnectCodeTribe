@@ -23,7 +23,7 @@
 
     </android.support.design.widget.AppBarLayout>
     </LinearLayout>
-    <include layout="@layout/content_main4" />
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/profile_list_back_fab_button"

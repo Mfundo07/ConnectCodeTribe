@@ -8,5 +8,5 @@
     android:layout_height="wrap_content"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.example.android.connectcodetribe.SowetoFragment"
-    tools:listitem="@layout/content_main4"
+    tools:listitem="@layout/user_item"
     android:background="@color/grey_300"/>
