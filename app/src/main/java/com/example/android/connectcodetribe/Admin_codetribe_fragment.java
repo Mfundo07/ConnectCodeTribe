@@ -71,48 +71,27 @@ implements NavigationView.OnNavigationItemSelectedListener{
         }
     }
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()){
-            case R.id.sign_out_menu:
-                startActivity(new Intent(this, LoginActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-
-    }
-
-
-
         @SuppressWarnings("StatementWithEmptyBody")
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
             // Handle navigation view item clicks here.
             int id = item.getItemId();
 
-            if (id == R.id.nav_camera) {
-                // Handle the camera action
-            } else if (id == R.id.nav_gallery) {
+          if (id == R.id.nav_add_members) {
 
-            } else if (id == R.id.nav_slideshow) {
+                Intent logout = new Intent(Admin_codetribe_fragment.this, Admin_user_profile_editor.class);
+                startActivity(logout);
+                return true;
 
-            } else if (id == R.id.nav_manage) {
+            } else if (id == R.id.nav_user_request) {
 
-            } else if (id == R.id.nav_share) {
+            } else if (id == R.id.nav_delete_request) {
 
-            } else if (id == R.id.nav_send) {
+            } else if (id == R.id.nav_logout) {
+
+              Intent logout = new Intent(Admin_codetribe_fragment.this, Admin_Login_Activity.class);
+              startActivity(logout);
+              return true;
 
             }
 

@@ -88,6 +88,9 @@
         <activity android:name=".Admin_ScrollingFragment" />
         <activity android:name=".Admin_scrolling_editor" />
         <activity android:name=".AboutActivity" />
+        <activity
+            android:name=".LoginActivity2"
+            android:label="@string/title_activity_login2"></activity>
     </application>
 
 </manifest>

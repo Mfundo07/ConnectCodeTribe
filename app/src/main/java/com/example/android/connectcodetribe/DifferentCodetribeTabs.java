@@ -76,24 +76,6 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
         //int id = item.getGroupId();
 
         //noinspection SimplifiableIfStatement
-       // if(id==R.id.btnLogout);
-
-       // Intent intentLogout = new Intent(DifferentCodetribeTabs.this,LoginActivity.class);
-       // startActivity(intentLogout);
-        //finish();
-        //onStop();
-
-       // if(id==R.id.btnAdmin);
-
-        //Intent intentAdmin = new Intent(DifferentCodetribeTabs.this,Admin_Login_Activity.class);
-        //startActivity(intentAdmin);
-        //finish();
-
-      //  if(id==R.id.btnAbout);
-
-       // Intent intentAbout = new Intent(DifferentCodetribeTabs.this,AboutActivity.class);
-       // startActivity(intentAbout);
-       // finish();
 
         switch (item.getItemId()) {
             case R.id.btnLogout:
