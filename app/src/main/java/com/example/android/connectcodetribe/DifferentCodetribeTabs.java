@@ -37,26 +37,13 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
             finish();}
 
-        mProfileBackFabButton = findViewById(R.id.profile_back_fab_button);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
-
 
         CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
 
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
-        mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DifferentCodetribeTabs.this, UserProfileEditorActivity.class));
-            }
-        });
-
-
-
 
     }
 
