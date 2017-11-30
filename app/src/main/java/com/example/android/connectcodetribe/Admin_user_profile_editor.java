@@ -351,7 +351,7 @@ public class Admin_user_profile_editor extends AppCompatActivity {
     }
 
     private void setupEmploymentStatusSpinner() {
-        ArrayAdapter employmentStatusSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.array_code_tribe_option,
+        ArrayAdapter employmentStatusSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.array_employee_options,
                 android.R.layout.simple_dropdown_item_1line);
         mAdmin_code_tribe_name_spinner.setAdapter(employmentStatusSpinnerAdapter);
         mAdmin_code_tribe_name_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
