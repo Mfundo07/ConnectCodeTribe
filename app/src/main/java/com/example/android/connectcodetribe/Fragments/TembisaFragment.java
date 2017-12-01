@@ -80,7 +80,7 @@ public class TembisaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/thembisa_codetribe");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/Tembisa");
 
 
         // Set the adapter
