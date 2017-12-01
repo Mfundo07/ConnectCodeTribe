@@ -138,7 +138,6 @@ public class Admin_user_profile_editor extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         mStoragereference = FirebaseStorage.getInstance().getReference("/users/");
         MyRef = FirebaseDatabase.getInstance().getReference("/users/");
-// Updated upstream
         mAdmin_name_edit_text = (EditText) findViewById(R.id.admin_name_edit_text);
         mAdmin_surname_edit_text = (EditText) findViewById(R.id.admin_surname_edit_text);
         mAdmin_gender_spinner = (Spinner) findViewById(R.id.admin_gender_spinner);
@@ -151,20 +150,6 @@ public class Admin_user_profile_editor extends AppCompatActivity {
         mAdmin_tribe_status_spinner = (Spinner) findViewById(R.id.admin_tribe_status_spinner);
         mAdmin_personal_search_button = findViewById(R.id.admin_personal_search_button);
         mAdmin_code_tribe_save_button = findViewById(R.id.admin_code_tribe_save_button);
-//
-        mAdmin_name_edit_text = (EditText) findViewById(R.id.profile_name_edit_text);
-        mAdmin_surname_edit_text = (EditText) findViewById(R.id.profile_surname_edit_text);
-        mAdmin_gender_spinner = (Spinner) findViewById(R.id.profile_gender_spinner);
-        mAdmin_ethnicity_spinner = (Spinner) findViewById(R.id.profile_ethnicity_spinner);
-        mAdmin_age_edit_text = (EditText) findViewById(R.id.profile_age_edit_text);
-        mAdmin_cell_number_edit_text = (EditText) findViewById(R.id.profile_cell_number_edit_text);
-        mAdmin_email_edit_text = (EditText) findViewById(R.id.profile_email_edit_text);
-        mAdmin_emc_edit_text = (EditText) findViewById(R.id.profile_emc_edit_text);
-        mAdmin_code_tribe_name_spinner = (Spinner) findViewById(R.id.profile_code_tribe_name_spinner);
-        mAdmin_tribe_status_spinner = (Spinner) findViewById(R.id.profile_tribe_status_spinner);
-       // mAdmin_personal_search_button = findViewById(R.id.admin_personal_search_button);
-        mAdmin_code_tribe_save_button = findViewById(R.id.admin_code_tribe_save_button);
-//Stashed changes
         mBio = findViewById(R.id.userBio);
         mProfileListButton = findViewById(R.id.profile_list_back_fab_button);
         mAdmin_code_tribe_save_button.setEnabled(false);
@@ -194,11 +179,11 @@ public class Admin_user_profile_editor extends AppCompatActivity {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
 
 
-        mAdmin_name_edit_text = (EditText) findViewById(R.id.profile_name_edit_text);
-        mAdmin_surname_edit_text = (EditText) findViewById(R.id.profile_surname_edit_text);
-        mAdmin_age_edit_text = (EditText) findViewById(R.id.profile_age_edit_text);
-        mAdmin_cell_number_edit_text = (EditText) findViewById(R.id.profile_cell_number_edit_text);
-        mAdmin_email_edit_text = (EditText) findViewById(R.id.profile_email_edit_text);
+        mAdmin_name_edit_text = (EditText) findViewById(R.id.admin_name_edit_text);
+        mAdmin_surname_edit_text = (EditText) findViewById(R.id.admin_surname_edit_text);
+        mAdmin_age_edit_text = (EditText) findViewById(R.id.admin_age_edit_text);
+        mAdmin_cell_number_edit_text = (EditText) findViewById(R.id.admin_cell_number_edit_text);
+        mAdmin_email_edit_text = (EditText) findViewById(R.id.admin_email_edit_text);
         mAdmin_emc_edit_text.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         mAdmin_emc_edit_text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -490,5 +475,6 @@ public class Admin_user_profile_editor extends AppCompatActivity {
         }
     };
 }
+
 
 
