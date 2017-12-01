@@ -51,12 +51,16 @@
         <activity android:name=".Admin_Login_Activity" />
         <activity android:name=".Admin_codetribe_fragment" />
         <activity android:name=".ProjectsActivity" />
+        <activity android:name=".AdminProfileEditor" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".EmployeeActivity"
             android:label="ENTER YOUR EMPLOYEE CODE" />
         <activity android:name=".EmailPasswordActivity" />
         <activity android:name=".FullScreenActivity" />
+
+        <activity android:name=".Users_request_Activity" />
+
         <activity android:name=".LoginActivity" />
 
         <provider
