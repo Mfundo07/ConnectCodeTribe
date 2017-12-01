@@ -58,11 +58,9 @@
             android:label="ENTER YOUR EMPLOYEE CODE" />
         <activity android:name=".EmailPasswordActivity" />
         <activity android:name=".FullScreenActivity" />
-
+        <activity android:name=".HistoryActivity" />
         <activity android:name=".Users_request_Activity" />
-
         <activity android:name=".LoginActivity" />
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -94,7 +92,8 @@
         <activity android:name=".AboutActivity" />
         <activity
             android:name=".LoginActivity2"
-            android:label="@string/title_activity_login2"></activity>
+            android:label="@string/title_activity_login2" />
+        <activity android:name=".HistoryActivity"></activity>
     </application>
 
 </manifest>

@@ -3,21 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:listitem="@layout/admin_item"
     tools:context="com.example.android.connectcodetribe.Users_request_Activity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="2"
-        android:orientation="horizontal">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="6"
             android:orientation="vertical">
 
             <TextView
@@ -31,60 +27,27 @@
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="450dp"
+        android:layout_weight="5"
         android:layout_margin="4dp"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/users_request_recycler"
-        tools:listitem="@layout/admin_item"/>
+        android:layout_marginBottom="16dp"
+        tools:listitem="@layout/users_request_item_ui"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
+            <Button
+                android:id="@+id/id_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="History"
                 android:textColor="#fff"
-                android:layout_marginStart="1dp"
-                android:background="#93c841"
-                android:textSize="20dp"/>
+                android:layout_weight="1"
+                android:text="go to History"
+                android:background="@drawable/button_green"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:orientation="vertical">
+        </LinearLayout>
 
-                <android.support.design.widget.AppBarLayout
-                    android:id="@+id/appbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="@dimen/appbar_padding_top"
-                    android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tabs"
-            style="@style/CategoryTab"
-            app:tabIndicatorColor="#fff"
-            app:tabIndicatorHeight="3dp"
-            android:background="#93c841"/>
-
-                </android.support.design.widget.AppBarLayout>
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -92,7 +55,7 @@
 
 
 
-    </LinearLayout>
 
-</LinearLayout>
+
+
 

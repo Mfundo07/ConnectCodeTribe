@@ -29,21 +29,14 @@ public class Users_request_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_request_);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
-        setSupportActionBar(toolbar);
-
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser == null){
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();}
-
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
-        Admin_History_CategoryAdapter adapter = new Admin_History_CategoryAdapter(getSupportFragmentManager(), this);
-
-        viewPager.setAdapter(adapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        Button history = (Button)findViewById( R.id.id_history );
+        history.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gabaza = new Intent( Users_request_Activity.this, HistoryActivity.class );
+                startActivity( gabaza );
+            }
+        } );
 
     }
 }
