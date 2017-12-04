@@ -469,7 +469,7 @@ Calendar mCalendar = Calendar.getInstance();
     }
     private void setupEmployeeTribeSpinner(){
         ArrayAdapter employeeTribeSinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.array_employee_options, android.R.layout.simple_spinner_item);
+                R.array.array_code_tribe_option, android.R.layout.simple_spinner_item);
         employeeTribeSinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         mEmployeeTribeSpinner.setAdapter(employeeTribeSinnerAdapter);
@@ -479,9 +479,9 @@ Calendar mCalendar = Calendar.getInstance();
                 String selection = (String) parent.getItemAtPosition(position);
                 Toast.makeText(UserProfileEditorActivity.this, "Selected " + selection, Toast.LENGTH_SHORT).show();
                 if (!TextUtils.isEmpty(selection)){
-                    if (selection.equals(R.string.soweto)){
+                    if (selection.equals(R.string.tab_soweto)){
                         mTribe = TRIBE_SOWETO;
-                    }else if (selection.equals(R.string.tembisa)){
+                    }else if (selection.equals(R.string.tab_tembisa)){
                         mTribe = TRIBE_TEMBISA;
                     }else {
                         mTribe = TRIBE_PRETORIA;
@@ -711,7 +711,7 @@ Calendar mCalendar = Calendar.getInstance();
                             tribeMate.setTribeEmploymentCodeUnderline(mEmployeeCodeEditText.getText().toString());
                             tribeMate.setName(mProfileNameEditText.getText().toString());
                             tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
-                            tribeMate.setAge(mProfileAgeEditText.getText().toString());
+                            tribeMate.setAge(Long.valueOf(mProfileAgeEditText.getText().toString()));
                             tribeMate.setGender(mProfileGenderSpinner.getSelectedItem().toString());
                             tribeMate.setEthnicity(mProfileEthnicitySpinner.getSelectedItem().toString());
                             tribeMate.setMobile(mProfileCellPhoneNumberEditText.getText().toString());

@@ -72,7 +72,7 @@ public class Bio extends AppCompatActivity {
                 TribeMate tribeMate = new TribeMate();
                 tribeMate.setName(mName.getText().toString());
                 tribeMate.setSurname(mSurname.getText().toString());
-                tribeMate.setAge(mDateOfBirth.getText().toString());
+                tribeMate.setAge(Long.valueOf(mDateOfBirth.getText().toString()));
                 tribeMate.setEthnicity(mEthnicity.getText().toString());
                 tribeMate.setGender(mGender.getText().toString());
                 tribeMate.setMobile(mMobile.getText().toString());

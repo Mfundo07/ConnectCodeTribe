@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
+import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
@@ -45,7 +45,7 @@ public class Admin_TembisaFragment extends Fragment {
     List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
 
-    MyItemRecyclerViewAdapter adapter;
+    NewUserAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -93,7 +93,7 @@ public class Admin_TembisaFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new MyItemRecyclerViewAdapter(getActivity(), mTribeMates);
+            adapter = new NewUserAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
@@ -106,7 +106,7 @@ public class Admin_TembisaFragment extends Fragment {
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
-                            user.setAge((String) snapshot.child("age").getValue());
+                            user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());

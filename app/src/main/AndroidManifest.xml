@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.connectcodetribe">
+          package="com.example.android.connectcodetribe">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <application
         android:name=".app.AppController"
@@ -24,40 +24,40 @@
         <activity
             android:name=".profile.ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ActiveUserActivity" />
-        <activity android:name=".CompletedProfileActivity" />
-        <activity android:name=".EducationActivity" />
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ActiveUserActivity"/>
+        <activity android:name=".CompletedProfileActivity"/>
+        <activity android:name=".EducationActivity"/>
         <activity
             android:name=".UserProfileEditorActivity"
-            android:label="Profile Editor" />
-        <activity android:name=".ChatActivityAlexandra" />
-        <activity android:name=".ChatActivityThembisa" />
+            android:label="Profile Editor"/>
+        <activity android:name=".ChatActivityAlexandra"/>
+        <activity android:name=".ChatActivityThembisa"/>
         <activity
             android:name=".DifferentCodetribeTabs"
             android:label="CodeTribe Connect"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ChatActivityPretoria" />
-        <activity android:name=".ProfileActivity_first" />
-        <activity android:name=".QualificationActivity" />
-        <activity android:name=".ExperienceActivity" />
-        <activity android:name=".Welcome_activity" />
-        <activity android:name=".Main3Activity" />
-        <activity android:name=".Admin_profile" />
-        <activity android:name=".Admin_register" />
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ChatActivityPretoria"/>
+        <activity android:name=".ProfileActivity_first"/>
+        <activity android:name=".QualificationActivity"/>
+        <activity android:name=".ExperienceActivity"/>
+        <activity android:name=".Welcome_activity"/>
+        <activity android:name=".Main3Activity"/>
+        <activity android:name=".Admin_profile"/>
+        <activity android:name=".Admin_register"/>
         <activity
             android:name=".Admin_user_profile_editor"
-            android:label="Admin Profile Editor" />
-        <activity android:name=".Admin_Login_Activity" />
-        <activity android:name=".Admin_codetribe_fragment" />
-        <activity android:name=".ProjectsActivity" />
-        <activity android:name=".MainActivity" />
+            android:label="Admin Profile Editor"/>
+        <activity android:name=".Admin_Login_Activity"/>
+        <activity android:name=".Admin_codetribe_fragment"/>
+        <activity android:name=".ProjectsActivity"/>
+        <activity android:name=".MainActivity"/>
         <activity
             android:name=".EmployeeActivity"
-            android:label="ENTER YOUR EMPLOYEE CODE" />
-        <activity android:name=".EmailPasswordActivity" />
-        <activity android:name=".FullScreenActivity" />
-        <activity android:name=".LoginActivity" />
+            android:label="ENTER YOUR EMPLOYEE CODE"/>
+        <activity android:name=".EmailPasswordActivity"/>
+        <activity android:name=".FullScreenActivity"/>
+        <activity android:name=".LoginActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -66,31 +66,33 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+                android:resource="@xml/provider_paths"/>
         </provider>
 
-        <activity android:name=".ChatActivitySoweto" />
+        <activity android:name=".ChatActivitySoweto"/>
         <activity
             android:name=".SplashScreen"
             android:label="Welcome to CodeTribe Connect">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ScrollingFragment"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Experience_more" />
-        />
-        <activity android:name=".Admin_ScrollingFragment" />
-        <activity android:name=".Admin_scrolling_editor" />
-        <activity android:name=".AboutActivity" />
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Experience_more"/>
+        <activity android:name=".VerificationActivity"/>
+        <activity android:name=".Admin_ScrollingFragment"/>
+        <activity android:name=".Admin_scrolling_editor"/>
+        <activity android:name=".AboutActivity"/>
+        <activity android:name=".SingleFragmentActivity"/>
+        <activity android:name=".NewUserListActivity"/>
         <activity
             android:name=".LoginActivity2"
-            android:label="@string/title_activity_login2"></activity>
+            android:label="@string/title_activity_login2"/>
     </application>
 
 </manifest>

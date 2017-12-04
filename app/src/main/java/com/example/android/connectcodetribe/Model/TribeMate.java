@@ -15,7 +15,7 @@ public class TribeMate {
     private String mEMC;
     private String mGender;
     private String mEthnicity;
-    private String mAge;
+    private Long mAge;
     private String mMobile;
     private String mEmail;
     private String mIntakeYear;
@@ -204,7 +204,7 @@ public class TribeMate {
         mIntakeYear = intakeYear;
     }
 
-    public TribeMate(String name, String surname, String EMC, String gender, String ethnicity, String age, String mobile, String email, String intakeYear) {
+    public TribeMate(String name, String surname, String EMC, String gender, String ethnicity, Long age, String mobile, String email, String intakeYear) {
 
         mName = name;
         mSurname = surname;
@@ -261,11 +261,11 @@ public class TribeMate {
         mEthnicity = ethnicity;
     }
 
-    public String getAge() {
+    public Long getAge() {
         return mAge;
     }
 
-    public void setAge(String age) {
+    public void setAge(Long age) {
         mAge = age;
     }
 
@@ -286,7 +286,7 @@ public class TribeMate {
     }
 
 
-    public TribeMate(String name, String surname, String EMC, String gender, String ethnicity, String age, String mobile, String email) {
+    public TribeMate(String name, String surname, String EMC, String gender, String ethnicity, Long age, String mobile, String email) {
 
         mName = name;
         mSurname = surname;
