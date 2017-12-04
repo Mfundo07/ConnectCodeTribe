@@ -90,6 +90,7 @@
         <activity android:name=".AboutActivity"/>
         <activity android:name=".SingleFragmentActivity"/>
         <activity android:name=".NewUserListActivity"/>
+        <activity android:name=".CodeTribeSelectActivity"/>
         <activity
             android:name=".LoginActivity2"
             android:label="@string/title_activity_login2"/>
