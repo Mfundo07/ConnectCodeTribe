@@ -1,5 +1,6 @@
 package com.example.android.connectcodetribe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -34,24 +35,10 @@ public class AdminProfileEditor extends AppCompatActivity {
         profileCell_number = findViewById(R.id.profile_cell_number_edit_text);
         profileEmail = findViewById(R.id.profile_email_edit_text);
         profileAge = findViewById(R.id.profile_age_edit_text);
-        profilePersonalInfobutton = findViewById(R.id.profile_personal_info_button);
+
         profileCodeTribeName = findViewById(R.id.profile_code_tribe_name_spinner);
 
-
-
-        profilePersonalInfobutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
     }
-
-
-
-
-
 
 }
 

@@ -82,6 +82,10 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
             } else if (id == R.id.nav_user_request) {
 
+              Intent profile = new Intent(Admin_codetribe_fragment.this, Users_request_Activity.class);
+              startActivity(profile);
+              return true;
+
             }else if (id == R.id.nav_my_profile) {
 
               Intent profile = new Intent(Admin_codetribe_fragment.this, Admin_profile.class);

@@ -63,6 +63,11 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="tab_soweto">Soweto</string>
     <string name="tab_tembisa">Tembisa</string>
     <string name="tab_pretoria">Pretoria</string>
+
+
+    <string name="tab_confirmed">Confirmed</string>
+    <string name="tab_rejected">Rejected</string>
+
     <string name="action_settings1">Settings</string>
     <string name="action_admin_profile">Admin Profile</string>
     <string name="action_logout">Logout</string>
@@ -80,6 +85,12 @@ If you think you have what it takes to be part of the Tribe then apply for avail
         <item>@string/tab_soweto</item>
         <item>@string/tab_pretoria</item>
         <item>@string/tab_tembisa</item>
+    </string-array>
+
+    <string-array name="array_history">
+        <item>@string/tab_confirmed</item>
+        <item>@string/tab_rejected</item>
+
 
     </string-array>
 
