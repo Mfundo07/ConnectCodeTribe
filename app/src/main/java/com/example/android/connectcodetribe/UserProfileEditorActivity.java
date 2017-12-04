@@ -363,7 +363,7 @@ Calendar mCalendar = Calendar.getInstance();
 
                 mProfileNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("name").getValue());
                 mProfileSurnameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("surname").getValue());
-                mProfileAgeEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("age").getValue());
+                mProfileAgeEditText.setText( dataSnapshot.child(currentUser.getUid()).child("age").getValue().toString());
                 mProfileCellPhoneNumberEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNo").getValue());
                 mProfileEmployeeCodeEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("employeeCode").getValue());
                 mProfileQualificationEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("highestQualification").getValue());
