@@ -107,7 +107,7 @@ public class PretoriaFragment extends Fragment {
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
-                            if (snapshot.child("age").getValue() != null){
+                            if (snapshot.child("age").getValue()!= null){
                                 user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));}
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
@@ -123,7 +123,12 @@ public class PretoriaFragment extends Fragment {
                             user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
                             user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
                             user.setStartDate((String) snapshot.child("startDate").getValue());
+                            user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
+                            user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
                             user.setCompanyName((String) snapshot.child("companyName").getValue());
+                            user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
+                            user.setQualification((String) snapshot.child("highestQualification").getValue());
+                            user.setDesc((String) snapshot.child("qualificationDescription").getValue());
                             for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
                                 project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
                                 project.setName((String) projectSnapshot.child("name").getValue());
@@ -153,4 +158,5 @@ public class PretoriaFragment extends Fragment {
         }
         return view;
     }
+
 }

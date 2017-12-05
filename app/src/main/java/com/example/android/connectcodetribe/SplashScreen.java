@@ -49,7 +49,7 @@ public class SplashScreen extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
 
-                Intent intent = new Intent(SplashScreen.this, DifferentCodetribeTabs.class);
+                Intent intent = new Intent(SplashScreen.this, EmailPasswordActivity.class);
                 SplashScreen.this.startActivity(intent);
                 finish();
 

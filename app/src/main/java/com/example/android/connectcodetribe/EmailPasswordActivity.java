@@ -215,7 +215,7 @@ public class EmailPasswordActivity extends BaseActivity implements
                 verifyButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(EmailPasswordActivity.this, DifferentCodetribeTabs.class);
+                        Intent intent = new Intent(EmailPasswordActivity.this, CodeTribeSelectActivity.class);
                         startActivity(intent);
                     }
                 });

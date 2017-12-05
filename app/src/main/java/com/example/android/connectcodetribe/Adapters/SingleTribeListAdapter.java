@@ -13,18 +13,22 @@ import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.ScrollingFragment;
+import com.example.android.connectcodetribe.UserInfoEditorActivity;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
+/**
+ * Created by Admin on 12/4/2017.
+ */
+
+public class SingleTribeListAdapter extends RecyclerView.Adapter<SingleTribeListAdapter.ViewHolder> {
 
     private List<TribeMate> mTribeMates;
     private List<Project> mProjects;
 
-    public MyItemRecyclerViewAdapter(List<Project> projects, Activity activity) {
+    public SingleTribeListAdapter(List<Project> projects, Activity activity) {
         mProjects = projects;
         this.activity = activity;
     }
@@ -33,14 +37,14 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     private Context context;
 
 
-    public MyItemRecyclerViewAdapter(Activity activity, List<TribeMate> mTribeMates) {
+    public SingleTribeListAdapter(Activity activity, List<TribeMate> mTribeMates) {
         this.activity = activity;
         this.mTribeMates = mTribeMates;
     }
 
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SingleTribeListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.user_item, parent, false);
         return new ViewHolder(view);
@@ -62,7 +66,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(activity, ScrollingFragment.class);
+                Intent intent = new Intent(activity, UserInfoEditorActivity.class);
                 intent.putExtra("Name", mTribeMates.get(position).getName());
                 intent.putExtra("Surname", mTribeMates.get(position).getSurname());
                 intent.putExtra("CodeTribe", mTribeMates.get(position).getCodeTribe());
@@ -76,7 +80,6 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 intent.putExtra("Email", mTribeMates.get(position).getEmail());
                 intent.putExtra("Mobile", mTribeMates.get(position).getMobile());
                 intent.putExtra("image", mTribeMates.get(position).getProfileImage());
-                intent.putExtra("bio", mTribeMates.get(position).getBio());
                 intent.putExtra("company_name",mTribeMates.get(position).getCompanyName());
                 intent.putExtra("employed_year", mTribeMates.get(position).getIntakeYear());
                 intent.putExtra("company_contact", mTribeMates.get(position).getCompanyContactNumber());
@@ -88,7 +91,6 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 intent.putExtra("qualification", mTribeMates.get(position).getQualification());
                 intent.putExtra("institution", mTribeMates.get(position).getInstitute());
                 intent.putExtra("faculty", mTribeMates.get(position).getDesc());
-
                 context = view.getContext();
                 context.startActivity(intent);
 

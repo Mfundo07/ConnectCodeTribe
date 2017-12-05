@@ -126,6 +126,9 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
                         user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
                         user.setCompanyName((String) snapshot.child("companyName").getValue());
+                        user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
+                        user.setQualification((String) snapshot.child("highestQualification").getValue());
+                        user.setDesc((String) snapshot.child("qualificationDescription").getValue());
                         for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
                             project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
                             project.setName((String) projectSnapshot.child("name").getValue());

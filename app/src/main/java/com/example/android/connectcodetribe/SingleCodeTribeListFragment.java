@@ -1,4 +1,4 @@
-package com.example.android.connectcodetribe.Fragments;
+package com.example.android.connectcodetribe;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,11 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
+import com.example.android.connectcodetribe.Adapters.SingleTribeListAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
-import com.example.android.connectcodetribe.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,11 +27,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Admin on 11/23/2017.
+ * Created by Admin on 12/4/2017.
  */
 
-public class TembisaFragment extends Fragment {
-
+public class SingleCodeTribeListFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_PROFILE_ID = "profile_id";
     // TODO: Customize parameters
@@ -44,20 +42,21 @@ public class TembisaFragment extends Fragment {
     List<TribeMate> mTribeMates = new ArrayList<>();
     List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
+    String mSelectedTribe;
 
-    NewUserAdapter adapter;
+    SingleTribeListAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public TembisaFragment() {
+    public SingleCodeTribeListFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SowetoFragment newInstance(UUID profileId) {
-        SowetoFragment fragment = new SowetoFragment();
+    public static com.example.android.connectcodetribe.Fragments.SowetoFragment newInstance(UUID profileId) {
+        com.example.android.connectcodetribe.Fragments.SowetoFragment fragment = new com.example.android.connectcodetribe.Fragments.SowetoFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PROFILE_ID, profileId);
         fragment.setArguments(args);
@@ -76,11 +75,12 @@ public class TembisaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        mSelectedTribe = getActivity().getIntent().getExtras().getString("CodeTribe");
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/Tembisa/");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference(mSelectedTribe);
 
 
         // Set the adapter
@@ -93,7 +93,7 @@ public class TembisaFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new NewUserAdapter(getActivity(), mTribeMates);
+            adapter = new SingleTribeListAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
@@ -101,7 +101,9 @@ public class TembisaFragment extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
                         mTribeMates.clear();
+                        mProjects.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
                             TribeMate user = new TribeMate();
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
@@ -125,9 +127,6 @@ public class TembisaFragment extends Fragment {
                             user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
                             user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
                             user.setCompanyName((String) snapshot.child("companyName").getValue());
-                            user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
-                            user.setQualification((String) snapshot.child("highestQualification").getValue());
-                            user.setDesc((String) snapshot.child("qualificationDescription").getValue());
                             for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
                                 project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
                                 project.setName((String) projectSnapshot.child("name").getValue());
@@ -157,5 +156,7 @@ public class TembisaFragment extends Fragment {
         }
         return view;
     }
-
 }
+
+
+

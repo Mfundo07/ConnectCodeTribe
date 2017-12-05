@@ -1,5 +1,6 @@
 package com.example.android.connectcodetribe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -51,7 +52,9 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
         nextStepButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(CodeTribeSelectActivity.this, CodeTribeListActivity.class);
+                intent.putExtra("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
+                startActivity(intent);
             }
         });
 
