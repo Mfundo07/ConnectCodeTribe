@@ -147,7 +147,7 @@
                 android:layout_weight="1"
                 android:text="22"
                 android:textColor="#fff"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="italic" />
 
                 <TextView
@@ -157,7 +157,7 @@
                     android:layout_weight="1"
                     android:text="Female"
                     android:textColor="#fff"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
 
                     android:textStyle="italic" />
             </LinearLayout>
@@ -181,7 +181,7 @@
                     android:layout_weight="1"
                     android:text="South Africa"
                     android:textColor="#fff"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textStyle="italic" />
 
                 <TextView
@@ -191,7 +191,7 @@
                     android:layout_weight="1"
                     android:text="Black"
                     android:textColor="#fff"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
 
                     android:textStyle="italic" />
             </LinearLayout>
@@ -216,7 +216,7 @@
                     android:layout_weight="1"
                     android:text="Soweto"
                     android:textColor="#fff"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="italic" />
 
             </LinearLayout>
