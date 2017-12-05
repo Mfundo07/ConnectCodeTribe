@@ -80,7 +80,7 @@ public class Admin_PretoriaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/pretoria_codetribe");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Tshwane");
 
 
         // Set the adapter
@@ -107,7 +107,7 @@ public class Admin_PretoriaFragment extends Fragment {
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
-                            user.setAge(Long.valueOf((String) snapshot.child("age").getValue().toString()));
+                            user.setAge(Long.valueOf(snapshot.child("age").getValue().toString()));
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());

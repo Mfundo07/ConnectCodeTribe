@@ -171,7 +171,7 @@ public class UserInfoEditorActivity extends AppCompatActivity {
         mRegisterListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatabaseReference = FirebaseDatabase.getInstance().getReference(mCodeTribe);
+                mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child(mCodeTribe);
                 MyRef = FirebaseDatabase.getInstance().getReference().child(mCodeTribe);
                 TribeMate tribeMate = new TribeMate();
                 tribeMate.setCodeTribeLocation(mRegisterCodeTribeEditText.getText().toString());

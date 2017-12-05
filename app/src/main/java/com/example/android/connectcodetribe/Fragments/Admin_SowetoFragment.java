@@ -79,7 +79,7 @@ public class Admin_SowetoFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/soweto_codetribe/");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Soweto");
 
 
         // Set the adapter

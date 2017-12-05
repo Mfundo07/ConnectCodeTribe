@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.android.connectcodetribe.Fragments.PretoriaFragment;
-import com.example.android.connectcodetribe.Fragments.SowetoFragment;
-import com.example.android.connectcodetribe.Fragments.TembisaFragment;
+import com.example.android.connectcodetribe.Fragments.Admin_PretoriaFragment;
+import com.example.android.connectcodetribe.Fragments.Admin_SowetoFragment;
+import com.example.android.connectcodetribe.Fragments.Admin_TembisaFragment;
 import com.example.android.connectcodetribe.R;
 
 /**
@@ -24,11 +24,11 @@ public class Admin_CategoryAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0){
-            return new SowetoFragment();}
+            return new Admin_SowetoFragment();}
         else if (position == 1){
-            return new PretoriaFragment();
+            return new Admin_PretoriaFragment();
         }else{
-            return new TembisaFragment();
+            return new Admin_TembisaFragment();
         }
 
     }

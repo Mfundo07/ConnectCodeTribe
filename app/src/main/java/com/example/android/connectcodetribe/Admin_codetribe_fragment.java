@@ -13,7 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.android.connectcodetribe.Adapters.CategoryAdapter;
+import com.example.android.connectcodetribe.Adapters.Admin_CategoryAdapter;
 
 public class Admin_codetribe_fragment extends AppCompatActivity
 implements NavigationView.OnNavigationItemSelectedListener{
@@ -34,7 +34,7 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
 
 
-        CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
+        Admin_CategoryAdapter adapter = new Admin_CategoryAdapter(getSupportFragmentManager(), this);
 
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
