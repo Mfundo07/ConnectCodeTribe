@@ -254,7 +254,7 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/decline_btn"
+                android:id="@+id/accept_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -264,12 +264,11 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/accept_btn"
+                android:id="@+id/decline_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:layout_weight="1"
-                android:padding="2dp"
                 tools:text="DECLINE"
                 android:textStyle="bold"
                 android:textColor="#fff" />
