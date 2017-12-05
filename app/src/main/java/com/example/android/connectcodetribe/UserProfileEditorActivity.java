@@ -373,6 +373,7 @@ Calendar mCalendar = Calendar.getInstance();
                 mProfileCellPhoneNumberEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNo").getValue());
                 mProfileStartDatePickerButton.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());
                 mProfileCompanyNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
+                mProfileIntakePeriodButton.setText((String) dataSnapshot.child(currentUser.getUid()).child("inTakePeriod").getValue());
                 mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
                 mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
                 if (dataSnapshot.child(currentUser.getUid()).child("profile_picture").getValue() != null){

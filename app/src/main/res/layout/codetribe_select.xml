@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,6 +18,10 @@
         android:layout_gravity="center"
         android:layout_margin="8dp"
         android:gravity="center"/>
+
+    </android.support.v7.widget.CardView>
+
+
 
     <Spinner
         android:id="@+id/codeTribe_select_spinner"
@@ -27,5 +35,6 @@
         android:background="@color/grey_300"
         android:layout_margin="8dp"
         android:text="Next"/>
+
 
 </LinearLayout>
