@@ -6,9 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.android.connectcodetribe.Model.TribeMate;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -77,6 +76,9 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         userEMC.setText(mEMC);
         userProfileStatus.setText(mStatus);
 
+        final DatabaseReference mine = FirebaseDatabase.getInstance().getReference().child("requested").child("Soweto").child(mEMC);
+
+
 
 
         if (getIntent().getExtras().getString("Gender") != null){
@@ -112,6 +114,26 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         userAcceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "EC: " + mEMC, Toast.LENGTH_SHORT).show();
+                mine.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        System.out.println("EMAIL: " + dataSnapshot.child("emailAddress").getValue());
+                        mine.removeValue();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        databaseError.getMessage();
+                    }
+                });
+            }
+        });
+
+       /* userAcceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 TribeMate mate = new TribeMate();
                 mate.setName(mName);
                 mate.setSurname(mSurname);
@@ -127,7 +149,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
                         userAcceptButton.setText("Accepted");
                         userAcceptButton.setEnabled(false);
 
-                        mDatabaseReference.child(mCodeTribe).child(mEMC).orderByChild("name").equalTo(mName).addListenerForSingleValueEvent(new ValueEventListener() {
+                        mDatabaseReference.orderByChild(mEMC).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 for (DataSnapshot child: dataSnapshot.getChildren()) {
@@ -144,6 +166,6 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
                 });
 
             }
-        });
+        });*/
     }
 }

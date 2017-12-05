@@ -77,9 +77,6 @@ public class NewUserAdapter extends RecyclerView.Adapter<NewUserAdapter.ViewHold
 
                 context = view.getContext();
                 context.startActivity(intent);
-
-
-
             }
         });
 
