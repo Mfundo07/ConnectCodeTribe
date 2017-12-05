@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScrollingFragment extends AppCompatActivity {
+public class ActiveUserProfileActvity extends AppCompatActivity {
 
 
 
@@ -80,9 +80,9 @@ public class ScrollingFragment extends AppCompatActivity {
         mProjectsRecyclerView = findViewById(R.id.OtherUserProjectsRecyclerView);
         //Setup layout manager to a horizontal scrolling recyclerView
         LinearLayoutManager horizontalLayoutManagaer
-                = new LinearLayoutManager(ScrollingFragment.this, LinearLayoutManager.VERTICAL, false);
+                = new LinearLayoutManager(ActiveUserProfileActvity.this, LinearLayoutManager.VERTICAL, false);
         mProjectsRecyclerView.setLayoutManager(horizontalLayoutManagaer);
-        mProjectsAdapter = new ProjectsHorizontalAdapter(ScrollingFragment.this, projects);
+        mProjectsAdapter = new ProjectsHorizontalAdapter(ActiveUserProfileActvity.this, projects);
         mProjectsRecyclerView.setAdapter(mProjectsAdapter);
         //Setup layout manager to a staggered scrolling recyclerView
 

@@ -80,11 +80,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ScrollingFragment"
+            android:name=".ActiveUserProfileActvity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Experience_more"/>
         <activity android:name=".VerificationActivity"/>
+        <activity android:name=".RequestingUserProfileActivity"/>
         <activity android:name=".Admin_ScrollingFragment"/>
         <activity android:name=".Admin_scrolling_editor"/>
         <activity android:name=".AboutActivity"/>

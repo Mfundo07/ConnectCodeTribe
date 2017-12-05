@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
-import com.example.android.connectcodetribe.ScrollingFragment;
+import com.example.android.connectcodetribe.ActiveUserProfileActvity;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(activity, ScrollingFragment.class);
+                Intent intent = new Intent(activity, ActiveUserProfileActvity.class);
                 intent.putExtra("Name", mTribeMates.get(position).getName());
                 intent.putExtra("Surname", mTribeMates.get(position).getSurname());
                 intent.putExtra("CodeTribe", mTribeMates.get(position).getCodeTribe());
