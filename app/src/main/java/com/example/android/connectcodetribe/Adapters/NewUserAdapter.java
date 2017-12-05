@@ -2,6 +2,7 @@ package com.example.android.connectcodetribe.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
+import com.example.android.connectcodetribe.RequestingUserProfileActivity;
 
 import java.util.List;
 
@@ -59,7 +61,22 @@ public class NewUserAdapter extends RecyclerView.Adapter<NewUserAdapter.ViewHold
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(activity, RequestingUserProfileActivity.class);
+                intent.putExtra("Name", mTribeMates.get(position).getName());
+                intent.putExtra("Surname", mTribeMates.get(position).getSurname());
+                intent.putExtra("CodeTribe", mTribeMates.get(position).getCodeTribe());
+                intent.putExtra("Status", mTribeMates.get(position).getStatus());
+                intent.putExtra("Email", mTribeMates.get(position).getEmail());
 
+                intent.putExtra("Employee_code", mTribeMates.get(position).getEMC());
+                intent.putExtra("Gender", mTribeMates.get(position).getGender());
+                intent.putExtra("Ethnicity", mTribeMates.get(position).getEthnicity());
+                intent.putExtra("Age", String.valueOf(mTribeMates.get(position).getAge()));
+                intent.putExtra("Email", mTribeMates.get(position).getEmail());
+                intent.putExtra("Mobile", mTribeMates.get(position).getMobile());
+
+                context = view.getContext();
+                context.startActivity(intent);
 
 
 
