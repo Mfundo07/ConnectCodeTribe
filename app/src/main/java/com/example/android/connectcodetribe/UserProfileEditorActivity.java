@@ -163,7 +163,7 @@ Calendar mCalendar = Calendar.getInstance();
     int month = mCalendar.get(Calendar.MONTH);
     int year = mCalendar.get(Calendar.YEAR);
     String Database_Path = " All_Image_Uploads_Database";
-    String Storage_Path = "All_Image_Uploads/";
+    String Storage_Path = "All_Image_Uploads/  ";
     private EditText mProjectTitle, mProjectLink;
     private ImageButton ProjectImage;
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
