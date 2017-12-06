@@ -28,6 +28,7 @@ implements NavigationView.OnNavigationItemSelectedListener{
         setContentView(R.layout.navigatorrr_kb);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
+        toolbar.setTitle ( "Request List" );
         setSupportActionBar(toolbar);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
