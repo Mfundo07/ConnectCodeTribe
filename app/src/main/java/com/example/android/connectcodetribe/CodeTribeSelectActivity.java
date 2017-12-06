@@ -57,7 +57,6 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
 
         codeTribeSpinner = findViewById(R.id.codeTribe_select_spinner);
         nextStepButton = findViewById(R.id.nextStep_button);
-        mSearchStep_button = findViewById(R.id.searchStep_button);
         mNaming = (EditText) findViewById(R.id.codetribeName_edit);
         mSurnaming = (EditText) findViewById(R.id.codetribeSurname_edit);
 
