@@ -42,6 +42,7 @@
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".Welcome_activity" />
+        <activity android:name=".HistoryActivity" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Users_request_Activity" />
         <activity android:name=".Admin_profile" />
