@@ -38,7 +38,7 @@ public class Admin_Login_Activity extends BaseActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.emailpassword);
+        setContentView(R.layout.admin_email_password);
 
         // Views
         mStatusTextView = (TextView) findViewById(R.id.status);

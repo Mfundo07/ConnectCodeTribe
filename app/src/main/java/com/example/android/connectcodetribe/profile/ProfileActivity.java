@@ -31,6 +31,7 @@ import com.example.android.connectcodetribe.AboutActivity;
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.Admin_Login_Activity;
 import com.example.android.connectcodetribe.DifferentCodetribeTabs;
+import com.example.android.connectcodetribe.EmailPasswordActivity;
 import com.example.android.connectcodetribe.LoginActivity;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
@@ -277,7 +278,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         if(id==R.id.btnLogout);
 
-        Intent intentLogout = new Intent(ProfileActivity.this,LoginActivity.class);
+        Intent intentLogout = new Intent(ProfileActivity.this,EmailPasswordActivity.class);
         startActivity(intentLogout);
         finish();
 
