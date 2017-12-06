@@ -17,11 +17,18 @@
         <item
             android:id="@+id/nav_user_request"
             android:icon="@drawable/new_notification"
-            android:title="Users Requests" />
+            android:title="Requested" />
         <item
             android:id="@+id/nav_delete_request"
+            android:icon="@drawable/checkedd"
+            android:iconTint="#7863"
+            android:title="Accepted" />
+
+        <item
+
+            android:id="@+id/nav_rejected"
             android:icon="@drawable/delete_black"
-            android:title="Delete Profile" />
+            android:title="Rejected" />
     </group>
 
     <item android:title="Account">
