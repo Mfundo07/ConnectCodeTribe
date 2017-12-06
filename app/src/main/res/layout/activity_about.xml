@@ -68,7 +68,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="#2278d4"
-                        android:drawableRight="@drawable/arrrr_black"
                         android:text="find us here"/>
 
                 <ImageButton
