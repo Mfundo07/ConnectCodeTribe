@@ -70,6 +70,7 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
                 Intent intent = new Intent(CodeTribeSelectActivity.this, CodeTribeListActivity.class);
                 intent.putExtra("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
                 intent.putExtra("Surname", mSurnaming.getText().toString());
+                intent.putExtra("Name",mNaming.getText().toString());
                 startActivity(intent);
             }
         });
