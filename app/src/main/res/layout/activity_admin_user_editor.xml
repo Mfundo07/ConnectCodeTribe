@@ -161,6 +161,7 @@
                             android:paddingEnd="16dp"
                             android:paddingLeft="16dp"
                             android:paddingRight="16dp"
+                            android:backgroundTint="#FF9800"
                             android:spinnerMode="dropdown"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -188,6 +189,7 @@
                             android:layout_weight="1"
                             android:paddingEnd="16dp"
                             android:paddingLeft="16dp"
+                            android:backgroundTint="#FF9800"
                             android:paddingRight="16dp"
                             android:spinnerMode="dropdown"
                             android:textSize="12sp" />
@@ -322,6 +324,7 @@
                             android:id="@+id/admin_code_tribe_name_spinner"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:backgroundTint="#FF9800"
                             android:layout_weight="1" />
 
                     </LinearLayout>
@@ -373,6 +376,7 @@
                             android:id="@+id/admin_tribe_status_spinner"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:backgroundTint="#FF9800"
                             android:layout_weight="1" />
                     </LinearLayout>
 
@@ -391,7 +395,7 @@
                             android:gravity="center"
                             android:padding="8dp"
                             android:text="Search"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#FF9800"
                             android:textStyle="bold" />
 
                         <Button
@@ -402,7 +406,7 @@
                             android:gravity="center"
                             android:padding="8dp"
                             android:text="Save"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#FF9800"
                             android:textStyle="bold" />
 
                     </LinearLayout>
