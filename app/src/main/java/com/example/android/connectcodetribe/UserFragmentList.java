@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
+import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +27,7 @@ import java.util.List;
 
 public class UserFragmentList extends Fragment {
     private RecyclerView mRecyclerView;
-    private NewUserAdapter mAdapter;
+    private AcceptedUsersAdapter mAdapter;
     List<TribeMate> mTribeMates;
     DatabaseReference mDatabaseReference;
 
@@ -42,7 +42,7 @@ public class UserFragmentList extends Fragment {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/users/");
         mTribeMates = new ArrayList<>();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mAdapter = new NewUserAdapter(getActivity(), mTribeMates);
+        mAdapter = new AcceptedUsersAdapter(getActivity(), mTribeMates);
         mRecyclerView.setAdapter(mAdapter);
        mDatabaseReference.addValueEventListener(new ValueEventListener() {
            @Override

@@ -18,7 +18,7 @@ public class ChooseActivity extends AppCompatActivity {
         users_section.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick(View view) {
-                Intent kb =new Intent ( ChooseActivity.this, CodeTribeSelectActivity.class );
+                Intent kb =new Intent ( ChooseActivity.this, EmailPasswordActivity.class );
                 startActivity ( kb );
             }
         } );

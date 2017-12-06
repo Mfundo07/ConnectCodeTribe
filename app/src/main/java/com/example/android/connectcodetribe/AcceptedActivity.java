@@ -15,8 +15,8 @@ import android.view.MenuItem;
 
 import com.example.android.connectcodetribe.Adapters.Admin_CategoryAdapter;
 
-public class Admin_codetribe_fragment extends AppCompatActivity
-implements NavigationView.OnNavigationItemSelectedListener{
+public class AcceptedActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     FloatingActionButton mProfileBackFabButton;
 
@@ -42,11 +42,11 @@ implements NavigationView.OnNavigationItemSelectedListener{
         tabLayout.setupWithViewPager(viewPager);
 
         //mProfileBackFabButton.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-          //  public void onClick(View v) {
-             //   startActivity(new Intent(Admin_codetribe_fragment.this, Admin_profile.class));
-          //  }
-       // });
+        //   @Override
+        //  public void onClick(View v) {
+        //   startActivity(new Intent(RequestActivity.this, Admin_profile.class));
+        //  }
+        // });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(
@@ -69,39 +69,39 @@ implements NavigationView.OnNavigationItemSelectedListener{
         }
     }
 
-        @SuppressWarnings("StatementWithEmptyBody")
-        @Override
-        public boolean onNavigationItemSelected(MenuItem item) {
-            // Handle navigation view item clicks here.
-            int id = item.getItemId();
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-          if (id == R.id.nav_add_members) {
+        if (id == R.id.nav_add_members) {
 
-                Intent logout = new Intent(Admin_codetribe_fragment.this, Admin_user_profile_editor.class);
-                startActivity(logout);
-                return true;
+            Intent logout = new Intent(AcceptedActivity.this, Admin_user_profile_editor.class);
+            startActivity(logout);
+            return true;
 
-            } else if (id == R.id.nav_user_request) {
+        } else if (id == R.id.nav_user_request) {
 
-              Intent profile = new Intent(Admin_codetribe_fragment.this, Users_request_Activity.class);
-              startActivity(profile);
-              return true;
+            Intent profile = new Intent(AcceptedActivity.this, Users_request_Activity.class);
+            startActivity(profile);
+            return true;
 
-            }else if (id == R.id.nav_my_profile) {
+        }else if (id == R.id.nav_my_profile) {
 
-              Intent profile = new Intent(Admin_codetribe_fragment.this, Admin_profile.class);
-              startActivity(profile);
-              return true;
+            Intent profile = new Intent(AcceptedActivity.this, Admin_profile.class);
+            startActivity(profile);
+            return true;
 
-          } else if (id == R.id.nav_delete_request) {
+        } else if (id == R.id.nav_delete_request) {
 
-            } else if (id == R.id.nav_logout) {
+        } else if (id == R.id.nav_logout) {
 
-              Intent logout = new Intent(Admin_codetribe_fragment.this, Admin_Login_Activity.class);
-              startActivity(logout);
-              return true;
+            Intent logout = new Intent(AcceptedActivity.this, Admin_Login_Activity.class);
+            startActivity(logout);
+            return true;
 
-            }
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

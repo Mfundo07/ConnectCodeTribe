@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
+import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
@@ -31,7 +31,7 @@ import java.util.UUID;
  * Created by Admin on 11/23/2017.
  */
 
-public class Admin_PretoriaFragment extends Fragment {
+public class AdminRequestPretoriaFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_PROFILE_ID = "profile_id";
@@ -45,13 +45,13 @@ public class Admin_PretoriaFragment extends Fragment {
     List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
 
-    NewUserAdapter adapter;
+    AcceptedUsersAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public Admin_PretoriaFragment() {
+    public AdminRequestPretoriaFragment() {
     }
 
     // TODO: Customize parameter initialization
@@ -93,7 +93,7 @@ public class Admin_PretoriaFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new NewUserAdapter(getActivity(), mTribeMates);
+            adapter = new AcceptedUsersAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {

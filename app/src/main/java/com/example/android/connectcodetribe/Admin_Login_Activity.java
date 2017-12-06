@@ -215,7 +215,7 @@ public class Admin_Login_Activity extends BaseActivity implements
                 verifyButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(Admin_Login_Activity.this, Admin_codetribe_fragment.class);
+                        Intent intent = new Intent(Admin_Login_Activity.this, RequestActivity.class);
                         startActivity(intent);
                     }
                 });

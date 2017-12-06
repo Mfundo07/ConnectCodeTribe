@@ -52,7 +52,7 @@
             android:name=".Admin_user_profile_editor"
             android:label="Admin Profile Editor" />
         <activity android:name=".Admin_Login_Activity" />
-        <activity android:name=".Admin_codetribe_fragment" />
+        <activity android:name=".RequestActivity" />
         <activity android:name=".ProjectsActivity" />
         <activity android:name=".MainActivity" />
         <activity
@@ -103,7 +103,7 @@
         <activity
             android:name=".LoginActivity2"
             android:label="@string/title_activity_login2" />
-        <activity android:name=".ChooseActivity"></activity>
+        <activity android:name=".AcceptedActivity"/>
     </application>
 
 </manifest>
