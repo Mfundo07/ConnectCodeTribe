@@ -81,7 +81,6 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/Soweto/");
 
-
         // Set the adapter
         if (view instanceof RecyclerView) {
         Context context = view.getContext();
@@ -151,12 +150,9 @@ public void onDataChange(DataSnapshot dataSnapshot) {
 
 @Override
 public void onCancelled(DatabaseError databaseError) {
-
         }
         });
-
         }
         return view;
         }
-
-        }
+}
