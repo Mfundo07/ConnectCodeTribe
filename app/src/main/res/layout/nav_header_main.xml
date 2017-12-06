@@ -22,7 +22,7 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="bottom"
             android:background="@android:color/transparent"
-            android:src="@drawable/addphoto" />
+            app:srcCompat="@drawable/addphoto" />
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
