@@ -43,7 +43,7 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
     StorageReference mStoragereference;
 
     private Spinner codeTribeSpinner;
-    private EditText mNaming, mSurnaming;
+    private EditText mNaming;
     private Button nextStepButton, mSearchStep_button;
 
     @Override
