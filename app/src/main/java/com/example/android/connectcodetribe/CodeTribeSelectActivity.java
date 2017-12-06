@@ -69,75 +69,69 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
                 Intent intent = new Intent(CodeTribeSelectActivity.this, CodeTribeListActivity.class);
                 intent.putExtra("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
                 intent.putExtra("Surname", mSurnaming.getText().toString());
-                intent.putExtra("Name",mNaming.getText().toString());
+                intent.putExtra("Name", mNaming.getText().toString());
                 startActivity(intent);
             }
         });
 
 
+    }
 
 
-            }
+    private void setupCodeTribeSpinner() {
+        ArrayAdapter codeTribeSinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.array_code_tribe_option, android.R.layout.simple_spinner_item);
+        codeTribeSinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
-
-
-
-            private void setupCodeTribeSpinner() {
-                ArrayAdapter codeTribeSinnerAdapter = ArrayAdapter.createFromResource(this,
-                        R.array.array_code_tribe_option, android.R.layout.simple_spinner_item);
-                codeTribeSinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-
-                codeTribeSpinner.setAdapter(codeTribeSinnerAdapter);
-                codeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String selection = (String) parent.getItemAtPosition(position);
-                        if (!TextUtils.isEmpty(selection)) {
-                            if (selection.equals(R.string.tab_soweto)) {
-                                mTribe = TRIBE_SOWETO;
-                            } else if (selection.equals(R.string.tab_tembisa)) {
-                                mTribe = TRIBE_TEMBISA;
-                            } else {
-                                mTribe = TRIBE_PRETORIA;
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
+        codeTribeSpinner.setAdapter(codeTribeSinnerAdapter);
+        codeTribeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(R.string.tab_soweto)) {
                         mTribe = TRIBE_SOWETO;
+                    } else if (selection.equals(R.string.tab_tembisa)) {
+                        mTribe = TRIBE_TEMBISA;
+                    } else {
+                        mTribe = TRIBE_PRETORIA;
                     }
-                });
+                }
+            }
 
-                mSearchStep_button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                mTribe = TRIBE_SOWETO;
+            }
+        });
 
-                        System.out.println(mSurnaming.getText().toString());
-                        String tribe = codeTribeSpinner.getSelectedItem().toString();
+//                mSearchStep_button.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
 
-                        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
-                        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+        System.out.println(mSurnaming.getText().toString());
+        String tribe = codeTribeSpinner.getSelectedItem().toString();
 
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                mNaming.setText((String) dataSnapshot.child(mSurnaming.getText().toString()).child("name").getValue());
-                                mSurnaming.setText((String) dataSnapshot.child(mSurnaming.getText().toString()).child("surname").getValue());
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(tribe);
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mNaming.setText((String) dataSnapshot.child(mSurnaming.getText().toString()).child("name").getValue());
+                mSurnaming.setText((String) dataSnapshot.child(mSurnaming.getText().toString()).child("surname").getValue());
 
 
-                                mSurnaming.setEnabled(false);
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-                    }
-                });
+                mSurnaming.setEnabled(false);
 
             }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
+        });
+    }
+}
+
 
 
