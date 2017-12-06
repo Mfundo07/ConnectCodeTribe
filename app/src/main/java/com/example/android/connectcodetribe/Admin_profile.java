@@ -1,5 +1,6 @@
 package com.example.android.connectcodetribe;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -36,23 +37,13 @@ public class Admin_profile extends AppCompatActivity {
 
     FloatingActionButton ProfileEditFAButton;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile_view);
 
        // profileName = findViewById(R.id.profile_name_edit);
-
-       ProfileEditFAButton =(FloatingActionButton)findViewById(R.id.profile_personal_info_button);
-       ProfileEditFAButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(Admin_profile.this, AdminProfileEditor.class);
-               startActivity(intent);
-           }
-       });
-
-
 
 
     }
