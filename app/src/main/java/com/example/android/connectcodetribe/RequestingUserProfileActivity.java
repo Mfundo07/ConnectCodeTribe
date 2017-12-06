@@ -56,7 +56,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         TextView userProfileStatus = findViewById(R.id.userStatus);
         TextView userName = findViewById(R.id.user_profile_name);
         TextView userSurname = findViewById(R.id.user_profile_surname);
-        final Button userAcceptButton = findViewById(R.id.decline_btn);
+        final Button userAcceptButton = findViewById(R.id.accept_btn);
         final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("/accepted/");
         final DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/");
 
@@ -82,7 +82,6 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         userName.setText(mName);
         userSurname.setText(mSurname);
 
-        final DatabaseReference mine = FirebaseDatabase.getInstance().getReference().child("requested").child("Soweto").child(mEMC);
 
 
 
