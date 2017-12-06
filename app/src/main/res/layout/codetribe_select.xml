@@ -10,16 +10,15 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:gravity="center"
-            android:padding="45dp"
-            android:text="Select your CodeTribe"
-            android:textSize="30sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select your CodeTribe"
+        android:textSize="30sp"
+        android:padding="45dp"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:gravity="center"/>
 
     </android.support.v7.widget.CardView>
 
@@ -39,17 +38,19 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/codetribeSecondname_edit"
-        android:textAlignment="center"
-        android:hint="Second Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <EditText
         android:id="@+id/codetribeSurname_edit"
         android:textAlignment="center"
         android:hint="Surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/searchStep_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_300"
+        android:layout_margin="8dp"
+        android:text="Search"/>
 
     <Button
         android:id="@+id/nextStep_button"
@@ -58,7 +59,7 @@
         android:textColor="#fff"
         android:background="@drawable/button_green"
         android:layout_margin="8dp"
-        android:text="Search"/>
+        android:text="Next"/>
 
 
 </LinearLayout>

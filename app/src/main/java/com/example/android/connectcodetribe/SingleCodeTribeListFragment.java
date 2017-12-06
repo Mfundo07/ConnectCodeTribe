@@ -160,7 +160,7 @@ public class SingleCodeTribeListFragment extends Fragment {
 //                }
 //            });
 
-            mDatabaseReference.orderByChild("name").equalTo(mName).addValueEventListener(new ValueEventListener() {
+            mDatabaseReference.orderByChild("name").equalTo(mName).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     TribeMate user = new TribeMate();
