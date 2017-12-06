@@ -29,6 +29,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"/>
+
+    <EditText
+        android:id="@+id/codetribeName_edit"
+        android:textAlignment="center"
+        android:hint="Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/codetribeSurname_edit"
+        android:textAlignment="center"
+        android:hint="Surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/searchStep_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_300"
+        android:layout_margin="8dp"
+        android:text="Search"/>
+
     <Button
         android:id="@+id/nextStep_button"
         android:layout_width="match_parent"
