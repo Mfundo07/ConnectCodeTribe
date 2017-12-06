@@ -13,7 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.android.connectcodetribe.Adapters.Admin_CategoryAdapter;
+import com.example.android.connectcodetribe.Adapters.AdminAcceptCategoryAdapter;
 
 public class AcceptedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -28,14 +28,14 @@ public class AcceptedActivity extends AppCompatActivity
         setContentView(R.layout.navigatorrr_kb);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
-        toolbar.setTitle ( "Request List" );
+        toolbar.setTitle ( "Accepted List" );
         setSupportActionBar(toolbar);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
 
 
 
-        Admin_CategoryAdapter adapter = new Admin_CategoryAdapter(getSupportFragmentManager(), this);
+        AdminAcceptCategoryAdapter adapter = new AdminAcceptCategoryAdapter(getSupportFragmentManager(), this);
 
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -83,7 +83,7 @@ public class AcceptedActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_user_request) {
 
-            Intent profile = new Intent(AcceptedActivity.this, Users_request_Activity.class);
+            Intent profile = new Intent(AcceptedActivity.this, RequestActivity.class);
             startActivity(profile);
             return true;
 

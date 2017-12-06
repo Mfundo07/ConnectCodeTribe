@@ -13,7 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.android.connectcodetribe.Adapters.Admin_CategoryAdapter;
+import com.example.android.connectcodetribe.Adapters.AdminRequestCategoryAdapter;
 
 public class RequestActivity extends AppCompatActivity
 implements NavigationView.OnNavigationItemSelectedListener{
@@ -35,7 +35,7 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
 
 
-        Admin_CategoryAdapter adapter = new Admin_CategoryAdapter(getSupportFragmentManager(), this);
+        AdminRequestCategoryAdapter adapter = new AdminRequestCategoryAdapter(getSupportFragmentManager(), this);
 
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -77,7 +77,7 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
           if (id == R.id.nav_add_members) {
 
-                Intent logout = new Intent(RequestActivity.this, Admin_user_profile_editor.class);
+                Intent logout = new Intent(RequestActivity.this, AcceptedActivity.class);
                 startActivity(logout);
                 return true;
 

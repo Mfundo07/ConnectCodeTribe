@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
-import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
@@ -28,15 +27,13 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Admin on 11/23/2017.
+ * Created by Admin on 12/6/2017.
  */
 
-public class AdminRequestPretoriaFragment extends Fragment {
-
+public class AdminAcceptSowetoFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_PROFILE_ID = "profile_id";
     // TODO: Customize parameters
-    private Profile mProfile;
     private int mColumnCount = 1;
 
     DatabaseReference mDatabaseReference;
@@ -51,7 +48,7 @@ public class AdminRequestPretoriaFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public AdminRequestPretoriaFragment() {
+    public AdminAcceptSowetoFragment() {
     }
 
     // TODO: Customize parameter initialization
@@ -80,7 +77,7 @@ public class AdminRequestPretoriaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Tshwane");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/accepted/").child("Soweto");
 
 
         // Set the adapter
@@ -101,13 +98,14 @@ public class AdminRequestPretoriaFragment extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
                         mTribeMates.clear();
+                        mProjects.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                             TribeMate user = new TribeMate();
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
-                            user.setAge(Long.valueOf(snapshot.child("age").getValue().toString()));
+                            user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());
@@ -122,6 +120,8 @@ public class AdminRequestPretoriaFragment extends Fragment {
                             user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
                             user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
                             user.setStartDate((String) snapshot.child("startDate").getValue());
+                            user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
+                            user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
                             user.setCompanyName((String) snapshot.child("companyName").getValue());
                             for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
                                 project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
@@ -152,4 +152,5 @@ public class AdminRequestPretoriaFragment extends Fragment {
         }
         return view;
     }
+
 }

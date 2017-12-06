@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
-import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
@@ -28,15 +27,13 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Admin on 11/23/2017.
+ * Created by Admin on 12/6/2017.
  */
 
-public class Admin_TembisaFragment extends Fragment {
-
+public class AdminAcceptPretoriaFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_PROFILE_ID = "profile_id";
     // TODO: Customize parameters
-    private Profile mProfile;
     private int mColumnCount = 1;
 
     DatabaseReference mDatabaseReference;
@@ -51,13 +48,13 @@ public class Admin_TembisaFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public Admin_TembisaFragment() {
+    public AdminAcceptPretoriaFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static Admin_SowetoFragment newInstance(UUID profileId) {
-        Admin_SowetoFragment fragment = new Admin_SowetoFragment();
+    public static AdminRequestSowetoFragment newInstance(UUID profileId) {
+        AdminRequestSowetoFragment fragment = new AdminRequestSowetoFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PROFILE_ID, profileId);
         fragment.setArguments(args);
@@ -80,7 +77,7 @@ public class Admin_TembisaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Tembisa");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/accepted/").child("Tshwane");
 
 
         // Set the adapter
@@ -102,11 +99,12 @@ public class Admin_TembisaFragment extends Fragment {
                     if (dataSnapshot.hasChildren()) {
                         mTribeMates.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
                             TribeMate user = new TribeMate();
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
-                            user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));
+                            user.setAge(Long.valueOf(snapshot.child("age").getValue().toString()));
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());

@@ -5,18 +5,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.android.connectcodetribe.Fragments.AdminRequestPretoriaFragment;
-import com.example.android.connectcodetribe.Fragments.Admin_SowetoFragment;
-import com.example.android.connectcodetribe.Fragments.Admin_TembisaFragment;
+import com.example.android.connectcodetribe.Fragments.AdminAcceptPretoriaFragment;
+import com.example.android.connectcodetribe.Fragments.AdminAcceptSowetoFragment;
+import com.example.android.connectcodetribe.Fragments.AdminAcceptTembisaFragment;
 import com.example.android.connectcodetribe.R;
 
 /**
- * Created by Admin on 11/17/2017.
+ * Created by Admin on 12/6/2017.
  */
-
-public class Admin_CategoryAdapter extends FragmentPagerAdapter {
+public class AdminAcceptCategoryAdapter extends FragmentPagerAdapter {
     Context mContext;
-    public Admin_CategoryAdapter(FragmentManager fm, Context context) {
+    public AdminAcceptCategoryAdapter(FragmentManager fm, Context context) {
         super(fm);
         mContext = context;
     }
@@ -24,11 +23,11 @@ public class Admin_CategoryAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0){
-            return new Admin_SowetoFragment();}
+            return new AdminAcceptSowetoFragment();}
         else if (position == 1){
-            return new AdminRequestPretoriaFragment();
+            return new AdminAcceptPretoriaFragment();
         }else{
-            return new Admin_TembisaFragment();
+            return new AdminAcceptTembisaFragment();
         }
 
     }

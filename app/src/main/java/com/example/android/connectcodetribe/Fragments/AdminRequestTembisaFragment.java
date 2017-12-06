@@ -31,7 +31,7 @@ import java.util.UUID;
  * Created by Admin on 11/23/2017.
  */
 
-public class AdminRequestPretoriaFragment extends Fragment {
+public class AdminRequestTembisaFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_PROFILE_ID = "profile_id";
@@ -51,7 +51,7 @@ public class AdminRequestPretoriaFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public AdminRequestPretoriaFragment() {
+    public AdminRequestTembisaFragment() {
     }
 
     // TODO: Customize parameter initialization
@@ -80,7 +80,7 @@ public class AdminRequestPretoriaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Tshwane");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Tembisa");
 
 
         // Set the adapter
@@ -102,12 +102,11 @@ public class AdminRequestPretoriaFragment extends Fragment {
                     if (dataSnapshot.hasChildren()) {
                         mTribeMates.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
                             TribeMate user = new TribeMate();
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
                             user.setSurname((String) snapshot.child("surname").getValue());
-                            user.setAge(Long.valueOf(snapshot.child("age").getValue().toString()));
+                            user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));
                             user.setEMC((String) snapshot.child("employeeCode").getValue());
                             user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                             user.setGender((String) snapshot.child("gender").getValue());

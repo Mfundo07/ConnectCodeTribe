@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
-import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.example.android.connectcodetribe.R;
@@ -28,14 +27,13 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Admin on 11/17/2017.
+ * Created by Admin on 12/6/2017.
  */
 
-public class Admin_SowetoFragment extends Fragment {
+public class AdminAcceptTembisaFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_PROFILE_ID = "profile_id";
     // TODO: Customize parameters
-    private Profile mProfile;
     private int mColumnCount = 1;
 
     DatabaseReference mDatabaseReference;
@@ -50,13 +48,13 @@ public class Admin_SowetoFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public Admin_SowetoFragment() {
+    public AdminAcceptTembisaFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static Admin_SowetoFragment newInstance(UUID profileId) {
-        Admin_SowetoFragment fragment = new Admin_SowetoFragment();
+    public static AdminRequestSowetoFragment newInstance(UUID profileId) {
+        AdminRequestSowetoFragment fragment = new AdminRequestSowetoFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PROFILE_ID, profileId);
         fragment.setArguments(args);
@@ -79,7 +77,7 @@ public class Admin_SowetoFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Soweto");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/accepted/").child("Tembisa");
 
 
         // Set the adapter
@@ -100,9 +98,7 @@ public class Admin_SowetoFragment extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
                         mTribeMates.clear();
-                        mProjects.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
                             TribeMate user = new TribeMate();
                             Project project = new Project();
                             user.setName((String) snapshot.child("name").getValue());
@@ -115,15 +111,13 @@ public class Admin_SowetoFragment extends Fragment {
                             user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                             user.setEmail((String) snapshot.child("emailAddress").getValue());
                             user.setMobile((String) snapshot.child("mobileNo").getValue());
-                            if ((String) snapshot.child("profile_picture").getValue() != null){
+                            if ( snapshot.child("profile_picture").getValue() != null){
                                 user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                             user.setBio((String) snapshot.child("bio").getValue());
                             user.setEmploymentStatus((String) snapshot.child("employed").getValue());
                             user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
                             user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
                             user.setStartDate((String) snapshot.child("startDate").getValue());
-                            user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
-                            user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
                             user.setCompanyName((String) snapshot.child("companyName").getValue());
                             for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
                                 project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
@@ -154,5 +148,4 @@ public class Admin_SowetoFragment extends Fragment {
         }
         return view;
     }
-
 }
