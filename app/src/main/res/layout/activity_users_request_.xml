@@ -24,10 +24,23 @@
                 android:layout_marginEnd="1dp"
                 android:text="Users Request"
                 android:textSize="20dp"/>
+            <Button
+                android:id="@+id/id_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textColor="#fff"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:drawableRight="@drawable/ic_arrow_forward_white"
+                android:layout_weight="1"
+                android:text="go to History"
+                android:background="@drawable/button_green"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="match_parent"
         android:layout_weight="5"
         android:layout_margin="4dp"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,15 +48,6 @@
         android:id="@+id/users_request_recycler"
         android:layout_marginBottom="16dp"
         tools:listitem="@layout/users_request_item_ui"/>
-
-            <Button
-                android:id="@+id/id_history"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:layout_weight="1"
-                android:text="go to History"
-                android:background="@drawable/button_green"/>
 
         </LinearLayout>
 
