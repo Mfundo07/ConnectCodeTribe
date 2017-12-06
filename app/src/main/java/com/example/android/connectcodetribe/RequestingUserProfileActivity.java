@@ -35,7 +35,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
     String mEmail;
     String mMobile;
     String mImage;
-    String mSalary;
+    String mCountryOfBirth;
     String mCompanyName;
     String mCompanyContact;
     String mStartDate;
@@ -45,13 +45,14 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_editor66);
+        setContentView(R.layout.profile_activity);
 
         TextView userEthnicity = findViewById(R.id.user_ethnicity);
         TextView userGender = findViewById(R.id.user_gender);
         TextView userAge = findViewById(R.id.user_age);
         TextView userEmail = findViewById(R.id.user_email);
         TextView userMobileNo = findViewById(R.id.user_cell_number);
+        TextView userCountryOfBirth = findViewById(R.id.user_country_of_birth);
         TextView userProfileStatus = findViewById(R.id.userStatus);
         TextView userEMC = findViewById(R.id.user_code);
         final Button userAcceptButton = findViewById(R.id.decline_btn);
@@ -66,6 +67,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         mSurname = getIntent().getExtras().getString("Surname");
         mImage = getIntent().getExtras().getString("image");
         mBio = getIntent().getExtras().getString("bio");
+        mCountryOfBirth = getIntent().getExtras().getString("countyofBirth");
 
 
         mGender = getIntent().getExtras().getString("Gender");
@@ -87,6 +89,12 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
             userGender.setText(mGender);}
         else{
             userGender.setText("");
+        }
+
+        if (getIntent().getExtras().getString("CountryOfBirth") != null){
+            userGender.setText(mCountryOfBirth);}
+        else{
+            userCountryOfBirth.setText("");
         }
 
         if (getIntent().getExtras().getString("Ethnicity") != null){
@@ -129,8 +137,9 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
                         mate.setEMC(mEMC);
                         mate.setGender(mGender);
                         mate.setEthnicity(mEthnicity);
+                        mate.setEthnicity(mEthnicity);
                         mate.setMobile(mMobile);
-                        mate.setEmail(mEmail);
+                        mate.setCountryOfBirth(mCountryOfBirth);
                         mRef.child(mCodeTribe).child(mEMC).setValue(mate.toMap());
                         mDatabaseReference.child(mCodeTribe).child(mEMC).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override

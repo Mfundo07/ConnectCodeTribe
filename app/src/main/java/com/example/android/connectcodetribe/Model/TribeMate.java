@@ -41,6 +41,7 @@ public class TribeMate {
 
     private String mProjectTitle;
     private String mProjectLink;
+    private String countryOfBirth;
 
     public String getProjectTitle() {
         return mProjectTitle;
@@ -332,4 +333,7 @@ public class TribeMate {
     }
 
 
+    public void setCountryOfBirth(String countryOfBirth) {
+        this.countryOfBirth = countryOfBirth;
+    }
 }

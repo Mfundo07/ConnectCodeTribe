@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -124,7 +124,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         card_view:cardCornerRadius="8dp"
         android:backgroundTint="#93c841"
         tools:targetApi="lollipop">
@@ -238,25 +238,18 @@
             </LinearLayout>
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardCornerRadius="8dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="4dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="155dp"
             android:background="#93c841"
             android:layout_weight="1">
 
             <Button
                 android:id="@+id/accept_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:layout_weight="1"
                 android:text="ACCEPT"
@@ -266,15 +259,16 @@
             <Button
                 android:id="@+id/decline_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:layout_weight="1"
                 tools:text="DECLINE"
                 android:textStyle="bold"
                 android:textColor="#fff" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
 
+
+    </android.support.v7.widget.CardView>
 
 
         </LinearLayout>
