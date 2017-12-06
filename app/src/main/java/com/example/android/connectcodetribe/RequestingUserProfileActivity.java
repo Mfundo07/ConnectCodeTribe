@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.connectcodetribe.Model.TribeMate;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -120,7 +122,22 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
                         System.out.println("EMAIL: " + dataSnapshot.child("emailAddress").getValue());
-                        mine.removeValue();
+                        TribeMate mate = new TribeMate();
+                        mate.setName(mName);
+                        mate.setSurname(mSurname);
+                        mate.setAge(Long.valueOf(mAge));
+                        mate.setEMC(mEMC);
+                        mate.setGender(mGender);
+                        mate.setEthnicity(mEthnicity);
+                        mate.setMobile(mMobile);
+                        mate.setEmail(mEmail);
+                        mRef.child(mCodeTribe).child(mEMC).setValue(mate.toMap());
+                        mDatabaseReference.child(mCodeTribe).child(mEMC).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                finish();
+                            }
+                        });
                     }
 
                     @Override
@@ -131,41 +148,6 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
             }
         });
 
-       /* userAcceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TribeMate mate = new TribeMate();
-                mate.setName(mName);
-                mate.setSurname(mSurname);
-                mate.setAge(Long.valueOf(mAge));
-                mate.setEMC(mEMC);
-                mate.setGender(mGender);
-                mate.setEthnicity(mEthnicity);
-                mate.setMobile(mMobile);
-                mate.setEmail(mEmail);
-                mRef.child(mCodeTribe).child(mEMC).setValue(mate.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        userAcceptButton.setText("Accepted");
-                        userAcceptButton.setEnabled(false);
 
-                        mDatabaseReference.orderByChild(mEMC).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot child: dataSnapshot.getChildren()) {
-                                    child.getRef().setValue(null);
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-                    }
-                });
-
-            }
-        });*/
     }
 }
