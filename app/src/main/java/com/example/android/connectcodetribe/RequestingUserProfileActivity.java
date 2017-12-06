@@ -54,9 +54,8 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         TextView userMobileNo = findViewById(R.id.user_cell_number);
         TextView userCountryOfBirth = findViewById(R.id.user_country_of_birth);
         TextView userProfileStatus = findViewById(R.id.userStatus);
-        TextView userName = findViewById(R.id.user_profile_name);
-        TextView userSurname = findViewById(R.id.user_profile_surname);
-        final Button userAcceptButton = findViewById(R.id.accept_btn);
+        TextView userEMC = findViewById(R.id.user_code);
+        final Button userAcceptButton = findViewById(R.id.decline_btn);
         final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("/accepted/");
         final DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/");
 
@@ -78,10 +77,10 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         mEmail = getIntent().getExtras().getString("Email");
         mMobile = getIntent().getExtras().getString("Mobile");
 
+        userEMC.setText(mEMC);
         userProfileStatus.setText(mStatus);
-        userName.setText(mName);
-        userSurname.setText(mSurname);
 
+        final DatabaseReference mine = FirebaseDatabase.getInstance().getReference().child("requested").child("Soweto").child(mEMC);
 
 
 
@@ -126,7 +125,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "EC: " + mEMC, Toast.LENGTH_SHORT).show();
-                mDatabaseReference.addValueEventListener(new ValueEventListener() {
+                mine.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
