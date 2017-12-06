@@ -274,7 +274,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:layout_weight="1"
-                        tools:text="DECLINE"
+                        android:text="DECLINE"
                         android:textStyle="bold"
                         android:textColor="#93c841" />
 
