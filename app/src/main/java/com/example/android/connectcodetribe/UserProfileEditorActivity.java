@@ -162,7 +162,7 @@ Calendar mCalendar = Calendar.getInstance();
     int day = mCalendar.get(Calendar.DAY_OF_MONTH) ;
     int month = mCalendar.get(Calendar.MONTH);
     int year = mCalendar.get(Calendar.YEAR);
-    String Database_Path = " All_Image_Uploads_Database";
+    String Database_Path = " All_Image_Uploads_Database ";
     String Storage_Path = "All_Image_Uploads/";
     private EditText mProjectTitle, mProjectLink;
     private ImageButton ProjectImage;
