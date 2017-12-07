@@ -48,6 +48,8 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profile_activity);
 
         TextView userEthnicity = findViewById(R.id.user_ethnicity);
+        TextView userName = findViewById(R.id.user_profile_name);
+        TextView userSurname = findViewById(R.id.user_profile_surname);
         TextView userGender = findViewById(R.id.user_gender);
         TextView userAge = findViewById(R.id.user_age);
         TextView userEmail = findViewById(R.id.user_email);
@@ -86,6 +88,18 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
 
         if (getIntent().getExtras().getString("Gender") != null){
             userGender.setText(mGender);}
+        else{
+            userGender.setText("");
+        }
+
+        if (getIntent().getExtras().getString("Name") != null){
+            userName.setText(mName);}
+        else{
+            userGender.setText("");
+        }
+
+        if (getIntent().getExtras().getString("Surname") != null){
+            userSurname.setText(mSurname);}
         else{
             userGender.setText("");
         }

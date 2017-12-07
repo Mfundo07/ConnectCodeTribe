@@ -1,7 +1,11 @@
 package com.example.android.connectcodetribe;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -12,15 +16,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.android.connectcodetribe.Adapters.AdminRequestCategoryAdapter;
 
 public class RequestActivity extends AppCompatActivity
 implements NavigationView.OnNavigationItemSelectedListener{
-
-    FloatingActionButton mProfileBackFabButton;
-
-    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,6 @@ implements NavigationView.OnNavigationItemSelectedListener{
         setSupportActionBar(toolbar);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
-
 
         AdminRequestCategoryAdapter adapter = new AdminRequestCategoryAdapter(getSupportFragmentManager(), this);
 
@@ -111,9 +112,9 @@ implements NavigationView.OnNavigationItemSelectedListener{
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
-
-
-
     }
-    }
+
+}
+
+
 
