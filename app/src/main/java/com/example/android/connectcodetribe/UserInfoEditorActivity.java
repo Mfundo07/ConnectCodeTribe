@@ -193,7 +193,10 @@ public class UserInfoEditorActivity extends AppCompatActivity {
                     mDatabaseReference.child(mCodeTribe).child(mEMC).setValue(tribeMate.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            startActivity(new Intent(UserInfoEditorActivity.this, DifferentCodetribeTabs.class));
+                            Intent intent = new Intent(UserInfoEditorActivity.this, PhotoSetupActivity.class);
+                            intent.putExtra("CodeTribe", mCodeTribe);
+                            intent.putExtra("Employee_Code", mEMC);
+                            startActivity(intent);
                         }
                     });
                 }

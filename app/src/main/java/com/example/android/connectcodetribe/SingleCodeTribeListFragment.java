@@ -104,62 +104,6 @@ public class SingleCodeTribeListFragment extends Fragment {
             adapter = new SingleTribeListAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
-//           mDatabaseReference.addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    if (dataSnapshot.hasChildren()) {
-//                        mTribeMates.clear();
-//                        mProjects.clear();
-//                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//
-//                            TribeMate user = new TribeMate();
-//                            Project project = new Project();
-//                            user.setName((String) snapshot.child("name").getValue());
-//                            user.setSurname((String) snapshot.child("surname").getValue());
-//                            if (snapshot.child("age").getValue()!= null){
-//                                user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));}
-//                            user.setEMC((String) snapshot.child("employeeCode").getValue());
-//                            user.setEthnicity((String) snapshot.child("ethnicity").getValue());
-//                            user.setGender((String) snapshot.child("gender").getValue());
-//                            user.setStatus((String) snapshot.child("status").getValue());
-//                            user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
-//                            user.setEmail((String) snapshot.child("emailAddress").getValue());
-//                            user.setMobile((String) snapshot.child("mobileNo").getValue());
-//                            if ((String) snapshot.child("profile_picture").getValue() != null){
-//                                user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
-//                            user.setBio((String) snapshot.child("bio").getValue());
-//                            user.setEmploymentStatus((String) snapshot.child("employed").getValue());
-//                            user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
-//                            user.setCompanyContactNumber((String) snapshot.child("companyContactDetails").getValue());
-//                            user.setStartDate((String) snapshot.child("startDate").getValue());
-//                            user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
-//                            user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
-//                            user.setCompanyName((String) snapshot.child("companyName").getValue());
-//                            for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
-//                                project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
-//                                project.setName((String) projectSnapshot.child("name").getValue());
-//                            }
-//                            mProjects.add(project);
-//                            mTribeMates.add(user);
-//                        }
-//                        if (mTribeMates.size() > 0) {
-//                            adapter.notifyDataSetChanged();
-//                        } else {
-//                            System.out.println("No active users found");
-//                        }
-//                        if (mProjects.size() > 0) {
-//                            adapter.notifyDataSetChanged();
-//                        } else {
-//                            System.out.println("No active users found");
-//                        }
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//
-//                }
-//            });
 
             mDatabaseReference.orderByChild("emailAddress").equalTo(mEmail).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override

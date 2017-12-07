@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
+import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
@@ -44,7 +44,7 @@ public class AdminRequestSowetoFragment extends Fragment {
     List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
 
-    NewUserAdapter adapter;
+    AcceptedUsersAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -92,10 +92,8 @@ public class AdminRequestSowetoFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new NewUserAdapter(getActivity(), mTribeMates);
+            adapter = new AcceptedUsersAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
-
-
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -117,9 +115,6 @@ public class AdminRequestSowetoFragment extends Fragment {
                             user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                             user.setEmail((String) snapshot.child("emailAddress").getValue());
                             user.setMobile((String) snapshot.child("mobileNo").getValue());
-                            user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
-                            user.setDesc((String) snapshot.child("qualificationDescription").getValue());
-                            user.setQualification((String) snapshot.child("highestQualification").getValue());
                             if ((String) snapshot.child("profile_picture").getValue() != null){
                                 user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                             user.setBio((String) snapshot.child("bio").getValue());

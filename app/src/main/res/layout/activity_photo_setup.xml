@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="40dp"
+        android:layout_margin="4dp"
         app:cardCornerRadius="4dp"
         android:layout_weight="2">
         <LinearLayout
@@ -23,7 +23,7 @@
 
 
             <ImageView
-                android:id="@+id/profile_circle_image"
+                android:id="@+id/profile_setup_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -36,7 +36,7 @@
 
 
                 <Button
-                    android:id="@+id/profile_image_edit_button"
+                    android:id="@+id/profile_image_edit_setup_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:padding="8dp"
@@ -44,6 +44,18 @@
                     android:layout_weight="1"
                     android:layout_marginStart="4dp"
                     android:text="@string/edit"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"/>
+                <Button
+                    android:id="@+id/profile_image_save_setup_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:text="Save"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"/>

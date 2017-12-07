@@ -28,6 +28,7 @@
         <activity android:name=".ActiveUserActivity" />
         <activity android:name=".CompletedProfileActivity" />
         <activity android:name=".EducationActivity" />
+        <activity android:name=".PhotoSetupActivity"/>
         <activity
             android:name=".UserProfileEditorActivity"
             android:label="Profile Editor" />
