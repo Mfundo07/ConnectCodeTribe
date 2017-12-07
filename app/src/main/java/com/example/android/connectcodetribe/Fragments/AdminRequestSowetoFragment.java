@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
+import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
@@ -44,7 +44,7 @@ public class AdminRequestSowetoFragment extends Fragment {
     List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
 
-    AcceptedUsersAdapter adapter;
+    NewUserAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -92,7 +92,7 @@ public class AdminRequestSowetoFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new AcceptedUsersAdapter(getActivity(), mTribeMates);
+            adapter = new NewUserAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
