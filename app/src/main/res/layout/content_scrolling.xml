@@ -398,14 +398,15 @@
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
 
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:textSize="12sp"
-                        android:id="@+id/a"
+                        android:id="@+id/profile_qualification_type_edit_text"
+
                         android:textColor="#000"
-                        android:text="@string/certificate_hint"
+                        android:hint="@string/certificate_hint"
                         tools:ignore="TooManyViews"/>
 
                 </LinearLayout>
@@ -427,14 +428,14 @@
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:textSize="12sp"
-                        android:id="@+id/b"
+                        android:id="@+id/profile_institution_edit_text"
                         android:textColor="#000"
-                        android:text="@string/institution_hint" />
+                        android:hint="@string/institution_hint" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -452,14 +453,14 @@
                         android:gravity="center_vertical"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:textSize="12sp"
-                        android:id="@+id/c"
+                        android:id="@+id/profile_faculty_course_edit_text"
                         android:textColor="#000"
-                        android:text="@string/study_field_hint"/>
+                        android:hint="@string/study_field_hint"/>
                 </LinearLayout>
 
 
@@ -568,7 +569,8 @@
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
-                    <TextView
+                    <Button
+                        android:id="@+id/profile_intake_period_button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="12sp"
