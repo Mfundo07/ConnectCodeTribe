@@ -77,7 +77,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         mEmail = getIntent().getExtras().getString("Email");
         mMobile = getIntent().getExtras().getString("Mobile");
 
-        userEMC.setText(mEMC);
+
         userProfileStatus.setText(mStatus);
 
         final DatabaseReference mine = FirebaseDatabase.getInstance().getReference().child("requested").child("Soweto").child(mEMC);
