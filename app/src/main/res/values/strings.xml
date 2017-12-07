@@ -388,11 +388,11 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="github_link_hint">e.g https://github.com/Kratos01</string>
     <string name="education">Education</string>
     <string name="highest_qualification">Highest Qualification</string>
-    <string name="certificate_hint">e.g Diploma</string>
+    <string name="certificate_hint"> Diploma</string>
     <string name="qualification_institution">Qualification Institution</string>
-    <string name="institution_hint">e.g UUniversity of Johannesburg</string>
+    <string name="institution_hint">University of Johannesburg</string>
     <string name="qualification_description">Qualification Description</string>
-    <string name="study_field_hint">e.g Information Technology</string>
+    <string name="study_field_hint">Information Technology</string>
 
 
     <string name="company_name_hint">e.g Mlab</string>
