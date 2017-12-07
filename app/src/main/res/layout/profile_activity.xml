@@ -299,12 +299,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/mlab_logo"/>
+                    android:src="@drawable/code_tribe"/>
             </LinearLayout>
         </LinearLayout>
 </LinearLayout>
