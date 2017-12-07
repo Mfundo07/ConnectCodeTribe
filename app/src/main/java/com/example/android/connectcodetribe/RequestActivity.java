@@ -16,32 +16,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.android.connectcodetribe.Adapters.AdminRequestCategoryAdapter;
-import com.example.android.connectcodetribe.Model.TribeMate;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import java.io.IOException;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RequestActivity extends AppCompatActivity
 implements NavigationView.OnNavigationItemSelectedListener{
-
-    StorageReference mStoragereference;
-
-    private final int PICK_IMAGE_REQUEST = 71;
-
-    private CircleImageView mProfileCircleImage;
-
-    FloatingActionButton mProfileBackFabButton;
-
-    private ActionBarDrawerToggle mDrawerToggle;
-
-    private Uri filepath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +34,7 @@ implements NavigationView.OnNavigationItemSelectedListener{
         toolbar.setTitle ( "Request List" );
         setSupportActionBar(toolbar);
 
-        mProfileCircleImage =(CircleImageView ) findViewById(R.id.profile_image);
-
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
-
 
         AdminRequestCategoryAdapter adapter = new AdminRequestCategoryAdapter(getSupportFragmentManager(), this);
 
@@ -134,52 +112,9 @@ implements NavigationView.OnNavigationItemSelectedListener{
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
-
-
-
-    }    private void chooseProfileImage() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            filepath = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
-                mProfileCircleImage.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void uploadProfileImage() {
-        if (filepath != null) {
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading Information...");
-            progressDialog.show();
-
-            StorageReference ref = mStoragereference.child("profile_images");
-            final TribeMate tribeMate = new TribeMate();
-
-
-            ref.putFile(filepath)
-               .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot> () {
-                   @Override
-                   public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                       Uri downloadUri = taskSnapshot.getDownloadUrl ( );
-
-                       tribeMate.setProfileImage(downloadUri.toString());
-
-                   }
-               });
-        }
-    }
-
 
 }
+
+
+
