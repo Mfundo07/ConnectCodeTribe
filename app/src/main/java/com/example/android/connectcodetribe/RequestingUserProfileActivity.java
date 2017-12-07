@@ -138,7 +138,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "EC: " + mEMC, Toast.LENGTH_SHORT).show();
-                mine.addValueEventListener(new ValueEventListener() {
+                mRef.child(mCodeTribe).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
