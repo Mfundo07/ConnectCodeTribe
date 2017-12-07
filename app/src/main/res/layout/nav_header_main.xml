@@ -24,14 +24,16 @@
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/addphoto" />
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:backgroundTint="#fff"
-        app:civ_border_color="#fff"
-        app:civ_border_width="1dp" />
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_gravity="left"
+            android:layout_margin="4dp"
+            app:civ_border_width="1dp"
+            android:src="@drawable/man_user_blue"
+            app:civ_border_color="#fcfcfc "/>
 
     </RelativeLayout>
 

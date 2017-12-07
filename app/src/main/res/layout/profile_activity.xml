@@ -47,7 +47,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/kratos"
+                        android:src="@drawable/man_user_blue"
                         app:civ_border_color="#000"
                         app:civ_border_width="2dp" />
 
@@ -251,12 +251,10 @@
 
             </RelativeLayout>
 
-
-
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="48dp">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp">
 
                     <View
                         android:layout_width="match_parent"
@@ -297,6 +295,17 @@
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mlab_logo"/>
+            </LinearLayout>
         </LinearLayout>
 </LinearLayout>
     </android.support.v7.widget.CardView>
