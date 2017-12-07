@@ -72,10 +72,10 @@ public class ActiveUserProfileActvity extends AppCompatActivity {
         TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
         TextView userEMC = findViewById(R.id.user_code);
         ImageView userImage = findViewById(R.id.userImage);
-        TextView userSalary = findViewById(R.id.user_salary_text_view);
+        TextView userSalary = findViewById(R.id.Salary);
         TextView userCompanyName = findViewById(R.id.profile_company_name_text_view);
         TextView userCompanyContact = findViewById(R.id.profile_company_contact_text_view);
-        TextView userStartDate = findViewById(R.id.user_start_date_text_view);
+        TextView userStartDate = findViewById(R.id.startDate);
 
         mProjectsRecyclerView = findViewById(R.id.OtherUserProjectsRecyclerView);
         //Setup layout manager to a horizontal scrolling recyclerView
