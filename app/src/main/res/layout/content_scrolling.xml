@@ -306,7 +306,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif"
                     android:layout_weight="1"
-                    android:text="@string/projects"
+                    android:text="Projects"
                     android:gravity="center"
                     android:padding="8dp"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -346,40 +346,97 @@
 
         </android.support.v7.widget.CardView>
 
+
+
+
         <android.support.v7.widget.CardView
-            android:id="@+id/profile_Employment"
+            android:id="@+id/profile_education_title_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="4dp"
+            app:cardCornerRadius="4dp"
             android:layout_weight="1">
-            <LinearLayout
+
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:padding="8dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/employment"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-            </LinearLayout>
+                android:text="Qualification"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textStyle="bold"/>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/profile_employment_card_view"
+            android:id="@+id/profile_qualification_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="4dp"
-            android:padding="8dp"
+            app:cardCornerRadius="4dp"
             android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:text="@string/highest_qualification"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        tools:ignore="NestedWeights"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/profile_qualification_type_edit_text"
+
+                        android:textColor="#000"
+                        android:hint="@string/certificate_hint"
+                        tools:ignore="TooManyViews"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    tools:ignore="TooManyViews">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:text="@string/qualification_institution"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        tools:ignore="NestedWeights"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/profile_institution_edit_text"
+                        android:textColor="#000"
+                        android:hint="@string/institution_hint" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -387,103 +444,196 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:text="@string/qualification_description"
+                        android:textColor="#000"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        tools:ignore="NestedWeights"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/profile_faculty_course_edit_text"
+                        android:textColor="#000"
+                        android:hint="@string/study_field_hint"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_current_employment__title_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="4dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="4dp"
+                android:text="@string/employment"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textStyle="bold"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/profile_current_employment_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="4dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:text="@string/employment_status"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        tools:ignore="NestedWeights"/>
+
+                    <TextView
+                        android:id="@+id/profile_employment_status_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="e.g.employed"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
                         android:id="@+id/company_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="@string/company_name"
                         android:layout_weight="1"
+                        android:textSize="12sp"
                         android:gravity="center_vertical"
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
                     <TextView
-                        android:id="@+id/profile_company_name_text_view"
+                        android:id="@+id/profile_company_name_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        tools:text="Mlab"
+                        android:hint="@string/company_name_hint"
                         android:textColor="#000"
-                        android:textStyle="bold"/>
+                        />
                 </LinearLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
                     <TextView
                         android:id="@+id/startDate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="@string/start_date"
+                        android:textSize="12sp"
                         android:gravity="center_vertical"
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
-                    <TextView
-                        android:id="@+id/user_start_date_text_view"
+                    <Button
+                        android:id="@+id/profile_intake_period_button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        tools:text="2017/2018"
-                        android:textColor="#000"
-                        android:textStyle="bold"/>
+                        android:textSize="12sp"
+                        android:text="@string/date_picker_title"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_weight="1"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
                     <TextView
                         android:id="@+id/Salary"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="@string/salary"
+                        android:textSize="12sp"
+                        android:text="@string/monthly_salary"
                         android:gravity="center_vertical"
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
                     <TextView
-                        android:id="@+id/user_salary_text_view"
+                        android:id="@+id/profile_salary_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:textSize="12sp"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        tools:text="2000-4000 p.m"
-                        android:textColor="#000"
-                        android:textStyle="bold"/>
+                        android:spinnerMode="dropdown" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
                     <TextView
                         android:id="@+id/contactDetails"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="@string/company_contact_number"
+                        android:textSize="12sp"
+                        android:text="@string/ccompany_contact_number"
                         android:gravity="center_vertical"
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
                     <TextView
-                        android:id="@+id/profile_company_contact_text_view"
+                        android:id="@+id/profile_company_contact_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        tools:text="(011) 9844608"
-                        android:textColor="#000"
-                        android:textStyle="bold"/>
+                        android:textSize="12sp"
+                        android:hint="@string/company_contact_hint"
+                        android:textColor="#000" />
                 </LinearLayout>
+
             </LinearLayout>
-
         </android.support.v7.widget.CardView>
-
     </LinearLayout>
 
-
-
 </android.support.v4.widget.NestedScrollView>
+

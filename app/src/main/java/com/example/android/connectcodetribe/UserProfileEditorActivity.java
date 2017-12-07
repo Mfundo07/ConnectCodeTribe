@@ -54,9 +54,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by RP on 2017/09/02.
- */
 
 @TargetApi(Build.VERSION_CODES.N)
 public class UserProfileEditorActivity extends AppCompatActivity {
