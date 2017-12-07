@@ -186,6 +186,7 @@ public class UserInfoEditorActivity extends AppCompatActivity {
                 tribeMate.setGender(mRegisterGenderEditText.getText().toString());
                 tribeMate.setEthnicity(mRegisterEthnicityEditText.getText().toString());
                 tribeMate.setMobile(mRegisterCellPhoneNumberEditText.getText().toString());
+
                 tribeMate.setEmail(mRegisterEmailEditText.getText().toString());
                 mDatabaseReference.child(mEMC).setValue(tribeMate.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

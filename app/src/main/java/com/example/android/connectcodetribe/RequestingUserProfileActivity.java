@@ -54,8 +54,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         TextView userMobileNo = findViewById(R.id.user_cell_number);
         TextView userCountryOfBirth = findViewById(R.id.user_country_of_birth);
         TextView userProfileStatus = findViewById(R.id.userStatus);
-        TextView userEMC = findViewById(R.id.user_code);
-        final Button userAcceptButton = findViewById(R.id.decline_btn);
+        final Button userAcceptButton = findViewById(R.id.accept_btn);
         final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("/accepted/");
         final DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/");
 

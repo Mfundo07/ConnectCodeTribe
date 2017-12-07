@@ -95,6 +95,8 @@ public class AdminRequestSowetoFragment extends Fragment {
             adapter = new NewUserAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
+
+
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
