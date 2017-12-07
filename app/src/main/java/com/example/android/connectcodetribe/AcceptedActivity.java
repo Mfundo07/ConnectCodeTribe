@@ -81,10 +81,10 @@ public class AcceptedActivity extends AppCompatActivity
             startActivity(logout);
             return true;
 
-        } else if (id == R.id.nav_user_request) {
+        } else if (id == R.id.nav_request) {
 
-            Intent profile = new Intent(AcceptedActivity.this, RequestActivity.class);
-            startActivity(profile);
+            Intent request = new Intent(AcceptedActivity.this, RequestActivity.class);
+            startActivity(request);
             return true;
 
         }else if (id == R.id.nav_my_profile) {
@@ -93,7 +93,11 @@ public class AcceptedActivity extends AppCompatActivity
             startActivity(profile);
             return true;
 
-        } else if (id == R.id.nav_delete_request) {
+        } else if (id == R.id.nav_accepted_request) {
+
+            Intent accept = new Intent(AcceptedActivity.this, AcceptedActivity.class);
+            startActivity(accept);
+            return true;
 
         } else if (id == R.id.nav_logout) {
 
@@ -111,4 +115,9 @@ public class AcceptedActivity extends AppCompatActivity
 
 
     }
-}
+
+
+
+
+    }
+

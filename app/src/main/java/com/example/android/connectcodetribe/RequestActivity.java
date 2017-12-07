@@ -25,9 +25,9 @@ implements NavigationView.OnNavigationItemSelectedListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigatorrr_kb);
+        setContentView(R.layout.navigatorrr_request);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarkb);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarrequest);
         toolbar.setTitle ( "Request List" );
         setSupportActionBar(toolbar);
 
@@ -69,39 +69,43 @@ implements NavigationView.OnNavigationItemSelectedListener{
         }
     }
 
-        @SuppressWarnings("StatementWithEmptyBody")
-        @Override
-        public boolean onNavigationItemSelected(MenuItem item) {
-            // Handle navigation view item clicks here.
-            int id = item.getItemId();
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-          if (id == R.id.nav_add_members) {
+        if (id == R.id.nav_add_members) {
 
-                Intent logout = new Intent(RequestActivity.this, AcceptedActivity.class);
-                startActivity(logout);
-                return true;
+            Intent logout = new Intent(RequestActivity.this, Admin_user_profile_editor.class);
+            startActivity(logout);
+            return true;
 
-            } else if (id == R.id.nav_user_request) {
+        } else if (id == R.id.nav_request) {
 
-              Intent profile = new Intent(RequestActivity.this, Users_request_Activity.class);
-              startActivity(profile);
-              return true;
+            Intent request = new Intent(RequestActivity.this, RequestActivity.class);
+            startActivity(request);
+            return true;
 
-            }else if (id == R.id.nav_my_profile) {
+        }else if (id == R.id.nav_my_profile) {
 
-              Intent profile = new Intent(RequestActivity.this, Admin_profile.class);
-              startActivity(profile);
-              return true;
+            Intent profile = new Intent(RequestActivity.this, Admin_profile.class);
+            startActivity(profile);
+            return true;
 
-          } else if (id == R.id.nav_delete_request) {
+        } else if (id == R.id.nav_accepted_request) {
 
-            } else if (id == R.id.nav_logout) {
+            Intent accept = new Intent(RequestActivity.this, AcceptedActivity.class);
+            startActivity(accept);
+            return true;
 
-              Intent logout = new Intent(RequestActivity.this, Admin_Login_Activity.class);
-              startActivity(logout);
-              return true;
+        } else if (id == R.id.nav_logout) {
 
-            }
+            Intent logout = new Intent(RequestActivity.this, Admin_Login_Activity.class);
+            startActivity(logout);
+            return true;
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -111,4 +115,5 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
 
     }
-}
+    }
+

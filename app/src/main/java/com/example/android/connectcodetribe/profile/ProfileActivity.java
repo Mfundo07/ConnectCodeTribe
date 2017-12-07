@@ -271,32 +271,6 @@ public class ProfileActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getGroupId();
-
-        if(id==R.id.btnLogout);
-
-        Intent intentLogout = new Intent(ProfileActivity.this,EmailPasswordActivity.class);
-        startActivity(intentLogout);
-        finish();
-
-        if(id==R.id.btnAdmin);
-
-        Intent intentAdmin = new Intent(ProfileActivity.this,Admin_Login_Activity.class);
-        startActivity(intentAdmin);
-        finish();
-
-        if(id==R.id.btnAbout);
-
-        Intent intentAbout = new Intent(ProfileActivity.this,AboutActivity.class);
-        startActivity(intentAbout);
-        finish();
-
-        return true;
-
-    }
 }
 
 
