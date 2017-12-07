@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -171,31 +172,35 @@ public class UserInfoEditorActivity extends AppCompatActivity {
         mRegisterListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child(mCodeTribe);
-                MyRef = FirebaseDatabase.getInstance().getReference().child(mCodeTribe);
-                TribeMate tribeMate = new TribeMate();
-                tribeMate.setCodeTribeLocation(mRegisterCodeTribeEditText.getText().toString());
-                tribeMate.setCodeTribeProgramStatus(mRegisterProgramStatusEditText.getText().toString());
-                tribeMate.setEmployeeCode(mRegisterEmployeeCodeEditText.getText().toString());
-                tribeMate.setQualification(mRegisterQualificationEditText.getText().toString());
-                tribeMate.setInstitute(mRegisterInstitutionEditText.getText().toString());
-                tribeMate.setDesc(mRegisterInstitutionEditText.getText().toString());
-                tribeMate.setName(mRegisterNameEditText.getText().toString());
-                tribeMate.setSurname(mRegisterSurnameEditText.getText().toString());
-                tribeMate.setAge(Long.valueOf(mRegisterAgeEditText.getText().toString()));
-                tribeMate.setGender(mRegisterGenderEditText.getText().toString());
-                tribeMate.setEthnicity(mRegisterEthnicityEditText.getText().toString());
-                tribeMate.setMobile(mRegisterCellPhoneNumberEditText.getText().toString());
+                mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/");
+                MyRef = FirebaseDatabase.getInstance().getReference("/accepted/");
+                if (mDatabaseReference.orderByChild("name").equalTo(mName) != MyRef.orderByChild("name").equalTo(mName)) {
+                    TribeMate tribeMate = new TribeMate();
+                    tribeMate.setCodeTribeLocation(mRegisterCodeTribeEditText.getText().toString());
+                    tribeMate.setCodeTribeProgramStatus(mRegisterProgramStatusEditText.getText().toString());
+                    tribeMate.setEmployeeCode(mRegisterEmployeeCodeEditText.getText().toString());
+                    tribeMate.setQualification(mRegisterQualificationEditText.getText().toString());
+                    tribeMate.setInstitute(mRegisterInstitutionEditText.getText().toString());
+                    tribeMate.setDesc(mRegisterFacultyCourseEditText.getText().toString());
+                    tribeMate.setName(mRegisterNameEditText.getText().toString());
+                    tribeMate.setSurname(mRegisterSurnameEditText.getText().toString());
+                    tribeMate.setAge(Long.valueOf(mRegisterAgeEditText.getText().toString()));
+                    tribeMate.setGender(mRegisterGenderEditText.getText().toString());
+                    tribeMate.setEthnicity(mRegisterEthnicityEditText.getText().toString());
+                    tribeMate.setMobile(mRegisterCellPhoneNumberEditText.getText().toString());
 
-                tribeMate.setEmail(mRegisterEmailEditText.getText().toString());
-                mDatabaseReference.child(mEMC).setValue(tribeMate.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        startActivity(new Intent(UserInfoEditorActivity.this, DifferentCodetribeTabs.class));
-                    }
-                });
-            }
-        });
+                    tribeMate.setEmail(mRegisterEmailEditText.getText().toString());
+                    mDatabaseReference.child(mCodeTribe).child(mEMC).setValue(tribeMate.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            startActivity(new Intent(UserInfoEditorActivity.this, DifferentCodetribeTabs.class));
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(UserInfoEditorActivity.this, "Already Accepted.", Toast.LENGTH_SHORT).show();
+                }
+            }});
 
 
 

@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 
@@ -41,9 +43,10 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
 
     DatabaseReference mDatabaseReference;
     StorageReference mStoragereference;
+    FirebaseUser mUser;
 
     private Spinner codeTribeSpinner;
-    private EditText mNaming;
+    private EditText mEmail;
     private Button nextStepButton, mSearchStep_button;
 
     @Override
@@ -53,8 +56,10 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
 
         codeTribeSpinner = findViewById(R.id.codeTribe_select_spinner);
         nextStepButton = findViewById(R.id.nextStep_button);
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        mNaming = (EditText) findViewById(R.id.codetribeName_edit);
+        mEmail =  findViewById(R.id.select_email);
+        mEmail.setText(mUser.getEmail());
 
         codeTribeSpinner.setOnTouchListener(mTouchListener);
         setupCodeTribeSpinner();
@@ -62,9 +67,10 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
         nextStepButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(CodeTribeSelectActivity.this, CodeTribeListActivity.class);
                 intent.putExtra("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
-                intent.putExtra("Name", mNaming.getText().toString());
+                intent.putExtra("Email", mEmail.getText().toString());
                 startActivity(intent);
             }
         });

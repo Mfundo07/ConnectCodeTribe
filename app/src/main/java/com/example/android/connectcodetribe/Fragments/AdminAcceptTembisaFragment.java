@@ -111,6 +111,9 @@ public class AdminAcceptTembisaFragment extends Fragment {
                             user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                             user.setEmail((String) snapshot.child("emailAddress").getValue());
                             user.setMobile((String) snapshot.child("mobileNo").getValue());
+                            user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
+                            user.setDesc((String) snapshot.child("qualificationDescription").getValue());
+                            user.setQualification((String) snapshot.child("highestQualification").getValue());
                             if ( snapshot.child("profile_picture").getValue() != null){
                                 user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                             user.setBio((String) snapshot.child("bio").getValue());

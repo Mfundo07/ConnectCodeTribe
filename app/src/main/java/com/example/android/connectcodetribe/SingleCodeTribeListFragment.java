@@ -43,8 +43,9 @@ public class SingleCodeTribeListFragment extends Fragment {
     List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
     String mSelectedTribe;
-    String mName;
+    String mEmail;
     String mSurname;
+
 
     SingleTribeListAdapter adapter;
 
@@ -78,7 +79,7 @@ public class SingleCodeTribeListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mSelectedTribe = getActivity().getIntent().getExtras().getString("CodeTribe");
-        mName = getActivity().getIntent().getExtras().getString("Name");
+        mEmail = getActivity().getIntent().getExtras().getString("Email");
         mSurname = getActivity().getIntent().getExtras().getString("Surname");
 
 
@@ -160,7 +161,7 @@ public class SingleCodeTribeListFragment extends Fragment {
 //                }
 //            });
 
-            mDatabaseReference.orderByChild("name").equalTo(mName).addListenerForSingleValueEvent(new ValueEventListener() {
+            mDatabaseReference.orderByChild("emailAddress").equalTo(mEmail).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     TribeMate user = new TribeMate();
@@ -177,6 +178,9 @@ public class SingleCodeTribeListFragment extends Fragment {
                             user.setCodeTribe((String) snapshot.child("codeTribeLocation").getValue());
                             user.setEmail((String) snapshot.child("emailAddress").getValue());
                             user.setMobile((String) snapshot.child("mobileNo").getValue());
+                            user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
+                            user.setDesc((String) snapshot.child("qualificationDescription").getValue());
+                            user.setQualification((String) snapshot.child("highestQualification").getValue());
                             if ((String) snapshot.child("profile_picture").getValue() != null){
                                 user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                             user.setBio((String) snapshot.child("bio").getValue());

@@ -32,11 +32,11 @@
         android:layout_margin="8dp"/>
 
     <EditText
-        android:id="@+id/codetribeName_edit"
-        android:textAlignment="center"
-        android:hint="Name(s)"
+        android:id="@+id/select_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress" />
 
 
     <Button
