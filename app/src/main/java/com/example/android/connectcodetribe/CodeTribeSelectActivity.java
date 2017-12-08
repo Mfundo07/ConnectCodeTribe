@@ -74,7 +74,7 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
                 intent.putExtra("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
                 intent.putExtra("Email", mEmail.getText().toString());
                 startActivity(intent);
-                Toast.makeText ( CodeTribeSelectActivity.this, "Searching", Toast.LENGTH_SHORT ).show ( );
+                Toast.makeText ( CodeTribeSelectActivity.this, "Searched", Toast.LENGTH_SHORT ).show ( );
 
             }
         });
