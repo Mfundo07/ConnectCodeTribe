@@ -5,9 +5,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -56,6 +58,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         TextView userMobileNo = findViewById(R.id.user_cell_number);
         TextView userCountryOfBirth = findViewById(R.id.user_country_of_birth);
         TextView userProfileStatus = findViewById(R.id.userStatus);
+        ImageView userProfileImage = findViewById(R.id.profile_circle_image);
         final Button userAcceptButton = findViewById(R.id.accept_btn);
         final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("/accepted/");
         final DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/");
@@ -66,7 +69,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         mStatus = getIntent().getExtras().getString("Status");
         mCodeTribe = getIntent().getExtras().getString("CodeTribe");
         mSurname = getIntent().getExtras().getString("Surname");
-        mImage = getIntent().getExtras().getString("image");
+        mImage = getIntent().getExtras().getString("Image");
         mBio = getIntent().getExtras().getString("bio");
         mCountryOfBirth = getIntent().getExtras().getString("countyofBirth");
 
@@ -81,7 +84,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
 
         userProfileStatus.setText(mStatus);
 
-        final DatabaseReference mine = FirebaseDatabase.getInstance().getReference().child("requested").child("Soweto").child(mEMC);
+
 
 
 
@@ -134,6 +137,10 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
             userMobileNo.setText("");
         }
 
+        Glide.with(userProfileImage.getContext())
+                .load(mImage)
+                .into(userProfileImage);
+
         userAcceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +160,7 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
                         mate.setEthnicity(mEthnicity);
                         mate.setMobile(mMobile);
                         mate.setCountryOfBirth(mCountryOfBirth);
+                        mate.setProfileImage(mImage);
                         mRef.child(mCodeTribe).child(mEMC).setValue(mate.toMap());
                         mDatabaseReference.child(mCodeTribe).child(mEMC).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override

@@ -73,6 +73,7 @@ public class NewUserAdapter extends RecyclerView.Adapter<NewUserAdapter.ViewHold
                 intent.putExtra("Ethnicity", mTribeMates.get(position).getEthnicity());
                 intent.putExtra("Age", String.valueOf(mTribeMates.get(position).getAge()));
                 intent.putExtra("Mobile", mTribeMates.get(position).getMobile());
+                intent.putExtra("Image", mTribeMates.get(position).getProfileImage());
 
                 context = view.getContext();
                 context.startActivity(intent);

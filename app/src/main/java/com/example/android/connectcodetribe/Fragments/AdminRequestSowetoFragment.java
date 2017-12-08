@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.AcceptedUsersAdapter;
+import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
@@ -38,13 +38,13 @@ public class AdminRequestSowetoFragment extends Fragment {
     private Profile mProfile;
     private int mColumnCount = 1;
 
-    DatabaseReference mDatabaseReference;
+    DatabaseReference mDatabaseReference, mRef;
 
     List<TribeMate> mTribeMates = new ArrayList<>();
     List<Project> mProjects = new ArrayList<>();
     FirebaseUser mAuth;
 
-    AcceptedUsersAdapter adapter;
+    NewUserAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -80,6 +80,7 @@ public class AdminRequestSowetoFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/").child("Soweto");
+        mRef = FirebaseDatabase.getInstance().getReference("/registered/");
 
 
         // Set the adapter
@@ -92,7 +93,7 @@ public class AdminRequestSowetoFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            adapter = new AcceptedUsersAdapter(getActivity(), mTribeMates);
+            adapter = new NewUserAdapter(getActivity(), mTribeMates);
             recyclerView.setAdapter(adapter);
 
             mDatabaseReference.addValueEventListener(new ValueEventListener() {
@@ -142,6 +143,26 @@ public class AdminRequestSowetoFragment extends Fragment {
                         } else {
                             System.out.println("No active users found");
                         }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+            mRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                        TribeMate mate = new TribeMate();
+                        mate.setProfileImage((String) snapshot.child("profile_picture").getValue());
+                        mTribeMates.add(mate);
+                    }
+                    if (mTribeMates.size() > 0) {
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        System.out.println("No active users found");
                     }
                 }
 
