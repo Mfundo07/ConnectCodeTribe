@@ -3,6 +3,7 @@ package com.example.android.connectcodetribe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MotionEvent;
@@ -12,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -72,6 +74,8 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
                 intent.putExtra("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
                 intent.putExtra("Email", mEmail.getText().toString());
                 startActivity(intent);
+                Toast.makeText ( CodeTribeSelectActivity.this, "Searching", Toast.LENGTH_SHORT ).show ( );
+
             }
         });
 
