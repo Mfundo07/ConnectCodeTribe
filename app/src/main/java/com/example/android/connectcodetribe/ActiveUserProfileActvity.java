@@ -120,9 +120,6 @@ public class ActiveUserProfileActvity extends AppCompatActivity {
         userCodeTribeLocation.setText(mCodeTribe);
         userEMC.setText(mEMC);
         userSalary.setText(mSalary);
-        userCompanyName.setText(mCompanyName);
-        userCompanyContact.setText(mCompanyContact);
-        userStartDate.setText(mStartDate);
         Glide.with(userImage.getContext())
                 .load(mImage)
                 .into(userImage);

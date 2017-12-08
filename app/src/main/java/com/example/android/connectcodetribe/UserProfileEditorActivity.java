@@ -189,8 +189,8 @@ Calendar mCalendar = Calendar.getInstance();
         mEmployeeCodeEditText = findViewById(R.id.edit_employee_code);
         mEmployeeTribeSpinner = findViewById(R.id.tribe_profile_option_spinner);
         mEmployeeSearchButton = findViewById(R.id.employee_search_button);
-        mStoragereference = FirebaseStorage.getInstance().getReference("/users/");
-        MyRef = FirebaseDatabase.getInstance().getReference("/users/");
+        mStoragereference = FirebaseStorage.getInstance().getReference("/registered/");
+        MyRef = FirebaseDatabase.getInstance().getReference("/registered/");
         mProfileEmployeeCodeEditText = findViewById(R.id.profile_emc_edit_text);
         mProfileNameEditText = (EditText) findViewById(R.id.profile_name_edit_text);
         mProfileSurnameEditText = (EditText) findViewById(R.id.profile_surname_edit_text);
@@ -369,7 +369,11 @@ Calendar mCalendar = Calendar.getInstance();
                 mProfileFacultyCourseEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("qualificationDescription").getValue());
                 mEmployeeCodeEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("employeeCode").getValue());
                 mProfileCellPhoneNumberEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("mobileNo").getValue());
-                mProfileStartDatePickerButton.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());
+                if (dataSnapshot.child(currentUser.getUid()).child("startDate").getValue() != " "){
+                mProfileStartDatePickerButton.setText((String) dataSnapshot.child(currentUser.getUid()).child("startDate").getValue());}
+                else{
+                    mProfileStartDatePickerButton.setText("Enter the Start Date");
+                }
                 mProfileCompanyNameEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyName").getValue());
                 mProfileCompanyContactEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("companyContactDetails").getValue());
                 mProfileEmailEditText.setText((String) dataSnapshot.child(currentUser.getUid()).child("emailAddress").getValue());
@@ -722,7 +726,7 @@ Calendar mCalendar = Calendar.getInstance();
                             MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
                             mDatabaseReference.child(mEmployeeCodeEditText.getText().toString()).setValue(tribeMate.toMap());
                             progressDialog.dismiss();
-                            Toast.makeText(UserProfileEditorActivity.this, "Image Upload Successful ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserProfileEditorActivity.this, "Information Upload Successful ", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(UserProfileEditorActivity.this, DifferentCodetribeTabs.class));
 
 

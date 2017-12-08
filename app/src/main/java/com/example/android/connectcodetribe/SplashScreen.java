@@ -33,11 +33,6 @@ public class SplashScreen extends Activity {
         img = (ImageView)findViewById(R.id.splashScreenImage);
         img.setAnimation(anim);
 
-        tv = (TextView) findViewById(R.id.splashAppName);
-        tv.setAnimation(anim1);
-
-        tv2 = (TextView) findViewById(R.id.splashAppName2);
-        tv2.setAnimation(anim1);
 
         anim.setAnimationListener(new Animation.AnimationListener() {
 

@@ -374,7 +374,7 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="employment_status">Employment Status</string>
 
 
-    <string name="ccompany_contact_number">CCompany Contact Number</string>
+    <string name="ccompany_contact_number">Company Contact Number</string>
     <string name="gender_hint">e.g Female</string>
     <string name="age_hint">e.g 12</string>
 
@@ -402,6 +402,8 @@ If you think you have what it takes to be part of the Tribe then apply for avail
     <string name="save_all">Save All</string>
     <string name="title_activity_admin_request_list">AdminRequestListActivity</string>
     <string name="_22">22</string>
+    <string name="user_login">user login</string>
+    <string name="admin_login">admin login</string>
     <!-- Label for dropdown menu option if the pet is male [CHAR LIMIT=20] -->
 
 

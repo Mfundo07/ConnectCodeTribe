@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -173,8 +172,7 @@ public class UserInfoEditorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/");
-                MyRef = FirebaseDatabase.getInstance().getReference("/accepted/");
-                if (mDatabaseReference.orderByChild("name").equalTo(mName) != MyRef.orderByChild("name").equalTo(mName)) {
+                MyRef = FirebaseDatabase.getInstance().getReference("/registered/");
                     TribeMate tribeMate = new TribeMate();
                     tribeMate.setCodeTribeLocation(mRegisterCodeTribeEditText.getText().toString());
                     tribeMate.setCodeTribeProgramStatus(mRegisterProgramStatusEditText.getText().toString());
@@ -190,6 +188,7 @@ public class UserInfoEditorActivity extends AppCompatActivity {
                     tribeMate.setMobile(mRegisterCellPhoneNumberEditText.getText().toString());
 
                     tribeMate.setEmail(mRegisterEmailEditText.getText().toString());
+                    MyRef.child(currentUser.getUid()).setValue(tribeMate.toMap());
                     mDatabaseReference.child(mCodeTribe).child(mEMC).setValue(tribeMate.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -199,10 +198,7 @@ public class UserInfoEditorActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
-                }
-                else{
-                    Toast.makeText(UserInfoEditorActivity.this, "Already Accepted.", Toast.LENGTH_SHORT).show();
-                }
+
             }});
 
 
