@@ -26,7 +26,7 @@ public class ChooseActivity extends AppCompatActivity {
         admin_section.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick(View view) {
-                Intent kb =new Intent ( ChooseActivity.this, Admin_Login_Activity.class );
+                Intent kb =new Intent ( ChooseActivity.this, SimpleAdmin_Login.class );
                 startActivity ( kb );
             }
         } );

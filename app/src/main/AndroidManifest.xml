@@ -28,7 +28,7 @@
         <activity android:name=".ActiveUserActivity" />
         <activity android:name=".CompletedProfileActivity" />
         <activity android:name=".EducationActivity" />
-        <activity android:name=".PhotoSetupActivity"/>
+        <activity android:name=".PhotoSetupActivity" />
         <activity
             android:name=".UserProfileEditorActivity"
             android:label="Profile Editor" />
@@ -40,6 +40,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
+
+        <activity android:name=".SimpleAdmin_Login" />
+
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ExperienceActivity" />
         <activity android:name=".Welcome_activity" />
@@ -104,7 +107,8 @@
         <activity
             android:name=".LoginActivity2"
             android:label="@string/title_activity_login2" />
-        <activity android:name=".AcceptedActivity"/>
+        <activity android:name=".AcceptedActivity" />
+        <activity android:name=".SimpleAdmin_Login"></activity>
     </application>
 
 </manifest>
