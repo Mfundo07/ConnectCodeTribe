@@ -398,13 +398,12 @@
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
 
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:textSize="12sp"
                         android:id="@+id/profile_qualification_type_edit_text"
-
                         android:textColor="#000"
                         android:hint="@string/certificate_hint"
                         tools:ignore="TooManyViews"/>
@@ -428,7 +427,7 @@
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -453,7 +452,7 @@
                         android:gravity="center_vertical"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -569,7 +568,7 @@
                         android:textColor="#000"
                         android:textStyle="bold"
                         tools:ignore="NestedWeights"/>
-                    <Button
+                    <TextView
                         android:id="@+id/profile_intake_period_button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

@@ -51,6 +51,9 @@ public class ActiveUserProfileActvity extends AppCompatActivity {
     String mStartDate;
     String mUserCode;
     String mTribeUnderline;
+    String mQualification;
+    String mInstitution;
+    String mFaculty;
     Toolbar userProfileToolbar;
 
     Boolean expandable = true;
@@ -72,10 +75,13 @@ public class ActiveUserProfileActvity extends AppCompatActivity {
         TextView userCodeTribeLocation = findViewById(R.id.user_code_tribe);
         TextView userEMC = findViewById(R.id.user_code);
         ImageView userImage = findViewById(R.id.userImage);
-        TextView userSalary = findViewById(R.id.Salary);
-        TextView userCompanyName = findViewById(R.id.profile_company_name_text_view);
-        TextView userCompanyContact = findViewById(R.id.profile_company_contact_text_view);
-        TextView userStartDate = findViewById(R.id.startDate);
+        TextView userSalary = findViewById(R.id.profile_salary_spinner);
+        TextView userCompanyName = findViewById(R.id.profile_company_name_edit_text);
+        TextView userCompanyContact = findViewById(R.id.profile_company_contact_edit_text);
+        TextView userStartDate = findViewById(R.id.profile_intake_period_button);
+        TextView userQualification = findViewById(R.id.profile_qualification_type_edit_text);
+        TextView userInstitution = findViewById(R.id.profile_institution_edit_text);
+        TextView userFacultyDescription = findViewById(R.id.profile_faculty_course_edit_text);
 
         mProjectsRecyclerView = findViewById(R.id.OtherUserProjectsRecyclerView);
         //Setup layout manager to a horizontal scrolling recyclerView
@@ -106,6 +112,10 @@ public class ActiveUserProfileActvity extends AppCompatActivity {
         mSalary = getIntent().getExtras().getString("salary");
         mCompanyName = getIntent().getExtras().getString("company_name");
         mCompanyContact = getIntent().getExtras().getString("company_contact");
+        mTribeUnderline = getIntent().getExtras().getString("tribe_underline");
+        mQualification = getIntent().getExtras().getString("qualification");
+        mInstitution = getIntent().getExtras().getString("institution");
+        mFaculty = getIntent().getExtras().getString("faculty");
 
         mUserCode = getIntent().getExtras().getString("user_code");
         mTribeUnderline = getIntent().getExtras().getString("tribe_underline");
@@ -120,6 +130,12 @@ public class ActiveUserProfileActvity extends AppCompatActivity {
         userCodeTribeLocation.setText(mCodeTribe);
         userEMC.setText(mEMC);
         userSalary.setText(mSalary);
+        userCompanyContact.setText(mCompanyContact);
+        userCompanyName.setText(mCompanyName);
+        userStartDate.setText(mStartDate);
+        userQualification.setText(mQualification);
+        userInstitution.setText(mInstitution);
+        userFacultyDescription.setText(mFaculty);
         Glide.with(userImage.getContext())
                 .load(mImage)
                 .into(userImage);
