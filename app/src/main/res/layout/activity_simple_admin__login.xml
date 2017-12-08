@@ -108,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_margin="16dp"
-                        android:background="@drawable/button_orange"
+                        android:background="@drawable/button_orange1"
                         android:text="@string/sign_in"
                         android:theme="@style/ThemeOverlay.MyDarkButton" />
 

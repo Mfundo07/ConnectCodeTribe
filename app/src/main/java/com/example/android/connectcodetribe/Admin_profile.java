@@ -33,56 +33,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class Admin_profile extends AppCompatActivity {
 
-    private static final int GALLERY_REQUEST = 1;
-    private static final int CAMERA_REQUEST_CODE = 1;
-    public static final int RC_PHOTO_PICKER = 2;
 
-    private final int PICK_IMAGE_REQUEST = 71;
-
-    private Button ButUpload;
-
-    private EditText mProfileNameEditText;
-    private EditText mProfileSurnameEditText;
-    private EditText mProfileEmailEditText;
-    private TextView profileName,profileSurname,profileCell_number,profileEmail,profileAge;
-    private Spinner profileGender,profileEthnicity,profileCodetribeName;
-    private FloatingActionButton mProfileListButton;
-    private ImageView mProfileCircleImage;
-    DatabaseReference mDatabaseReference;
-    StorageReference mStoragereference;
-    Uri FilePathUri;
-    public static final int GENDER_UNKNOWN = 0;
-    public static final int GENDER_MALE = 1;
-    public static final int GENDER_FEMALE = 2;
-
-    public static final int ETHNIC_BLACK = 1;
-    public static final int ETHNIC_WHITE = 2;
-    public static final int ETHNIC_COLORED = 3;
-    public static final int ETHNIC_ASIAN = 4;
-
-    public static final int TRIBE_SOWETO = 1;
-    public static final int TRIBE_PRETORIA = 2;
-    public static final int TRIBE_TEMBISA = 3;
-
-
-    private Uri filepath;
-
-    RecyclerView mProjectsRecyclerView;
-    ProjectsHorizontalAdapter mProjectsAdapter;
-
-
-
-
-    private Spinner mProfileGenderSpinner, mProfileEthnicitySpinner,
-            mProfileEmploymentStatusSpinner, mProfileSalarySpinner;
-
-    private Spinner mProfileCodeTribeSpinner;
-    private Spinner mProfileProgramStateSpinner;
-
-    DatabaseReference MyRef;
-
-
-    FloatingActionButton ProfileEditFAButton;
 
     @SuppressLint("WrongViewCast")
     @Override

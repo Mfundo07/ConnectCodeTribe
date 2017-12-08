@@ -60,14 +60,14 @@ public class EducationActivity extends AppCompatActivity {
         mQualificationInst = (EditText) findViewById(R.id.qualificationinst);
 
 
-        ButUpload.setOnClickListener(new View.OnClickListener() {
+       /** ButUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Education education = new Education();
                 education.setQualification(mHighestQualification.getText().toString());
                 education.setDesc(mQualificationDesc.getText().toString());
                 education.setInstitute(mQualificationInst.getText().toString());
-                /**mRef.setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mRef.setValue(education.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -76,10 +76,10 @@ public class EducationActivity extends AppCompatActivity {
                             task.getException().printStackTrace();
                         }
                     }
-                });**/
+                });
 
             }
-        });
+        });**/
 
 
             }
