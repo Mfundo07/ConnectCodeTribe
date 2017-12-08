@@ -86,7 +86,7 @@ public class PhotoSetupActivity extends AppCompatActivity{
                             mRef.child(mCodeTribe).child(mEMC).setValue(mate.toMap());
 
                             progressDialog.dismiss();
-                            Toast.makeText(PhotoSetupActivity.this, "Project Upload Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PhotoSetupActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(PhotoSetupActivity.this, DifferentCodetribeTabs.class));
 
 
