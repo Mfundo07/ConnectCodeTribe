@@ -1,6 +1,7 @@
 package com.example.android.connectcodetribe.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -14,6 +15,7 @@ import com.example.android.connectcodetribe.Adapters.NewUserAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
+import com.example.android.connectcodetribe.PhotoSetupActivity;
 import com.example.android.connectcodetribe.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -136,6 +138,7 @@ public class AdminRequestSowetoFragment extends Fragment {
                         if (mTribeMates.size() > 0) {
                             adapter.notifyDataSetChanged();
                         } else {
+                            startActivity(new Intent(getActivity(), PhotoSetupActivity.class));
                             System.out.println("No active users found");
                         }
                         if (mProjects.size() > 0) {

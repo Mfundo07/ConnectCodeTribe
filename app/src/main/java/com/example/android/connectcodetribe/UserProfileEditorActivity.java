@@ -479,7 +479,6 @@ Calendar mCalendar = Calendar.getInstance();
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
-                Toast.makeText(UserProfileEditorActivity.this, "Selected " + selection, Toast.LENGTH_SHORT).show();
                 if (!TextUtils.isEmpty(selection)){
                     if (selection.equals(R.string.tab_soweto)){
                         mTribe = TRIBE_SOWETO;
