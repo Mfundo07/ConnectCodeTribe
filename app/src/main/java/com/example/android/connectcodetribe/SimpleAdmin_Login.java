@@ -31,8 +31,8 @@ public class SimpleAdmin_Login extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                String name = "adm1n@codetribe.com";
-                String password = "10111";
+                String name = "1";
+                String password = "1";
                 String name1 = email.getText ().toString ();
                 String pass1 = pass.getText ().toString ();
                 if (name.equals ( name1 )&& password.equals ( pass1 )){
