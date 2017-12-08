@@ -115,7 +115,7 @@ public class RejectedListActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_logout) {
 
-            Intent logout = new Intent(RejectedListActivity.this, Admin_Login_Activity.class);
+            Intent logout = new Intent(RejectedListActivity.this, ChooseActivity.class);
             startActivity(logout);
             return true;
 
