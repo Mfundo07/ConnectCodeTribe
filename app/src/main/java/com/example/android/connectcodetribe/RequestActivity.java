@@ -101,7 +101,17 @@ implements NavigationView.OnNavigationItemSelectedListener{
             startActivity(accept);
             return true;
 
-        } else if (id == R.id.nav_logout) {
+        }
+
+        else if (id == R.id.nav_rejected_request) {
+
+            Intent nonclair = new Intent(RequestActivity.this, RejectedListActivity.class);
+            startActivity(nonclair);
+            return true;
+
+        }
+
+        else if (id == R.id.nav_logout) {
 
             Intent logout = new Intent(RequestActivity.this, ChooseActivity.class);
             startActivity(logout);

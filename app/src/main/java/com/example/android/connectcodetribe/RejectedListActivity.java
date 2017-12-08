@@ -97,7 +97,17 @@ public class RejectedListActivity extends AppCompatActivity
             startActivity(profile);
             return true;
 
-        } else if (id == R.id.nav_accepted_request) {
+        }
+
+        else if (id == R.id.nav_rejected_request) {
+
+            Intent nonclair = new Intent(RejectedListActivity.this, RejectedListActivity.class);
+            startActivity(nonclair);
+            return true;
+
+        }
+
+        else if (id == R.id.nav_accepted_request) {
 
             Intent accept = new Intent(RejectedListActivity.this, AcceptedActivity.class);
             startActivity(accept);
