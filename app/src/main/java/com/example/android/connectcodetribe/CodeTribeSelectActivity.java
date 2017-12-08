@@ -79,13 +79,7 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
             }
         });
 
-
-
-
             }
-
-
-
 
             private void setupCodeTribeSpinner() {
                 ArrayAdapter codeTribeSinnerAdapter = ArrayAdapter.createFromResource(this,
@@ -116,6 +110,6 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
 
 
             }
-            }
+}
 
 
