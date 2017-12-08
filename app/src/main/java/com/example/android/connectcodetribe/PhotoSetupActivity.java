@@ -63,7 +63,6 @@ public class PhotoSetupActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 uploadProjectImage();
-                Toast.makeText ( PhotoSetupActivity.this, "Image Saved", Toast.LENGTH_SHORT ).show ( );
             }
         });
 
