@@ -42,7 +42,7 @@ public class SimpleAdmin_Login extends AppCompatActivity  {
                     Toast.makeText ( SimpleAdmin_Login.this, "Logged In", Toast.LENGTH_SHORT ).show ( );
                 }else{
 
-                    Toast.makeText ( SimpleAdmin_Login.this, "Email or Password Inccorect", Toast.LENGTH_SHORT ).show ( );
+                    Toast.makeText ( SimpleAdmin_Login.this, "Email or Password Incorrect", Toast.LENGTH_SHORT ).show ( );
 
                 }
 

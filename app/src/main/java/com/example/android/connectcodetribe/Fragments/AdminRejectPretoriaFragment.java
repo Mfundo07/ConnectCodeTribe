@@ -77,7 +77,7 @@ public class AdminRejectPretoriaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/accepted/").child("Tshwane");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/rejected/").child("Tshwane");
 
 
         // Set the adapter

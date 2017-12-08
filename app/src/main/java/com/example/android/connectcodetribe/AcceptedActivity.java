@@ -82,19 +82,28 @@ public class AcceptedActivity extends AppCompatActivity
             startActivity(logout);
             return true;
 
+        }
+        else if (id == R.id.nav_my_profile) {
+
+            Intent profile = new Intent(AcceptedActivity.this, Admin_profile.class);
+            startActivity(profile);
+            return true;
+
         } else if (id == R.id.nav_request) {
 
             Intent request = new Intent(AcceptedActivity.this, RequestActivity.class);
             startActivity(request);
             return true;
 
-        }else if (id == R.id.nav_my_profile) {
+        }else if (id == R.id.nav_rejected_request) {
 
-            Intent profile = new Intent(AcceptedActivity.this, Admin_profile.class);
-            startActivity(profile);
+            Intent nonclair = new Intent(AcceptedActivity.this, RejectedListActivity.class);
+            startActivity(nonclair);
             return true;
 
-        } else if (id == R.id.nav_accepted_request) {
+        }
+
+        else if (id == R.id.nav_accepted_request) {
 
             Intent accept = new Intent(AcceptedActivity.this, AcceptedActivity.class);
             startActivity(accept);

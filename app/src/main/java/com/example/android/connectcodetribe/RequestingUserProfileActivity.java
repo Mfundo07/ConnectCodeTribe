@@ -60,6 +60,8 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
         TextView userProfileStatus = findViewById(R.id.userStatus);
         ImageView userProfileImage = findViewById(R.id.profile_circle_image);
         final Button userAcceptButton = findViewById(R.id.accept_btn);
+        final Button userDeclineButton = findViewById(R.id.decline_btn);
+        final DatabaseReference Ref = FirebaseDatabase.getInstance().getReference("/rejected/");
         final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("/accepted/");
         final DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("/requested/");
 
@@ -162,6 +164,44 @@ public class RequestingUserProfileActivity extends AppCompatActivity {
                         mate.setCountryOfBirth(mCountryOfBirth);
                         mate.setProfileImage(mImage);
                         mRef.child(mCodeTribe).child(mEMC).setValue(mate.toMap());
+                        mDatabaseReference.child(mCodeTribe).child(mEMC).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                finish();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        databaseError.getMessage();
+                    }
+                });
+            }
+        });
+
+
+        userDeclineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "EC: " + mEMC, Toast.LENGTH_SHORT).show();
+                mDatabaseReference.child(mCodeTribe).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        System.out.println("EMAIL: " + dataSnapshot.child("emailAddress").getValue());
+                        TribeMate mate = new TribeMate();
+                        mate.setName(mName);
+                        mate.setSurname(mSurname);
+                        mate.setAge(Long.valueOf(mAge));
+                        mate.setEMC(mEMC);
+                        mate.setGender(mGender);
+                        mate.setEthnicity(mEthnicity);
+                        mate.setEthnicity(mEthnicity);
+                        mate.setMobile(mMobile);
+                        mate.setCountryOfBirth(mCountryOfBirth);
+                        mate.setProfileImage(mImage);
+                        Ref.child(mCodeTribe).child(mEMC).setValue(mate.toMap());
                         mDatabaseReference.child(mCodeTribe).child(mEMC).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {

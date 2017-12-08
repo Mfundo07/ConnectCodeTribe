@@ -77,7 +77,7 @@ public class AdminRejectTembisaFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/accepted/").child("Tembisa");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/rejected/").child("Tembisa");
 
 
         // Set the adapter

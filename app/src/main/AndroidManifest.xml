@@ -45,6 +45,10 @@
 
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ExperienceActivity" />
+
+
+        <activity android:name=".RejectedListActivity" />
+
         <activity android:name=".Welcome_activity" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".Main3Activity" />
