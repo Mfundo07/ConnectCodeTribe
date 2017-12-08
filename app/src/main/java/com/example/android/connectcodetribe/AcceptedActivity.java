@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Adapters.AdminAcceptCategoryAdapter;
 
@@ -101,8 +102,10 @@ public class AcceptedActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_logout) {
 
-            Intent logout = new Intent(AcceptedActivity.this, Admin_Login_Activity.class);
+            Intent logout = new Intent(AcceptedActivity.this, ChooseActivity.class);
             startActivity(logout);
+            Toast.makeText ( this, "Signed Out", Toast.LENGTH_SHORT ).show ( );
+
             return true;
 
         }

@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.android.connectcodetribe.Adapters.AdminRequestCategoryAdapter;
 
@@ -102,8 +103,9 @@ implements NavigationView.OnNavigationItemSelectedListener{
 
         } else if (id == R.id.nav_logout) {
 
-            Intent logout = new Intent(RequestActivity.this, Admin_Login_Activity.class);
+            Intent logout = new Intent(RequestActivity.this, ChooseActivity.class);
             startActivity(logout);
+            Toast.makeText ( this, "Signed Out", Toast.LENGTH_SHORT ).show ( );
             return true;
 
         }
