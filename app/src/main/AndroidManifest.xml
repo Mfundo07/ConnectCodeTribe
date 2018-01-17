@@ -41,6 +41,9 @@
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
 
+        <activity android:name=".AdminProfileEditor" />
+
+
         <activity android:name=".SimpleAdmin_Login" />
 
         <activity android:name=".QualificationActivity" />
@@ -53,7 +56,8 @@
         <activity android:name=".HistoryActivity" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Users_request_Activity" />
-        <activity android:name=".Admin_profile" />
+        <activity android:name=".Admin_profile"
+            android:parentActivityName=".RequestActivity"/>
         <activity android:name=".ChooseActivity" />
         <activity android:name=".Admin_register" />
         <activity

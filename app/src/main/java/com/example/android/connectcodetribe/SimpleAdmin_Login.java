@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 public class SimpleAdmin_Login extends AppCompatActivity  {
 
@@ -31,8 +32,8 @@ public class SimpleAdmin_Login extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                String name = "1";
-                String password = "1";
+                String name = "adm1n@codetribe.com";
+                String password = "adm1nis";
                 String name1 = email.getText ().toString ();
                 String pass1 = pass.getText ().toString ();
                 if (name.equals ( name1 )&& password.equals ( pass1 )){

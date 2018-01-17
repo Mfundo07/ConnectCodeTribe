@@ -21,12 +21,12 @@ public class AdminProfileEditor extends AppCompatActivity {
 
     EditText profileName,profileSurname,profileCell_number,profileEmail,profileAge;
     Spinner profileGender,profileEthnicity,profileCodeTribeName;
-    Button profilePersonalInfobutton;
+    Button profile_personal_info_button;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_user_editor);
+        setContentView(R.layout.admin_profile_editor);
 
         profileName = findViewById(R.id.profile_name_edit_text);
         profileSurname = findViewById(R.id.profile_surname_edit_text);
@@ -37,6 +37,15 @@ public class AdminProfileEditor extends AppCompatActivity {
         profileAge = findViewById(R.id.profile_age_edit_text);
 
         profileCodeTribeName = findViewById(R.id.profile_code_tribe_name_spinner);
+
+        profile_personal_info_button=(Button)findViewById ( R.id.profile_personal_info_button );
+        profile_personal_info_button.setOnClickListener ( new View.OnClickListener ( ) {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent ( AdminProfileEditor.this, Admin_profile.class );
+                startActivity ( intent );
+            }
+        } );
 
     }
 

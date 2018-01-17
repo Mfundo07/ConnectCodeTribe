@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.android.connectcodetribe.Adapters.ProjectsHorizontalAdapter;
 import com.example.android.connectcodetribe.profile.ProfileActivity;
@@ -33,6 +34,8 @@ import com.google.firebase.storage.StorageReference;
 
 public class Admin_profile extends AppCompatActivity {
 
+    FloatingActionButton profile_personal_info_button;
+
 
 
     @SuppressLint("WrongViewCast")
@@ -40,6 +43,15 @@ public class Admin_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile_view);
+
+         profile_personal_info_button= (FloatingActionButton)findViewById ( R.id.profile_personal_info_button );
+        profile_personal_info_button.setOnClickListener ( new View.OnClickListener ( ) {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent ( Admin_profile.this,AdminProfileEditor.class  );
+                startActivity ( intent );
+            }
+        } );
 
        // profileName = findViewById(R.id.profile_name_edit);
 
