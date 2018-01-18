@@ -31,12 +31,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"/>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <EditText
         android:id="@+id/select_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress" />
+
+    </android.support.design.widget.TextInputLayout>
 
 
     <Button
