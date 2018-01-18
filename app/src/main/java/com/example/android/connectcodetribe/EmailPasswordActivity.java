@@ -31,6 +31,8 @@ public class EmailPasswordActivity extends BaseActivity implements
     private EditText mEmailField;
     private EditText mPasswordField;
 
+    private Button adminis;
+
     // [START declare_auth]
     private FirebaseAuth mAuth ;
     // [END declare_auth]
@@ -51,6 +53,14 @@ public class EmailPasswordActivity extends BaseActivity implements
         findViewById(R.id.email_create_account_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.verify_email_button).setOnClickListener(this);
+        adminis=(Button )findViewById ( R.id.adminis );
+        adminis.setOnClickListener ( new View.OnClickListener ( ) {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent ( EmailPasswordActivity.this, SimpleAdmin_Login.class );
+                startActivity ( intent );
+            }
+        } );
 
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
