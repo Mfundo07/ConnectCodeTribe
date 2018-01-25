@@ -119,8 +119,8 @@ public class PretoriaFragment extends Fragment {
                             user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
                             user.setDesc((String) snapshot.child("qualificationDescription").getValue());
                             user.setQualification((String) snapshot.child("highestQualification").getValue());
-                            if ((String) snapshot.child("profile_picture").getValue() != null){
-                                user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
+                            if ((String) snapshot.child("profile_picture" + mAuth.getUid()).getValue() != null){
+                                user.setProfileImage((String) snapshot.child("profile_picture" + mAuth.getUid()).getValue());}
                             user.setBio((String) snapshot.child("bio").getValue());
                             user.setEmploymentStatus((String) snapshot.child("employed").getValue());
                             user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());

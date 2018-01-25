@@ -1,5 +1,7 @@
 package com.example.android.connectcodetribe.Model;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;
@@ -42,6 +44,8 @@ public class TribeMate {
     private String mProjectTitle;
     private String mProjectLink;
     private String countryOfBirth;
+
+    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
     public String getProjectTitle() {
         return mProjectTitle;
@@ -310,7 +314,7 @@ public class TribeMate {
         result.put("employeeCode", mEMC);
         result.put("emailAddress",mEmail);
         result.put("mobileNo", mMobile);
-        result.put("profile_picture",mProfileImage);
+        result.put("profile_picture" + currentUser.getUid(),mProfileImage);
         result.put("intakePeriod", mIntakeYear);
         result.put("gender", mGender);
         result.put("ethnicity",mEthnicity);

@@ -689,7 +689,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
             progressDialog.setTitle("Uploading Information...");
             progressDialog.show();
 
-            StorageReference ref = mStoragereference.child("profile_images" + currentUser.getDisplayName());
+            StorageReference ref = mStoragereference.child("profile_images" + currentUser.getUid());
             final TribeMate tribeMate = new TribeMate();
 
 
@@ -707,7 +707,7 @@ public class UserProfileEditorActivity extends AppCompatActivity {
                             tribeMate.setQualification(mProfileQualificationEditText.getText().toString());
                             tribeMate.setInstitute(mProfileInstitutionEditText.getText().toString());
                             tribeMate.setDesc(mProfileFacultyCourseEditText.getText().toString());
-                            tribeMate.setTribeEmploymentCodeUnderline(mProfileEmployeeCodeEditText.getText().toString());
+                      //      tribeMate.setTribeEmploymentCodeUnderline(mProfileEmployeeCodeEditText.getText().toString());
                             tribeMate.setName(mProfileNameEditText.getText().toString());
                             tribeMate.setSurname(mProfileSurnameEditText.getText().toString());
                             tribeMate.setAge(Long.valueOf(mProfileAgeEditText.getText().toString()));
