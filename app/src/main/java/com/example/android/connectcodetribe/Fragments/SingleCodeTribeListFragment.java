@@ -2,6 +2,7 @@ package com.example.android.connectcodetribe.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.connectcodetribe.Adapters.MyItemRecyclerViewAdapter;
+import com.example.android.connectcodetribe.Adapters.SingleTribeListAdapter;
 import com.example.android.connectcodetribe.Model.Profile;
 import com.example.android.connectcodetribe.Model.Project;
 import com.example.android.connectcodetribe.Model.TribeMate;
@@ -28,86 +29,98 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Admin on 11/17/2017.
+ * Created by Admin on 12/4/2017.
  */
 
-public class SowetoFragment extends Fragment {
-// TODO: Customize parameter argument names
-private static final String ARG_PROFILE_ID = "profile_id";
-// TODO: Customize parameters
-private Profile mProfile;
-private int mColumnCount = 1;
+public class SingleCodeTribeListFragment extends Fragment {
+    // TODO: Customize parameter argument names
+    private static final String ARG_PROFILE_ID = "profile_id";
+    // TODO: Customize parameters
+    private Profile mProfile;
+    private int mColumnCount = 1;
 
-        DatabaseReference mDatabaseReference;
+    DatabaseReference mDatabaseReference;
 
-        List<TribeMate> mTribeMates = new ArrayList<>();
-        List<Project> mProjects = new ArrayList<>();
-        FirebaseUser mAuth;
+    List<TribeMate> mTribeMates = new ArrayList<>();
+    List<Project> mProjects = new ArrayList<>();
+    FirebaseUser mAuth;
+    String mSelectedTribe;
+    String mEmail;
+    String mSurname;
 
-        MyItemRecyclerViewAdapter adapter;
 
-/**
- * Mandatory empty constructor for the fragment manager to instantiate the
- * fragment (e.g. upon screen orientation changes).
- */
-public SowetoFragment() {
-        }
+    SingleTribeListAdapter adapter;
 
-// TODO: Customize parameter initialization
-@SuppressWarnings("unused")
-public static SowetoFragment newInstance(UUID profileId) {
-        SowetoFragment fragment = new SowetoFragment();
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public SingleCodeTribeListFragment() {
+    }
+
+    // TODO: Customize parameter initialization
+    @SuppressWarnings("unused")
+    public static com.example.android.connectcodetribe.Fragments.SowetoFragment newInstance(UUID profileId) {
+        com.example.android.connectcodetribe.Fragments.SowetoFragment fragment = new com.example.android.connectcodetribe.Fragments.SowetoFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PROFILE_ID, profileId);
         fragment.setArguments(args);
         return fragment;
-        }
+    }
 
-@Override
-public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-        UUID profileId = (UUID) getArguments().getSerializable(ARG_PROFILE_ID);
+            UUID profileId = (UUID) getArguments().getSerializable(ARG_PROFILE_ID);
         }
+    }
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Bundle bundle = this.getArguments();
+        if (bundle != null){
+            mSelectedTribe = bundle.getString("CodeTribe");
+            mEmail = bundle.getString("Email");
+            mSurname = bundle.getString("Surname");
         }
+    }
 
-@Override
-public View onCreateView(LayoutInflater inflater, ViewGroup container,
-        Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.welcome_slide2, container, false);
 
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("/Soweto/");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("Soweto");
+
 
         // Set the adapter
         if (view instanceof RecyclerView) {
-        Context context = view.getContext();
-        RecyclerView recyclerView = (RecyclerView) view;
-        if (mColumnCount <= 1) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        } else {
-        recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-        }
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
+            if (mColumnCount <= 1) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            } else {
+                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+            }
 
-        adapter = new MyItemRecyclerViewAdapter(getActivity(), mTribeMates);
-        recyclerView.setAdapter(adapter);
+            adapter = new SingleTribeListAdapter(getActivity(), mTribeMates);
+            recyclerView.setAdapter(adapter);
 
-        mDatabaseReference.addValueEventListener(new ValueEventListener() {
-@Override
-public void onDataChange(DataSnapshot dataSnapshot) {
-        if (dataSnapshot.hasChildren()) {
-        mTribeMates.clear();
-        mProjects.clear();
-        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                        TribeMate user = new TribeMate();
-                        Project project = new Project();
+            mDatabaseReference.orderByChild("emailAddress").equalTo(mAuth.getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    TribeMate user = new TribeMate();
+                    Project project = new Project();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         user.setName((String) snapshot.child("name").getValue());
                         user.setSurname((String) snapshot.child("surname").getValue());
                         if (snapshot.child("age").getValue()!= null){
-                        user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));}
+                            user.setAge(Long.valueOf( snapshot.child("age").getValue().toString()));}
                         user.setEMC((String) snapshot.child("employeeCode").getValue());
                         user.setEthnicity((String) snapshot.child("ethnicity").getValue());
                         user.setGender((String) snapshot.child("gender").getValue());
@@ -119,7 +132,7 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setDesc((String) snapshot.child("qualificationDescription").getValue());
                         user.setQualification((String) snapshot.child("highestQualification").getValue());
                         if ((String) snapshot.child("profile_picture").getValue() != null){
-                        user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
+                            user.setProfileImage((String) snapshot.child("profile_picture").getValue());}
                         user.setBio((String) snapshot.child("bio").getValue());
                         user.setEmploymentStatus((String) snapshot.child("employed").getValue());
                         user.setSalary((String) snapshot.child("monthlySalary(ZAR)").getValue());
@@ -128,34 +141,34 @@ public void onDataChange(DataSnapshot dataSnapshot) {
                         user.setTribeEmploymentCodeUnderline((String) snapshot.child("employeeCode").getValue());
                         user.setTribeUnderline((String) snapshot.child("tribe_underline").getValue());
                         user.setCompanyName((String) snapshot.child("companyName").getValue());
-                        user.setInstitute((String) snapshot.child("qualificationInstitution").getValue());
-                        user.setQualification((String) snapshot.child("highestQualification").getValue());
-                        user.setDesc((String) snapshot.child("qualificationDescription").getValue());
                         for (DataSnapshot projectSnapshot: snapshot.child("projects").getChildren()){
                             project.setGithub_link((String) projectSnapshot.child("github_link").getValue());
                             project.setName((String) projectSnapshot.child("name").getValue());
                         }
                         mProjects.add(project);
                         mTribeMates.add(user);
-                }
-                if (mTribeMates.size() > 0) {
+                    }
+                    if (mTribeMates.size() > 0) {
                         adapter.notifyDataSetChanged();
-                } else {
+                    } else {
                         System.out.println("No active users found");
+                    }
+                    if (mProjects.size() > 0) {
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        System.out.println("No active users found");
+                    }
                 }
-            if (mProjects.size() > 0) {
-                adapter.notifyDataSetChanged();
-            } else {
-                System.out.println("No active users found");
-            }
-        }
-        }
 
-@Override
-public void onCancelled(DatabaseError databaseError) {
-        }
-        });
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
         }
         return view;
-        }
+    }
+
+
 }

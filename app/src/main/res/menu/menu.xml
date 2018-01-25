@@ -14,13 +14,6 @@
 
     <item
 
-        android:title="Admin"
-        android:id="@+id/btnAdmin"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        />
-    <item
-
         android:title="About"
         android:id="@+id/btnAbout"
         android:orderInCategory="100"

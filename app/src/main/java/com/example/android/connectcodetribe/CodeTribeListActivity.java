@@ -1,6 +1,7 @@
 package com.example.android.connectcodetribe;
-
 import android.support.v4.app.Fragment;
+
+import com.example.android.connectcodetribe.Fragments.SingleCodeTribeListFragment;
 
 /**
  * Created by Admin on 12/4/2017.

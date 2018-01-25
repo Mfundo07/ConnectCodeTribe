@@ -41,38 +41,14 @@
         <activity android:name=".ChatActivityPretoria" />
         <activity android:name=".ProfileActivity_first" />
 
-        <activity android:name=".AdminProfileEditor" />
-
-
-        <activity android:name=".SimpleAdmin_Login" />
-
         <activity android:name=".QualificationActivity" />
         <activity android:name=".ExperienceActivity" />
 
 
-        <activity android:name=".RejectedListActivity" />
-
-        <activity android:name=".Welcome_activity" />
-        <activity android:name=".HistoryActivity" />
         <activity android:name=".Main3Activity" />
-        <activity android:name=".Users_request_Activity" />
-        <activity android:name=".Admin_profile"
-            android:parentActivityName=".RequestActivity"/>
-        <activity android:name=".ChooseActivity" />
         <activity android:name=".Admin_register" />
-        <activity
-            android:name=".Admin_user_profile_editor"
-            android:label="Admin Profile Editor" />
-        <activity android:name=".Admin_Login_Activity" />
-        <activity android:name=".RequestActivity" />
         <activity android:name=".ProjectsActivity" />
-        <activity android:name=".MainActivity" />
-        <activity
-            android:name=".EmployeeActivity"
-            android:label="ENTER YOUR EMPLOYEE CODE" />
-        <activity android:name=".EmailPasswordActivity" />
         <activity android:name=".FullScreenActivity" />
-        <activity android:name=".LoginActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -98,25 +74,23 @@
             android:name=".ActiveUserProfileActvity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Experience_more" />
         <activity android:name=".VerificationActivity" />
         <activity android:name=".RequestingUserProfileActivity" />
-        <activity android:name=".Admin_ScrollingFragment" />
-        <activity android:name=".Admin_scrolling_editor" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".SingleFragmentActivity" />
-        <activity android:name=".NewUserListActivity" />
-        <activity android:name=".CodeTribeSelectActivity" />
         <activity
-            android:name=".SingleCodeTribeListFragment"
+            android:name=".Fragments.SingleCodeTribeListFragment"
             android:label="Find Your Information" />
         <activity android:name=".CodeTribeListActivity" />
         <activity android:name=".UserInfoEditorActivity" />
-        <activity
-            android:name=".LoginActivity2"
-            android:label="@string/title_activity_login2" />
-        <activity android:name=".AcceptedActivity" />
         <activity android:name=".SimpleAdmin_Login"></activity>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".SignUpActivity"/>
+        <activity android:name=".ResetPasswordActivity"/>
+        <activity android:name=".UserLoggedInActivity"/>
+        <activity android:name=".WelcomeActivity">
+        </activity>
+        <activity android:name=".SingleFragmentActivity"/>
+        <activity android:name=".WalkThroughActivity"/>
     </application>
 
 </manifest>

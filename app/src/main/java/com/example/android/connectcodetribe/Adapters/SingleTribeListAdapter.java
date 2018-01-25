@@ -80,6 +80,7 @@ public class SingleTribeListAdapter extends RecyclerView.Adapter<SingleTribeList
                 intent.putExtra("Email", mTribeMates.get(position).getEmail());
                 intent.putExtra("Mobile", mTribeMates.get(position).getMobile());
                 intent.putExtra("image", mTribeMates.get(position).getProfileImage());
+                intent.putExtra("bio", mTribeMates.get(position).getBio());
                 intent.putExtra("company_name",mTribeMates.get(position).getCompanyName());
                 intent.putExtra("employed_year", mTribeMates.get(position).getIntakeYear());
                 intent.putExtra("company_contact", mTribeMates.get(position).getCompanyContactNumber());
@@ -91,10 +92,9 @@ public class SingleTribeListAdapter extends RecyclerView.Adapter<SingleTribeList
                 intent.putExtra("qualification", mTribeMates.get(position).getQualification());
                 intent.putExtra("institution", mTribeMates.get(position).getInstitute());
                 intent.putExtra("faculty", mTribeMates.get(position).getDesc());
+
                 context = view.getContext();
                 context.startActivity(intent);
-
-
             }
         });
 

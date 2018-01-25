@@ -84,7 +84,7 @@ public class UserInfoEditorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_info_editor);
+        setContentView(R.layout.welcome_slide3);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         mRegisterEmployeeCodeEditText = findViewById(R.id.register_emc_edit_text);
@@ -192,9 +192,7 @@ public class UserInfoEditorActivity extends AppCompatActivity {
                     mDatabaseReference.child(mCodeTribe).child(mEMC).setValue(tribeMate.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Intent intent = new Intent(UserInfoEditorActivity.this, PhotoSetupActivity.class);
-                            intent.putExtra("CodeTribe", mCodeTribe);
-                            intent.putExtra("Employee_Code", mEMC);
+                            Intent intent = new Intent(UserInfoEditorActivity.this, WalkThroughActivity.class);
                             startActivity(intent);
                         }
                     });

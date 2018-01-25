@@ -1,12 +1,13 @@
-package com.example.android.connectcodetribe;
+package com.example.android.connectcodetribe.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,17 +15,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.android.connectcodetribe.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 
 /**
- * Created by Admin on 12/4/2017.
+ * Created by Admin on 1/19/2018.
  */
 
-public class CodeTribeSelectActivity extends AppCompatActivity {
-
+public class SelectCodeTribeFragment extends Fragment {
     public static final int TRIBE_SOWETO = 1;
     public static final int TRIBE_PRETORIA = 2;
     public static final int TRIBE_TEMBISA = 3;
@@ -50,16 +51,15 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
     private EditText mEmail;
     private Button nextStepButton, mSearchStep_button;
 
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_slide1);
-
-        codeTribeSpinner = findViewById(R.id.codeTribe_select_spinner);
-        nextStepButton = findViewById(R.id.nextStep_button);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.welcome_slide1, container, false);
+        codeTribeSpinner = rootView.findViewById(R.id.codeTribe_select_spinner);
+        nextStepButton = rootView.findViewById(R.id.nextStep_button);
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        mEmail =  findViewById(R.id.select_email);
+        mEmail = rootView.findViewById(R.id.select_email);
         mEmail.setText(mUser.getEmail());
 
         codeTribeSpinner.setOnTouchListener(mTouchListener);
@@ -68,20 +68,19 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
         nextStepButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(CodeTribeSelectActivity.this, CodeTribeListActivity.class);
-                intent.putExtra("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
-                intent.putExtra("Email", mEmail.getText().toString());
-                startActivity(intent);
-                Toast.makeText ( CodeTribeSelectActivity.this, "Searched", Toast.LENGTH_SHORT ).show ( );
+                Bundle bundle = new Bundle();
+                Fragment fragment = new SingleCodeTribeListFragment();
+                bundle.putString("CodeTribe", codeTribeSpinner.getSelectedItem().toString());
+                bundle.putString("Email", mEmail.getText().toString());
+                fragment.setArguments(bundle);
+                Toast.makeText(getActivity(), "Searched", Toast.LENGTH_SHORT).show();
 
             }
         });
-
+        return rootView;
     }
-
     private void setupCodeTribeSpinner() {
-        ArrayAdapter codeTribeSinnerAdapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter codeTribeSinnerAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.array_code_tribe_option, android.R.layout.simple_spinner_item);
         codeTribeSinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
@@ -109,4 +108,5 @@ public class CodeTribeSelectActivity extends AppCompatActivity {
 
 
     }
+
 }

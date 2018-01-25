@@ -1,69 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<android.support.v4.widget.NestedScrollView
+    <android.support.v4.widget.NestedScrollView
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:background="@color/grey_300">
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/grey_300">
 
-
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/profile_image_card_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
-                app:cardCornerRadius="4dp"
-                android:layout_weight="2">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/profile_circle_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="400dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/man_user_user"
-                        tools:ignore="ContentDescription"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/profile_image_edit_button"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:padding="8dp"
-                            android:gravity="center"
-                            android:layout_weight="1"
-                            android:layout_marginStart="4dp"
-                            android:text="@string/edit"
-                            android:background="@android:color/transparent"
-                            android:textColor="@color/colorPrimary"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/profile_personal_title_card_view"
+                android:id="@+id/register_personal_title_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
@@ -84,12 +39,13 @@
 
 
             <android.support.v7.widget.CardView
-                android:id="@+id/profile_personal_info_card_view"
+                android:id="@+id/register_personal_info_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
                 app:cardCornerRadius="4dp"
                 android:layout_weight="1">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -114,13 +70,14 @@
                             tools:ignore="NestedWeights"/>
 
                         <EditText
-                            android:id="@+id/profile_name_edit_text"
+                            android:id="@+id/register_name_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textColor="#000"
                             android:hint="@string/name_hint"/>
+
 
                     </LinearLayout>
 
@@ -147,7 +104,7 @@
                             android:layout_weight="1"
                             android:textSize="12sp"
                             android:textColor="#000"
-                            android:id="@+id/profile_surname_edit_text"
+                            android:id="@+id/register_surname_edit_text"
                             android:hint="@string/surname_hint" />
 
                     </LinearLayout>
@@ -175,10 +132,12 @@
                             android:layout_weight="1"
                             android:textColor="#000"
                             android:textSize="12sp"
-                            android:id="@+id/profile_age_edit_text"
+                            android:id="@+id/register_age_edit_text"
                             android:hint="@string/age_hint" />
 
                     </LinearLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -197,16 +156,15 @@
                             android:textStyle="bold"
                             tools:ignore="NestedWeights"/>
 
-                        <Spinner
-                            android:id="@+id/profile_gender_spinner"
+                        <EditText
+                            android:id="@+id/register_gender_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingRight="16dp"
                             android:paddingLeft="16dp"
                             android:textSize="12sp"
                             android:paddingEnd="16dp"
-                            android:layout_weight="1"
-                            android:spinnerMode="dropdown" />
+                            android:layout_weight="1"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -226,18 +184,18 @@
                             android:textStyle="bold"
                             tools:ignore="NestedWeights"/>
 
-                        <Spinner
-                            android:id="@+id/profile_ethnicity_spinner"
+                        <EditText
+                            android:id="@+id/register_ethnicity_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingRight="16dp"
                             android:paddingLeft="16dp"
                             android:textSize="12sp"
                             android:paddingEnd="16dp"
-                            android:layout_weight="1"
-                            android:spinnerMode="dropdown" />
+                            android:layout_weight="1"/>
 
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -261,7 +219,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
-                            android:id="@+id/profile_cell_number_edit_text"
+                            android:id="@+id/register_cell_number_edit_text"
                             android:textColor="#000"
                             android:hint="@string/cell_hint"
                             tools:ignore="TextFields"/>
@@ -290,88 +248,31 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
-                            android:id="@+id/profile_email_edit_text"
+                            android:id="@+id/register_email_edit_text"
                             android:textColor="#000"
                             android:hint="@string/email_hint"
                             tools:ignore="TextFields"/>
                     </LinearLayout>
 
+
+
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
 
-            android:id="@+id/projects_card_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1">
 
-            <LinearLayout
+
+
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/register_code_tribe_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/userProjectTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="sans-serif"
-                    android:layout_weight="1"
-                    android:text="@string/projects"
-                    android:gravity="center"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/btn_add_project"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:contentDescription="@string/todo"
-                    android:padding="16dp"
-                    app:srcCompat="@drawable/add2" />
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/project_list_card_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="4dp"
-            android:background="@color/grey_300"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/projectsRecyclerview"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:padding="8dp"
-
-                    android:layout_weight="1">
-
-                </android.support.v7.widget.RecyclerView>
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-                android:id="@+id/profile_code_tribe_card_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="4dp"
-            app:cardCornerRadius="4dp"
-            android:layout_weight="1">
+                android:layout_marginTop="4dp"
+                app:cardCornerRadius="4dp"
+                android:layout_weight="1">
                 <TextView
 
                     android:layout_width="match_parent"
@@ -386,7 +287,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/profile_code_tribe_info_card_view"
+                android:id="@+id/register_code_tribe_info_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
@@ -414,13 +315,14 @@
                             android:textStyle="bold"
                             tools:ignore="NestedWeights"/>
 
-                        <Spinner
+                        <EditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:id="@+id/profile_code_tribe_name_spinner"/>
+                            android:id="@+id/register_code_tribe_name_spinner"/>
 
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -442,7 +344,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
-                            android:id="@+id/profile_emc_edit_text"
+                            android:id="@+id/register_emc_edit_text"
                             android:textColor="#000"
                             android:hint="@string/employee_code_hint" />
                     </LinearLayout>
@@ -462,45 +364,23 @@
                             android:gravity="center_vertical"
                             android:textStyle="bold"
                             tools:ignore="NestedWeights"/>
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:id="@+id/profile_tribe_status_spinner"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:text="@string/githublink"
-                            android:textColor="#000"
-                            android:gravity="center_vertical"
-                            android:textStyle="bold"
-                            tools:ignore="NestedWeights"/>
-
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:id="@+id/profile_github_link_edit_text"
-                            android:textColor="#000"
-                            android:hint="@string/github_link_hint"/>
+                            android:id="@+id/register_tribe_status_spinner"/>
                     </LinearLayout>
+
+
+
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
+
             <android.support.v7.widget.CardView
-                android:id="@+id/profile_education_title_card_view"
+                android:id="@+id/register_education_title_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
@@ -520,7 +400,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/profile_qualification_card_view"
+                android:id="@+id/register_qualification_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
@@ -553,13 +433,14 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
-                            android:id="@+id/profile_qualification_type_edit_text"
+                            android:id="@+id/register_qualification_type_edit_text"
 
                             android:textColor="#000"
                             android:hint="@string/certificate_hint"
                             tools:ignore="TooManyViews"/>
 
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -582,7 +463,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
-                            android:id="@+id/profile_institution_edit_text"
+                            android:id="@+id/register_institution_edit_text"
                             android:textColor="#000"
                             android:hint="@string/institution_hint" />
                     </LinearLayout>
@@ -607,200 +488,19 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:textSize="12sp"
-                            android:id="@+id/profile_faculty_course_edit_text"
+                            android:id="@+id/register_faculty_course_edit_text"
                             android:textColor="#000"
                             android:hint="@string/study_field_hint"/>
                     </LinearLayout>
 
+
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:id="@+id/profile_current_employment__title_card_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
-                app:cardCornerRadius="4dp"
-                android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:padding="4dp"
-                    android:text="@string/employment"
-                    android:gravity="center"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textStyle="bold"/>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/profile_current_employment_card_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
-                app:cardCornerRadius="4dp"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            android:text="@string/employment_status"
-                            android:textColor="#000"
-                            android:textStyle="bold"
-                            tools:ignore="NestedWeights"/>
-
-                        <Spinner
-                            android:id="@+id/profile_employment_status_spinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/company_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/company_name"
-                            android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            android:textColor="#000"
-                            android:textStyle="bold"
-                            tools:ignore="NestedWeights"/>
-                        <EditText
-                            android:id="@+id/profile_company_name_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:hint="@string/company_name_hint"
-                            android:textColor="#000"
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:id="@+id/startDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/start_date"
-                            android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            android:textColor="#000"
-                            android:textStyle="bold"
-                            tools:ignore="NestedWeights"/>
-                        <Button
-                            android:id="@+id/profile_intake_period_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:textSize="12sp"
-                            android:text="@string/date_picker_title"
-                            android:background="@android:color/transparent"
-                            android:textColor="@color/colorPrimary"
-                            android:layout_weight="1"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:id="@+id/Salary"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:text="@string/monthly_salary"
-                            android:gravity="center_vertical"
-                            android:textColor="#000"
-                            android:textStyle="bold"
-                            tools:ignore="NestedWeights"/>
-                        <Spinner
-                            android:id="@+id/profile_salary_spinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:textSize="12sp"
-                            android:layout_weight="1"
-                            android:spinnerMode="dropdown" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:id="@+id/contactDetails"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:text="@string/ccompany_contact_number"
-                            android:gravity="center_vertical"
-                            android:textColor="#000"
-                            android:textStyle="bold"
-                            tools:ignore="NestedWeights"/>
-                        <EditText
-                            android:id="@+id/profile_company_contact_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:textSize="12sp"
-                            android:hint="@string/company_contact_hint"
-                            android:textColor="#000" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="center">
-                        <Button
-                            android:id="@+id/profile_employment_save_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            android:gravity="center"
-                            android:text= "@string/save_all"
-                            android:background="@color/colorPrimary"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
         </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/profile_list_back_fab_button"
@@ -811,4 +511,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         app:srcCompat="@drawable/ic_view_list_white" />
+
+
+
+
 </RelativeLayout>

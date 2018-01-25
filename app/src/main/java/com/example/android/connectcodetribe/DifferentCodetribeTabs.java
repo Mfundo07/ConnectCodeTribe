@@ -73,12 +73,8 @@ public class DifferentCodetribeTabs extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.btnLogout:
-                Intent logout = new Intent(DifferentCodetribeTabs.this, LoginActivity.class);
+                Intent logout = new Intent(DifferentCodetribeTabs.this, UserLoggedInActivity.class);
                 startActivity(logout);
-                return true;
-            case R.id.btnAdmin:
-                Intent admin = new Intent(DifferentCodetribeTabs.this, SimpleAdmin_Login.class);
-                startActivity(admin);
                 return true;
             case R.id.btnAbout:
                 Intent about = new Intent(DifferentCodetribeTabs.this, AboutActivity.class);
