@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.android.connectcodetribe.Model.TribeMate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -58,6 +59,9 @@ public class PhotoSetupActivity extends AppCompatActivity{
   //      mEMC = getIntent().getExtras().getString("Employee_Code");
         mStorageReference = FirebaseStorage.getInstance().getReference("/requested/").child("images");
         mRef = FirebaseDatabase.getInstance().getReference("/requested/").child("images");
+        Glide.with(mImageView.getContext())
+                .load(mAuth.getPhotoUrl())
+                .into(mImageView);
         mImageEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +97,7 @@ public class PhotoSetupActivity extends AppCompatActivity{
 
                             progressDialog.dismiss();
                             Toast.makeText(PhotoSetupActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(PhotoSetupActivity.this, DifferentCodetribeTabs.class));
+                            startActivity(new Intent(PhotoSetupActivity.this, WalkThroughActivity.class));
 
 
 

@@ -56,6 +56,7 @@ public class WalkThroughActivity extends AppCompatActivity {
 
         Button basicInfoButton = findViewById(R.id.basic_info);
         Button  profileImageButton = findViewById(R.id.profile_image_button);
+        Button btnSkipToList = findViewById(R.id.skip_to_list);
 
         basicInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +127,13 @@ public class WalkThroughActivity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        btnSkipToList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WalkThroughActivity.this, DifferentCodetribeTabs.class));
             }
         });
 

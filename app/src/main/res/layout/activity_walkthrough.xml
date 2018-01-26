@@ -17,7 +17,22 @@
               android:layout_height="match_parent"
               android:layout_margin="8dp"
               android:orientation="vertical">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="@dimen/logo_w_h"
+            android:layout_height="@dimen/logo_w_h"
+            android:src="@drawable/icon"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical">
     <Button
         android:id="@+id/basic_info"
         style="?android:textAppearanceSmall"
@@ -49,15 +64,18 @@
         android:visibility="gone" />
 
     <Button
-        android:id="@+id/remove"
+        android:id="@+id/skip_to_list"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/colorPrimaryDark"
-        android:text="@string/btn_remove"
+        android:text="Skip to List"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
+
+</LinearLayout>
+
 
 
 </LinearLayout>
