@@ -8,7 +8,7 @@ import android.view.View;
 public interface ClickListenerChatFirebase {
 
     /**
-     * Quando houver click na imagem do chat
+     * Quando  houver click na imagem do chat
      * @param view
      * @param position
      */
